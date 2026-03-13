@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import SearchBar from './search'
+import { Heart, Search, ShoppingBag, ShoppingCart, TextAlignJustify, User } from 'lucide-react'
 
 export default function Header() {
     return (
@@ -22,6 +23,36 @@ export default function Header() {
 
                 <SearchBar />
 
+                <div className="flex items-center gap-2">
+                    <button className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                        <Heart className="text-white" size={28} strokeWidth={1} fill='white' />
+
+                        <span className="absolute flex items-center justify-center w-6 h-6 rounded-full bg-white -top-1.5 -right-1 text-xs text-primary-500">
+                            01
+                        </span>
+
+                    </button>
+
+                    <button className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                        <ShoppingCart className="text-white" size={28} strokeWidth={1} fill='white' />
+                        <span className="absolute flex items-center justify-center w-6 h-6 rounded-full bg-white -top-1.5 -right-1 text-xs text-primary-500">
+                            03
+                        </span>
+                    </button>
+
+                    <button className="hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                        <User className="text-white" size={28} strokeWidth={1} fill='white' />
+                    </button>
+
+                    <button className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
+                        <Search className="text-zinc-800" size={24} strokeWidth={1.5} />
+                    </button>
+
+                    <button className="md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
+                        <TextAlignJustify className="text-zinc-700" size={24} strokeWidth={1.5} />
+                    </button>
+
+                </div>
             </nav>
         </header>
     )
