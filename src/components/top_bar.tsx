@@ -66,11 +66,6 @@ export default function TopBar() {
                     </motion.span>
 
                     <span className='w-px h-full bg-primary-200' />
-                    <Link href={"#"} className='text-sm font-normal text-zinc-500'>
-                        Need Help?
-                    </Link>
-                    
-                    <span className='w-px h-full bg-primary-200' />
                     <div className='flex items-center gap-2.5'>
                         <div className='flex gap-1.5 items-center py-3 pr-2'>
                             <TruckElectric size={18} strokeWidth={1.5} className='text-primary-600' />
@@ -81,6 +76,11 @@ export default function TopBar() {
                             </Link>
                         </div>
                     </div>
+
+                    <span className='w-px h-full bg-primary-200' />
+                    <Link href={"#"} className='text-sm font-normal text-zinc-600 hover:text-primary-500 duration-300 transition-colors ease-in-out'>
+                        Need Help?
+                    </Link>
                 </div>
             </Wrapper>
         </Section>
