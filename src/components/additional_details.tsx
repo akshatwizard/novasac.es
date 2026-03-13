@@ -1,7 +1,7 @@
 import React from 'react'
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
-import { Hammer, Headphones, Headset, LucideIcon, Package, Palette, Stamp, Truck } from 'lucide-react'
+import { Headset, LucideIcon, Package, Palette, Truck } from 'lucide-react'
 
 type Details = {
     title: string
@@ -16,9 +16,9 @@ export default function AdditionalDetails() {
             icon: Package,
         },
         {
-            title: "Custom Logo Printing",
+            title: "Custom Design Solutions",
             description: "Enhance your brand with high-quality custom printed bags.",
-            icon: Stamp,
+            icon: Palette,
         },
         {
             title: "24/7 Customer Support",

@@ -14,7 +14,7 @@ export default function Promotional() {
                     <div className='w-full h-full bg-primary-500 rounded-2xl p-5 flex gap-4 flex-col lg:flex-row justify-between items-center'>
                         <div className='flex flex-col gap-2 h-full justify-evenly'>
                             <div>
-                                <span className='font-bold text-xl lg:text-4xl md:text-2xl text-white'>
+                                <span className='font-bold text-xl lg:text-4xl md:text-2xl text-white font-sans!'>
                                     Big Bag with loading mouth.
                                 </span>
                                 <p className='text-white text-sm mt-2'>
@@ -44,7 +44,7 @@ export default function Promotional() {
                     <div className='w-full h-full bg-primary-100 rounded-2xl p-5 flex gap-4 flex-col lg:flex-row justify-between items-center'>
                         <div className='flex flex-col gap-2 h-full justify-evenly'>
                             <div>
-                                <span className='font-bold text-xl lg:text-4xl md:text-2xl text-primary-500'>
+                                <span className='font-bold text-xl lg:text-4xl md:text-2xl text-primary-500 font-sans!'>
                                     Buy customised UN Bags.
                                 </span>
                                 <p className='text-primary-400 text-sm mt-2'>

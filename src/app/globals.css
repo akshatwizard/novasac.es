@@ -4,7 +4,7 @@
 
 
 @theme inline {
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-open-sans);
   --font-mono: var(--font-montserrate);
 
   --color-primary-700: #cc3d02;

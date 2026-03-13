@@ -122,7 +122,7 @@ export default function HeroBanner() {
 
                     <motion.span
                         variants={itemVariants}
-                        className='block lg:text-4xl md:text-3xl sm:text-2xl text-xl text-primary-500 font-bold max-w-lg font-didot'
+                        className='block lg:text-4xl md:text-3xl sm:text-2xl text-xl text-primary-500 font-bold max-w-lg font-sans!'
                     >
                         {activeBanner.title}
                     </motion.span>
