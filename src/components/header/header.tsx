@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import SearchBar from './search'
-import { Heart, Search, ShoppingBag, ShoppingCart, TextAlignJustify, User } from 'lucide-react'
+import { Heart, Search, ShoppingCart, TextAlignJustify, User } from 'lucide-react'
 
 export default function Header() {
     return (
         <header className='w-full bg-primary-500 lg:px-12 md:px-10 px-8'>
 
-            <nav className="w-full py-1.5 mx-auto max-w-7xl flex items-center justify-between gap-5">
+            <nav className="w-full py-1.5 lg:px-1.5 mx-auto max-w-7xl flex items-center justify-between gap-5">
                 <Link className="relative shrink-0" href="/">
                     <Image
                         src={"/images/logo/logo-w.svg"}

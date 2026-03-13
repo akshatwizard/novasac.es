@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScrollProvider from "@/lib/smooth_scroll";
 import TopBar from "@/components/top_bar";
 import Header from "@/components/header/header";
+import DesktopHeader from "@/components/header/desktop.header";
 
 const montserrat = Montserrat({
   variable: "--font-montserrate",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <TopBar />
           <Header />
+          <DesktopHeader />
           {children}
         </SmoothScrollProvider>
       </body>

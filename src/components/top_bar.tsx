@@ -24,7 +24,7 @@ export default function TopBar() {
 
     return (
         <Section className='bg-primary-100 hidden min-[950px]:block overflow-hidden'>
-            <Wrapper className='py-0! flex-row justify-between'>
+            <Wrapper className='py-0! flex-row justify-between px-1.5'>
                 <div className='flex gap-5 items-center'>
                     <div className='flex gap-1.5 items-center py-3 pr-2'>
                         <Mail size={18} strokeWidth={1.5} className='text-primary-600' />
