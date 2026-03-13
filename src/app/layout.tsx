@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/lib/smooth_scroll";
+import TopBar from "@/components/top_bar";
 
 const montserrat = Montserrat({
   variable: "--font-montserrate",
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${open_sans.variable} antialiased`}
       >
         <SmoothScrollProvider>
+          <TopBar/>
           {children}
         </SmoothScrollProvider>
       </body>
