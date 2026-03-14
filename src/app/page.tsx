@@ -1,5 +1,6 @@
 import About from '@/components/about'
 import AdditionalDetails from '@/components/additional_details'
+import BentoGrid from '@/components/bento_grid'
 import Hero from '@/components/hero/hero'
 import Industry from '@/components/industry'
 import ProductCategory from '@/components/product_category'
@@ -16,6 +17,7 @@ export default function Home() {
       <ProductCategory />
       <Products />
       <Industry />
+      <BentoGrid />
     </main>
   )
 }
