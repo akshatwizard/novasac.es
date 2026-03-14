@@ -42,7 +42,7 @@ export default function NewsletterSubscribe() {
                 </form>
 
                 {/* Small note */}
-                <p className="text-xs text-white/60 mt-4">
+                <p className="text-xs text-primary-400 mt-4">
                     We respect your privacy. No spam, only useful updates.
                 </p>
 
