@@ -110,6 +110,7 @@ export default function HeroBanner() {
     return (
         <div className='w-full relative grid grid-cols-1 lg:grid-cols-2 lg:gap-0 gap-10'>
             <div className='relative w-full h-full lg:order-1 order-2'>
+                <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary-200/30 blur-3xl rounded-full" />
                 <motion.div
                     key={activeIndex}
                     variants={containerVariants}
@@ -119,10 +120,26 @@ export default function HeroBanner() {
                     viewport={{ once: false, amount: 0.4, }}
                     className='relative z-10 w-full md:pr-10 flex flex-col justify-center h-full'
                 >
+                    <motion.div
+                        variants={itemVariants}
+                        className="flex gap-2 mb-4 flex-wrap"
+                    >
+                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">
+                            Durable Material
+                        </span>
+
+                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">
+                            Custom Printing
+                        </span>
+
+                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">
+                            Bulk Orders Available
+                        </span>
+                    </motion.div>
 
                     <motion.span
                         variants={itemVariants}
-                        className='block lg:text-4xl md:text-3xl sm:text-2xl text-xl text-primary-500 font-bold max-w-lg font-sans!'
+                        className='block lg:text-4xl md:text-3xl text-2xl font-semibold text-primary-500 leading-tight font-sans!'
                     >
                         {activeBanner.title}
                     </motion.span>
@@ -139,14 +156,18 @@ export default function HeroBanner() {
                         className='md:mt-9 mt-4 flex flex-row items-center gap-4 md:pb-0 pb-5'
                     >
 
-                        <Link href={activeBanner.src}
-                            className="px-3.5 py-2 bg-primary-500 text-ivory rounded-sm transition-all duration-300 ease-in-out hover:bg-primary-600 font-medium text-white"
+                        <Link
+                            href={activeBanner.src}
+                            className="px-5 py-2.5 bg-primary-500 text-white rounded-md shadow-md hover:bg-primary-600 hover:shadow-lg transition-all duration-300 font-medium"
                         >
                             Explore Collections
                         </Link>
-                        <Link href={activeBanner.src} className="border border-primary-500 text-primary-500 px-3.5 py-2 rounded-sm flex items-center gap-1.5 font-medium"
+
+                        <Link
+                            href={activeBanner.src}
+                            className="px-5 py-2.5 border border-primary-500 text-primary-500 rounded-md flex items-center gap-2 font-medium hover:bg-primary-50 transition"
                         >
-                            <ShoppingBag size={16} strokeWidth={2} className="text-primary-500" />
+                            <ShoppingBag size={16} />
                             Buy Now
                         </Link>
                     </motion.div>
@@ -154,7 +175,7 @@ export default function HeroBanner() {
                 </motion.div>
                 <img
                     src={"/images/logo/logo.png"}
-                    className="absolute bottom-5 right-5 max-w-36 opacity-50"
+                    className="absolute bottom-2 right-10 max-w-36 opacity-50"
                 />
             </div>
 
@@ -171,15 +192,18 @@ export default function HeroBanner() {
                     {
                         banner.map((data, key) => (
                             <CarouselItem key={key} className='relative'>
-                                <Image
-                                    src={data.src}
-                                    alt="Banner"
-                                    className="w-full object-cover h-full rounded-2xl"
-                                    width={1080}
-                                    height={400}
-                                    loading={key === 0 ? "eager" : "lazy"}
-                                    fetchPriority={key === 0 ? "high" : "low"}
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={data.src}
+                                        alt="Banner"
+                                        className="w-full object-cover h-full rounded-2xl"
+                                        width={1080}
+                                        height={400}
+                                        loading={key === 0 ? "eager" : "lazy"}
+                                        fetchPriority={key === 0 ? "high" : "low"}
+                                    />
+                                    <div className="absolute inset-0 bg-linear-to-tr from-black/40 via-transparent to-black/10 rounded-2xl" />
+                                </div>
                             </CarouselItem>
                         ))
                     }

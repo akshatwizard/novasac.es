@@ -5,7 +5,7 @@ import HeroBanner from './hero_carousel'
 export default function Hero() {
     return (
         <Section className="bg-white overflow-hidden py-3">
-            <Wrapper className="lg:py-0">
+            <Wrapper className="lg:py-8">
                 <HeroBanner />
             </Wrapper>
         </Section>
