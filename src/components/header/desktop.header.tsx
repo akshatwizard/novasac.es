@@ -19,7 +19,8 @@ export default function DesktopHeader() {
   });
 
   return (
-    <div className='sticky top-0 z-50 w-full bg-primary-100 max-md:hidden lg:px-12 md:px-10 px-8 h-12'>
+    <div className={`sticky top-0 z-50 w-full ${scrolled ? "shadow-md bg-white" : "bg-white"} border-b border-zinc-200 max-md:hidden lg:px-12 md:px-10 px-8 h-12`}>
+
       <div className='w-full max-w-7xl mx-auto flex items-center h-full justify-between'>
 
         <div className='flex items-center h-full'>
@@ -27,7 +28,7 @@ export default function DesktopHeader() {
             MenuItems.map((item, idx) => (
               <div
                 key={idx}
-                className='h-full relative px-5 group flex items-center text-sm font-medium text-primary-500'
+                className='h-full relative px-6 group flex items-center text-sm font-medium text-primary-500'
                 onMouseEnter={() => setActive(idx)}
                 onMouseLeave={() => setActive(null)}
               >
@@ -57,7 +58,7 @@ export default function DesktopHeader() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full left-0 bg-white shadow-md w-56 rounded-md overflow-hidden"
+                      className="absolute top-full left-0 bg-white shadow-lg border border-zinc-100 w-56 rounded-md overflow-hidden"
                     >
                       {item.subMenu.map((sub, j) => (
                         <Link
@@ -80,7 +81,7 @@ export default function DesktopHeader() {
                   {active === idx && (
                     <motion.span
                       layoutId="nav-hover"
-                      className="absolute inset-x-0 bottom-0 bg-primary-600 h-0.5"
+                      className="absolute inset-x-0 bottom-0 bg-primary-600 h-0.5 rounded-full"
                       initial={{
                         opacity: 0,
                         scale: 0.97,

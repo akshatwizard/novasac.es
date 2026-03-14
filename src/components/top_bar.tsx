@@ -23,11 +23,11 @@ export default function TopBar() {
     }, []);
 
     return (
-        <Section className='bg-primary-100 hidden min-[950px]:block overflow-hidden'>
+        <Section className='bg-zinc-50 border-b border-zinc-200 hidden min-[950px]:block overflow-hidden'>
             <Wrapper className='py-0! flex-row justify-between px-1.5'>
                 <div className='flex gap-5 items-center'>
                     <div className='flex gap-1.5 items-center py-3 pr-2'>
-                        <Mail size={18} strokeWidth={1.5} className='text-primary-600' />
+                        <Mail size={18} strokeWidth={1.5} className='text-zinc-500' />
                         <Link href={"#"} className='text-zinc-600 text-sm transition-colors duration-300 ease-in-out hover:text-zinc-800'>
                             <span>
                                 support@email.com
@@ -35,9 +35,9 @@ export default function TopBar() {
                         </Link>
                     </div>
 
-                    <span className='w-px h-full bg-primary-200' />
+                    <div className="w-px h-4 bg-zinc-200" />
                     <div className='flex gap-1.5 items-center py-3 pr-2'>
-                        <Phone size={18} strokeWidth={1.5} className='text-primary-600' />
+                        <Phone size={18} strokeWidth={1.5} className='text-zinc-500' />
                         <Link href={"#"} className='text-zinc-600 text-sm transition-colors duration-300 ease-in-out hover:text-zinc-800'>
                             <span>
                                 +91 1234567890
@@ -47,7 +47,7 @@ export default function TopBar() {
                 </div>
 
                 <div className='flex items-center gap-5'>
-                    <motion.span className='text-sm font-normal text-primary-500' layout>
+                    <motion.span className='text-sm font-normal text-zinc-500' layout>
                         <AnimatePresence mode="wait">
                             <motion.span
                                 key={active}
@@ -65,10 +65,10 @@ export default function TopBar() {
                         </AnimatePresence>
                     </motion.span>
 
-                    <span className='w-px h-full bg-primary-200' />
+                    <div className="w-px h-4 bg-zinc-200" />
                     <div className='flex items-center gap-2.5'>
                         <div className='flex gap-1.5 items-center py-3 pr-2'>
-                            <TruckElectric size={18} strokeWidth={1.5} className='text-primary-600' />
+                            <TruckElectric size={18} strokeWidth={1.5} className='text-zinc-500' />
                             <Link href={"#"} className='text-zinc-600 text-sm transition-colors duration-300 ease-in-out hover:text-zinc-800'>
                                 <span>
                                     Express Delievery
@@ -77,8 +77,8 @@ export default function TopBar() {
                         </div>
                     </div>
 
-                    <span className='w-px h-full bg-primary-200' />
-                    <Link href={"#"} className='text-sm font-normal text-zinc-600 hover:text-primary-500 duration-300 transition-colors ease-in-out'>
+                    <div className="w-px h-4 bg-zinc-200" />
+                    <Link href={"#"} className='text-sm font-normal text-zinc-500 hover:text-primary-500 duration-300 transition-colors ease-in-out'>
                         Need Help?
                     </Link>
                 </div>
