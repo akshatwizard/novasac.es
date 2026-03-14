@@ -6,6 +6,7 @@ import ContactUs from '@/components/contact'
 import Faq from '@/components/faq'
 import Hero from '@/components/hero/hero'
 import Industry from '@/components/industry'
+import NewsLetter from '@/components/news_letter'
 import ProductCategory from '@/components/product_category'
 import Products from '@/components/products'
 import Promotional from '@/components/promotional'
@@ -30,6 +31,7 @@ export default function Home() {
       <Blogs />
       <ContactUs />
       <Faq />
+      <NewsLetter />
     </main>
   )
 }
