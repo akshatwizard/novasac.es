@@ -6,8 +6,9 @@ import TopBar from "@/components/top_bar";
 import Header from "@/components/header/header";
 import DesktopHeader from "@/components/header/desktop.header";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/footer";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const montserrat = Montserrat({
   variable: "--font-montserrate",
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Header />
           <DesktopHeader />
           {children}
+          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>

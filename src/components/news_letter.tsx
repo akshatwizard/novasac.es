@@ -1,23 +1,22 @@
 "use client";
 
 import { Mail } from "lucide-react";
+import { Heading } from "./ui/headings";
 
 export default function NewsletterSubscribe() {
     return (
-        <section className="w-full py-20 bg-linear-to-r from-primary-500 to-primary-600">
+        <section className="w-full py-20 bg-primary-100">
             <div className="max-w-4xl mx-auto px-6 text-center text-white">
 
-                {/* Heading */}
-                <h2 className="text-3xl font-semibold mb-4">
+                <Heading className="mb-3 text-primary-500">
                     Subscribe to Our Newsletter
-                </h2>
+                </Heading>
 
-                <p className="text-white/80 max-w-xl mx-auto mb-8 text-sm">
+                <p className="text-primary-400 max-w-xl mx-auto mb-8 text-sm">
                     Stay updated with our latest packaging products, industry insights,
                     special offers, and company news delivered straight to your inbox.
                 </p>
 
-                {/* Subscribe Form */}
                 <form className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
 
                     <div className="relative flex-1">
@@ -35,7 +34,7 @@ export default function NewsletterSubscribe() {
 
                     <button
                         type="submit"
-                        className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-zinc-800 transition-colors"
+                        className="bg-primary-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-600 transition-colors"
                     >
                         Subscribe
                     </button>
