@@ -6,6 +6,7 @@ import SliderWrapper from './ui/slider_wrapper'
 import { Category } from '@/constant/category'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ChevronDown } from 'lucide-react'
 
 export default function ProductCategory() {
     return (
@@ -16,21 +17,22 @@ export default function ProductCategory() {
                         Discover our favourites
                     </Heading>
                     <SubHeading>
-                        Explore the most visited categories right now. Looking for something else??
+                        Explore the most visited categories right now.
                     </SubHeading>
                 </div>
+
                 <div className='w-full'>
                     <SliderWrapper className="lg:gap-6 md:gap-8 gap-6">
                         {
                             Category.map((product, idx) => (
-                                <Link href={product.link} key={idx} className='block w-60 h-full bg-zinc-100 border border-gray-200 rounded-xl'>
+                                <Link href={product.link} key={idx} className='block w-70 h-full border-gray-200 rounded-xl bg-white border'>
                                     <div className='w-full p-2'>
                                         <Image
                                             src={product.image}
                                             alt={product.name}
                                             width={500}
                                             height={400}
-                                            className='w-full h-50 object-cover object-center'
+                                            className='w-full h-60 object-cover object-center'
                                             loading="lazy"
                                         />
                                     </div>
@@ -43,6 +45,15 @@ export default function ProductCategory() {
                             ))
                         }
                     </SliderWrapper>
+                </div>
+
+                <div className='flex items-center justify-center'>
+                    <Link href={"#"} className='flex items-center gap-1'>
+                        <span className='text-zinc-900 font-medium'>
+                            View All
+                        </span>
+                        <ChevronDown size={18} className='text-primary-500' />
+                    </Link>
                 </div>
             </Wrapper>
         </Section>

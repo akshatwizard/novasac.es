@@ -2,6 +2,7 @@ import About from '@/components/about'
 import AdditionalDetails from '@/components/additional_details'
 import Hero from '@/components/hero/hero'
 import ProductCategory from '@/components/product_category'
+import Products from '@/components/products'
 import Promotional from '@/components/promotional'
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <AdditionalDetails />
       <About />
       <ProductCategory />
+      <Products />
     </main>
   )
 }
