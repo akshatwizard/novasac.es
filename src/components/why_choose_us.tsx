@@ -1,4 +1,4 @@
-import { Heading } from './ui/headings'
+import { Heading, SubHeading } from './ui/headings'
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import { BadgePercent, Gem, LucideIcon, Truck } from 'lucide-react';
@@ -31,10 +31,13 @@ export default function WhyChooseUs() {
     return (
         <Section>
             <Wrapper>
-                <div className="text-center">
-                    <Heading className='text-primary-500'>
+                <div className='w-full flex flex-col gap-2'>
+                    <Heading>
                         Why Choose Us
                     </Heading>
+                    <SubHeading className='max-w-lg'>
+                        Reliable packaging solutions designed for durability, customization, and efficient delivery across industries.
+                    </SubHeading>
                 </div>
 
                 <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
