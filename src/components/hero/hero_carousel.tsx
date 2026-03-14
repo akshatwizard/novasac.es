@@ -109,7 +109,7 @@ export default function HeroBanner() {
 
     return (
         <div className='w-full relative grid grid-cols-1 lg:grid-cols-2 lg:gap-0 gap-10'>
-            <div className='w-full h-full lg:order-1 order-2'>
+            <div className='relative w-full h-full lg:order-1 order-2'>
                 <motion.div
                     key={activeIndex}
                     variants={containerVariants}
@@ -117,7 +117,7 @@ export default function HeroBanner() {
                     animate="visible"
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.4, }}
-                    className='w-full md:pr-10 flex flex-col justify-center h-full'
+                    className='relative z-10 w-full md:pr-10 flex flex-col justify-center h-full'
                 >
 
                     <motion.span
@@ -152,6 +152,10 @@ export default function HeroBanner() {
                     </motion.div>
 
                 </motion.div>
+                <img
+                    src={"/images/logo/logo.png"}
+                    className="absolute bottom-5 right-5 max-w-36 opacity-50"
+                />
             </div>
 
             <Carousel className="relative w-full z-10 lg:order-2 order-1"

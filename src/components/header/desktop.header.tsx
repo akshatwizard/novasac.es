@@ -112,18 +112,18 @@ export default function DesktopHeader() {
               <motion.div className='flex items-center gap-3'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 1 }}
-                exit={{ opacity: 0, y: -50 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ ease: 'easeInOut', duration: 0.2 }}
               >
-                <button className="relative hidden md:flex items-center justify-center rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                <button className="cursor-pointer">
                   <Heart className="text-primary-500" size={28} strokeWidth={1} fill='#ff710a' />
                 </button>
 
-                <button className="relative hidden md:flex items-center justify-center rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                <button className="cursor-pointer">
                   <ShoppingCart className="text-primary-500" size={28} strokeWidth={1} fill='#ff710a' />
                 </button>
 
-                <button className="hidden md:flex items-center justify-center rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                <button className="cursor-pointer">
                   <User className="text-primary-500" size={28} strokeWidth={1} fill='#ff710a' />
                 </button>
               </motion.div>
