@@ -4,7 +4,7 @@ import { Heading, SubHeading } from './ui/headings'
 import { homeProducts } from '@/constant/products'
 import ProductCard from './product_card'
 import Link from 'next/link'
-import { ChevronDown } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 
 export default function Products() {
     return (
@@ -27,12 +27,16 @@ export default function Products() {
                     }
                 </div>
 
-                <div className='flex items-center justify-center'>
-                    <Link href={"#"} className='flex items-center gap-1'>
-                        <span className='text-zinc-900 font-medium'>
-                            View All
-                        </span>
-                        <ChevronDown size={18} className='text-primary-500' />
+                <div className='flex justify-center mt-10'>
+                    <Link
+                        href="#"
+                        className='group flex items-center gap-2 text-sm font-medium text-zinc-700 hover:text-primary-500 transition'
+                    >
+                        View Other Products
+                        <ChevronRight
+                            size={18}
+                            className='transition-transform group-hover:translate-x-1'
+                        />
                     </Link>
                 </div>
             </Wrapper>

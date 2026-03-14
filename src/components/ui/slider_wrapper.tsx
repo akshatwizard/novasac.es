@@ -21,7 +21,7 @@ export default function SliderWrapper({ children, options, className, btnLeft, b
     const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi)
     return (
         <section className="embla relative">
-            <div className="embla__viewport overflow-hidden" ref={emblaRef}>
+            <div className="embla__viewport overflow-hidden py-5" ref={emblaRef}>
                 <div className={cn("embla__container flex", className)}>
                     {Children.map(children, (child, index) => (
                         <div className="embla__slide shrink-0" key={index}>
