@@ -8,7 +8,9 @@ type Details = {
     description: string
     icon: LucideIcon
 }
+
 export default function AdditionalDetails() {
+
     const details: Details[] = [
         {
             title: "Over 100 Packaging Models",
@@ -30,31 +32,37 @@ export default function AdditionalDetails() {
             description: "Fast and reliable delivery for all your packaging needs.",
             icon: Truck,
         },
-    ];
+    ]
 
     return (
         <Section>
             <Wrapper>
-                <div className='w-full grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3'>
-                    {
-                        details.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className='w-full h-full rounded-xl bg-primary-100 p-5 flex flex-col gap-5'
-                            >
-                                <item.icon size={48} strokeWidth={1} className='text-primary-500 shrink-0' />
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
 
-                                <div className='flex-1 flex flex-col gap-1'>
-                                    <span className='text-primary-500 font-semibold lg:text-xl md:text-lg text-base font-sans!'>
-                                        {item.title}
-                                    </span>
-                                    <span className='text-sm text-primary-400'>
-                                        {item.description}
-                                    </span>
-                                </div>
+                    {details.map((item, idx) => (
+                        <div
+                            key={idx}
+                            className='group border border-zinc-200 rounded-xl p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'
+                        >
+
+                            {/* Icon */}
+                            <div className='w-12 h-12 flex items-center justify-center rounded-lg bg-primary-50 text-primary-500 group-hover:scale-110 transition'>
+                                <item.icon size={26} strokeWidth={1.5} />
                             </div>
-                        ))
-                    }
+
+                            <div className='flex flex-col gap-1'>
+                                <h3 className='font-semibold text-primary-500 text-lg'>
+                                    {item.title}
+                                </h3>
+
+                                <p className='text-sm text-zinc-500 leading-tight'>
+                                    {item.description}
+                                </p>
+                            </div>
+
+                        </div>
+                    ))}
+
                 </div>
             </Wrapper>
         </Section>
