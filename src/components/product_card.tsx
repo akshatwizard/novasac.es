@@ -16,8 +16,7 @@ export default function ProductCard({ product }: Props) {
         }).format(amount);
 
     return (
-        <div className='w-full h-full border border-gray-200 rounded-2xl bg-white group'>
-
+        <div className='w-full h-full border border-gray-200 rounded-xl bg-white group transition-all duration-300 ease-in-out hover:border-primary-300 cursor-pointer hover:shadow-soft'>
             <div className='relative w-full h-full'>
                 <div>
                     <Image
