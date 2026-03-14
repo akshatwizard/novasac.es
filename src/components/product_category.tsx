@@ -22,7 +22,7 @@ export default function ProductCategory() {
                 </div>
 
                 <div className='w-full'>
-                    <SliderWrapper className="lg:gap-6 md:gap-8 gap-6">
+                    <SliderWrapper className="lg:gap-6 md:gap-8 gap-6" autoPlay>
                         {
                             Category.map((product, idx) => (
                                 <Link href={product.link} key={idx} className='block w-70 h-full border-gray-200 rounded-xl bg-white border'>

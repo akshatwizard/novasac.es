@@ -1,0 +1,65 @@
+import { Heading } from './ui/headings'
+import Section from './ui/section'
+import Wrapper from './ui/wrapper'
+import { BadgePercent, Gem, LucideIcon, Truck } from 'lucide-react';
+
+
+type Data = {
+    title: string;
+    desc: string;
+    icon: LucideIcon
+}
+
+export default function WhyChooseUs() {
+    const data: Data[] = [
+        {
+            title: "Premium Quality",
+            desc: "We source the highest quality wood and materials, ensuring that each creation exhibits unparalleled craftsmanship.",
+            icon: Gem
+        },
+        {
+            title: "Delivery Time",
+            desc: "We value your time and ensure prompt delivery of your customized wooden souvenirs.",
+            icon: Truck
+        },
+        {
+            title: "Competitive Pricing",
+            desc: "Our products are priced affordably without compromising on quality, making us an affordable option",
+            icon: BadgePercent
+        },
+    ]
+    return (
+        <Section>
+            <Wrapper>
+                <div className="text-center">
+                    <Heading className='text-primary-500'>
+                        Why Choose Us
+                    </Heading>
+                </div>
+
+                <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                    {
+                        data.map((item, idx) => (
+                            <div
+                                key={idx}
+                                className="group p-6 rounded-xl border border-zinc-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300 bg-white"
+                            >
+                                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary-50 text-primary-500 mb-4 group-hover:scale-110 transition-transform">
+                                    <item.icon size={26} />
+                                </div>
+
+                                <h3 className="text-lg font-semibold text-zinc-800 mb-2">
+                                    {item.title}
+                                </h3>
+
+                                <p className="text-sm text-zinc-500 leading-relaxed">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </Wrapper>
+        </Section>
+    )
+}

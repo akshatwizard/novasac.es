@@ -6,6 +6,7 @@ import Industry from '@/components/industry'
 import ProductCategory from '@/components/product_category'
 import Products from '@/components/products'
 import Promotional from '@/components/promotional'
+import WhyChooseUs from '@/components/why_choose_us'
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <Products />
       <Industry />
       <BentoGrid />
+      <Products />
+      <WhyChooseUs />
     </main>
   )
 }
