@@ -1,6 +1,7 @@
 import About from '@/components/about'
 import AdditionalDetails from '@/components/additional_details'
 import Hero from '@/components/hero/hero'
+import ProductCategory from '@/components/product_category'
 import Promotional from '@/components/promotional'
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Promotional />
       <AdditionalDetails />
       <About />
+      <ProductCategory />
     </main>
   )
 }
