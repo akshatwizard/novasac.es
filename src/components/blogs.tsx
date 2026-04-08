@@ -1,102 +1,120 @@
-import React from 'react'
+'use client';
+
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import { Heading, SubHeading } from './ui/headings'
 import Image from 'next/image';
 import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { BlogData, BlogResponse } from '@/types/blog.types';
+import { BookOpen } from 'lucide-react';
 
 
-const blogs = [
-    {
-        title: "Choosing the Right Packaging Bags for Your Business",
-        description:
-            "Discover how selecting the right packaging bags can improve product safety, brand visibility, and shipping efficiency.",
-        image:
-            "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1200&q=80",
-        date: "12 Mar 2026",
-        slug: "#",
-    },
-    {
-        title: "Why Custom Printed Bags Help Your Brand Stand Out",
-        description:
-            "Custom printed packaging bags not only protect products but also help businesses create a strong brand identity.",
-        image:
-            "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
-        date: "10 Mar 2026",
-        slug: "#",
-    },
-    {
-        title: "Top Packaging Trends for E-commerce Businesses",
-        description:
-            "Explore the latest packaging innovations designed to improve durability, sustainability, and customer experience.",
-        image:
-            "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
-        date: "8 Mar 2026",
-        slug: "#",
-    },
-    {
-        title: "Benefits of Food Grade Packaging Bags",
-        description:
-            "Learn why food grade packaging materials are essential for maintaining hygiene, safety, and freshness.",
-        image:
-            "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1200&q=80",
-        date: "5 Mar 2026",
-        slug: "#",
-    },
-];
 
 export default function Blogs() {
+
+    const { data, isLoading, error } = useQuery<BlogData[]>({
+        queryKey: ["home_blogs"],
+        queryFn: async () => {
+            const res = await axios.get<BlogResponse>(
+                "https://gangapapers.in/novasac/api/home/blog"
+            );
+            return res.data.data;
+        },
+    });
+
     return (
         <Section>
             <Wrapper>
-                <div className='w-full flex flex-col gap-2'>
-                    <Heading>
-                        Latest Blogs
-                    </Heading>
-                    <SubHeading className='max-w-lg'>
+                <div className="w-full flex flex-col gap-2">
+                    <Heading>Latest Blogs</Heading>
+                    <SubHeading className="max-w-lg">
                         Insights and updates from the packaging industry.
                     </SubHeading>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-
-                    {blogs.map((blog, index) => (
-                        <Link
-                            href={blog.slug}
-                            key={index}
-                            className="group border border-zinc-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
-                        >
-
-                            {/* Image */}
-                            <div className="relative h-48 overflow-hidden">
-                                <Image
-                                    src={blog.image}
-                                    alt={blog.title}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-5">
-                                <p className="text-xs text-zinc-400 mb-2">
-                                    {blog.date}
-                                </p>
-
-                                <h3 className="font-semibold text-zinc-800 mb-2 leading-snug group-hover:text-primary-500 transition-colors">
-                                    {blog.title}
-                                </h3>
-
-                                <p className="text-sm text-zinc-500 line-clamp-3">
-                                    {blog.description}
-                                </p>
-                            </div>
-
-                        </Link>
-                    ))}
-
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {isLoading ? (
+                        Array.from({ length: 4 }).map((_, i) => (
+                            <BlogCardSkeleton key={i} />
+                        ))
+                    ) : error ? (
+                        <EmptyState message="Failed to load blogs. Please try again later." />
+                    ) : !data?.length ? (
+                        <EmptyState message="No blog posts found." />
+                    ) : (
+                        data.map((blog) => (
+                            <BlogCard key={blog.id} blog={blog} />
+                        ))
+                    )}
                 </div>
             </Wrapper>
         </Section>
-    )
+    );
+}
+
+function BlogCardSkeleton() {
+    return (
+        <div className="rounded-xl border border-zinc-100 overflow-hidden bg-white animate-pulse">
+            <div className="h-48 bg-zinc-200" />
+            <div className="p-5 space-y-2.5">
+                <div className="h-2.5 w-1/3 bg-zinc-200 rounded-full" />
+                <div className="h-4 w-full bg-zinc-200 rounded" />
+                <div className="h-4 w-4/5 bg-zinc-200 rounded" />
+                <div className="h-3 w-full bg-zinc-100 rounded" />
+                <div className="h-3 w-2/3 bg-zinc-100 rounded" />
+            </div>
+        </div>
+    );
+}
+
+function EmptyState({ message }: { message: string }) {
+    return (
+        <div className="col-span-full flex flex-col items-center justify-center gap-3 py-16 text-zinc-400">
+            <BookOpen size={40} strokeWidth={1.5} />
+            <p className="text-sm">{message}</p>
+        </div>
+    );
+}
+
+function BlogCard({ blog }: { blog: BlogData }) {
+    const excerpt = blog.short_desc?.trim() || blog.content.replace(/<[^>]*>/g, "").slice(0, 120) + "…";
+
+    return (
+        <Link
+            href={`/blog/${blog.slug}`}
+            className="group border border-zinc-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 bg-white flex flex-col"
+        >
+            <div className="relative h-48 overflow-hidden shrink-0">
+                <Image
+                    src={blog.main_image}
+                    alt={blog.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
+                />
+            </div>
+
+
+            <div className="p-5 flex flex-col flex-1 gap-2">
+                <p className="text-xs text-zinc-400">
+                    {blog.published_at}
+                </p>
+
+                <h3 className="font-semibold text-zinc-800 leading-snug group-hover:text-primary-500 transition-colors line-clamp-2">
+                    {blog.title}
+                </h3>
+
+                <p className="text-sm text-zinc-500 line-clamp-3 flex-1">
+                    {excerpt}
+                </p>
+
+                <span className="mt-2 text-xs font-medium text-primary-500 group-hover:underline underline-offset-2 w-max">
+                    Read more →
+                </span>
+            </div>
+        </Link>
+    );
 }
