@@ -1,11 +1,14 @@
-import { ProductsType } from "@/constant/products";
-import { Star, StarHalf } from "lucide-react";
+import { ProductData } from "@/types/home_product.types";
+import { Star, StarHalf, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-    product: ProductsType
+    product: ProductData;
 }
+
+const DEFAULT_MRP = 999;
+const DEFAULT_OFFER_RATE = 799;
 
 export default function ProductCard({ product }: Props) {
     const formatPrice = (amount: number) =>
@@ -15,92 +18,80 @@ export default function ProductCard({ product }: Props) {
             maximumFractionDigits: 0,
         }).format(amount);
 
+    const mrp = product.mrp ?? DEFAULT_MRP;
+    const offerRate = product.offer_rate ?? DEFAULT_OFFER_RATE;
+
+    const discount =
+        mrp > offerRate ? Math.round(((mrp - offerRate) / mrp) * 100) : null;
+
     return (
-        <div className='w-full h-full border border-gray-200 rounded-xl bg-white group transition-all duration-300 ease-in-out hover:border-primary-300 cursor-pointer hover:shadow-soft'>
-            <div className='relative w-full h-full'>
-                <div>
+        <div className="w-full h-full border border-gray-200 rounded-xl bg-white group transition-all duration-300 ease-in-out hover:border-primary-300 cursor-pointer hover:shadow-soft">
+            <div className="relative w-full h-full">
+
+                {/* Image */}
+                <div className="overflow-hidden rounded-t-xl">
                     <Image
                         src={product.image}
-                        alt={product.name}
+                        alt={product.title}
                         width={500}
                         height={400}
-                        className='w-full h-50 object-contain'
+                        className="w-full h-50 object-contain group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                     />
                 </div>
 
-                <div className='w-full px-3 py-4 space-y-3'>
-                    <span
-                        className="text-[10px] px-1.5 py-0.5 border border-primary-300 bg-primary-50 rounded-full w-max text-primary-500"
-                    >
-                        {product.category}
+                {/* Content */}
+                <div className="w-full px-3 py-4 space-y-2">
+
+                    {/* Category badge */}
+                    <span className="text-[10px] px-1.5 py-0.5 border border-primary-300 bg-primary-50 rounded-full w-max text-primary-500 inline-block">
+                        {product.category.title}
                     </span>
 
+                    {/* Attribute value e.g. "500g / Pack of 10" */}
+                    {product.attribute_value && (
+                        <p className="text-[10px] text-zinc-400 font-medium">
+                            {product.attribute_value}
+                        </p>
+                    )}
+
+                    {/* Title */}
                     <Link
-                        href={`${product.category}/${product.slug}`}
-                        className="text-primary-600 leading-[1.1] mt-2 block text-base font-medium"
+                        href={`/${product.category.slug}/${product.slug}`}
+                        className="text-primary-600 leading-snug mt-1 block text-sm font-medium line-clamp-2 hover:underline underline-offset-2"
                     >
-                        {product.name}
+                        {product.title}
                     </Link>
 
-                    <div className='flex flex-col'>
-                        <span className='text-xl text-zinc-800'>
-                            {formatPrice(product.price)}
+                    {/* Pricing */}
+                    <div className="flex flex-col gap-0.5">
+                        <span className="text-base font-semibold text-zinc-800">
+                            {formatPrice(offerRate)}
                         </span>
-                        <span>
-                            {
-                                product.compareAtPrice && (
-                                    <>
-                                        <span className='text-xs text-gray-500 inline-block pr-1'>
-                                            M.R.P
-                                        </span>
-                                        <del className='text-sm text-gray-500 '>
-                                            {formatPrice(product.compareAtPrice)}
-                                        </del>
-                                    </>
-                                )
-                            }
-                        </span>
+                        {mrp > offerRate && (
+                            <span className="text-xs text-gray-400">
+                                M.R.P{" "}
+                                <del className="text-gray-400">
+                                    {formatPrice(mrp)}
+                                </del>
+                            </span>
+                        )}
                     </div>
 
-                    <div className='w-full flex gap-0.5'>
-                        {
-                            product.rating && (
-                                <>
-                                    {(() => {
-                                        const rating = product.rating;
-                                        const fullStars = Math.floor(rating);
-                                        const decimal = rating - fullStars;
-                                        const showHalf = decimal >= 0.25;
-
-                                        return (
-                                            <>
-                                                {Array.from({ length: fullStars }).map((_, idx) => (
-                                                    <Star
-                                                        key={`full-${idx}`}
-                                                        size={14}
-                                                        fill="yellow"
-                                                        stroke="none"
-                                                    />
-                                                ))}
-
-                                                {showHalf && <StarHalf size={14} fill="yellow" stroke="none" />}
-                                            </>
-                                        );
-                                    })()}
-                                </>
-                            )
-                        }
-                        <span className='text-[10px] text-gray-500 ml-1'>
-                            ({product.reviewCount})
-                        </span>
-                    </div>
+                    {/* SKU */}
+                    {product.sku && (
+                        <p className="text-[10px] text-zinc-400 flex items-center gap-1">
+                            <Tag size={10} />
+                            SKU: {product.sku}
+                        </p>
+                    )}
                 </div>
 
-                {product.descount && (
+                {/* Discount ribbon */}
+                {discount !== null && (
                     <div className="absolute top-5 left-0 flex items-center">
-                        <div className="relative bg-primary-500 text-ivory text-xs font-medium pl-1.5 pr-1 text-white">
-                            {product.descount}% OFF
+                        <div className="relative bg-primary-500 text-white text-xs font-medium pl-1.5 pr-1">
+                            {discount}% OFF
                             <span
                                 className="absolute top-0 left-full w-0 h-0"
                                 style={{
@@ -115,5 +106,5 @@ export default function ProductCard({ product }: Props) {
                 )}
             </div>
         </div>
-    )
+    );
 }
