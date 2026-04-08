@@ -13,6 +13,17 @@ import { ShoppingBag } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { BannerData, BannerResponse } from "@/types/banner.types";
+
+type NormalizedBanner = {
+    title: string
+    content: string
+    desktopImage: string
+    mobileImage: string
+    banner_link: boolean
+}
 
 export default function HeroBanner() {
     const [api, setApi] = useState<CarouselApi>()
@@ -34,51 +45,60 @@ export default function HeroBanner() {
         };
     }, [api]);
 
-    const banner: Banner[] = [
-        {
-            title: "Premium Courier Bags",
-            alt: "Premium Courier Bags",
-            src: "/images/hero/banner-1.jpg",
-            content:
-                "Introducing our Premium Courier Bags designed for secure and tamper-proof shipping. Made from high-quality poly material, these bags are durable, waterproof, and ideal for e-commerce packaging.",
-        },
-        {
-            title: "Laminated Packaging Bags",
-            alt: "Laminated Packaging Bags",
-            src: "/images/hero/banner-2.jpg",
-            content:
-                "Our Laminated Packaging Bags are crafted for strength and long-lasting protection. Perfect for retail and industrial packaging, they offer excellent durability, moisture resistance, and premium finishing.",
-        },
+    const fallbackBanner: NormalizedBanner[] = [
+        // {
+        //     title: "Premium Courier Bags",
+        //     desktopImage: "/images/hero/banner-1.jpg",
+        //     mobileImage: "/images/hero/banner-1.jpg",
+        //     banner_link: true,
+        //     content:
+        //         "Introducing our Premium Courier Bags designed for secure and tamper-proof shipping. Made from high-quality poly material, these bags are durable, waterproof, and ideal for e-commerce packaging.",
+        // },
+        // {
+        //     title: "Laminated Packaging Bags",
+        //     desktopImage: "/images/hero/banner-2.jpg",
+        //     mobileImage: "/images/hero/banner-2.jpg",
+        //     banner_link: true,
+        //     content:
+        //         "Our Laminated Packaging Bags are crafted for strength and long-lasting protection. Perfect for retail and industrial packaging, they offer excellent durability, moisture resistance, and premium finishing.",
+        // },
         {
             title: "Custom Printed Packaging Bags",
-            alt: "Custom Printed Packaging Bags",
-            src: "/images/hero/banner-3.jpg",
+            desktopImage: "/images/hero/banner-3.jpg",
+            mobileImage: "/images/hero/banner-3.jpg",
+            banner_link: false,
             content:
                 "Enhance your brand visibility with our Custom Printed Packaging Bags. Manufactured with advanced printing technology, these bags provide vibrant branding, durability, and professional packaging solutions.",
         },
         {
             title: "Food Grade Packaging Bags",
-            alt: "Food Grade Packaging Bags",
-            src: "/images/hero/banner-4.jpg",
-            content:
-                "Our Food Grade Packaging Bags are designed to safely store and transport food products. Made using hygienic materials, they provide excellent sealing, freshness protection, and reliable quality.",
-        },
-        {
-            title: "Custom Printed Packaging Bags",
-            alt: "Custom Printed Packaging Bags",
-            src: "/images/hero/banner-5.jpg",
-            content:
-                "Enhance your brand visibility with our Custom Printed Packaging Bags. Manufactured with advanced printing technology, these bags provide vibrant branding, durability, and professional packaging solutions.",
-        },
-        {
-            title: "Food Grade Packaging Bags",
-            alt: "Food Grade Packaging Bags",
-            src: "/images/hero/banner-6.jpg",
+            desktopImage: "/images/hero/banner-4.jpg",
+            mobileImage: "/images/hero/banner-4.jpg",
+            banner_link: true,
             content:
                 "Our Food Grade Packaging Bags are designed to safely store and transport food products. Made using hygienic materials, they provide excellent sealing, freshness protection, and reliable quality.",
         },
     ];
-    const activeBanner = banner[activeIndex];
+
+    const { data, isFetching, isLoading } = useQuery<BannerData[]>({
+        queryKey: ["hero_banner"],
+        queryFn: async function () {
+            const res = await axios.get<BannerResponse>("https://gangapapers.in/novasac/api/home/banner");
+            return res.data.data
+        },
+    })
+
+    const normalizedApiBanner: NormalizedBanner[] =
+        data?.map((item) => ({
+            title: item.title,
+            content: item.content,
+            desktopImage: item.image_path_desktop,
+            mobileImage: item.image_path_mobile,
+            banner_link: item.banner_link,
+        })) || []
+
+    const banners = (!isLoading || !isFetching) ? normalizedApiBanner : fallbackBanner
+    const activeBanner = banners[activeIndex % banners.length];
 
     const containerVariants: Variants = {
         hidden: {},
@@ -141,36 +161,37 @@ export default function HeroBanner() {
                         variants={itemVariants}
                         className='block lg:text-4xl md:text-3xl text-2xl font-semibold text-primary-500 leading-tight font-sans!'
                     >
-                        {activeBanner.title}
+                        {activeBanner?.title}
                     </motion.span>
 
                     <motion.span
                         variants={itemVariants}
                         className='block mt-3 text-zinc-700 font-normal sm:text-base text-sm leading-tight max-w-lg'
                     >
-                        {activeBanner.content}
+                        {activeBanner?.content}
                     </motion.span>
 
-                    <motion.div
-                        variants={itemVariants}
-                        className='md:mt-9 mt-4 flex flex-row items-center gap-4 md:pb-0 pb-5'
-                    >
-
-                        <Link
-                            href={activeBanner.src}
-                            className="px-5 py-2.5 bg-primary-500 text-white rounded-md shadow-md hover:bg-primary-600 hover:shadow-lg transition-all duration-300 font-medium"
+                    {activeBanner?.banner_link &&
+                        <motion.div
+                            variants={itemVariants}
+                            className='md:mt-9 mt-4 flex flex-row items-center gap-4 md:pb-0 pb-5'
                         >
-                            Explore Collections
-                        </Link>
 
-                        <Link
-                            href={activeBanner.src}
-                            className="px-5 py-2.5 border border-primary-500 text-primary-500 rounded-md flex items-center gap-2 font-medium hover:bg-primary-50 transition"
-                        >
-                            <ShoppingBag size={16} />
-                            Buy Now
-                        </Link>
-                    </motion.div>
+                            <Link
+                                href={"#"}
+                                className="px-5 py-2.5 bg-primary-500 text-white rounded-md shadow-md hover:bg-primary-600 hover:shadow-lg transition-all duration-300 font-medium"
+                            >
+                                Explore Collections
+                            </Link>
+
+                            <Link
+                                href="#"
+                                className="px-5 py-2.5 border border-primary-500 text-primary-500 rounded-md flex items-center gap-2 font-medium hover:bg-primary-50 transition"
+                            >
+                                <ShoppingBag size={16} />
+                                Buy Now
+                            </Link>
+                        </motion.div>}
 
                 </motion.div>
                 <img
@@ -190,18 +211,27 @@ export default function HeroBanner() {
             >
                 <CarouselContent>
                     {
-                        banner.map((data, key) => (
+                        banners.map((data, key) => (
                             <CarouselItem key={key} className='relative'>
                                 <div className="relative w-full h-full">
-                                    <Image
-                                        src={data.src}
-                                        alt="Banner"
-                                        className="w-full object-cover h-full rounded-2xl"
-                                        width={1080}
-                                        height={400}
-                                        loading={key === 0 ? "eager" : "lazy"}
-                                        fetchPriority={key === 0 ? "high" : "low"}
-                                    />
+                                    <picture>
+                                        <source
+                                            media="(max-width: 768px)"
+                                            srcSet={data.mobileImage}
+                                        />
+
+                                        <Image
+                                            src={data.desktopImage}
+                                            alt={data.title}
+                                            width={1200}
+                                            height={500}
+                                            className="rounded-xl object-cover w-full h-100"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            priority={key === 0}
+                                            fetchPriority={key === 0 ? "high" : "auto"}
+                                            loading={key === 0 ? "eager" : "lazy"}
+                                        />
+                                    </picture>
                                     <div className="absolute inset-0 bg-linear-to-tr from-black/40 via-transparent to-black/10 rounded-2xl" />
                                 </div>
                             </CarouselItem>
@@ -226,13 +256,5 @@ export default function HeroBanner() {
             </Carousel>
         </div>
     )
-}
-
-
-type Banner = {
-    src: string;
-    alt: string;
-    title: string;
-    content: string;
 }
 
