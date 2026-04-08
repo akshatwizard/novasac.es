@@ -7,6 +7,7 @@ import Header from "@/components/header/header";
 import DesktopHeader from "@/components/header/desktop.header";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
+import Providers from "@/lib/providers";
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -36,11 +37,13 @@ export default function RootLayout({
         className={`${montserrat.variable} ${open_sans.variable} antialiased`}
       >
         <SmoothScrollProvider>
-          <TopBar />
-          <Header />
-          <DesktopHeader />
-          {children}
-          <Footer />
+          <Providers>
+            <TopBar />
+            <Header />
+            <DesktopHeader />
+            {children}
+            <Footer />
+          </Providers>
         </SmoothScrollProvider>
       </body>
     </html>
