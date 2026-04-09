@@ -31,7 +31,7 @@ export default function DesktopHeader() {
 
 
   return (
-    <div className={`sticky top-0 z-50 w-full ${scrolled ? "shadow-md bg-white/80 backdrop-blur-md" : "bg-white"} border-b border-zinc-200 max-md:hidden lg:px-12 md:px-10 px-8 h-12`}>
+    <div className={`sticky top-0 z-40 w-full ${scrolled ? "shadow-md bg-white/80 backdrop-blur-md" : "bg-white"} border-b border-zinc-200 max-md:hidden lg:px-12 md:px-10 px-8 h-12`}>
 
       <div className='w-full max-w-7xl mx-auto flex items-center h-full justify-between'>
 
