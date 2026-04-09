@@ -27,7 +27,7 @@ interface CatalogClientProps {
 }
 
 export default function CatalogClient({ slug, initialFilters, initialProducts, initialTotalProducts, attributeValue }: CatalogClientProps) {
-
+    
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()

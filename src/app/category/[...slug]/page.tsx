@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 
 export default async function ProductsLists({ params }: { params: Promise<{ slug: string[] }> }) {
     const { slug } = await params
-
+    
     const queryClient = new QueryClient()
     const activeFilters = {}
 
@@ -25,13 +25,14 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
     const cachedData = queryClient.getQueryData<{ pages: CatalogApiResponse[] }>(catalogKeys.list(slug, activeFilters))
 
     const firstPage = cachedData?.pages?.[0]?.data
+    
     const initialFilters = firstPage?.product_filters ?? []
     const initialProducts = firstPage?.products ?? []
     const initialTotalProducts = firstPage?.pagination.total_products ?? 0
     const categorySlug = firstPage?.category.slug ?? slug[0]
-    const attribute_value = firstPage?.attribute_value.slug ?? ""
+    const attribute_value = firstPage?.attribute_value?.slug ?? firstPage?.products[0].attributes_value_slug
 
-    const pageTitle = firstPage ? `${firstPage.attribute_value.name} ${firstPage.category.title}` : 'Product Catalog'
+    const pageTitle = firstPage?.attribute_value ? `${firstPage?.attribute_value?.name} ${firstPage.category.title}` : firstPage?.category.title
 
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
@@ -67,7 +68,7 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                         initialFilters={initialFilters}
                         initialProducts={initialProducts}
                         initialTotalProducts={initialTotalProducts}
-                        attributeValue={attribute_value}
+                        attributeValue={attribute_value!}
                     />
                 </Wrapper>
             </Section>
