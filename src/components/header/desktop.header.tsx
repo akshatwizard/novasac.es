@@ -111,7 +111,7 @@ export default function DesktopHeader() {
                         {attr.values.map((sub, j) => (
                           <Link
                             key={j}
-                            href={`/products/${item.category_slug}/${sub.slug}/${attr.slug}` || "#"}
+                            href={`/category/${item.category_slug}/${sub.slug}/${attr.slug}` || "#"}
                             className="px-4 py-2 flex items-center gap-1.5 hover:text-primary-500 transition-colors duration-300 text-zinc-600 text-sm group/sub hover:bg-primary-50"
                           >
                             <ChevronRight

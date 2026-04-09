@@ -14,7 +14,7 @@ export default function ProductListCard({
     product,
     attributeValue,
 }: ProductCardProps) {
-    const href = `/${product.slug}/${attributeValue}`;
+    const href = `/products/${product.slug}/${attributeValue}`;
 
     const mrp = product.mrp ?? DEFAULT_MRP;
     const offer = product.offer_price ?? DEFAULT_OFFER_RATE;
