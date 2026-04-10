@@ -8,6 +8,9 @@ import DesktopHeader from "@/components/header/desktop.header";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
 import Providers from "@/lib/providers";
+import { AuthProvider } from "@/context/auth_context";
+import Script from "next/script";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -36,15 +39,19 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${open_sans.variable} antialiased`}
       >
-        <SmoothScrollProvider>
-          <Providers>
-            <TopBar />
-            <Header />
-            <DesktopHeader />
-            {children}
-            <Footer />
-          </Providers>
-        </SmoothScrollProvider>
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
+          <SmoothScrollProvider>
+            <Providers>
+              <AuthProvider>
+                <TopBar />
+                <Header />
+                <DesktopHeader />
+                {children}
+                <Footer />
+              </AuthProvider>
+            </Providers>
+          </SmoothScrollProvider>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );
