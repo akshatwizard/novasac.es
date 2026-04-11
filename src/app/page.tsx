@@ -17,9 +17,9 @@ import TrendingProducts from '@/components/trending_product'
 export default function Home() {
   return (
     <main className='overflow-hidden'>
-      <Hero />
-      <Promotional />
+      <BentoGrid />
       <AdditionalDetails />
+      <Hero/>
       <About />
       <ProductCategory />
       <Products />
@@ -28,7 +28,6 @@ export default function Home() {
       <TrendingProducts />
       <WhyChooseUs />
       <Testimonials />
-      <Promotional />
       <Blogs />
       <ContactUs />
       <Faq />
