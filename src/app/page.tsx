@@ -25,7 +25,7 @@ export default function Home() {
       <Products />
       <Industry />
       <BentoGrid />
-      <TrendingProducts />
+      
       <WhyChooseUs />
       <Testimonials />
       <Promotional />
