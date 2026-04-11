@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <main className='overflow-hidden'>
       <BentoGrid />
-      <Hero />
       <AdditionalDetails />
+      <Hero />
       <About />
       <ProductCategory />
       <Products />
