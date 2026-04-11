@@ -37,7 +37,7 @@ export default function DesktopHeader() {
 
         <div className='flex items-center h-full'>
 
-          {
+          {/* {
             MenuItems.slice(0, 2).map((items, idx) => {
               const key = `static-top-${idx}`
               return (
@@ -69,7 +69,7 @@ export default function DesktopHeader() {
                 </div>
               )
             })
-          }
+          } */}
 
           {
             (isFetching || isLoading) && (

@@ -19,12 +19,13 @@ export default function Home() {
     <main className='overflow-hidden'>
       <BentoGrid />
       <AdditionalDetails />
-      <Hero />
+      <Hero/>
       <About />
       <ProductCategory />
       <Products />
       <Industry />
-      
+      <BentoGrid />
+      <TrendingProducts />
       <WhyChooseUs />
       <Testimonials />
       <Blogs />
