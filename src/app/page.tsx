@@ -24,8 +24,8 @@ export default function Home() {
       <ProductCategory />
       <Products />
       <Industry />
-      <BentoGrid />
-      <TrendingProducts />
+      {/* <BentoGrid /> */}
+      {/* <TrendingProducts /> */}
       <WhyChooseUs />
       <Testimonials />
       <Blogs />
