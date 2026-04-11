@@ -17,18 +17,16 @@ import TrendingProducts from '@/components/trending_product'
 export default function Home() {
   return (
     <main className='overflow-hidden'>
+      <BentoGrid />
       <Hero />
-      <Promotional />
       <AdditionalDetails />
       <About />
       <ProductCategory />
       <Products />
       <Industry />
-      <BentoGrid />
       
       <WhyChooseUs />
       <Testimonials />
-      <Promotional />
       <Blogs />
       <ContactUs />
       <Faq />
