@@ -15,11 +15,11 @@ export const MenuItems: MenuType[] = [
         path: "/about",
     },
     {
-        name: "Custom Printing",
+        name: "Custom",
         path: "/custom-printing",
     },
-    {
-        name: "Contact",
-        path: "/contact",
-    },
+    // {
+    //     name: "Contact",
+    //     path: "/contact",
+    // },
 ];
