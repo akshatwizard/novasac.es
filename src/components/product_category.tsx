@@ -29,7 +29,7 @@ export default function ProductCategory() {
             <Wrapper className="lg:gap-5">
 
                 <div className="flex flex-col gap-2 mb-10">
-                    <Heading>Discover our favourites</Heading>
+                    <Heading>Our Product Categories</Heading>
                     <SubHeading>Explore the most visited categories right now.</SubHeading>
                 </div>
 
