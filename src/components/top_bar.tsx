@@ -71,7 +71,7 @@ export default function TopBar() {
                             <TruckElectric size={18} strokeWidth={1.5} className='text-zinc-500' />
                             <Link href={"#"} className='text-zinc-600 text-sm transition-colors duration-300 ease-in-out hover:text-zinc-800'>
                                 <span>
-                                    Express Delievery
+                                    Express Delivery
                                 </span>
                             </Link>
                         </div>
