@@ -17,6 +17,7 @@ const teamMembers: TeamMember[] = [
         text: "text-primary-700",
         border: "border-primary-200",
         bar: "bg-primary-600",
+        image: "/images/about/Laura-San-Juan.jpg"
     },
     {
         initials: "CA",
@@ -151,7 +152,7 @@ export default function AboutUs() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <ImagePlaceholder
+                                {/* <ImagePlaceholder
                                     label="Journey image"
                                     icon={
                                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -159,6 +160,13 @@ export default function AboutUs() {
                                             <polyline points="9 22 9 12 15 12 15 22" />
                                         </svg>
                                     }
+                                /> */}
+                                <Image
+                                    src={"/images/about/img-1.jpeg"}
+                                    width={600}
+                                    height={450}
+                                    alt="A Journey of Progress"
+                                    className="w-full h-full"
                                 />
                             </motion.div>
 
@@ -253,13 +261,20 @@ export default function AboutUs() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <ImagePlaceholder
+                                {/* <ImagePlaceholder
                                     label="Legacy image"
                                     icon={
                                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                                         </svg>
                                     }
+                                /> */}
+                                <Image
+                                    src={"/images/about/img-2.jpeg"}
+                                    width={600}
+                                    height={450}
+                                    alt="A Journey of Progress"
+                                    className="w-full h-full"
                                 />
                             </motion.div>
                         </div>
@@ -278,7 +293,7 @@ export default function AboutUs() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <ImagePlaceholder
+                                {/* <ImagePlaceholder
                                     label="Services image"
                                     icon={
                                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -286,6 +301,13 @@ export default function AboutUs() {
                                             <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
                                         </svg>
                                     }
+                                /> */}
+                                <Image
+                                    src={"/images/about/img-3.jpeg"}
+                                    width={600}
+                                    height={450}
+                                    alt="A Journey of Progress"
+                                    className="w-full h-full"
                                 />
                             </motion.div>
 
@@ -374,9 +396,19 @@ export default function AboutUs() {
                             >
                                 <div className="flex items-start justify-between mb-8">
                                     <div
-                                        className={`w-14 h-14 rounded-2xl flex items-center justify-center  text-sm font-medium border ${member.bg} ${member.text} ${member.border}`}
+                                        className={`w-14 h-14 rounded-2xl flex items-center justify-center  text-sm font-medium border ${member.bg} ${member.text} ${member.border} overflow-hidden`}
                                     >
-                                        {member.initials}
+                                        {
+                                            member.image ?
+                                                <Image
+                                                    src={member.image}
+                                                    alt={member.name}
+                                                    width={56}
+                                                    height={56}
+                                                    className="w-full h-full object-cover object-top"
+                                                /> :
+                                                member.initials
+                                        }
                                     </div>
                                     <span className=" text-[10px] tracking-widest uppercase text-stone-500 pt-1">
                                         {member.experience}
@@ -470,6 +502,7 @@ interface TeamMember {
     text: string;
     border: string;
     bar: string;
+    image?: string
 }
 
 interface StatItem {
