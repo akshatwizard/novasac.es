@@ -409,7 +409,7 @@ export default function AboutUs() {
             </Section>
 
             {/* ── Footer CTA ── */}
-            <Section className="max-w-6xl mx-auto px-6 md:px-12 py-20 md:py-28 text-center">
+            <Section className="py-20 md:py-28 text-center">
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"
