@@ -8,7 +8,7 @@ import { Dispatch, SetStateAction, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast'
 import { useAuth } from '../context/auth_context';
 import { useRouter } from 'next/navigation';
-import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 
 type Props = {
     isOpen: boolean;
@@ -188,36 +188,14 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
         verifyOtp()
     };
 
-    // const handleGoogleLogin = () => {
-    //     if (typeof window === "undefined" || !window.google) {
-    //         toast.error("Google not loaded yet, try again");
-    //         return;
-    //     }
-
-    //     const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
-
-    //     if (!clientId) {
-    //         toast.error("Google Client ID not configured");
-    //         console.error("NEXT_PUBLIC_GOOGLE_CLIENT_ID is missing from .env.local");
-    //         return;
-    //     }
-
-    //     window.google.accounts.id.initialize({
-    //         client_id: clientId,
-    //         callback: (response: { credential: string }) => {
-    //             googleLogin(response.credential);
-    //         },
-    //     });
-
-    //     window.google.accounts.id.prompt();
-    // };
-
-    const googleLogin = useGoogleLogin({
-        onSuccess: async (tokenResponse) => {            
-            await googleLoginMutate(tokenResponse.access_token);
-        },
-        onError: () => toast.error("Google login failed"),
-    });
+    // const googleLogin = useGoogleLogin({
+    //     onSuccess: (tokenResponse) => {
+    //         console.log(tokenResponse.access_token);
+    //         console.log(tokenResponse);
+    //         googleLoginMutate(tokenResponse.access_token)
+    //     },
+    //     onError: () => toast.error("Google login failed"),
+    // });
     const spring = { type: "spring" as const, stiffness: 260, damping: 22 };
 
     return (
@@ -281,7 +259,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                             Sign in to your account to continue
                                         </p>
 
-                                        <button
+                                        {/* <button
                                             onClick={() => googleLogin()}
                                             disabled={googlePending}
                                             className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-2xl border-2 border-stone-200 bg-white text-zinc-700 text-sm font-medium hover:border-stone-300 hover:bg-stone-50 active:scale-[0.98] transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
@@ -291,7 +269,18 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                                 : <GoogleIcon />
                                             }
                                             Continue with Google
-                                        </button>
+                                        </button> */}
+                                        <GoogleLogin
+                                            onSuccess={
+                                                (credentialResponse) => {
+                                                    googleLoginMutate(credentialResponse.credential ?? "");
+                                                }}
+                                            onError={() => {
+                                                console.log('Login Failed');
+                                            }}
+                                            useOneTap
+                                            auto_select
+                                        />
 
                                         {/* Divider */}
                                         <div className="flex items-center gap-3 my-5">
