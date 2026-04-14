@@ -247,7 +247,7 @@ export default function AboutUs() {
                             </motion.div>
 
                             <motion.div
-                                className="order-1 md:order-2 aspect-[4/3] rounded-3xl overflow-hidden border border-stone-200"
+                                className="order-1 md:order-2 aspect-4/3 rounded-3xl overflow-hidden border border-stone-200"
                                 variants={fadeUp}
                                 initial="hidden"
                                 whileInView="show"
