@@ -3,6 +3,7 @@ import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import { Heading, SubHeading } from './ui/headings'
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from 'next/link';
 
 export default function ContactUs() {
     return (
@@ -26,11 +27,16 @@ export default function ContactUs() {
                             </div>
                             <div>
                                 <h4 className="font-semibold text-zinc-800">Our Address</h4>
-                                <p className="text-zinc-500 text-sm mt-1">
-                                    Industrial Area Phase 2, Sector 15
+                                <Link
+                                    href="https://maps.google.com/?q=Plaça del Professor Santiago Grisolia, 1, Valencia"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-zinc-500 text-sm mt-1 hover:text-primary-500"
+                                >
+                                    Plaça del Professor Santiago Grisolia, 1,
                                     <br />
-                                    Noida, Uttar Pradesh 201301, India
-                                </p>
+                                    Poblats Marítims, 46022 Valencia
+                                </Link>
                             </div>
                         </div>
 
@@ -40,11 +46,11 @@ export default function ContactUs() {
                             </div>
                             <div>
                                 <h4 className="font-semibold text-zinc-800">Email Address</h4>
-                                <p className="text-zinc-500 text-sm mt-1">
-                                    sales@packagingbags.com
-                                    <br />
-                                    support@packagingbags.com
-                                </p>
+                                <Link
+                                    href={"mailto:laura.sanjuan@novasac.es"}
+                                    className="text-zinc-500 text-sm mt-1 hover:text-primary-500">
+                                    laura.sanjuan@novasac.es
+                                </Link>
                             </div>
                         </div>
 
@@ -54,11 +60,13 @@ export default function ContactUs() {
                             </div>
                             <div>
                                 <h4 className="font-semibold text-zinc-800">Contact Number</h4>
-                                <p className="text-zinc-500 text-sm mt-1">
-                                    +91 98765 43210
-                                    <br />
-                                    +91 91234 56789
-                                </p>
+                                <Link href={"tel:+34628188044"} className="text-zinc-500 text-sm mt-1 hover:text-primary-500">
+                                    +34 628188044
+                                </Link>
+                                <br />
+                                <Link href={"tel:+34961070274"} className="text-zinc-500 text-sm mt-1 hover:text-primary-500">
+                                    +34 961070274
+                                </Link>
                             </div>
                         </div>
 
