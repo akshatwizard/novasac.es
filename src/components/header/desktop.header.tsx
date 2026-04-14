@@ -106,7 +106,7 @@ export default function DesktopHeader() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-full left-0 bg-white shadow-lg border border-zinc-100 w-60 rounded-md overflow-hidden"
+                        className="absolute top-full left-0 bg-white shadow-lg border border-zinc-100 w-max min-w-50 rounded-md overflow-hidden"
                       >
                         {attr.values.map((sub, j) => (
                           <Link

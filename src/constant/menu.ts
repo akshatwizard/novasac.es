@@ -15,8 +15,8 @@ export const MenuItems: MenuType[] = [
         path: "/about",
     },
     {
-        name: "Custom",
-        path: "/custom-printing",
+        name: "Custom-made Bulk Bags",
+        path: "/custom-made-bags",
     },
     // {
     //     name: "Contact",

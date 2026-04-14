@@ -1,5 +1,6 @@
 "use client";
 
+import { industries } from "@/constant/industries_data";
 import {
     Mail,
     Phone,
@@ -7,7 +8,9 @@ import {
     Instagram,
     Linkedin,
     Youtube,
+    MapIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -16,18 +19,19 @@ export default function Footer() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
 
+                    {/* Customer Service */}
                     <div>
                         <h4 className="font-semibold text-zinc-800 mb-4">
                             Customer Service
                         </h4>
 
                         <ul className="space-y-2">
-                            <li>About Us</li>
-                            <li>Company Information</li>
-                            <li>Frequently Asked Questions</li>
-                            <li>Shipping & Delivery</li>
-                            <li>Returns & Refunds</li>
-                            <li>Delivery Time & Information</li>
+                            <li><Link href="/about">About Us</Link></li>
+                            <li><Link href="/company-information">Company Information</Link></li>
+                            <li><Link href="/faq">Frequently Asked Questions</Link></li>
+                            <li><Link href="/shipping">Shipping & Delivery</Link></li>
+                            <li><Link href="/returns">Returns & Refunds</Link></li>
+                            <li><Link href="/delivery-info">Delivery Info</Link></li>
                         </ul>
                     </div>
 
@@ -38,73 +42,113 @@ export default function Footer() {
                         </h4>
 
                         <ul className="space-y-2">
-                            <li>Courier Bags</li>
-                            <li>Custom Printed Bags</li>
-                            <li>Reusable Packaging Bags</li>
-                            <li>Heavy Duty Bags</li>
-                            <li>Industrial Packaging</li>
-                            <li>Food Grade Bags</li>
-                            <li>Bulk Packaging Deals</li>
+                            <li><Link href="/products/courier-bags">Courier Bags</Link></li>
+                            <li><Link href="/products/custom-printed">Custom Printed Bags</Link></li>
+                            <li><Link href="/products/reusable">Reusable Packaging</Link></li>
+                            <li><Link href="/products/heavy-duty">Heavy Duty Bags</Link></li>
+                            <li><Link href="/products/industrial">Industrial Packaging</Link></li>
+                            <li><Link href="/products/food-grade">Food Grade Bags</Link></li>
+                            <li><Link href="/products/bulk">Bulk Deals</Link></li>
                         </ul>
                     </div>
 
-                    {/* Business */}
+                    {/* ✅ Industries We Serve (Dynamic) */}
                     <div>
                         <h4 className="font-semibold text-zinc-800 mb-4">
-                            Business
+                            Industries We Serve
                         </h4>
 
                         <ul className="space-y-2">
-                            <li>Custom Bulk Orders</li>
-                            <li>Wholesale Packaging Bags</li>
-                            <li>Private Label Packaging</li>
+                            {industries.map((industry) => (
+                                <li key={industry.slug}>
+                                    <Link href={`/industries/${industry.slug}`}>
+                                        {industry.title}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Contact */}
                     <div>
                         <h4 className="font-semibold text-zinc-800 mb-4">
-                            Packaging Bags Co.
+                            Contact Us
                         </h4>
 
                         <div className="space-y-3">
 
-                            <div className="flex items-center gap-2 text-primary-500">
+                            {/* Email */}
+                            <Link
+                                href="mailto:laura.sanjuan@novasac.es"
+                                className="flex items-center gap-2 text-primary-500"
+                            >
                                 <Mail size={18} />
-                                Send us an e-mail
-                            </div>
+                                laura.sanjuan@novasac.es
+                            </Link>
 
-                            <div className="flex items-center gap-2 text-primary-500">
+                            {/* Phone 1 */}
+                            <Link
+                                href="tel:+34628188044"
+                                className="flex items-center gap-2 text-primary-500"
+                            >
                                 <Phone size={18} />
-                                Book a call
-                            </div>
+                                +34 628 188 044
+                            </Link>
+
+                            {/* Phone 2 */}
+                            <Link
+                                href="tel:+34961070274"
+                                className="flex items-center gap-2 text-primary-500"
+                            >
+                                <Phone size={18} />
+                                +34 96 107 02 74
+                            </Link>
+
+                            {/* Location */}
+                            <Link
+                                href="https://maps.google.com/?q=Plaça del Professor Santiago Grisolia, 1, Valencia"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-start gap-2 text-primary-500"
+                            >
+                                <MapIcon size={18} className="shrink-0"/>
+                                Plaça del Professor Santiago Grisolia, 1,
+                                Poblats Marítims, 46022 Valencia
+                            </Link>
 
                         </div>
 
-                        {/* Social Icons */}
                         <div className="flex gap-3 mt-5">
 
-                            <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
-                                <Facebook size={16} />
-                            </div>
+                            <Link href="#">
+                                <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
+                                    <Facebook size={16} />
+                                </div>
+                            </Link>
 
-                            <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
-                                <Instagram size={16} />
-                            </div>
+                            <Link href="#">
+                                <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
+                                    <Instagram size={16} />
+                                </div>
+                            </Link>
 
-                            <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
-                                <Linkedin size={16} />
-                            </div>
+                            <Link href="#">
+                                <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
+                                    <Linkedin size={16} />
+                                </div>
+                            </Link>
 
-                            <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
-                                <Youtube size={16} />
-                            </div>
+                            <Link href="#">
+                                <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
+                                    <Youtube size={16} />
+                                </div>
+                            </Link>
 
                         </div>
-
                     </div>
                 </div>
 
+                {/* Bottom Section */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 py-6 border-t border-zinc-200">
 
                     <div className="flex items-center gap-3">
@@ -115,15 +159,14 @@ export default function Footer() {
                     </div>
 
                     <div className="text-center text-xs text-zinc-500">
-                        <span className="mx-3">Terms and Conditions</span>
-                        <span className="mx-3">Privacy Statement</span>
-                        <span className="mx-3">Cookie Policy</span>
+                        <Link href="/terms" className="mx-3">Terms and Conditions</Link>
+                        <Link href="/privacy" className="mx-3">Privacy Statement</Link>
+                        <Link href="/cookies" className="mx-3">Cookie Policy</Link>
                     </div>
 
                 </div>
 
                 <div className="text-center text-xs text-zinc-500 border-t border-zinc-200 py-5">
-
                     Copyright © {new Date().getFullYear()} Novasec.
                     <span className="mx-3">Design & developed by Wizards Next</span>
                 </div>
