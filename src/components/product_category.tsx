@@ -51,7 +51,7 @@ export default function ProductCategory() {
                     </SliderWrapper>
                 )}
 
-                <div className="flex justify-center mt-10">
+                {/* <div className="flex justify-center mt-10">
                     <Link
                         href="/categories"
                         className="group flex items-center gap-2 text-sm font-medium text-zinc-700 hover:text-primary-500 transition"
@@ -62,7 +62,7 @@ export default function ProductCategory() {
                             className="transition-transform group-hover:translate-x-1"
                         />
                     </Link>
-                </div>
+                </div> */}
 
             </Wrapper>
         </Section>

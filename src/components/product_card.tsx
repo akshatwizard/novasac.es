@@ -57,7 +57,7 @@ export default function ProductCard({ product }: Props) {
 
                     {/* Title */}
                     <Link
-                        href={`/${product.slug}/${product.attribute_value}`}
+                        href={`/products/${product.slug}/${product.attribute_value}`}
                         className="text-primary-600 leading-snug mt-1 block text-sm font-medium line-clamp-2 hover:underline underline-offset-2"
                     >
                         {product.title}
