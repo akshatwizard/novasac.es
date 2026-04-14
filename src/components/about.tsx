@@ -10,8 +10,8 @@ export default function About() {
             <Wrapper>
                 <div className='w-full grid grid-cols-1 md:grid-cols-[500px_1fr] gap-10 md:gap-4'>
                     <div className='w-full h-full'>
-                        <h1 className='lg:text-6xl md:text-5xl text-3xl leading-tight text-zinc-900'>
-                            Your partner in <strong className='text-primary-500'>packaging solutions</strong> since 1980
+                        <h1 className='lg:text-6xl md:text-5xl text-3xl leading-tight font-light text-zinc-900'>
+                            Your partner <br /> in <em className='text-primary-500'>packaging solutions</em> <br />since 1980
                         </h1>
                     </div>
 
