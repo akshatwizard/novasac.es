@@ -77,11 +77,11 @@ export default function AboutUs() {
                     className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
                     style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
                 >
-                    <Image src={"/images/hero/bags-each-clean-up.jpg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-right" />
+                    <Image src={"/images/hero/company.png"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" />
                 </div>
                 <Wrapper className="p-0!">
                     <div className="relative overflow-hidden border-b border-stone-200">
-                        <div className="relative py-24 md:py-36 grid md:grid-cols-2 gap-12 items-center">
+                        <div className="relative py-16 md:py-26 grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <motion.p
                                     className=" text-xs tracking-[0.2em] uppercase text-primary-500 mb-6"
