@@ -24,7 +24,7 @@ export default function About() {
                             We are NOVASAC, and we look forward to welcoming you to our family.
                         </p>
                         <Link
-                            href={"#"}
+                            href={"/about"}
                             className='px-5 py-2.5 bg-primary-500 text-white w-max mt-8 rounded-md font-medium text-lg flex items-center gap-1'
                         >
                             <ChevronRight size={18} strokeWidth={3} />
