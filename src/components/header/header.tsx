@@ -7,12 +7,14 @@ import { useState } from 'react';
 import { useAuth } from '@/context/auth_context';
 import LoginModal from '../login_modal';
 import { useRouter } from 'next/navigation';
+import MobileMenu from './mobile.header';
 
 export default function Header() {
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
     const [steps, setSteps] = useState<"login" | "otp">("login");
     const { isAuthenticated, user } = useAuth()
     const router = useRouter()
+    const [openMenu, setOpenMenu] = useState<boolean>(false);
 
 
     return (
@@ -59,11 +61,13 @@ export default function Header() {
                         </button>
 
                         <button className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
-                            <Search className="text-zinc-800" size={24} strokeWidth={1.5} />
+                            <Search className="text-white" size={24} strokeWidth={1.5} />
                         </button>
 
-                        <button className="md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
-                            <TextAlignJustify className="text-zinc-700" size={24} strokeWidth={1.5} />
+                        <button className="md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
+                            onClick={() => setOpenMenu(true)}
+                        >
+                            <TextAlignJustify className="text-white" size={24} strokeWidth={1.5} />
                         </button>
                     </div>
                 </nav>
@@ -73,6 +77,10 @@ export default function Header() {
                 onClose={() => setOpenLoginModal(false)}
                 currentStep={steps}
                 changeStep={setSteps}
+            />
+            <MobileMenu
+                isOpen={openMenu}
+                onClose={() => setOpenMenu(false)}
             />
         </>
     )

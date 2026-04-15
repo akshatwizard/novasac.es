@@ -139,10 +139,10 @@ export default function AboutUs() {
             </Section>
 
             <Section>
-                <Wrapper className="p-0!">
+                <Wrapper>
 
                     {/* ── Section 01 — Journey ── */}
-                    <div className="py-20 md:py-28">
+                    <div className="">
                         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
                             <motion.div
@@ -217,7 +217,7 @@ export default function AboutUs() {
                     <div className="border-t border-stone-200" />
 
                     {/* ── Section 02 — Legacy ── */}
-                    <div className="py-20 md:py-28">
+                    <div>
                         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
                             <motion.div
@@ -283,7 +283,7 @@ export default function AboutUs() {
                     <div className="border-t border-stone-200" />
 
                     {/* ── Section 03 — What We Do ── */}
-                    <div className="py-20 md:py-28">
+                    <div>
                         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
                             <motion.div

@@ -68,8 +68,8 @@ export default function Testimonials() {
                         </SliderWrapper>
 
                         {/* Edge fade overlays */}
-                        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-primary-100 to-transparent" />
-                        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-primary-100 to-transparent" />
+                        <div className="pointer-events-none absolute inset-y-0 left-0 lg:w-24 md:w-20 w-5 bg-linear-to-r from-primary-100 to-transparent" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 lg:w-24 md:w-20 w-5 bg-linear-to-l from-primary-100 to-transparent" />
                     </div>
                 )}
             </Wrapper>
