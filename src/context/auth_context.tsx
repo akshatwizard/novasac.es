@@ -16,6 +16,15 @@ type AuthContextType = {
     logout: () => void
 }
 
+function setCookie(name: string, value: string, days = 7): void {
+    const maxAge = days * 24 * 60 * 60;
+    document.cookie = `${name}=${value}; path=/; max-age=${maxAge}; SameSite=Lax; Secure=true`;
+}
+
+function deleteCookie(name: string): void {
+    document.cookie = `${name}=; path=/; max-age=0; SameSite=Lax`;
+}
+
 const AuthContext = createContext<AuthContextType | null>(null)
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -37,15 +46,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         const user = data.customer
 
         localStorage.setItem("access_token", token)
-        localStorage.setItem("user", JSON.stringify(user))
+        localStorage.setItem("user", JSON.stringify(user));
+
+        setCookie("access_token", token);
 
         setToken(token)
         setUser(user)
     }
 
     const logout = () => {
-        localStorage.removeItem("access_token")
-        localStorage.removeItem("user")
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("user");
+        deleteCookie("access_token");
         setToken(null)
         setUser(null)
     }

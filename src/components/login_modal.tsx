@@ -140,7 +140,6 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
         onSuccess: async (val) => {
             const data = val.data.data
             login(data)
-
             toast.success(val.data.message);
             setContact("");
             setOtp("");
