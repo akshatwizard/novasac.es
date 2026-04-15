@@ -23,14 +23,14 @@ export default function IndustryDetailPage({ slug }: Props) {
 
     return (
         <main className="min-h-screen">
-            <section className="relative h-[70vh] min-h-120 overflow-hidden">
+            <section className="relative h-[75vh] min-h-120 overflow-hidden">
 
                 <Image
                     src={industry.heroImage}
                     alt={industry.label}
                     fill
                     priority
-                    className="object-cover"
+                    className="object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/50 to-transparent" />
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variants } from "motion/react";
+import Image from "next/image";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 
@@ -170,13 +171,15 @@ export default function CustomBags() {
 
     return (
         <main className=" min-h-screen">
-
+            {/* custom-made-bags.jpeg */}
             {/* ── Hero ── */}
             <section className="relative overflow-hidden border-b border-stone-200">
                 <div
-                    className="absolute top-0 right-0 w-1/2 h-full bg-primary-50"
+                    className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
                     style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
-                />
+                >
+                    <Image src={"/images/about/custom-made-bags.jpeg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" />
+                </div>
                 <div className="relative max-w-7xl mx-auto max-lg:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
                     <div>
                         <motion.p
