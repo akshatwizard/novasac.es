@@ -180,7 +180,7 @@ export default function HeroBanner() {
                                         alt={banner.title}
                                         width={1200}
                                         height={500}
-                                        className="rounded-xl object-cover w-full h-100"
+                                        className="rounded-xl object-cover w-full lg:h-100 md:h-90 h-80"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         priority={idx === 0}
                                         fetchPriority={idx === 0 ? "high" : "auto"}

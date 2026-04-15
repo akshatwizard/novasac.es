@@ -49,8 +49,8 @@ export default function BentoGrid() {
                     {items.map((item, i) => (
                         <div
                             key={i}
-                            className={`group relative overflow-hidden rounded-2xl bg-neutral-900 ${item.large
-                                ? "md:col-span-2 h-100" : "h-80"}`}
+                            className={`group relative overflow-hidden bg-neutral-900 ${item.large
+                                ? "md:col-span-2 h-90" : "h-70"}`}
                         >
                             <Image
                                 src={item.image}
@@ -70,7 +70,7 @@ export default function BentoGrid() {
                             <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 p-6">
                                 <div>
                                     <h3
-                                        className={`font-bold w-max leading-tight text-white ${item.large ? "text-3xl md:text-4xl" : "text-xl"
+                                        className={`font-bold w-max leading-tight text-white ${item.large ? "text-2xl md:text-4xl" : "text-xl"
                                             }`}
                                     >
                                         {item.title}
