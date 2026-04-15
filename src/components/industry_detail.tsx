@@ -4,6 +4,8 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { industryDetails } from "@/constant/industries_data";
+import Section from "./ui/section";
+import Wrapper from "./ui/wrapper";
 
 
 interface Props {
@@ -60,103 +62,105 @@ export default function IndustryDetailPage({ slug }: Props) {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto py-16 md:py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            <Section>
+                <Wrapper>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
-                    <div className="lg:col-span-2 space-y-14">
-                        {industry.sections.map((section, i) => (
-                            <article key={i} className="group">
-                                {/* Section number + title */}
-                                <div className="flex items-start gap-4 mb-5">
-                                    <span
-                                        className={`font-display text-5xl font-bold leading-none select-none opacity-15 ${industry.accentText} mt-1`}
-                                    >
-                                        {String(i + 1).padStart(2, "0")}
-                                    </span>
-                                    <h2 className="font-display text-2xl md:text-3xl font-bold text-zinc-900 leading-snug pt-2">
-                                        {section.title}
-                                    </h2>
-                                </div>
+                        <div className="lg:col-span-2 space-y-14">
+                            {industry.sections.map((section, i) => (
+                                <article key={i} className="group">
+                                    {/* Section number + title */}
+                                    <div className="flex items-start gap-4 mb-5">
+                                        <span
+                                            className={`font-display text-5xl font-bold leading-none select-none opacity-15 ${industry.accentText} mt-1`}
+                                        >
+                                            {String(i + 1).padStart(2, "0")}
+                                        </span>
+                                        <h2 className="font-display text-2xl md:text-3xl font-bold text-zinc-900 leading-snug pt-2">
+                                            {section.title}
+                                        </h2>
+                                    </div>
 
-                                {/* Divider */}
+                                    {/* Divider */}
+                                    <div
+                                        className={`h-px w-full mb-6 bg-linear-to-r from-zinc-200 to-transparent`}
+                                    />
+
+                                    {/* Paragraphs */}
+                                    <div className="space-y-4">
+                                        {section.content.split("\n\n").map((para, j) => (
+                                            <p
+                                                key={j}
+                                                className="text-zinc-600 leading-relaxed text-[15px] md:text-base"
+                                            >
+                                                {para}
+                                            </p>
+                                        ))}
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+
+                        <aside className="lg:col-span-1">
+                            <div className="lg:sticky lg:top-16 space-y-6">
                                 <div
-                                    className={`h-px w-full mb-6 bg-linear-to-r from-zinc-200 to-transparent`}
-                                />
-
-                                {/* Paragraphs */}
-                                <div className="space-y-4">
-                                    {section.content.split("\n\n").map((para, j) => (
-                                        <p
-                                            key={j}
-                                            className="text-zinc-600 leading-relaxed text-[15px] md:text-base"
-                                        >
-                                            {para}
-                                        </p>
-                                    ))}
-                                </div>
-                            </article>
-                        ))}
-                    </div>
-
-                    <aside className="lg:col-span-1">
-                        <div className="lg:sticky lg:top-16 space-y-6">
-                            <div
-                                className={`rounded-2xl border-2 ${industry.accentBorder} bg-white p-7 shadow-sm`}
-                            >
-                                <h3 className="font-display text-xl font-bold text-zinc-900 mb-1">
-                                    Recommended Products
-                                </h3>
-                                <p className="text-xs text-zinc-400 mb-5 uppercase tracking-wide font-medium">
-                                    For {industry.label}
-                                </p>
-                                <ul className="space-y-3">
-                                    {industry.recommendedProducts.map((product, i) => (
-                                        <li
-                                            key={i}
-                                            className="flex items-start gap-3 text-sm text-zinc-700"
-                                        >
-                                            <CheckCircle2
-                                                size={17}
-                                                className={`mt-0.5 shrink-0 ${industry.accentText}`}
-                                            />
-                                            <span className="leading-snug">{product}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="rounded-2xl bg-zinc-900 p-7 text-white">
-                                <h3 className="font-display text-xl font-bold mb-2">
-                                    Get a Custom Quote
-                                </h3>
-                                <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                                    Tell us about your specific needs and we'll recommend the
-                                    perfect packaging solution.
-                                </p>
-                                <Link
-                                    href="/contact"
-                                    className={`block text-center text-sm font-semibold py-3 px-5 rounded-xl transition-all
-                    ${industry.accentColor} text-white hover:opacity-90 hover:shadow-lg`}
+                                    className={`rounded-2xl border-2 ${industry.accentBorder} bg-white p-7 shadow-sm`}
                                 >
-                                    Contact Our Team →
+                                    <h3 className="font-display text-xl font-bold text-zinc-900 mb-1">
+                                        Recommended Products
+                                    </h3>
+                                    <p className="text-xs text-zinc-400 mb-5 uppercase tracking-wide font-medium">
+                                        For {industry.label}
+                                    </p>
+                                    <ul className="space-y-3">
+                                        {industry.recommendedProducts.map((product, i) => (
+                                            <li
+                                                key={i}
+                                                className="flex items-start gap-3 text-sm text-zinc-700"
+                                            >
+                                                <CheckCircle2
+                                                    size={17}
+                                                    className={`mt-0.5 shrink-0 ${industry.accentText}`}
+                                                />
+                                                <span className="leading-snug">{product}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="rounded-2xl bg-zinc-900 p-7 text-white">
+                                    <h3 className="font-display text-xl font-bold mb-2">
+                                        Get a Custom Quote
+                                    </h3>
+                                    <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                                        Tell us about your specific needs and we'll recommend the
+                                        perfect packaging solution.
+                                    </p>
+                                    <Link
+                                        href="/contact"
+                                        className={`block text-center text-sm font-semibold py-3 px-5 rounded-xl transition-all
+                    ${industry.accentColor} text-white hover:opacity-90 hover:shadow-lg`}
+                                    >
+                                        Contact Our Team →
+                                    </Link>
+                                </div>
+
+                                {/* All industries link */}
+                                <Link
+                                    href="/industries"
+                                    className="flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-800 transition-colors group"
+                                >
+                                    <ArrowLeft
+                                        size={14}
+                                        className="group-hover:-translate-x-1 transition-transform"
+                                    />
+                                    View all industries
                                 </Link>
                             </div>
-
-                            {/* All industries link */}
-                            <Link
-                                href="/industries"
-                                className="flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-800 transition-colors group"
-                            >
-                                <ArrowLeft
-                                    size={14}
-                                    className="group-hover:-translate-x-1 transition-transform"
-                                />
-                                View all industries
-                            </Link>
-                        </div>
-                    </aside>
-                </div>
-            </div>
+                        </aside>
+                    </div>
+                </Wrapper>
+            </Section>
         </main>
     );
 }
