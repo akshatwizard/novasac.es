@@ -67,10 +67,10 @@ export default function BentoGrid() {
                                 </span>
                             )}
 
-                            <div className="absolute bottom-0 left-0 right-0 z-10 flex items-end justify-between gap-4 p-6">
+                            <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 p-6">
                                 <div>
                                     <h3
-                                        className={`font-bold leading-tight text-white ${item.large ? "text-3xl md:text-4xl" : "text-xl"
+                                        className={`font-bold w-max leading-tight text-white ${item.large ? "text-3xl md:text-4xl" : "text-xl"
                                             }`}
                                     >
                                         {item.title}
@@ -84,7 +84,7 @@ export default function BentoGrid() {
 
                                 <Link
                                     href={item.url}
-                                    className="flex shrink-0 translate-y-2 items-center gap-2 rounded-full bg-primary-500 px-5 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-white opacity-0 shadow-lg shadow-amber-400/20 transition-all duration-300 hover:bg-primary-600 group-hover:translate-y-0 group-hover:opacity-100"
+                                    className="flex w-max shrink-0 items-center gap-2 rounded-full bg-primary-500 px-5 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-white"
                                 >
                                     {item.cta}
                                     <svg
