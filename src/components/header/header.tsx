@@ -27,7 +27,7 @@ export default function Header() {
                             src={"/images/logo/logo-w.svg"}
                             width={150}
                             height={64}
-                            alt="Novasec"
+                            alt="Novasac"
                             className={`lg:w-28 md:w-24 sm:w-20 w-16 h-auto`}
                             loading="eager"
                             fetchPriority='high'

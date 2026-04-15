@@ -167,7 +167,7 @@ export default function Footer() {
                 </div>
 
                 <div className="text-center text-xs text-zinc-500 border-t border-zinc-200 py-5">
-                    Copyright © {new Date().getFullYear()} Novasec.
+                    Copyright © {new Date().getFullYear()} Novasac.
                     <span className="mx-3">Design & developed by Wizards Next</span>
                 </div>
 

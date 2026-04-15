@@ -25,8 +25,8 @@ const open_sans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Novasec",
-  description: "Novasec",
+  title: "Novasac",
+  description: "Novasac",
 };
 
 export default function RootLayout({
