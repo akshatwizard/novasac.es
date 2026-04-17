@@ -111,7 +111,7 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 className="flex items-start gap-2 text-primary-500"
                             >
-                                <MapIcon size={18} className="shrink-0"/>
+                                <MapIcon size={18} className="shrink-0" />
                                 Plaça del Professor Santiago Grisolia, 1,
                                 Poblats Marítims, 46022 Valencia
                             </Link>
@@ -120,25 +120,25 @@ export default function Footer() {
 
                         <div className="flex gap-3 mt-5">
 
-                            <Link href="#">
+                            <Link href="#" aria-label="Facebook Handle">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Facebook size={16} />
                                 </div>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="#" aria-label="Instagram Handle">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Instagram size={16} />
                                 </div>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="#" aria-label="LinkedIn Handle">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Linkedin size={16} />
                                 </div>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="#" aria-label="Youtube Handle">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Youtube size={16} />
                                 </div>
@@ -152,10 +152,10 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 py-6 border-t border-zinc-200">
 
                     <div className="flex items-center gap-3">
-                        <img src="/images/footer/mastercard.png" className="h-7" />
-                        <img src="/images/footer/visa.png" className="h-7" />
-                        <img src="/images/footer/paypal.png" className="h-7" />
-                        <img src="/images/footer/applepay.png" className="h-7" />
+                        <img alt="Payment Options" src="/images/footer/mastercard.png" className="h-7" />
+                        <img alt="Payment Options" src="/images/footer/visa.png" className="h-7" />
+                        <img alt="Payment Options" src="/images/footer/paypal.png" className="h-7" />
+                        <img alt="Payment Options" src="/images/footer/applepay.png" className="h-7" />
                     </div>
 
                     <div className="text-center text-xs text-zinc-500">
@@ -167,7 +167,7 @@ export default function Footer() {
                 </div>
 
                 <div className="text-center text-xs text-zinc-500 border-t border-zinc-200 py-5">
-                    Copyright © {new Date().getFullYear()} Novasec.
+                    Copyright © {new Date().getFullYear()} Novasac.
                     <span className="mx-3">Design & developed by Wizards Next</span>
                 </div>
 

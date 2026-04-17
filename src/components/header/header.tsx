@@ -27,7 +27,7 @@ export default function Header() {
                             src={"/images/logo/logo-w.svg"}
                             width={150}
                             height={64}
-                            alt="Novasec"
+                            alt="Novasac"
                             className={`lg:w-28 md:w-24 sm:w-20 w-16 h-auto`}
                             loading="eager"
                             fetchPriority='high'
@@ -38,36 +38,40 @@ export default function Header() {
                     <SearchBar />
 
                     <div className="flex items-center gap-2">
-                        <button className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                        <button name='Wishlist' className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
                             <Heart className="text-white" size={28} strokeWidth={1} fill='white' />
 
                             <span className="absolute flex items-center justify-center w-6 h-6 rounded-full bg-white -top-1.5 -right-1 text-xs text-primary-500">
                                 01
                             </span>
-
+                            <span className='sr-only'>Wishlist</span>
                         </button>
 
-                        <button className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                        <button name='Shopping cart' className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
                             <ShoppingCart className="text-white" size={28} strokeWidth={1} fill='white' />
                             <span className="absolute flex items-center justify-center w-6 h-6 rounded-full bg-white -top-1.5 -right-1 text-xs text-primary-500">
                                 03
                             </span>
+                            <span className='sr-only'>Shopping cart</span>
                         </button>
 
-                        <button className="hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer"
+                        <button name='Login' className="hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer"
                             onClick={() => isAuthenticated ? router.push(`/profile/${user?.customer_id}`) : setOpenLoginModal(true)}
                         >
                             <User className="text-white" size={28} strokeWidth={1} fill='white' />
+                            <span className='sr-only'>Account/Profile</span>
                         </button>
 
-                        <button className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
+                        <button name='Serch Now' className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
                             <Search className="text-white" size={24} strokeWidth={1.5} />
+                            <span className='sr-only'>Search Now</span>
                         </button>
 
-                        <button className="md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
+                        <button name='Open Menu' className="md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
                             onClick={() => setOpenMenu(true)}
                         >
                             <TextAlignJustify className="text-white" size={24} strokeWidth={1.5} />
+                            <span className='sr-only'>Open Menu</span>
                         </button>
                     </div>
                 </nav>

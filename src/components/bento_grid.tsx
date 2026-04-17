@@ -56,6 +56,12 @@ export default function BentoGrid() {
                                 src={item.image}
                                 alt={item.title}
                                 fill
+                                priority={i === 0 ? true : false}
+                                fetchPriority={i === 0 ? 'high' : "auto"}
+                                sizes={item.large
+                                    ? "(max-width: 768px) 100vw, 100vw"
+                                    : "(max-width: 768px) 100vw, 50vw"
+                                }
                                 className="object-cover brightness-90 saturate-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-[0.65]"
                             />
 

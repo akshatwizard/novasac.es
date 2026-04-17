@@ -37,40 +37,6 @@ export default function DesktopHeader() {
 
         <div className='flex items-center h-full'>
 
-          {/* {
-            MenuItems.slice(0, 2).map((items, idx) => {
-              const key = `static-top-${idx}`
-              return (
-                <div
-                  key={key}
-                  className='h-full relative px-4 group flex items-center text-sm font-medium text-primary-500'
-                  onMouseEnter={() => setActive(key)}
-                  onMouseLeave={() => setActive(null)}
-                >
-                  <Link
-                    href={items.path}
-                    className='h-full flex items-center'
-                  >
-                    {items.name}
-                  </Link>
-
-                  <AnimatePresence mode='popLayout'>
-                    {active === key && (
-                      <motion.span
-                        layoutId="nav-hover"
-                        className="absolute inset-x-0 bottom-0 bg-primary-600 h-0.5 rounded-full"
-                        initial={{ opacity: 0, scale: 0.97 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.98 }}
-                        transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
-                      />
-                    )}
-                  </AnimatePresence>
-                </div>
-              )
-            })
-          } */}
-
           {
             (isFetching || isLoading) && (
               Array.from({ length: 4 }).map((_, i) => (

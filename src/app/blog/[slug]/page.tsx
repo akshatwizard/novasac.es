@@ -42,8 +42,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     } catch (error) {
         console.error('Error generating metadata:', error);
         return {
-            title: 'Novasec',
-            description: 'Novasec',
+            title: 'Novasac',
+            description: 'Novasac',
         };
     }
 }
