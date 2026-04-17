@@ -44,7 +44,7 @@ export default function Header() {
                             <span className="absolute flex items-center justify-center w-6 h-6 rounded-full bg-white -top-1.5 -right-1 text-xs text-primary-500">
                                 01
                             </span>
-
+                            <span className='sr-only'>Wishlist</span>
                         </button>
 
                         <button name='Shopping cart' className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
@@ -52,22 +52,26 @@ export default function Header() {
                             <span className="absolute flex items-center justify-center w-6 h-6 rounded-full bg-white -top-1.5 -right-1 text-xs text-primary-500">
                                 03
                             </span>
+                            <span className='sr-only'>Shopping cart</span>
                         </button>
 
                         <button name='Login' className="hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer"
                             onClick={() => isAuthenticated ? router.push(`/profile/${user?.customer_id}`) : setOpenLoginModal(true)}
                         >
                             <User className="text-white" size={28} strokeWidth={1} fill='white' />
+                            <span className='sr-only'>Account/Profile</span>
                         </button>
 
                         <button name='Serch Now' className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
                             <Search className="text-white" size={24} strokeWidth={1.5} />
+                            <span className='sr-only'>Search Now</span>
                         </button>
 
                         <button name='Open Menu' className="md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
                             onClick={() => setOpenMenu(true)}
                         >
                             <TextAlignJustify className="text-white" size={24} strokeWidth={1.5} />
+                            <span className='sr-only'>Open Menu</span>
                         </button>
                     </div>
                 </nav>

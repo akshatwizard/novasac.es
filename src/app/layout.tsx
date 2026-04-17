@@ -1,27 +1,25 @@
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans, Inter, Geist } from "next/font/google";
+import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/lib/smooth_scroll";
 import TopBar from "@/components/top_bar";
 import Header from "@/components/header/header";
 import DesktopHeader from "@/components/header/desktop.header";
-import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
 import Providers from "@/lib/providers";
 import { AuthProvider } from "@/context/auth_context";
-import Script from "next/script";
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const montserrat = Montserrat({
   variable: "--font-montserrate",
-  preload: true
+  subsets: ["latin"],
+  display: "swap",
 });
 
 const open_sans = Open_Sans({
   variable: "--font-open-sans",
-  preload: true
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,23 +33,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en">
       <body
         className={`${montserrat.variable} ${open_sans.variable} antialiased`}
       >
+        <TopBar />
         <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
-          <SmoothScrollProvider>
-            <Providers>
-              <AuthProvider>
-                <TopBar />
-                <Header />
-                <DesktopHeader />
+          <Providers>
+            <AuthProvider>
+              <Header />
+              <DesktopHeader />
+              <SmoothScrollProvider>
                 {children}
-                <Footer />
-              </AuthProvider>
-            </Providers>
-          </SmoothScrollProvider>
+              </SmoothScrollProvider>
+            </AuthProvider>
+          </Providers>
         </GoogleOAuthProvider>
+        <Footer />
       </body>
     </html>
   );

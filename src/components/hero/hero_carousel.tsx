@@ -156,7 +156,7 @@ export default function HeroBanner() {
 
                 <img
                     src="/images/logo/logo.png"
-                    className="absolute bottom-2 right-10 max-w-36 opacity-50"
+                    className="hidden md:block absolute bottom-2 right-10 max-w-36 opacity-50"
                     alt="logo"
                 />
             </div>
