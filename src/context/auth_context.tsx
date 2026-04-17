@@ -1,5 +1,7 @@
 'use client';
+import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react"
+import toast from "react-hot-toast";
 
 type User = {
     id: number
@@ -30,6 +32,7 @@ const AuthContext = createContext<AuthContextType | null>(null)
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<User | null>(null)
     const [token, setToken] = useState<string | null>(null)
+    const router = useRouter()
 
     useEffect(() => {
         const storedToken = localStorage.getItem("access_token")
@@ -52,6 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
         setToken(token)
         setUser(user)
+        router.push(`/profile/${user?.customer_id}`)
     }
 
     const logout = () => {
@@ -60,6 +64,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         deleteCookie("access_token");
         setToken(null)
         setUser(null)
+        router.push("/")
+        toast.success("Logout Successful...!!")
     }
 
     return (

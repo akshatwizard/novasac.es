@@ -9,6 +9,7 @@ import Footer from "@/components/footer";
 import Providers from "@/lib/providers";
 import { AuthProvider } from "@/context/auth_context";
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({
   variable: "--font-montserrate",
@@ -38,7 +39,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${open_sans.variable} antialiased`}
       >
         <TopBar />
-        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
+        <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID!}>
           <Providers>
             <AuthProvider>
               <Header />
@@ -50,6 +51,7 @@ export default function RootLayout({
           </Providers>
         </GoogleOAuthProvider>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

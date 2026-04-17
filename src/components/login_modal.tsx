@@ -93,7 +93,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
     const [contact, setContact] = useState("");
     const [otp, setOtp] = useState("");
     const [resendCount, setResendCount] = useState(0);
-    const { login } = useAuth()
+    const { login, user } = useAuth()
     const router = useRouter()
 
     const maskedContact = contact.length > 4
@@ -158,9 +158,9 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
             );
         },
         onSuccess: async (val) => {
-            console.log(val.data);
             const data = val.data.data;
             login(data);
+            console.log(data);
             toast.success(val.data.message);
             setContact("");
             setOtp("");
@@ -187,14 +187,6 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
         verifyOtp()
     };
 
-    // const googleLogin = useGoogleLogin({
-    //     onSuccess: (tokenResponse) => {
-    //         console.log(tokenResponse.access_token);
-    //         console.log(tokenResponse);
-    //         googleLoginMutate(tokenResponse.access_token)
-    //     },
-    //     onError: () => toast.error("Google login failed"),
-    // });
     const spring = { type: "spring" as const, stiffness: 260, damping: 22 };
 
     return (
@@ -258,17 +250,6 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                             Sign in to your account to continue
                                         </p>
 
-                                        {/* <button
-                                            onClick={() => googleLogin()}
-                                            disabled={googlePending}
-                                            className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-2xl border-2 border-stone-200 bg-white text-zinc-700 text-sm font-medium hover:border-stone-300 hover:bg-stone-50 active:scale-[0.98] transition-all duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                                        >
-                                            {googlePending
-                                                ? <div className="w-4 h-4 border-2 border-stone-300 border-t-stone-600 rounded-full animate-spin" />
-                                                : <GoogleIcon />
-                                            }
-                                            Continue with Google
-                                        </button> */}
                                         <GoogleLogin
                                             onSuccess={
                                                 (credentialResponse) => {
