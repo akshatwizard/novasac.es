@@ -105,7 +105,7 @@ function SkeletonProfile() {
 }
 
 export default function Profile() {
-  const { token, logout } = useAuth()
+  const { token, logout, isLoggingOut } = useAuth()
 
   const { data: profile, isLoading, isError, error } = useQuery<ProfileData>({
     queryKey: ['customer-profile'],
@@ -149,8 +149,10 @@ export default function Profile() {
                 onClick={logout}
                 className="flex items-center gap-1.5 text-xs font-semibold text-rose-500 hover:text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-100 px-3 py-1.5 rounded-xl transition-all duration-150 cursor-pointer"
               >
-                <LogOut size={13} />
-                Logout
+                {isLoggingOut ? <div className="w-4 h-4 border-2 border-primary-300 border-t-primary-600 rounded-full animate-spin" /> : <>
+                  <LogOut size={13} />
+                  Logout
+                </>}
               </button>
             </div>
 
