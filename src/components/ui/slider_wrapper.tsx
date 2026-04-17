@@ -36,6 +36,7 @@ export default function SliderWrapper({ children, options, className, btnLeft, b
                 className={cn("absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-sm bg-black text-white flex items-center justify-center hover:bg-black cursor-pointer disabled:bg-black/40 disabled:cursor-not-allowed", btnLeft)}
             >
                 <MoveLeft size={13} />
+                <span className="sr-only">Previous slide</span>
             </button>
 
             <button
@@ -44,6 +45,7 @@ export default function SliderWrapper({ children, options, className, btnLeft, b
                 className={cn("absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-sm bg-black text-white flex items-center justify-center hover:bg-black cursor-pointer disabled:bg-black/40 disabled:cursor-not-allowed", btnRight)}
             >
                 <MoveRight size={13} />
+                <span className="sr-only">Next slide</span>
             </button>
         </section>
     );
