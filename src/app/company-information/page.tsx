@@ -35,7 +35,7 @@ export default function LegalInformation() {
                                 transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
                             >
                                 Company &amp;<br />
-                                <em className="italic text-primary-600">Legal Information</em>
+                                <strong className="text-primary-600">Legal Information</strong>
                             </motion.h1>
                             <motion.p
                                 className="md:text-base text-sm text-stone-500 max-w-md leading-relaxed"
