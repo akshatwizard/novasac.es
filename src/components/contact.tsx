@@ -1,11 +1,65 @@
-import React from 'react'
+'use client'
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import { Heading, SubHeading } from './ui/headings'
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from 'next/link';
+import { ChangeEvent, useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
+type ContactDetails = {
+    name: string;
+    email: string;
+    phone: string;
+    subject?: string;
+    message: string
+}
 
 export default function ContactUs() {
+    const [contactDetails, setContactDetails] = useState<ContactDetails>({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+    });
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target
+        setContactDetails(prevData => ({
+            ...prevData,
+            [name]: value
+        }))
+    }
+
+    const { mutate, isPending } = useMutation({
+        mutationFn: async () => {
+            return (
+                await axios.post("https://gangapapers.in/novasac/api/contact-submit", contactDetails)
+            )
+        },
+        onSuccess(value) {
+            toast.success(value.data?.message)
+            setContactDetails({
+                name: "",
+                email: "",
+                phone: "",
+                subject: "",
+                message: ""
+            })
+        },
+        onError(err) {
+            toast.error(err.message);
+        }
+    })
+
+    function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+        mutate()
+    }
+
     return (
         <Section>
             <Wrapper>
@@ -75,16 +129,22 @@ export default function ContactUs() {
                     {/* Contact Form */}
                     <div className="bg-white p-8 rounded-xl border border-zinc-200 shadow-sm">
 
-                        <form className="space-y-5">
+                        <form className="space-y-5" onSubmit={handleSubmit}>
 
                             <div className="grid sm:grid-cols-2 gap-4">
                                 <input
+                                    name='name'
                                     type="text"
+                                    onChange={handleChange}
+                                    value={contactDetails.name}
                                     placeholder="Your Name"
                                     className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                                 />
                                 <input
                                     type="email"
+                                    name='email'
+                                    onChange={handleChange}
+                                    value={contactDetails.email}
                                     placeholder="Email Address"
                                     className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                                 />
@@ -92,27 +152,37 @@ export default function ContactUs() {
 
                             <input
                                 type="tel"
+                                name='phone'
+                                onChange={handleChange}
+                                value={contactDetails.phone}
                                 placeholder="Phone Number"
                                 className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                             />
 
                             <input
                                 type="text"
+                                name='subject'
+                                onChange={handleChange}
+                                value={contactDetails.subject}
                                 placeholder="Subject"
                                 className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                             />
 
                             <textarea
                                 rows={5}
+                                name='message'
+                                onChange={handleChange}
+                                value={contactDetails.message}
                                 placeholder="Your Message"
                                 className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                             />
 
                             <button
                                 type="submit"
-                                className="w-full bg-primary-500 text-white py-3 rounded-lg font-medium hover:bg-primary-600 transition-colors"
+                                disabled={isPending}
+                                className="w-full bg-primary-500 text-white py-3 rounded-lg font-medium hover:bg-primary-600 transition-colors flex items-center justify-center"
                             >
-                                Send Message
+                                {isPending ? <div className="w-4 h-4 border-2 border-white border-t-zinc-800 rounded-full animate-spin" /> : "Send Message"}
                             </button>
 
                         </form>
