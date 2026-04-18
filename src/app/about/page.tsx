@@ -78,7 +78,7 @@ export default function AboutUs() {
                     className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
                     style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
                 >
-                    <Image src={"/images/hero/company.png"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" />
+                    {/* <Image src={"/images/hero/company.png"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" /> */}
                 </div>
                 <Wrapper className="p-0!">
                     <div className="relative overflow-hidden border-b border-stone-200">
@@ -100,7 +100,7 @@ export default function AboutUs() {
                                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
                                 >
                                     Flexible<br />
-                                    <em className="italic text-primary-600">Packaging,</em><br />
+                                    <strong className="text-primary-600">Packaging,</strong><br />
                                     Built on<br />Legacy
                                 </motion.h1>
 
@@ -140,7 +140,6 @@ export default function AboutUs() {
 
             <Section>
                 <Wrapper>
-
                     {/* ── Section 01 — Journey ── */}
                     <div className="">
                         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -180,7 +179,7 @@ export default function AboutUs() {
                                 <SectionLabel>01 — Journey</SectionLabel>
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
                                     A Journey<br />
-                                    <em className="italic text-primary-600">of Progress</em>
+                                    <strong className="text-primary-600">of Progress</strong>
                                 </h2>
                                 <p className=" text-sm md:text-base font-normal text-stone-500 leading-relaxed mb-10">
                                     Novasac's journey reflects steady growth built on experience,
@@ -231,7 +230,7 @@ export default function AboutUs() {
                                 <SectionLabel>02 — Legacy</SectionLabel>
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
                                     Our Story<br />
-                                    <em className="italic text-primary-600">&amp; Legacy</em>
+                                    <strong className="text-primary-600">&amp; Legacy</strong>
                                 </h2>
                                 <p className="md:text-base text-sm font-normal text-stone-500 leading-relaxed mb-4">
                                     Novasac is rooted in a strong family legacy that began with Valsac,
@@ -321,7 +320,7 @@ export default function AboutUs() {
                                 <SectionLabel>03 — Services</SectionLabel>
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
                                     What<br />
-                                    <em className="italic text-primary-600">We Do</em>
+                                    <strong className="text-primary-600">We Do</strong>
                                 </h2>
                                 <p className="md:text-base text-sm font-normal text-stone-500 leading-relaxed mb-8">
                                     At Novasac, we specialize in delivering high-quality, reliable, and
@@ -374,7 +373,7 @@ export default function AboutUs() {
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
                             <h2 className="font-mono text-4xl md:text-6xl font-light text-white leading-tight">
                                 The People<br />
-                                <em className="italic text-primary-400">Behind Novasac</em>
+                                <strong className="text-primary-400">Behind Novasac</strong>
                             </h2>
                             <p className=" text-sm font-light text-stone-400 max-w-xs leading-relaxed">
                                 The strength of Novasac lies in its experienced and dedicated team,
@@ -453,7 +452,7 @@ export default function AboutUs() {
                     </p>
                     <h2 className="font-mono text-4xl md:text-6xl font-light text-stone-900 mb-8 leading-tight">
                         Ready to work<br />
-                        <em className="italic text-primary-600">together?</em>
+                        <strong className="text-primary-600">together?</strong>
                     </h2>
                     <a
                         href="/contact"

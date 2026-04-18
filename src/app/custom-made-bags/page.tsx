@@ -179,7 +179,7 @@ export default function CustomBags() {
                     className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
                     style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
                 >
-                    <Image src={"/images/about/custom-made-bags.jpeg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" />
+                    {/* <Image src={"/images/about/custom-made-bags.jpeg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" /> */}
                 </div>
                 <Wrapper>
                     <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -199,7 +199,7 @@ export default function CustomBags() {
                                 transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
                             >
                                 Custom-made<br />
-                                <em className="italic text-primary-600">Bulk Bags</em>
+                                <strong className="text-primary-600">Bulk Bags</strong>
                             </motion.h1>
                             <motion.p
                                 className="font-sans md:text-base text-sm text-stone-500 leading-relaxed max-w-md"
@@ -266,7 +266,7 @@ export default function CustomBags() {
                                 </p>
                                 <h2 className="font-mono text-3xl md:text-4xl font-light text-stone-900">
                                     Tell us what<br />
-                                    <em className="italic text-primary-600">you need</em>
+                                    <strong className="text-primary-600">you need</strong>
                                 </h2>
                             </div>
 
@@ -593,27 +593,6 @@ export default function CustomBags() {
                     ))}
                 </div>
             </Section>
-
-            {/* ── Bottom CTA ── */}
-            {/* <section className="border-t border-stone-200 bg-[#FAFAF8]">
-                <div className="max-w-6xl mx-auto px-6 md:px-12 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
-                    <div>
-                        <p className="font-mono text-lg font-light text-stone-900">
-                            Not sure what you need?
-                        </p>
-                        <p className="font-sans text-sm text-stone-400 mt-1">
-                            Browse our standard range or speak to our packaging experts.
-                        </p>
-                    </div>
-                    <a
-                        href="/products"
-                        className="font-sans shrink-0 text-sm px-8 py-3 border border-stone-300 text-stone-700 rounded-full hover:border-primary-400 hover:text-primary-700 transition-colors duration-200"
-                    >
-                        View standard bags
-                    </a>
-                </div>
-            </section> */}
-
         </main>
     );
 }
