@@ -2,9 +2,12 @@
 
 import Section from "@/components/ui/section";
 import Wrapper from "@/components/ui/wrapper";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
 import { motion, Variants } from "motion/react";
 import Image from "next/image";
 import { useState, ChangeEvent, FormEvent } from "react";
+import toast from "react-hot-toast";
 
 
 interface FormData {
@@ -25,9 +28,6 @@ interface FormErrors {
     requestFor?: string;
     message?: string;
 }
-
-type SubmitStatus = "idle" | "loading" | "success" | "error";
-
 
 const fadeUp: Variants = {
     hidden: { opacity: 0, y: 28 },
@@ -116,6 +116,7 @@ const inputClass =
 
 
 export default function CustomBags() {
+    const queryClient = useQueryClient();
     const [form, setForm] = useState<FormData>({
         companyName: "",
         name: "",
@@ -128,7 +129,6 @@ export default function CustomBags() {
     });
 
     const [errors, setErrors] = useState<FormErrors>({});
-    const [status, setStatus] = useState<SubmitStatus>("idle");
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -162,15 +162,43 @@ export default function CustomBags() {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = async (e: FormEvent) => {
+    const { mutate, isPending, isSuccess, isError, error } = useMutation({
+        mutationFn: async () => {
+            return (
+                await axios.post("https://gangapapers.in/novasac/api/custom-made-bags/submit", form, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                })
+            )
+        },
+        onSuccess(val) {
+            toast.success(val.data?.message);
+            setForm({
+                companyName: "",
+                name: "",
+                email: "",
+                phone: "",
+                requestFor: "",
+                message: "",
+                attachment: null,
+                marketing: false,
+            })
+            setTimeout(() => {
+                queryClient.resetQueries(); // or reset mutation
+            }, 3000);
+        },
+        onError(err) {
+
+
+            toast.error(err.message);
+        }
+    })
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!validate()) return;
-        setStatus("loading");
-        // Simulate API call — replace with your actual endpoint
-        await new Promise((r) => setTimeout(r, 1500));
-        setStatus("success");
+        mutate()
     };
-
     return (
         <main className=" min-h-screen">
 
@@ -270,7 +298,7 @@ export default function CustomBags() {
                                 </h2>
                             </div>
 
-                            {status === "success" ? (
+                            {isSuccess ? (
                                 <motion.div
                                     className="bg-white border border-primary-200 rounded-2xl p-10 text-center"
                                     initial={{ opacity: 0, scale: 0.97 }}
@@ -294,7 +322,7 @@ export default function CustomBags() {
                                     className="bg-white border border-stone-200 rounded-2xl p-6 md:p-8 space-y-5"
                                     noValidate
                                 >
-                                    {status === "error" && (
+                                    {isError && (
                                         <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3">
                                             <p className="font-sans text-sm text-red-600">
                                                 Your request could not be sent to our team. Please try again.
@@ -434,10 +462,10 @@ export default function CustomBags() {
                                     {/* Submit */}
                                     <button
                                         type="submit"
-                                        disabled={status === "loading"}
+                                        disabled={isPending}
                                         className="w-full font-sans text-sm px-6 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                     >
-                                        {status === "loading" ? (
+                                        {isPending ? (
                                             <>
                                                 <svg className="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                     <path d="M21 12a9 9 0 11-6.219-8.56" />
