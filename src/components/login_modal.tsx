@@ -160,7 +160,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
         onSuccess: async (val) => {
             const data = val.data.data;
             login(data);
-            console.log(data);
+            // console.log(data);
             toast.success(val.data.message);
             setContact("");
             setOtp("");
@@ -168,8 +168,10 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
             router.refresh();
             onClose();
         },
-        onError: (err: AxiosError<{ error: string }>) =>
-            toast.error(err.response?.data?.error || "Google login failed"),
+        onError: (err: AxiosError<{ error: string }>) => {
+            // console.log(err.response?.data);
+            toast.error(err.response?.data?.error || "Google login failed")
+        }
     });
 
     const handleSendOtp = () => {

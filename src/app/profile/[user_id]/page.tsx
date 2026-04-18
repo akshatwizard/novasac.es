@@ -121,7 +121,7 @@ export default function Profile() {
     enabled: !!token,
     staleTime: 1000 * 60 * 5,
   })
-
+  
   const accountAgeDays = profile
     ? Math.floor((Date.now() - new Date(profile.created_at).getTime()) / 86400000)
     : 0
