@@ -2,6 +2,7 @@
 
 import Section from "@/components/ui/section";
 import Wrapper from "@/components/ui/wrapper";
+import { BadgeCheck, Layers, LucideIcon, Settings2, ShieldCheck, Wallet } from "lucide-react";
 import { motion, Variants } from "motion/react";
 import Image from "next/image";
 
@@ -64,9 +65,11 @@ const industries: string[] = [
 ];
 
 const features: FeatureItem[] = [
-    { label: "Quality control", icon: "✓" },
-    { label: "Custom solutions", icon: "◈" },
-    { label: "Cost-effective", icon: "◎" },
+    { label: "Delivering High Quality", icon: BadgeCheck },
+    { label: "Reliable", icon: ShieldCheck },
+    { label: "Customized Bags", icon: Settings2 },
+    { label: "Design to meet various Industries", icon: Layers },
+    { label: "Practical, Durable and Cost Effective", icon: Wallet },
 ];
 
 
@@ -75,14 +78,14 @@ export default function AboutUs() {
         <main className="text-stone-800 min-h-screen">
             <Section className="relative overflow-hidden">
                 <div
-                    className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
-                    style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
+                    className="hidden md:inline-block absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
+                    style={{ clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)" }}
                 >
-                    {/* <Image src={"/images/hero/company.png"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" /> */}
+                    <Image src={"/images/hero/about.png"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" />
                 </div>
                 <Wrapper className="p-0!">
                     <div className="relative overflow-hidden border-b border-stone-200">
-                        <div className="relative py-16 md:py-26 grid md:grid-cols-2 gap-12 items-center">
+                        <div className="relative py-12 md:py-20 grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <motion.p
                                     className=" text-xs tracking-[0.2em] uppercase text-primary-500 mb-6"
@@ -114,25 +117,6 @@ export default function AboutUs() {
                                     customized packaging solutions for industries worldwide.
                                 </motion.p>
                             </div>
-
-                            <div className="hidden md:grid grid-cols-2 gap-4">
-                                {stats.map((stat, i) => (
-                                    <motion.div
-                                        key={stat.label}
-                                        className="bg-white border border-stone-200 rounded-2xl p-6"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 + i * 0.08 }}
-                                    >
-                                        <div className="font-mono text-4xl font-light text-primary-600 mb-1">
-                                            {stat.num}
-                                        </div>
-                                        <div className=" text-xs text-stone-400 leading-snug">
-                                            {stat.label}
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
                         </div>
                     </div>
                 </Wrapper>
@@ -140,8 +124,31 @@ export default function AboutUs() {
 
             <Section>
                 <Wrapper>
+                    <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+                        {stats.map((stat, i) => (
+                            <motion.div
+                                key={stat.label}
+                                className="bg-white border border-stone-200 rounded-2xl p-6 shadow-lg shadow-slate-500/10"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 + i * 0.08 }}
+                            >
+                                <div className="font-mono text-4xl font-light text-primary-600 mb-1">
+                                    {stat.num}
+                                </div>
+                                <div className=" text-xs text-stone-400 leading-snug">
+                                    {stat.label}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </Wrapper>
+            </Section>
+
+            <Section>
+                <Wrapper>
                     {/* ── Section 01 — Journey ── */}
-                    <div className="">
+                    <div>
                         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
                             <motion.div
@@ -269,11 +276,11 @@ export default function AboutUs() {
                                     }
                                 /> */}
                                 <Image
-                                    src={"/images/about/img-2.jpeg"}
+                                    src={"/images/about/our-story-&-legacy.jpg"}
                                     width={600}
                                     height={450}
                                     alt="A Journey of Progress"
-                                    className="w-full h-full"
+                                    className="w-full h-full object-cover"
                                 />
                             </motion.div>
                         </div>
@@ -284,7 +291,6 @@ export default function AboutUs() {
                     {/* ── Section 03 — What We Do ── */}
                     <div>
                         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-
                             <motion.div
                                 className="aspect-4/3 rounded-3xl overflow-hidden border border-stone-200"
                                 variants={fadeUp}
@@ -302,11 +308,11 @@ export default function AboutUs() {
                                     }
                                 /> */}
                                 <Image
-                                    src={"/images/about/img-3.jpeg"}
+                                    src={"/images/about/what-do-we-do.png"}
                                     width={600}
                                     height={450}
                                     alt="A Journey of Progress"
-                                    className="w-full h-full"
+                                    className="w-full h-full object-cover"
                                 />
                             </motion.div>
 
@@ -345,10 +351,12 @@ export default function AboutUs() {
                                     {features.map((item) => (
                                         <div
                                             key={item.label}
-                                            className="bg-white border border-stone-200 rounded-2xl p-4 text-center hover:border-primary-300 transition-all duration-200 hover:[box-shadow:var(--shadow-soft)]"
+                                            className="bg-white border border-stone-200 rounded-2xl p-4 flex justify-between flex-col gap-2 hover:border-primary-300 transition-all duration-200 hover:[box-shadow:var(--shadow-soft)]"
                                         >
-                                            <div className="text-primary-600 text-lg mb-2">{item.icon}</div>
-                                            <p className=" text-[11px] text-stone-500 leading-snug">
+                                            <div className="text-primary-600 text-lg mb-2">
+                                                {<item.icon size={16} />}
+                                            </div>
+                                            <p className=" text-sm text-stone-500 leading-snug">
                                                 {item.label}
                                             </p>
                                         </div>
@@ -490,7 +498,6 @@ function SectionLabel({ children, light = false }: SectionLabelProps) {
     );
 }
 
-
 interface TeamMember {
     initials: string;
     name: string;
@@ -517,7 +524,7 @@ interface TimelineStep {
 
 interface FeatureItem {
     label: string;
-    icon: string;
+    icon: LucideIcon;
 }
 
 interface ImagePlaceholderProps {
