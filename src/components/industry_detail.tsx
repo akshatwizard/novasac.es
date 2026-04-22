@@ -32,7 +32,7 @@ export default function IndustryDetailPage({ slug }: Props) {
                     alt={industry.label}
                     fill
                     priority
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/50 to-transparent" />
 

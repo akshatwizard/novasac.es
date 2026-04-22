@@ -77,7 +77,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-amber-600",
     accentText: "text-amber-700",
     accentBorder: "border-amber-300",
-    heroImage: "/images/industry/construction.jpeg",
+    heroImage: "/images/industry/construction.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -115,7 +115,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-green-700",
     accentText: "text-green-800",
     accentBorder: "border-green-300",
-    heroImage: "/images/industry/food-agriculture.jpeg",
+    heroImage: "/images/industry/food-agriculture.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -153,7 +153,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-blue-700",
     accentText: "text-blue-800",
     accentBorder: "border-blue-300",
-    heroImage: "/images/industry/chemical.jpeg",
+    heroImage: "/images/industry/chemical.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -189,7 +189,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-teal-700",
     accentText: "text-teal-800",
     accentBorder: "border-teal-300",
-    heroImage: "/images/industry/recycle-and-wast-management.jpeg",
+    heroImage: "/images/industry/recycle-and-wast-management.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -221,7 +221,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-stone-700",
     accentText: "text-stone-800",
     accentBorder: "border-stone-400",
-    heroImage: "/images/industry/mining.jpeg",
+    heroImage: "/images/industry/mining.png",
     sections: [
       {
         title: "About Our Solutions",
