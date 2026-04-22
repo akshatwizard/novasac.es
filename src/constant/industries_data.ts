@@ -1,12 +1,21 @@
-import { HardHat, Wheat, FlaskConical, Recycle, Pickaxe } from "lucide-react";
+import { HardHat, Wheat, FlaskConical, Recycle, Pickaxe, LucideIcon } from "lucide-react";
 
-export const industries = [
+export interface Industry {
+  title: string;
+  slug: string;
+  description: string;
+  icon: LucideIcon;
+  image: string;
+}
+
+export const industries: Industry[] = [
   {
     slug: "construction",
     title: "Construction Industry",
     description:
       "Durable and heavy-duty packaging bags designed for transporting cement, sand, and construction materials safely.",
     icon: HardHat,
+    image: "/images/industry/img-1.png",
   },
   {
     slug: "food-agriculture",
@@ -14,6 +23,7 @@ export const industries = [
     description:
       "Food-grade and moisture-resistant bags ideal for storing and transporting grains and agricultural products.",
     icon: Wheat,
+    image: "/images/industry/img-2.png",
   },
   {
     slug: "chemical",
@@ -21,6 +31,7 @@ export const industries = [
     description:
       "Specialized packaging solutions built to safely handle chemicals, powders, and industrial materials.",
     icon: FlaskConical,
+    image: "/images/industry/img-3.png",
   },
   {
     slug: "recycling-waste",
@@ -28,6 +39,7 @@ export const industries = [
     description:
       "Strong and eco-friendly bags suitable for collecting and transporting recyclable materials.",
     icon: Recycle,
+    image: "/images/industry/img-4.png",
   },
   {
     slug: "mining",
@@ -35,6 +47,7 @@ export const industries = [
     description:
       "High-strength industrial bags designed to carry minerals, ores, and heavy mining materials.",
     icon: Pickaxe,
+    image: "/images/industry/img-5.png",
   },
 ];
 
@@ -64,7 +77,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-amber-600",
     accentText: "text-amber-700",
     accentBorder: "border-amber-300",
-    heroImage: "/images/industry/construction.jpeg",
+    heroImage: "/images/industry/construction.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -102,7 +115,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-green-700",
     accentText: "text-green-800",
     accentBorder: "border-green-300",
-    heroImage: "/images/industry/food-agriculture.jpeg",
+    heroImage: "/images/industry/food-agriculture.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -140,7 +153,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-blue-700",
     accentText: "text-blue-800",
     accentBorder: "border-blue-300",
-    heroImage: "/images/industry/chemical.jpeg",
+    heroImage: "/images/industry/chemical.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -176,7 +189,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-teal-700",
     accentText: "text-teal-800",
     accentBorder: "border-teal-300",
-    heroImage: "/images/industry/recycle-and-wast-management.jpeg",
+    heroImage: "/images/industry/recycle-and-wast-management.png",
     sections: [
       {
         title: "About Our Solutions",
@@ -208,7 +221,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-stone-700",
     accentText: "text-stone-800",
     accentBorder: "border-stone-400",
-    heroImage: "/images/industry/mining.jpeg",
+    heroImage: "/images/industry/mining.png",
     sections: [
       {
         title: "About Our Solutions",

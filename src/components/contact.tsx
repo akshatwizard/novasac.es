@@ -4,7 +4,7 @@ import Wrapper from './ui/wrapper'
 import { Heading, SubHeading } from './ui/headings'
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from 'next/link';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -55,7 +55,7 @@ export default function ContactUs() {
         }
     })
 
-    function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         mutate()
     }

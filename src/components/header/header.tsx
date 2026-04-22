@@ -8,6 +8,7 @@ import { useAuth } from '@/context/auth_context';
 import LoginModal from '../login_modal';
 import { useRouter } from 'next/navigation';
 import MobileMenu from './mobile.header';
+import MobileStrip from './mobile_strip';
 
 export default function Header() {
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
@@ -19,7 +20,7 @@ export default function Header() {
 
     return (
         <>
-            <header className='w-full bg-primary-500 lg:px-12 md:px-10 px-8'>
+            <header className='w-full bg-primary-500 lg:px-12 md:px-10 px-4'>
 
                 <nav className="w-full py-1.5 lg:px-1.5 mx-auto max-w-7xl flex items-center justify-between gap-5">
                     <Link className="relative shrink-0" href="/">
@@ -85,6 +86,9 @@ export default function Header() {
             <MobileMenu
                 isOpen={openMenu}
                 onClose={() => setOpenMenu(false)}
+            />
+            <MobileStrip
+                openLoginModal={setOpenLoginModal}
             />
         </>
     )
