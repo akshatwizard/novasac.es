@@ -1,12 +1,21 @@
-import { HardHat, Wheat, FlaskConical, Recycle, Pickaxe } from "lucide-react";
+import { HardHat, Wheat, FlaskConical, Recycle, Pickaxe, LucideIcon } from "lucide-react";
 
-export const industries = [
+export interface Industry {
+  title: string;
+  slug: string;
+  description: string;
+  icon: LucideIcon;
+  image: string;
+}
+
+export const industries: Industry[] = [
   {
     slug: "construction",
     title: "Construction Industry",
     description:
       "Durable and heavy-duty packaging bags designed for transporting cement, sand, and construction materials safely.",
     icon: HardHat,
+    image: "/images/industry/img-1.png",
   },
   {
     slug: "food-agriculture",
@@ -14,6 +23,7 @@ export const industries = [
     description:
       "Food-grade and moisture-resistant bags ideal for storing and transporting grains and agricultural products.",
     icon: Wheat,
+    image: "/images/industry/img-2.png",
   },
   {
     slug: "chemical",
@@ -21,6 +31,7 @@ export const industries = [
     description:
       "Specialized packaging solutions built to safely handle chemicals, powders, and industrial materials.",
     icon: FlaskConical,
+    image: "/images/industry/img-3.png",
   },
   {
     slug: "recycling-waste",
@@ -28,6 +39,7 @@ export const industries = [
     description:
       "Strong and eco-friendly bags suitable for collecting and transporting recyclable materials.",
     icon: Recycle,
+    image: "/images/industry/img-4.png",
   },
   {
     slug: "mining",
@@ -35,6 +47,7 @@ export const industries = [
     description:
       "High-strength industrial bags designed to carry minerals, ores, and heavy mining materials.",
     icon: Pickaxe,
+    image: "/images/industry/img-5.png",
   },
 ];
 
