@@ -17,26 +17,26 @@ const items: GridItems[] = [
     {
         title: "Our Popular Product",
         description: "High-quality branded packaging solutions for businesses of every scale.",
-        image: "/images/bento/img-1.jpg",
+        image: "/images/bento/popular_product.png",
         large: true,
         cta: "Shop Now",
-        url: "#",
+        url: "/popular-products",
         tag: "Featured"
     },
     {
         title: "Big Bag Outlet",
         description: "Strong and durable bags for construction and industrial materials.",
-        image: "/images/bento/img-2.jpg",
+        image: "/images/bento/big_bag.png",
         cta: "Go To Outlet",
-        url: "#",
+        url: "/category/big-bags",
         tag: "Industrial"
     },
     {
         title: "Best Deals",
         description: "Curated offers updated weekly.",
-        image: "/images/bento/img-3.jpg",
+        image: "/images/bento/best_deal.png",
         cta: "Check All Deals",
-        url: "#",
+        url: "/category/asbestos-bags",
         tag: "Offers"
     },
 ];
@@ -62,7 +62,7 @@ export default function BentoGrid() {
                                     ? "(max-width: 768px) 100vw, 100vw"
                                     : "(max-width: 768px) 100vw, 50vw"
                                 }
-                                className="object-cover brightness-90 saturate-90 transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-[0.65]"
+                                className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-[0.65]"
                             />
 
                             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90 group-hover:via-black/40" />
