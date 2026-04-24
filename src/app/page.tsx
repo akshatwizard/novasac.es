@@ -1,12 +1,12 @@
 import About from '@/components/about'
 import AdditionalDetails from '@/components/additional_details'
 import BentoGrid from '@/components/bento_grid'
-import Blogs from '@/components/blogs'
+// import Blogs from '@/components/blogs'
 import ContactUs from '@/components/contact'
 import Faq from '@/components/faq'
 import Hero from '@/components/hero/hero'
 import Industry from '@/components/industry'
-import NewsLetter from '@/components/news_letter'
+// import NewsLetter from '@/components/news_letter'
 import ProductCategory from '@/components/product_category'
 import Products from '@/components/new_arrival_products'
 // import Promotional from '@/components/promotional'
@@ -28,10 +28,10 @@ export default function Home() {
       {/* <TrendingProducts /> */}
       <WhyChooseUs />
       <Testimonials />
-      <Blogs />
+      {/* <Blogs /> */}
       <ContactUs />
       <Faq />
-      <NewsLetter />
+      {/* <NewsLetter /> */}
     </main>
   )
 }
