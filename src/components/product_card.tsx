@@ -1,10 +1,11 @@
 import { ProductData } from "@/types/home_product.types";
+import { SPProducts } from "@/types/search_product.type";
 import { Star, StarHalf, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-    product: ProductData;
+    product: ProductData | SPProducts;
 }
 
 const DEFAULT_MRP = 999;
@@ -31,7 +32,7 @@ export default function ProductCard({ product }: Props) {
                 {/* Image */}
                 <div className="overflow-hidden rounded-t-xl">
                     <Image
-                        src={product.image}
+                        src={product.image ?? "/images/no-image.svg"}
                         alt={product.title}
                         width={500}
                         height={400}
@@ -48,16 +49,9 @@ export default function ProductCard({ product }: Props) {
                         {product.category.title}
                     </span>
 
-                    {/* Attribute value e.g. "500g / Pack of 10" */}
-                    {product.attribute_value && (
-                        <p className="text-[10px] text-zinc-400 font-medium">
-                            {product.attribute_value}
-                        </p>
-                    )}
-
                     {/* Title */}
                     <Link
-                        href={`/products/${product.slug}/${product.attribute_value}`}
+                        href={`/products/${product.slug}/${product.attribute_value ?? product.attribute_value_slug}`}
                         className="text-primary-600 leading-snug mt-1 block text-sm font-medium line-clamp-2 hover:underline underline-offset-2"
                     >
                         {product.title}
