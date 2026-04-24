@@ -11,7 +11,9 @@ interface FilterPanelProps {
 
 export default function FilterPanel({ filters, activeFilters, onFilterChange, onClearAll }: FilterPanelProps) {
     const totalActive = Object.values(activeFilters).reduce((sum, arr) => sum + arr.length, 0)
-    const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
+    const [collapsed, setCollapsed] = useState<Record<string, boolean>>(() =>
+        Object.fromEntries(filters.map((f) => [f.slug, true]))
+    )
     const [drawerOpen, setDrawerOpen] = useState(false)
 
     const toggleCollapse = (slug: string) =>
