@@ -1,6 +1,9 @@
 "use client";
 
 import { industries } from "@/constant/industries_data";
+import { HomeCategoryData, HomeCategoryResponse } from "@/types/home_category.types";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import {
     Mail,
     Phone,
@@ -13,6 +16,16 @@ import {
 import Link from "next/link";
 
 export default function Footer() {
+    const { data, isLoading, error, isFetching } = useQuery<HomeCategoryData[]>({
+        queryKey: ["home_category"],
+        queryFn: async () => {
+            const res = await axios.get<HomeCategoryResponse>(
+                "https://gangapapers.in/novasac/api/home/category"
+            );
+            return res.data.data;
+        },
+    });
+
     return (
         <footer className="bg-zinc-100 pt-16 text-sm text-zinc-600">
             <div className="max-w-7xl mx-auto px-6">
@@ -28,10 +41,10 @@ export default function Footer() {
                         <ul className="space-y-2">
                             <li><Link href="/about">About Us</Link></li>
                             <li><Link href="/company-information">Company Information</Link></li>
-                            <li><Link href="/faq">Frequently Asked Questions</Link></li>
-                            <li><Link href="/shipping">Shipping & Delivery</Link></li>
-                            <li><Link href="/returns">Returns & Refunds</Link></li>
-                            <li><Link href="/delivery-info">Delivery Info</Link></li>
+                            <li><Link href="/#faq">Frequently Asked Questions</Link></li>
+                            <li><Link href="/custom-made-bags">Custom-made Bulk Bags</Link></li>
+                            <li><Link href="/contact">Contact Us</Link></li>
+                            {/* <li><Link href="/delivery-info">Delivery Info</Link></li> */}
                         </ul>
                     </div>
 
@@ -41,14 +54,23 @@ export default function Footer() {
                             Assortment
                         </h4>
 
-                        <ul className="space-y-2">
-                            <li><Link href="/products/courier-bags">Courier Bags</Link></li>
-                            <li><Link href="/products/custom-printed">Custom Printed Bags</Link></li>
-                            <li><Link href="/products/reusable">Reusable Packaging</Link></li>
-                            <li><Link href="/products/heavy-duty">Heavy Duty Bags</Link></li>
-                            <li><Link href="/products/industrial">Industrial Packaging</Link></li>
-                            <li><Link href="/products/food-grade">Food Grade Bags</Link></li>
-                            <li><Link href="/products/bulk">Bulk Deals</Link></li>
+                        <ul className="space-y-1">
+                            {
+                                (isFetching || isLoading) && (
+                                    Array.from({ length: 7 }).map((_, i) => (
+                                        <div key={i} className='w-24 bg-white h-3 mr-5 animate-pulse' />
+                                    ))
+                                )
+                            }
+                            {
+                                data?.map((menu) => (
+                                    <li key={menu.id}>
+                                        <Link href={`/category/${menu.slug}`}>
+                                            {menu.title}
+                                        </Link>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
 

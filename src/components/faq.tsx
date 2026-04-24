@@ -81,7 +81,7 @@ export default function Faq() {
     });
 
     return (
-        <Section>
+        <Section id='faq'>
             <Wrapper>
                 <div className="w-full flex flex-col gap-2">
                     <Heading>Frequently Asked Questions</Heading>

@@ -48,9 +48,9 @@ export default function RootLayout({
                 {children}
               </SmoothScrollProvider>
             </AuthProvider>
+            <Footer />
           </Providers>
         </GoogleOAuthProvider>
-        <Footer />
         <Toaster />
       </body>
     </html>
