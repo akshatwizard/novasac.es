@@ -10,7 +10,8 @@ export type ProductData = {
     mrp: number | null
     offer_rate: number | null;
     sku: string | null;
-    attribute_value: string
+    attribute_value?: string
+    attribute_value_slug?: string
     category: {
         title: string;
         slug: string;

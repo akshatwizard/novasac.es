@@ -47,19 +47,6 @@ export default function Products() {
                         ))
                     )}
                 </div>
-
-                {/* <div className="flex justify-center mt-10">
-                    <Link
-                        href="/products"
-                        className="group flex items-center gap-2 text-sm font-medium text-zinc-700 hover:text-primary-500 transition"
-                    >
-                        View Other Products
-                        <ChevronRight
-                            size={18}
-                            className="transition-transform group-hover:translate-x-1"
-                        />
-                    </Link>
-                </div> */}
             </Wrapper>
         </Section>
     );
