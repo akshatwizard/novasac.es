@@ -203,12 +203,6 @@ export default function CustomBags() {
         <main className=" min-h-screen">
 
             <Section className="overflow-hidden relative">
-                <div
-                    className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
-                    style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
-                >
-                    {/* <Image src={"/images/about/custom-made-bags.jpeg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" /> */}
-                </div>
                 <Wrapper>
                     <div className="grid md:grid-cols-2 gap-10 items-center">
                         <div>
@@ -253,26 +247,38 @@ export default function CustomBags() {
                         </div>
 
                         <motion.div
-                            className="hidden md:flex flex-col gap-3"
+                            className="w-full h-full"
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                         >
-                            {features.map((f, i) => (
-                                <div
-                                    key={f.title}
-                                    className="flex items-start gap-4 bg-white border border-stone-200 rounded-2xl px-5 py-4"
-                                >
-                                    <div className="w-9 h-9 shrink-0 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center">
-                                        {f.icon}
-                                    </div>
-                                    <div>
-                                        <p className="font-sans text-sm font-medium text-stone-800">{f.title}</p>
-                                        <p className="font-sans text-xs text-stone-400 leading-relaxed mt-0.5">{f.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
+                            <Image
+                                src={"/images/custom-bag/bag.jpg"}
+                                alt="Custom Bags"
+                                width={1080}
+                                height={1080}
+                                className="w-full h-full object-contain"
+                                priority
+
+                            />
                         </motion.div>
+                    </div>
+
+                    <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-2">
+                        {features.map((f, i) => (
+                            <div
+                                key={f.title}
+                                className="flex items-start gap-4 bg-white border border-stone-200 rounded-2xl px-5 py-4"
+                            >
+                                <div className="w-9 h-9 shrink-0 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center">
+                                    {f.icon}
+                                </div>
+                                <div>
+                                    <p className="font-sans text-sm font-medium text-stone-800">{f.title}</p>
+                                    <p className="font-sans text-xs text-stone-400 leading-relaxed mt-0.5">{f.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </Wrapper>
             </Section>
@@ -624,3 +630,5 @@ export default function CustomBags() {
         </main>
     );
 }
+
+
