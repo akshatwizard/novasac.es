@@ -11,6 +11,7 @@ import MobileMenu from './mobile.header';
 import MobileStrip from './mobile_strip';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useSearchSuggestions } from '@/hooks/search';
+import MobileSearch from '../mobile_search';
 
 export default function Header() {
     const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
@@ -105,7 +106,9 @@ export default function Header() {
                             <span className='sr-only'>Account/Profile</span>
                         </button>
 
-                        <button name='Serch Now' className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer">
+                        <button name='Serch Now' className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
+                            onClick={() => setOpenMobileSearch(true)}
+                        >
                             <Search className="text-white" size={24} strokeWidth={1.5} />
                             <span className='sr-only'>Search Now</span>
                         </button>
@@ -132,6 +135,10 @@ export default function Header() {
             />
             <MobileStrip
                 openLoginModal={setOpenLoginModal}
+            />
+            <MobileSearch
+                open={openMobileSearch}
+                onClose={() => setOpenMobileSearch(false)}
             />
         </>
     )
