@@ -1,4 +1,3 @@
-// components/Industry.tsx
 import Link from "next/link";
 import Image from "next/image";
 import Section from "./ui/section";
@@ -38,7 +37,7 @@ export default function Industry() {
                                 />
 
                                 {/* ── Gradient: top open, bottom white so content is readable ── */}
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent via-white/70 to-white/95 pointer-events-none" />
+                                <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/95 pointer-events-none" />
 
                                 <div className="relative z-10 p-6 flex flex-col gap-2 h-full justify-between">
                                     {/* Icon badge */}
@@ -53,9 +52,9 @@ export default function Industry() {
                                             </h3>
                                         </div>
 
-                                        <p className="text-sm text-zinc-600 leading-tight">
+                                        {/* <p className="text-sm text-zinc-600 leading-tight">
                                             {item.description}
-                                        </p>
+                                        </p> */}
 
                                         {/* Learn more row */}
                                         <div className="flex items-center gap-1.5 mt-1">
