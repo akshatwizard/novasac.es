@@ -66,32 +66,39 @@ export default function IndustryDetailPage({ slug }: Props) {
                 <Wrapper>
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
-                        <div className="lg:col-span-2 space-y-14">
+                        <div className="lg:col-span-2 space-y-10">
                             {industry.sections.map((section, i) => (
-                                <article key={i} className="group">
-                                    {/* Section number + title */}
+                                <article
+                                    key={i}
+                                    className="group overflow-hidden relative rounded-2xl border border-zinc-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-lg transition-all duration-300"
+                                >
+                                    {/* Top Accent Bar */}
+                                    <div className={`absolute top-0 left-0 w-full h-1 rounded-t-2xl ${industry.accentColor}`} />
+
+                                    {/* Header */}
                                     <div className="flex items-start gap-4 mb-5">
                                         <span
-                                            className={`font-display text-5xl font-bold leading-none select-none opacity-15 ${industry.accentText} mt-1`}
+                                            className={`font-display text-4xl md:text-5xl font-bold leading-none opacity-10 ${industry.accentText}`}
                                         >
                                             {String(i + 1).padStart(2, "0")}
                                         </span>
-                                        <h2 className="font-display text-2xl md:text-3xl font-bold text-zinc-900 leading-snug pt-2">
-                                            {section.title}
-                                        </h2>
+
+                                        <div>
+                                            <h2 className="font-display text-xl md:text-2xl font-semibold text-zinc-900 leading-snug">
+                                                {section.title}
+                                            </h2>
+
+                                            {/* Small underline */}
+                                            <div className={`mt-2 h-0.5 w-10 ${industry.accentColor} rounded-full`} />
+                                        </div>
                                     </div>
 
-                                    {/* Divider */}
-                                    <div
-                                        className={`h-px w-full mb-6 bg-linear-to-r from-zinc-200 to-transparent`}
-                                    />
-
-                                    {/* Paragraphs */}
+                                    {/* Content */}
                                     <div className="space-y-4">
                                         {section.content.split("\n\n").map((para, j) => (
                                             <p
                                                 key={j}
-                                                className="text-zinc-600 leading-relaxed text-[15px] md:text-base"
+                                                className="text-zinc-600 leading-relaxed text-sm md:text-[15px]"
                                             >
                                                 {para}
                                             </p>

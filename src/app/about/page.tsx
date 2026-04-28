@@ -133,10 +133,10 @@ export default function AboutUs() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 + i * 0.08 }}
                             >
-                                <div className="font-mono text-4xl font-light text-primary-600 mb-1">
+                                <div className="font-mono lg:text-5xl md:text-4xl text-3xl font-semibold text-primary-600 mb-1">
                                     {stat.num}
                                 </div>
-                                <div className=" text-xs text-stone-400 leading-snug">
+                                <div className=" text-xs lg:text-base md:text-sm text-stone-400 leading-snug">
                                     {stat.label}
                                 </div>
                             </motion.div>
@@ -168,7 +168,7 @@ export default function AboutUs() {
                                     }
                                 /> */}
                                 <Image
-                                    src={"/images/about/img-1.jpeg"}
+                                    src={"/images/about/Journey-of-progress.png"}
                                     width={600}
                                     height={450}
                                     alt="A Journey of Progress"
@@ -203,10 +203,10 @@ export default function AboutUs() {
                                         <div key={step.label} className="flex items-start flex-1">
                                             <div className="flex flex-col items-center flex-1">
                                                 <div className={`w-3 h-3 rounded-full ${step.dot} mb-2 mt-1`} />
-                                                <p className=" text-xs font-medium text-stone-700 text-center leading-snug">
+                                                <p className=" text-sm md:text-base font-medium text-stone-700 text-center leading-snug">
                                                     {step.label}
                                                 </p>
-                                                <p className=" text-[10px] text-stone-400 mt-1">
+                                                <p className=" text-xs md:text-sm text-stone-400 mt-1">
                                                     {step.sub}
                                                 </p>
                                             </div>
@@ -367,8 +367,8 @@ export default function AboutUs() {
                     </div>
                 </Wrapper>
             </Section>
-            {/* ── Section 04 — Team ── */}
 
+            {/* ── Section 04 — Team ── */}
             <Section className="bg-stone-900">
                 <Wrapper>
                     <motion.div
@@ -394,53 +394,63 @@ export default function AboutUs() {
                         {teamMembers.map((member, i) => (
                             <motion.div
                                 key={member.name}
-                                className="group bg-stone-800 border border-stone-700 rounded-3xl p-8 hover:border-primary-600 transition-colors duration-300 flex flex-col"
+                                className="group relative h-96 overflow-hidden rounded-3xl border border-stone-700 hover:border-primary-600 transition-all duration-300"
                                 variants={fadeUp}
                                 custom={i * 0.12}
                                 initial="hidden"
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.15 }}
                             >
-                                <div className="flex items-start justify-between mb-8">
-                                    <div
-                                        className={`w-14 h-14 rounded-2xl flex items-center justify-center  text-sm font-medium border ${member.bg} ${member.text} ${member.border} overflow-hidden`}
-                                    >
-                                        {
-                                            member.image ?
-                                                <Image
-                                                    src={member.image}
-                                                    alt={member.name}
-                                                    width={56}
-                                                    height={56}
-                                                    className="w-full h-full object-cover object-top"
-                                                /> :
-                                                member.initials
-                                        }
-                                    </div>
-                                    <span className=" text-[10px] tracking-widest uppercase text-stone-500 pt-1">
-                                        {member.experience}
-                                    </span>
+                                {/* Background */}
+                                <div className="absolute inset-0">
+                                    {member.image ? (
+                                        <Image
+                                            src={member.image}
+                                            alt={member.name}
+                                            fill
+                                            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    ) : (
+                                        <div
+                                            className={`w-full h-full flex items-center justify-center text-7xl md:text-8xl font-mono font-light ${member.bg} ${member.text}`}
+                                        >
+                                            {member.initials}
+                                        </div>
+                                    )}
+
+                                    {/* Overlay */}
+                                    {/* <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/20 to-transparent md:group-hover:from-black/90" /> */}
                                 </div>
 
-                                <div className="flex-1">
-                                    <h3 className="font-mono text-2xl font-light text-white mb-1">
+                                {/* DEFAULT CONTENT (always visible) */}
+                                <div className="absolute group-hover:opacity-0 bottom-0 w-full p-6 z-10 transition-all duration-200">
+                                    <h3 className="font-mono text-xl md:text-2xl text-white">
                                         {member.name}
                                     </h3>
-                                    <p className=" text-xs text-stone-400 tracking-wide uppercase mb-5">
+                                    <p className="text-xs text-primary-400 uppercase tracking-wide">
                                         {member.role}
                                     </p>
-                                    <p className=" text-sm font-light text-stone-400 leading-relaxed">
+                                </div>
+
+                                {/* HOVER CONTENT (desktop only) */}
+                                <div className="hidden md:flex absolute inset-0 flex-col justify-end p-6 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 z-20">
+                                    <h3 className="font-mono text-2xl text-white mb-1">
+                                        {member.name}
+                                    </h3>
+                                    <p className="text-xs text-primary-400 uppercase tracking-wide mb-3">
+                                        {member.role}
+                                    </p>
+                                    <p className="text-sm text-stone-300 leading-relaxed">
                                         {member.bio}
                                     </p>
                                 </div>
 
-                                <motion.div
-                                    className={`mt-8 h-0.5 ${member.bar} rounded-full origin-left`}
-                                    style={{ width: "100%" }}
-                                    initial={{ scaleX: 0.15 }}
-                                    whileHover={{ scaleX: 1 }}
-                                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                                />
+                                {/* MOBILE EXPANDED CONTENT */}
+                                <div className="md:hidden absolute inset-x-0 bottom-0 p-6 z-20">
+                                    <p className="text-sm text-stone-300 leading-relaxed mt-2">
+                                        {member.bio}
+                                    </p>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
