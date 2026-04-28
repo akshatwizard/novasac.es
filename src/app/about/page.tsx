@@ -133,10 +133,10 @@ export default function AboutUs() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 + i * 0.08 }}
                             >
-                                <div className="font-mono text-4xl font-light text-primary-600 mb-1">
+                                <div className="font-mono lg:text-5xl md:text-4xl text-3xl font-semibold text-primary-600 mb-1">
                                     {stat.num}
                                 </div>
-                                <div className=" text-xs text-stone-400 leading-snug">
+                                <div className=" text-xs lg:text-base md:text-sm text-stone-400 leading-snug">
                                     {stat.label}
                                 </div>
                             </motion.div>
@@ -203,10 +203,10 @@ export default function AboutUs() {
                                         <div key={step.label} className="flex items-start flex-1">
                                             <div className="flex flex-col items-center flex-1">
                                                 <div className={`w-3 h-3 rounded-full ${step.dot} mb-2 mt-1`} />
-                                                <p className=" text-xs font-medium text-stone-700 text-center leading-snug">
+                                                <p className=" text-sm md:text-base font-medium text-stone-700 text-center leading-snug">
                                                     {step.label}
                                                 </p>
-                                                <p className=" text-[10px] text-stone-400 mt-1">
+                                                <p className=" text-xs md:text-sm text-stone-400 mt-1">
                                                     {step.sub}
                                                 </p>
                                             </div>
