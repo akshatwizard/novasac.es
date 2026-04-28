@@ -401,7 +401,7 @@ export default function AboutUs() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.15 }}
                             >
-                                {/* Background Image / Initial */}
+                                {/* Background */}
                                 <div className="absolute inset-0">
                                     {member.image ? (
                                         <Image
@@ -418,17 +418,36 @@ export default function AboutUs() {
                                         </div>
                                     )}
 
+                                    {/* Overlay */}
+                                    {/* <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/20 to-transparent md:group-hover:from-black/90" /> */}
                                 </div>
 
-                                {/* Content Overlay */}
-                                <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                                    <h3 className="font-mono text-2xl font-light text-white mb-1">
+                                {/* DEFAULT CONTENT (always visible) */}
+                                <div className="absolute group-hover:opacity-0 bottom-0 w-full p-6 z-10 transition-all duration-200">
+                                    <h3 className="font-mono text-xl md:text-2xl text-white">
                                         {member.name}
                                     </h3>
-                                    <p className="text-xs text-primary-400 tracking-wide uppercase mb-3">
+                                    <p className="text-xs text-primary-400 uppercase tracking-wide">
                                         {member.role}
                                     </p>
-                                    <p className="text-sm font-light text-stone-300 leading-relaxed">
+                                </div>
+
+                                {/* HOVER CONTENT (desktop only) */}
+                                <div className="hidden md:flex absolute inset-0 flex-col justify-end p-6 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 z-20">
+                                    <h3 className="font-mono text-2xl text-white mb-1">
+                                        {member.name}
+                                    </h3>
+                                    <p className="text-xs text-primary-400 uppercase tracking-wide mb-3">
+                                        {member.role}
+                                    </p>
+                                    <p className="text-sm text-stone-300 leading-relaxed">
+                                        {member.bio}
+                                    </p>
+                                </div>
+
+                                {/* MOBILE EXPANDED CONTENT */}
+                                <div className="md:hidden absolute inset-x-0 bottom-0 p-6 z-20">
+                                    <p className="text-sm text-stone-300 leading-relaxed mt-2">
                                         {member.bio}
                                     </p>
                                 </div>
