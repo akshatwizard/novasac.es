@@ -15,7 +15,7 @@ interface FormData {
     name: string;
     email: string;
     phone: string;
-    requestFor: string;
+    // requestFor: string;
     message: string;
     attachment: File | null;
     marketing: boolean;
@@ -122,7 +122,7 @@ export default function CustomBags() {
         name: "",
         email: "",
         phone: "",
-        requestFor: "",
+        // requestFor: "",
         message: "",
         attachment: null,
         marketing: false,
@@ -156,7 +156,7 @@ export default function CustomBags() {
         else if (!/\S+@\S+\.\S+/.test(form.email))
             newErrors.email = "Enter a valid email address.";
         if (!form.phone.trim()) newErrors.phone = "Phone number is required.";
-        if (!form.requestFor) newErrors.requestFor = "Please select a request type.";
+        // if (!form.requestFor) newErrors.requestFor = "Please select a request type.";
         if (!form.message.trim()) newErrors.message = "Message is required.";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -179,7 +179,7 @@ export default function CustomBags() {
                 name: "",
                 email: "",
                 phone: "",
-                requestFor: "",
+                // requestFor: "",
                 message: "",
                 attachment: null,
                 marketing: false,
@@ -385,7 +385,7 @@ export default function CustomBags() {
                                     </Field>
 
                                     {/* Request For — styled radio cards */}
-                                    <Field label="Request For" required error={errors.requestFor}>
+                                    {/* <Field label="Request For" required error={errors.requestFor}>
                                         <div className="grid gap-2 mt-1">
                                             {requestOptions.map((opt) => (
                                                 <label
@@ -407,7 +407,7 @@ export default function CustomBags() {
                                                 </label>
                                             ))}
                                         </div>
-                                    </Field>
+                                    </Field> */}
 
                                     {/* Message */}
                                     <Field label="Your Message" required error={errors.message}>
