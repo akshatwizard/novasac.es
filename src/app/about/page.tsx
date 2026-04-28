@@ -168,7 +168,7 @@ export default function AboutUs() {
                                     }
                                 /> */}
                                 <Image
-                                    src={"/images/about/img-1.jpeg"}
+                                    src={"/images/about/Journey-of-progress.png"}
                                     width={600}
                                     height={450}
                                     alt="A Journey of Progress"
