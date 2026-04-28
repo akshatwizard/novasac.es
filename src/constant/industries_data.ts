@@ -64,6 +64,7 @@ interface IndustryDetail {
   accentColor: string;   // Tailwind bg class for the accent pill / icon bg
   accentText: string;    // Tailwind text class
   accentBorder: string;  // Tailwind border class
+  // bgColor:string;
   heroImage: string;     // path or URL
   sections: Section[];
   recommendedProducts: string[];
@@ -77,6 +78,7 @@ export const industryDetails: IndustryDetail[] = [
     accentColor: "bg-amber-600",
     accentText: "text-amber-700",
     accentBorder: "border-amber-300",
+    // bgColor:"bg-amber-100",
     heroImage: "/images/industry/construction.png",
     sections: [
       {
