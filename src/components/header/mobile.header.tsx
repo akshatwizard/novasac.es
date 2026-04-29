@@ -7,6 +7,7 @@ import { MenuResponse } from "@/types/menu.types";
 import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
+import { MenuItems } from "@/constant/menu";
 
 type Props = {
     isOpen: boolean;
@@ -38,7 +39,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.25 }}
                         onClick={onClose}
-                        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+                        className="max-[1150px]:block hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
                     />
 
                     <motion.div
@@ -46,7 +47,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
                         animate={{ x: 0 }}
                         exit={{ x: "-100%" }}
                         transition={{ type: "spring", stiffness: 320, damping: 32 }}
-                        className="fixed inset-y-0 left-0 z-50 flex w-[88%] max-w-90 flex-col bg-white shadow-2xl"
+                        className="hidden fixed inset-y-0 left-0 z-50 max-[1150px]:flex w-[88%] max-w-90 flex-col bg-white shadow-2xl"
                         data-lenis-prevent
                     >
                         <div className="flex items-center justify-between border-b border-zinc-100 px-5 py-4">
@@ -156,17 +157,32 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
                                     );
                                 })
                             }
-                            <div className="border-b border-zinc-50">
-                                <Link
-                                    href={"/custom-made-bags"}
-                                    className={`flex w-full items-center gap-3 px-5 py-3.5 text-left transition-colors duration-200 text-zinc-700 hover:bg-zinc-50`}
-                                    onClick={onClose}
-                                >
-                                    <span className="flex-1 text-sm font-semibold tracking-wide">
-                                        Custom-made Bulk Bags
-                                    </span>
-                                </Link>
-                            </div>
+
+                            {
+                                MenuItems.map((menu, idx) => (
+                                    <div className="border-b border-zinc-50" key={menu.name}>
+                                        <Link
+                                            href={menu.path}
+                                            className={`flex w-full items-center gap-3 px-5 py-3.5 text-left transition-colors duration-200 text-zinc-700 hover:bg-zinc-50`}
+                                            onClick={onClose}
+                                        >
+                                            {menu.icon && (
+                                                <div className="relative size-8 shrink-0 overflow-hidden rounded-lg bg-zinc-100">
+                                                    <Image
+                                                        src={menu.icon}
+                                                        alt={menu.name}
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                </div>
+                                            )}
+                                            <span className="flex-1 text-sm font-semibold tracking-wide">
+                                                {menu.name}
+                                            </span>
+                                        </Link>
+                                    </div>
+                                ))
+                            }
                         </div>
 
                         {/* Footer */}

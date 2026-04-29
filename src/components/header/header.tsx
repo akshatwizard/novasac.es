@@ -113,7 +113,7 @@ export default function Header() {
                             <span className='sr-only'>Search Now</span>
                         </button>
 
-                        <button name='Open Menu' className="md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
+                        <button name='Open Menu' className="hidden max-[1150px]:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
                             onClick={() => setOpenMenu(true)}
                         >
                             <TextAlignJustify className="text-white" size={24} strokeWidth={1.5} />

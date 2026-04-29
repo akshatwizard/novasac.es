@@ -31,11 +31,11 @@ export default function DesktopHeader() {
 
 
   return (
-    <div className={`sticky top-0 z-40 w-full ${scrolled ? "shadow-md bg-white/80 backdrop-blur-md" : "bg-white"} border-b border-zinc-200 max-md:hidden lg:px-12 md:px-10 px-8 h-12`}>
+    <div className={`sticky top-0 z-40 w-full ${scrolled ? "shadow-md bg-white/80 backdrop-blur-md" : "bg-white"} border-b border-zinc-200 max-[1150px]:hidden lg:px-12 md:px-10 px-8 h-12`}>
 
       <div className='w-full max-w-7xl mx-auto flex items-center h-full justify-between'>
 
-        <div className='flex items-center h-full'>
+        <div className='flex items-center h-full gap-1'>
 
           {
             (isFetching || isLoading) && (
@@ -51,12 +51,12 @@ export default function DesktopHeader() {
               return (
                 <div
                   key={key}
-                  className='h-full relative px-2 group flex items-center text-sm font-medium text-primary-500'
+                  className='h-full relative px-1.5 group flex items-center text-sm font-medium text-primary-500'
                   onMouseEnter={() => setActive(key)}
                   onMouseLeave={() => setActive(null)}
                 >
 
-                  <span className="cursor-pointer flex items-center gap-2.5 h-full">
+                  <span className="cursor-pointer flex items-center gap-1.5 h-full">
                     {item.title}
                     <ChevronDown
                       size={12}
@@ -114,7 +114,7 @@ export default function DesktopHeader() {
               return (
                 <div
                   key={key}
-                  className='h-full relative px-4 group flex items-center text-sm font-medium text-primary-500'
+                  className='h-full relative px-1.5 group flex items-center text-sm font-medium text-primary-500'
                   onMouseEnter={() => setActive(key)}
                   onMouseLeave={() => setActive(null)}
                 >
