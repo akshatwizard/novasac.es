@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "gangapapers.in",
       },
+      {
+        protocol: "https",
+        hostname: "www.gangapapers.in",
+      },
     ],
   },
 };

@@ -22,7 +22,7 @@ type NormalizedBanner = {
     content: string
     desktopImage: string
     mobileImage: string
-    banner_link: boolean
+    collection_link: string | null
 }
 
 const fallbackBanners: NormalizedBanner[] = [
@@ -30,7 +30,7 @@ const fallbackBanners: NormalizedBanner[] = [
         title: "Custom Printed Packaging Bags",
         desktopImage: "/images/hero/banner-3.jpg",
         mobileImage: "/images/hero/banner-3.jpg",
-        banner_link: false,
+        collection_link: null,
         content:
             "Enhance your brand visibility with our Custom Printed Packaging Bags. Manufactured with advanced printing technology, these bags provide vibrant branding, durability, and professional packaging solutions.",
     },
@@ -38,7 +38,7 @@ const fallbackBanners: NormalizedBanner[] = [
         title: "Food Grade Packaging Bags",
         desktopImage: "/images/hero/banner-4.jpg",
         mobileImage: "/images/hero/banner-4.jpg",
-        banner_link: true,
+        collection_link: null,
         content:
             "Our Food Grade Packaging Bags are designed to safely store and transport food products. Made using hygienic materials, they provide excellent sealing, freshness protection, and reliable quality.",
     },
@@ -71,7 +71,7 @@ export default function HeroBanner() {
             content: item.content,
             desktopImage: item.image_path_desktop,
             mobileImage: item.image_path_mobile,
-            banner_link: item.banner_link,
+            collection_link: item.collection_link,
         })) ?? [];
 
     const banners: NormalizedBanner[] = isLoading
@@ -132,24 +132,25 @@ export default function HeroBanner() {
                         {activeBanner?.content}
                     </motion.span>
 
-                    {activeBanner?.banner_link && (
+                    {activeBanner?.collection_link && (
                         <motion.div
                             variants={itemVariants}
                             className='md:mt-9 mt-4 flex flex-row items-center gap-4 md:pb-0 pb-5'
                         >
                             <Link
-                                href="#"
+                                href={activeBanner.collection_link}
+                                // target="_blank"
                                 className="px-5 py-2.5 bg-primary-500 text-white rounded-md shadow-md hover:bg-primary-600 hover:shadow-lg transition-all duration-300 font-medium"
                             >
                                 Explore Collections
                             </Link>
-                            <Link
+                            {/* <Link
                                 href="#"
                                 className="px-5 py-2.5 border border-primary-500 text-primary-500 rounded-md flex items-center gap-2 font-medium hover:bg-primary-50 transition"
                             >
                                 <ShoppingBag size={16} />
                                 Buy Now
-                            </Link>
+                            </Link> */}
                         </motion.div>
                     )}
                 </motion.div>
