@@ -2,69 +2,78 @@ import Section from '@/components/ui/section'
 import Wrapper from '@/components/ui/wrapper'
 import Link from 'next/link'
 import {
-    Package,
-    Sun,
+    Layers,
+    Droplets,
     ShieldCheck,
-    Globe,
+    Wind,
     ShoppingBag,
     BadgeCheck,
     ArrowRight,
 } from 'lucide-react'
 
+// ── Hero stats ─────────────────────────────────────────────────────────
 const stats = [
-    { value: 'UNE-EN 15343', label: 'Certified Standard' },
-    { value: 'AENOR', label: 'Certification Body' },
-    { value: '100%', label: 'Traceable Recycled Content' },
-    { value: 'EU', label: 'Regulation Compliant' },
+    { value: 'PP / PET', label: 'Core Materials' },
+    { value: '600 g/m²', label: 'Max Fabric Weight' },
+    { value: '5 Categories', label: 'Specialist Products' },
+    { value: 'Custom', label: 'Sizes Available' },
 ]
 
+// ── Commitment cards ───────────────────────────────────────────────────
 const commitments = [
     {
-        icon: <Package className="w-6 h-6" />,
-        title: 'Post-Consumer & Post-Industrial Materials',
+        icon: <Layers className="w-6 h-6" />,
+        title: 'Engineered for Industrial Strength',
         description:
-            'We integrate both post-consumer and post-industrial recycled plastics into our production, maximising material recovery and reducing landfill burden.',
+            'Each product is built from high-performance technical fabrics — woven PP, PET, HDPE — chosen specifically for the demands of its application.',
     },
     {
-        icon: <Sun className="w-6 h-6" />,
-        title: 'Reduced Carbon Footprint',
+        icon: <Droplets className="w-6 h-6" />,
+        title: 'Waterproof & Weather-Ready',
         description:
-            'By choosing recycled materials over virgin polymers, our bags generate significantly lower CO₂ emissions throughout their production lifecycle.',
+            'From waterproof pond liners to moisture-repellent roof underlayments, our technical textiles keep contents protected in any environment.',
     },
     {
         icon: <ShieldCheck className="w-6 h-6" />,
-        title: 'Certified Traceability',
+        title: 'UV-Stabilised Construction',
         description:
-            'Full traceability under UNE-EN 15343 ensures every kilogram of recycled content is verifiable, giving our clients complete confidence in their sustainable sourcing.',
+            'Every outdoor product is UV-stabilised up to 1,500 hours of exposure, ensuring structural integrity and long service life under direct sunlight.',
     },
     {
-        icon: <Globe className="w-6 h-6" />,
-        title: 'European Environmental Compliance',
+        icon: <Wind className="w-6 h-6" />,
+        title: 'Fully Customisable Specifications',
         description:
-            'Our products meet current EU environmental regulations, supporting businesses with their regulatory obligations and ESG reporting requirements.',
+            'Size, weight, colour, seam type, closure, and coating — all parameters are available to configure for your exact operational requirements.',
     },
 ]
 
+// ── Products ───────────────────────────────────────────────────────────
 const products = [
     {
-        id: 'fibc',
-        badge: 'FIBC / Jumbo Bags',
-        title: 'FIBC Bags with Recycled Content',
-        subtitle: 'High-performance bulk bags for sustainable large-volume handling',
+        id: 'geotextile',
+        badge: 'Geotextile Bags',
+        title: 'Geotextile Bags',
+        subtitle: 'Erosion control, shoreline protection, sandbagging & flood barriers',
         description:
-            'Manufactured using recycled polypropylene (PP), our FIBC bags are engineered for safe and reliable handling of bulk materials across industrial, agricultural, and construction sectors — without compromising on load capacity or durability.',
+            'Manufactured from durable woven or non-woven polypropylene (PP) or polyester (PET), our geotextile bags allow water to pass freely while retaining soil or sand. UV-resistant and available in custom sizes, they are suited to both temporary and permanent civil engineering installations.',
+        features: [
+            'Woven or needle-punched non-woven fabric options',
+            'Allows water passage while retaining soil/sand',
+            'UV-resistant for long-term outdoor exposure',
+            'Reinforced stitched or heat-sealed seams',
+            'Applications: shoreline protection, flood barriers, erosion control',
+        ],
         specs: [
-            { label: 'Bag Type', value: 'FIBC with Recycled PP Fabric' },
-            { label: 'Size Range', value: '80×80×90 cm — 100×100×120 cm' },
-            { label: 'Fabric', value: 'Recycled PP Woven Fabric' },
-            { label: 'Fabric GSM', value: '140 – 220 GSM' },
-            { label: 'Safe Working Load', value: '500 – 2,000 kg' },
-            { label: 'Safety Factor', value: '5:1 / 6:1' },
-            { label: 'Liner', value: 'Optional (LDPE / Form-Fit)' },
-            { label: 'Loop Configuration', value: '4 Corner / Cross Corner Loops' },
-            { label: 'Filling / Discharge', value: 'Customizable' },
-            { label: 'UV Stabilization', value: 'Optional' },
-            { label: 'Certification', value: 'UN / AENOR / EN 15343' },
+            { label: 'Material', value: 'Woven or Non-Woven PP / PET' },
+            { label: 'Fabric Type', value: 'Woven or Needle-Punched Non-Woven' },
+            { label: 'Fabric Weight', value: '200 – 600 g/m²' },
+            { label: 'Bag Size / Capacity', value: '1 – 3 m³ (customisable)' },
+            { label: 'Tensile Strength', value: '30 – 60 kN/m' },
+            { label: 'Elongation at Break', value: '15 – 25%' },
+            { label: 'Permeability', value: '0.1 – 1.0 m/s' },
+            { label: 'UV Resistance', value: '≥ 500 hours' },
+            { label: 'Colour', value: 'White, Black, UV-stabilised' },
+            { label: 'Edge / Seam', value: 'Reinforced stitched or heat-sealed' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -73,23 +82,29 @@ const products = [
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
     },
     {
-        id: 'ppws',
-        badge: 'PP Woven Sacks',
-        title: 'PP Woven Sacks with Recycled Content',
-        subtitle: 'Durable, cost-effective sacks for industrial and agricultural use',
+        id: 'pond-liner',
+        badge: 'Pond Liner Bags',
+        title: 'Pond Liner Bags',
+        subtitle: 'Temporary water containment, fish farming, landscaping & agriculture',
         description:
-            'Our recycled PP woven sacks offer a sustainable alternative for packaging a wide range of bulk dry goods. From fertilisers and grains to minerals and chemicals, these sacks deliver reliability at scale while incorporating verified recycled material.',
+            'Constructed from waterproof HDPE, LLDPE, or PVC-coated PP, our pond liner bags prevent leakage and protect water quality. Durable and UV-resistant for long-term outdoor deployment, they are available in a wide range of sizes from small decorative ponds to large agricultural containment.',
+        features: [
+            'Made from waterproof HDPE, LLDPE, or PVC-coated PP',
+            'Prevents leakage and protects water quality',
+            'UV-stabilised for ≥ 1,000 hours outdoor exposure',
+            'Heat-sealed or welded seams for watertight integrity',
+            'Applications: fish farming, landscaping, temporary water storage',
+        ],
         specs: [
-            { label: 'Bag Type', value: 'PP Woven Sack (Recycled)' },
-            { label: 'Size Range', value: '50×80 cm — 70×110 cm' },
-            { label: 'Fabric', value: 'Recycled PP Fabric' },
-            { label: 'Fabric GSM', value: '70 – 120 GSM' },
-            { label: 'Capacity', value: '10 – 50 kg' },
-            { label: 'Liner', value: 'Optional' },
-            { label: 'Lamination', value: 'Optional' },
-            { label: 'Printing', value: 'Customizable' },
-            { label: 'UV Stabilization', value: 'Optional' },
-            { label: 'Certification', value: 'EN 15343 compliant / AENOR' },
+            { label: 'Material', value: 'HDPE, LLDPE, PVC-coated PP' },
+            { label: 'Fabric Thickness', value: '0.2 – 0.8 mm' },
+            { label: 'Bag Size / Capacity', value: 'Custom, typically 1 – 10 m³' },
+            { label: 'Tensile Strength', value: '20 – 50 MPa' },
+            { label: 'Elongation at Break', value: '10 – 20%' },
+            { label: 'Waterproofing', value: 'Full — prevents leakage & water loss' },
+            { label: 'UV Resistance', value: '≥ 1,000 hours' },
+            { label: 'Colour', value: 'Black / Custom' },
+            { label: 'Seam / Edge', value: 'Heat-sealed or welded' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -98,24 +113,28 @@ const products = [
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
     },
     {
-        id: 'garden',
-        badge: 'Garden Bags',
-        title: 'Garden Bags with Recycled Content',
-        subtitle: 'Reusable outdoor waste collection bags built from recycled PP',
+        id: 'roof-underlayment',
+        badge: 'Roof Underlayment Bags',
+        title: 'Roof Underlayment Bags',
+        subtitle: 'Packaging & transporting shingles, membranes & roofing materials',
         description:
-            'Designed for sustainable garden and green waste collection, these bags combine the strength of woven polypropylene with a commitment to circular packaging. Available in multiple sizes to suit municipal, landscaping, and domestic applications.',
+            'Engineered from woven or non-woven polypropylene with a water-repellent coating, these bags protect roofing materials from moisture during transport and storage. Available in flap, gusseted, or open-top designs to suit standard roofing material packages.',
+        features: [
+            'Water-repellent coating shields contents from rain and humidity',
+            'High tensile strength and abrasion resistance',
+            'Flap closure, gusseted, or open-top designs available',
+            'Available loose or roll-packed for flexible logistics',
+            'Applications: roofing material transport, storage, and protection',
+        ],
         specs: [
-            { label: 'Type', value: 'Big Bag' },
-            { label: 'Safety Factor', value: '6:1' },
-            { label: 'Available Sizes', value: '45×45×45 cm / 80×80×80 cm / 50×30×50 cm' },
-            { label: 'Filling System', value: 'Open Top' },
-            { label: 'Emptying System', value: 'Flat Base' },
-            { label: 'Fabric', value: 'Non-Laminated Recycled Polypropylene' },
-            { label: 'Loops', value: 'Two Loops' },
-            { label: 'Liner', value: 'None' },
-            { label: 'Safe Working Load', value: '500 kg' },
-            { label: 'Colour', value: 'White' },
-            { label: 'Sort of Use', value: 'Garden Waste' },
+            { label: 'Material', value: 'Woven or Non-Woven Polypropylene (PP)' },
+            { label: 'Fabric Weight', value: '80 – 200 g/m²' },
+            { label: 'Bag Size / Capacity', value: 'Custom sizes' },
+            { label: 'Tensile Strength', value: '15 – 40 kN/m' },
+            { label: 'Moisture Resistance', value: 'Water-repellent coating' },
+            { label: 'Sealing / Closure', value: 'Flap, gusseted, or open-top' },
+            { label: 'Bag Form', value: 'Loose or roll-packed' },
+            { label: 'Colour', value: 'Black, natural, or custom' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -124,24 +143,60 @@ const products = [
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
     },
     {
-        id: 'garbage',
-        badge: 'Garbage Bags',
-        title: 'Garbage Bags with Recycled Content',
-        subtitle: 'Eco-conscious waste disposal bags from recycled LDPE/HDPE',
+        id: 'lumber-wrap',
+        badge: 'Lumber Wrap Bags',
+        title: 'Lumber Wrap Bags',
+        subtitle: 'Wrapping & transporting timber, wood products & sheet materials',
         description:
-            'Our recycled-content garbage bags provide an eco-friendly solution for general waste disposal. Manufactured from recycled LDPE and HDPE, they retain full puncture and tear resistance while significantly reducing the use of virgin plastics.',
+            'Made from strong and breathable woven PP or PE fabric, our lumber wraps protect timber from dirt, moisture, and UV exposure while remaining semi-permeable for ventilation. Available in custom sizes for any timber dimension, with reinforced grommets for secure fixing.',
+        features: [
+            'Breathable woven PP/PE fabric with PVC or PE coating',
+            'Protects from dirt, moisture, and UV exposure',
+            'Semi-permeable for natural wood ventilation',
+            'Hemmed edges with reinforced grommets',
+            'Applications: construction sites, warehouses, trucks, agriculture',
+        ],
         specs: [
-            { label: 'Type', value: 'Big Bag' },
-            { label: 'Safety Factor', value: '6:1' },
-            { label: 'Available Sizes', value: '45×45×45 cm / 80×80×80 cm / 50×30×50 cm' },
-            { label: 'Filling System', value: 'Open Top' },
-            { label: 'Emptying System', value: 'Flat Base' },
-            { label: 'Fabric', value: 'Non-Laminated Recycled Polypropylene' },
-            { label: 'Loops', value: 'Two Loops' },
-            { label: 'Liner', value: 'None' },
-            { label: 'Safe Working Load', value: '500 kg' },
-            { label: 'Colour', value: 'White' },
-            { label: 'Sort of Use', value: 'General Waste' },
+            { label: 'Material', value: 'Woven PP/PE with PVC or PE coating' },
+            { label: 'Fabric Weight', value: '150 – 500 g/m²' },
+            { label: 'Tensile Strength', value: '30 – 70 kN/m' },
+            { label: 'Tear Resistance', value: '50 – 200 N' },
+            { label: 'Waterproofing', value: 'Full coating — water penetration proof' },
+            { label: 'UV Resistance', value: '500 – 1,500 hours' },
+            { label: 'Edge Finish', value: 'Hemmed with reinforced grommets' },
+            { label: 'Colour', value: 'Blue, Green, Silver, Custom' },
+            { label: 'Size Range', value: '1×2 m up to 12×20 m' },
+        ],
+        panelGradient: 'from-primary-50 to-primary-100',
+        border: 'border-primary-200',
+        badgeBg: 'bg-primary-600 text-white',
+        subtitleColor: 'text-primary-700',
+        ctaBg: 'bg-primary-600 hover:bg-primary-500',
+    },
+    {
+        id: 'tarpaulin',
+        badge: 'Tarpaulins',
+        title: 'Industrial Textile Tarpaulins',
+        subtitle: 'Covering goods, construction sites, agricultural produce & temporary shelters',
+        description:
+            'Our industrial-grade tarpaulins are manufactured from woven PP/PE with a PVC or PE coating, delivering waterproof, tear-resistant, and UV-stabilised performance across the most demanding outdoor applications. Reinforced edges with grommets enable fast and secure installation.',
+        features: [
+            'Woven PP/PE with PVC or PE coating — waterproof and tear-resistant',
+            'UV-stabilised for 500 – 1,500 hours of outdoor exposure',
+            'Reinforced edges with grommets for easy, secure fixing',
+            'Available in a wide range of sizes and fabric weights',
+            'Applications: construction, warehouses, agriculture, temporary shelters',
+        ],
+        specs: [
+            { label: 'Material', value: 'Woven PP/PE with PVC or PE coating' },
+            { label: 'Fabric Weight', value: '150 – 500 g/m²' },
+            { label: 'Tensile Strength', value: '30 – 70 kN/m' },
+            { label: 'Tear Resistance', value: '50 – 200 N' },
+            { label: 'Waterproofing', value: 'Full coating — water penetration proof' },
+            { label: 'UV Resistance', value: '500 – 1,500 hours' },
+            { label: 'Edge Finish', value: 'Hemmed with reinforced grommets' },
+            { label: 'Colour', value: 'Blue, Green, Silver, Custom' },
+            { label: 'Size Range', value: '1×2 m up to 12×20 m' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -151,58 +206,55 @@ const products = [
     },
 ]
 
-export default function RecycledBags() {
+// ── Page ───────────────────────────────────────────────────────────────
+export default function TechnicalTextile() {
     return (
         <>
+            {/* ── Hero ── */}
             <Section className="relative overflow-hidden pt-0">
+                {/* Background image — industrial/textile manufacturing */}
                 <div
                     className="pointer-events-none absolute inset-0 bg-cover bg-center scale-105"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1920&q=80&auto=format&fit=crop')`,
-                        backgroundPosition: 'center 40%',
+                        backgroundImage: `url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1920&q=80&auto=format&fit=crop')`,
+                        backgroundPosition: 'center 30%',
                     }}
                 >
 
                     <div
-                        className="absolute inset-0 bg-linear-to-r from-black/95 via-slate-900/80 to-slate-900/40"
+                        className="absolute inset-0 bg-linear-to-r from-stone-900/95 via-stone-900/40 to-stone-900/20"
                     />
                 </div>
 
-                {/* Subtle brand-colored glow on top of image */}
-                <div className="pointer-events-none absolute inset-0 z-1 overflow-hidden">
-                    <div className="absolute -top-32 -right-32 h-120 w-120 rounded-full bg-primary-500/10 blur-3xl" />
-                    <div className="absolute bottom-0 -left-24 h-64 w-64 rounded-full bg-primary-400/10 blur-2xl" />
-                </div>
-
                 <Wrapper className="relative z-10">
+
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         {/* left copy */}
                         <div className="flex flex-col gap-6">
                             <div className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-500/15 border border-primary-500/30 px-4 py-1.5 backdrop-blur-sm">
                                 <span className="h-2 w-2 rounded-full bg-primary-400 animate-pulse" />
                                 <span className="text-primary-300 text-xs font-semibold uppercase tracking-widest">
-                                    Certified Sustainable Packaging
+                                    Industrial & Commercial Applications
                                 </span>
                             </div>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-                                Bags with<br />
+                                Technical<br />
                                 <strong className="text-primary-600">
-                                    Recycled Content
+                                    Textile Bags
                                 </strong>
                             </h1>
 
                             <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-xl">
-                                At Novasac, sustainability is at the core of our innovation. We offer a wide range of
-                                flexible packaging solutions manufactured with recycled content — reducing environmental
-                                impact while maintaining high performance and durability.
+                                Our range of technical textile bags is designed to meet the highest standards of
+                                strength, durability, and functionality — engineered for industrial, agricultural,
+                                and construction applications where standard packaging simply isn't enough.
                             </p>
 
                             <p className="text-slate-300 text-xs md:text-sm leading-relaxed max-w-xl">
-                                Our products are developed in compliance with{' '}
-                                <strong className="text-white">UNE-EN 15343</strong>, ensuring full traceability of
-                                recycled plastics, and are certified by{' '}
-                                <strong className="text-white">AENOR</strong> for guaranteed transparency and reliability.
+                                From geotextile erosion control to waterproof pond liners and industrial tarpaulins,
+                                Novasac offers <strong className="text-white">five specialist product categories</strong>,
+                                each fully customisable to your exact specification.
                             </p>
 
                             <div className="flex flex-wrap gap-3 pt-2">
@@ -243,14 +295,15 @@ export default function RecycledBags() {
                 <Wrapper>
                     <div className="flex flex-col gap-4 max-w-2xl">
                         <span className="text-xs font-medium uppercase tracking-widest text-primary-600">
-                            Our Commitment
+                            Why Technical Textiles
                         </span>
-                        <h2 className="text-3xl md:text-4xl font-medium text-stone-900 ">
-                            Sustainability at Every Step
+                        <h2 className="text-3xl md:text-4xl font-medium text-stone-900">
+                            Built for the Conditions Standard Bags Cannot Handle
                         </h2>
                         <p className="text-slate-500 text-sm">
-                            From raw material selection to certified delivery, every Novasac recycled-content bag
-                            is built on a foundation of environmental responsibility.
+                            Technical textile products go beyond conventional packaging. Each solution is
+                            engineered to perform under specific environmental and mechanical stresses — from
+                            shoreline erosion to sustained outdoor UV exposure.
                         </p>
                     </div>
 
@@ -263,7 +316,7 @@ export default function RecycledBags() {
                                 <div className="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-colors">
                                     {c.icon}
                                 </div>
-                                <h3 className="font-semibold text-stone-900  text-base leading-snug">{c.title}</h3>
+                                <h3 className="font-semibold text-stone-900 text-base leading-snug">{c.title}</h3>
                                 <p className="text-slate-500 text-sm leading-relaxed">{c.description}</p>
                             </div>
                         ))}
@@ -279,11 +332,11 @@ export default function RecycledBags() {
                             Product Range
                         </span>
                         <h2 className="text-3xl md:text-4xl font-medium text-stone-900 max-w-xl">
-                            Four Categories, One Commitment
+                            Five Specialist Categories, One Expert Partner
                         </h2>
                         <p className="text-slate-500 max-w-2xl text-sm">
-                            All product lines carry verified recycled content certified under EN 15343 and AENOR,
-                            so your packaging choices support a circular economy — without compromise.
+                            Every product is available with custom dimensions, fabric weights, coatings, and
+                            closures — so your specification is never a compromise.
                         </p>
                     </div>
 
@@ -310,7 +363,7 @@ export default function RecycledBags() {
                                     {/* certification badge */}
                                     <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-sm">
                                         <BadgeCheck className="w-3.5 h-3.5 text-primary-600" />
-                                        <span className="text-xs font-semibold text-slate-700">EN 15343 / AENOR</span>
+                                        <span className="text-xs font-semibold text-slate-700">Custom Specifications</span>
                                     </div>
                                 </div>
 
@@ -322,10 +375,20 @@ export default function RecycledBags() {
                                         >
                                             {p.badge}
                                         </span>
-                                        <h3 className="text-2xl md:text-3xl font-bold text-stone-900 ">{p.title}</h3>
+                                        <h3 className="text-2xl md:text-3xl font-bold text-stone-900">{p.title}</h3>
                                         <p className={`text-base font-medium ${p.subtitleColor}`}>{p.subtitle}</p>
                                         <p className="text-slate-500 leading-relaxed">{p.description}</p>
                                     </div>
+
+                                    {/* Key features list */}
+                                    <ul className="flex flex-col gap-2">
+                                        {p.features.map((f) => (
+                                            <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
+                                                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary-500 shrink-0" />
+                                                {f}
+                                            </li>
+                                        ))}
+                                    </ul>
 
                                     {/* Specs table */}
                                     <div className={`rounded-2xl border ${p.border} overflow-hidden`}>
@@ -370,10 +433,10 @@ export default function RecycledBags() {
                 <Wrapper>
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
                         <div className="flex flex-col gap-3">
-                            <h2 className="text-3xl font-bold text-white">Ready to go circular?</h2>
+                            <h2 className="text-3xl font-bold text-white">Need a specialist technical textile?</h2>
                             <p className="text-primary-100 text-lg max-w-xl">
-                                Our team will help you select the right recycled-content bag for your application,
-                                volume, and sustainability goals.
+                                Our team will help you configure the right product — material, weight, size, and
+                                coating — for your exact application and environment.
                             </p>
                         </div>
                         <div className="flex flex-wrap justify-center gap-3 shrink-0">
