@@ -1,6 +1,7 @@
 "use client";
 
 import { industries } from "@/constant/industries_data";
+import { MenuItems } from "@/constant/menu";
 import { HomeCategoryData, HomeCategoryResponse } from "@/types/home_category.types";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -67,6 +68,15 @@ export default function Footer() {
                                     <li key={menu.id}>
                                         <Link href={`/category/${menu.slug}`}>
                                             {menu.title}
+                                        </Link>
+                                    </li>
+                                ))
+                            }
+                            {
+                                MenuItems.map((industry) => (
+                                    <li key={industry.name}>
+                                        <Link href={industry.path}>
+                                            {industry.name}
                                         </Link>
                                     </li>
                                 ))
