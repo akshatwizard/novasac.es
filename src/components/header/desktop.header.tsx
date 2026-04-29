@@ -51,7 +51,7 @@ export default function DesktopHeader() {
               return (
                 <div
                   key={key}
-                  className='h-full relative px-4 group flex items-center text-sm font-medium text-primary-500'
+                  className='h-full relative px-2 group flex items-center text-sm font-medium text-primary-500'
                   onMouseEnter={() => setActive(key)}
                   onMouseLeave={() => setActive(null)}
                 >
@@ -109,7 +109,7 @@ export default function DesktopHeader() {
           }
 
           {
-            MenuItems.slice(2, 4).map((items, idx) => {
+            MenuItems.map((items, idx) => {
               const key = `static-bottom-${idx}`
               return (
                 <div
