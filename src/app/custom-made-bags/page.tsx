@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { motion, Variants } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, ChangeEvent, FormEvent } from "react";
 import toast from "react-hot-toast";
 
@@ -518,7 +519,7 @@ export default function CustomBags() {
                                     bags, you can opt for a custom-made bag printed with your logo,
                                     or choose from our standard range and have your logo added.
                                 </p>
-                                <a
+                                {/* <a
                                     href="/bags-with-logo"
                                     className="inline-flex items-center gap-1.5 mt-4 font-sans text-xs text-primary-600 hover:text-primary-700 transition-colors"
                                 >
@@ -526,11 +527,11 @@ export default function CustomBags() {
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
-                                </a>
+                                </a> */}
                             </motion.div>
 
                             {/* Minimum order info */}
-                            <motion.div
+                            {/* <motion.div
                                 className="bg-primary-50 border border-primary-100 rounded-2xl p-6"
                                 variants={fadeUp}
                                 custom={0.18}
@@ -551,7 +552,7 @@ export default function CustomBags() {
                                         </li>
                                     ))}
                                 </ul>
-                            </motion.div>
+                            </motion.div> */}
 
                             {/* Process steps */}
                             <motion.div
@@ -598,12 +599,12 @@ export default function CustomBags() {
                                 <h3 className="font-mono text-lg font-light text-white mb-3">
                                     Talk to our team
                                 </h3>
-                                <a
+                                <Link
                                     href="/contact"
                                     className="font-sans inline-block text-xs px-6 py-2.5 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors duration-200"
                                 >
                                     Contact us
-                                </a>
+                                </Link>
                             </motion.div>
 
                         </div>

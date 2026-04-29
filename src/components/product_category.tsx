@@ -10,6 +10,7 @@ import { ChevronRight, PackageSearch } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { HomeCategoryData, HomeCategoryResponse } from '@/types/home_category.types';
+import { MenuItems } from '@/constant/menu';
 
 
 export default function ProductCategory() {
@@ -48,6 +49,38 @@ export default function ProductCategory() {
                         {data.map((category) => (
                             <CategoryCard key={category.id} category={category} />
                         ))}
+                        {
+                            MenuItems.map((category) => (
+                                <Link
+                                    key={category.name}
+                                    href={category.path}
+                                    className="group relative block w-64 shrink-0 rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+                                >
+                                    <div className="relative h-56 overflow-hidden bg-zinc-100">
+                                        <Image
+                                            src={category.icon}
+                                            alt={category.name}
+                                            fill
+                                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                            sizes="256px"
+                                            loading="lazy"
+                                        />
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </div>
+
+                                    <div className="p-4 flex items-center justify-between gap-2">
+                                        <div>
+                                            <p className="text-sm font-semibold text-zinc-800 group-hover:text-primary-500 transition-colors line-clamp-1">
+                                                {category.name}
+                                            </p>
+                                        </div>
+                                        <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-zinc-100 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
+                                            <ChevronRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                                        </span>
+                                    </div>
+                                </Link>
+                            ))
+                        }
                     </SliderWrapper>
                 )}
 

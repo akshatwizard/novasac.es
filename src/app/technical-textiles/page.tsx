@@ -10,8 +10,8 @@ import {
     BadgeCheck,
     ArrowRight,
 } from 'lucide-react'
+import Image from 'next/image'
 
-// ── Hero stats ─────────────────────────────────────────────────────────
 const stats = [
     { value: 'PP / PET', label: 'Core Materials' },
     { value: '600 g/m²', label: 'Max Fabric Weight' },
@@ -19,7 +19,6 @@ const stats = [
     { value: 'Custom', label: 'Sizes Available' },
 ]
 
-// ── Commitment cards ───────────────────────────────────────────────────
 const commitments = [
     {
         icon: <Layers className="w-6 h-6" />,
@@ -47,7 +46,6 @@ const commitments = [
     },
 ]
 
-// ── Products ───────────────────────────────────────────────────────────
 const products = [
     {
         id: 'geotextile',
@@ -80,6 +78,7 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/textiles/geotextile.jpeg"
     },
     {
         id: 'pond-liner',
@@ -111,6 +110,7 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/textiles/pond-liner.jpeg"
     },
     {
         id: 'roof-underlayment',
@@ -141,6 +141,7 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/textiles/roof-underlayment.jpeg"
     },
     {
         id: 'lumber-wrap',
@@ -172,6 +173,7 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/textiles/lumber-wrap-bags.jpeg"
     },
     {
         id: 'tarpaulin',
@@ -203,10 +205,10 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/textiles/tarpaulin.jpeg"
     },
 ]
 
-// ── Page ───────────────────────────────────────────────────────────────
 export default function TechnicalTextile() {
     return (
         <>
@@ -353,11 +355,18 @@ export default function TechnicalTextile() {
                                     className={`relative rounded-3xl overflow-hidden bg-linear-to-br ${p.panelGradient} border ${p.border} aspect-4/3 flex items-center justify-center`}
                                 >
                                     <div className="flex flex-col items-center gap-3 text-center p-8">
-                                        <div className="w-16 h-16 rounded-2xl bg-primary-600 text-white flex items-center justify-center shadow-lg">
+                                        {/* <div className="w-16 h-16 rounded-2xl bg-primary-600 text-white flex items-center justify-center shadow-lg">
                                             <ShoppingBag className="w-8 h-8" />
                                         </div>
                                         <p className={`font-bold text-lg ${p.subtitleColor}`}>{p.badge}</p>
-                                        <p className="text-slate-500 text-sm">Product image coming soon</p>
+                                        <p className="text-slate-500 text-sm">Product image coming soon</p> */}
+                                        <Image
+                                            src={p.images}
+                                            alt={p.title}
+                                            fill
+                                            sizes='(max-width: 1024px) 100vw, 50vw'
+                                            className='w-full h-full object-contain'
+                                        />
                                     </div>
 
                                     {/* certification badge */}
