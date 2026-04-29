@@ -10,5 +10,6 @@ export type BannerData = {
     content: string;
     image_path_desktop: string;
     image_path_mobile: string;
-    banner_link: boolean
+    collection_link: string | null;
+    buy_now_link: string | null
 }
