@@ -10,7 +10,7 @@ export interface Industry {
 
 export const industries: Industry[] = [
   {
-    slug: "construction",
+    slug: "construction-industry",
     title: "Construction Industry",
     description:
       "Durable and heavy-duty packaging bags designed for transporting cement, sand, and construction materials safely.",
@@ -18,7 +18,7 @@ export const industries: Industry[] = [
     image: "/images/industry/img-1.png",
   },
   {
-    slug: "food-agriculture",
+    slug: "food-and-agriculture-sector",
     title: "Food and Agriculture Sector",
     description:
       "Food-grade and moisture-resistant bags ideal for storing and transporting grains and agricultural products.",
@@ -26,7 +26,7 @@ export const industries: Industry[] = [
     image: "/images/industry/img-2.png",
   },
   {
-    slug: "chemical",
+    slug: "chemical-industry",
     title: "Chemical Industry",
     description:
       "Specialized packaging solutions built to safely handle chemicals, powders, and industrial materials.",
@@ -34,7 +34,7 @@ export const industries: Industry[] = [
     image: "/images/industry/img-3.png",
   },
   {
-    slug: "recycling-waste",
+    slug: "recycling-and-waste-management",
     title: "Recycling and Waste Management",
     description:
       "Strong and eco-friendly bags suitable for collecting and transporting recyclable materials.",
@@ -42,7 +42,7 @@ export const industries: Industry[] = [
     image: "/images/industry/img-4.png",
   },
   {
-    slug: "mining",
+    slug: "mining-and-minerals",
     title: "Mining and Minerals",
     description:
       "High-strength industrial bags designed to carry minerals, ores, and heavy mining materials.",
@@ -72,7 +72,7 @@ interface IndustryDetail {
 
 export const industryDetails: IndustryDetail[] = [
   {
-    slug: "construction",
+    slug: "construction-industry",
     label: "Construction Industry",
     tagline: "Packaging Solutions That Carry the Load",
     accentColor: "bg-amber-600",
@@ -111,7 +111,7 @@ export const industryDetails: IndustryDetail[] = [
     ],
   },
   {
-    slug: "food-agriculture",
+    slug: "food-and-agriculture-sector",
     label: "Food & Agriculture",
     tagline: "Harvested Right, Packed Tight",
     accentColor: "bg-green-700",
@@ -149,7 +149,7 @@ export const industryDetails: IndustryDetail[] = [
     ],
   },
   {
-    slug: "chemical",
+    slug: "chemical-industry",
     label: "Chemical Industry",
     tagline: "Safe Solutions for Complex Chemistry",
     accentColor: "bg-blue-700",
@@ -185,7 +185,7 @@ export const industryDetails: IndustryDetail[] = [
     ],
   },
   {
-    slug: "recycling-waste",
+    slug: "recycling-and-waste-management",
     label: "Recycling & Waste Management",
     tagline: "Sustainable Solutions for Smarter Waste Management",
     accentColor: "bg-teal-700",
@@ -217,7 +217,7 @@ export const industryDetails: IndustryDetail[] = [
     recommendedProducts: ["FIBC / Jumbo Bags", "Heavy-duty PP Woven Sacks"],
   },
   {
-    slug: "mining",
+    slug: "mining-and-minerals",
     label: "Mining & Minerals",
     tagline: "Supporting Safe and Efficient Mining",
     accentColor: "bg-stone-700",

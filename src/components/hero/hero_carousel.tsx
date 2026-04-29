@@ -138,18 +138,18 @@ export default function HeroBanner() {
                             className='md:mt-9 mt-4 flex flex-row items-center gap-4 md:pb-0 pb-5'
                         >
                             <Link
-                                href="#"
+                                href={""}
                                 className="px-5 py-2.5 bg-primary-500 text-white rounded-md shadow-md hover:bg-primary-600 hover:shadow-lg transition-all duration-300 font-medium"
                             >
                                 Explore Collections
                             </Link>
-                            <Link
+                            {/* <Link
                                 href="#"
                                 className="px-5 py-2.5 border border-primary-500 text-primary-500 rounded-md flex items-center gap-2 font-medium hover:bg-primary-50 transition"
                             >
                                 <ShoppingBag size={16} />
                                 Buy Now
-                            </Link>
+                            </Link> */}
                         </motion.div>
                     )}
                 </motion.div>

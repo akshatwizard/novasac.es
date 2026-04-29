@@ -1,11 +1,16 @@
 "use client";
-
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { industryDetails } from "@/constant/industries_data";
 import Section from "./ui/section";
 import Wrapper from "./ui/wrapper";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { RecomendedProductAPIResponse } from "@/types/recomended_product.types";
+import { useRef, useState } from "react";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 
 interface Props {
@@ -14,6 +19,16 @@ interface Props {
 
 export default function IndustryDetailPage({ slug }: Props) {
     const industry = industryDetails.find((i) => i.slug === slug);
+    const [api, setApi] = useState<CarouselApi>()
+    const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }))
+
+    const { data, isLoading, isFetching } = useQuery({
+        queryKey: ["industry", slug],
+        queryFn: async () => {
+            const res = await axios.get<RecomendedProductAPIResponse>(`https://www.gangapapers.in/novasac/api/industry/${slug}`);
+            return res.data
+        }
+    })
 
     if (!industry) {
         return (
@@ -165,6 +180,118 @@ export default function IndustryDetailPage({ slug }: Props) {
                                 </Link>
                             </div>
                         </aside>
+                    </div>
+                </Wrapper>
+            </Section>
+
+            <Section>
+                <Wrapper>
+                    <div className="w-full">
+                        <Carousel
+                            className="relative w-full z-10 lg:order-2 order-1"
+                            plugins={[plugin.current]}
+                            opts={{ loop: true }}
+                            onMouseEnter={plugin.current.stop}
+                            onMouseLeave={plugin.current.reset}
+                            setApi={setApi}
+                        >
+                            <CarouselContent>
+                                {(isLoading || isFetching)
+                                    ? Array.from({ length: 2 }).map((_, idx) => (
+                                        <CarouselItem key={idx}>
+                                            <div className="grid md:grid-cols-2 gap-6 items-center bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm animate-pulse">
+
+                                                {/* LEFT — IMAGE SKELETON */}
+                                                <div className="w-full h-86 md:h-100 bg-zinc-200" />
+
+                                                {/* RIGHT — CONTENT SKELETON */}
+                                                <div className="p-6 md:p-8 space-y-4">
+
+                                                    <div className="h-3 w-24 bg-zinc-200 rounded" />
+
+                                                    <div className="h-6 w-3/4 bg-zinc-200 rounded" />
+
+                                                    <div className="space-y-2">
+                                                        <div className="h-3 w-full bg-zinc-200 rounded" />
+                                                        <div className="h-3 w-5/6 bg-zinc-200 rounded" />
+                                                        <div className="h-3 w-2/3 bg-zinc-200 rounded" />
+                                                    </div>
+
+                                                    <div className="h-8 w-32 bg-zinc-200 rounded-lg mt-4" />
+                                                </div>
+                                            </div>
+                                        </CarouselItem>
+                                    )) : data?.data.products?.map((items, idx) => (
+                                        <CarouselItem key={idx}>
+                                            <div className="grid md:grid-cols-2 gap-6 items-center bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm">
+
+                                                {/* LEFT — IMAGE */}
+                                                <div className="relative w-full h-86 md:h-100">
+                                                    <Image
+                                                        src={items.image ?? "/images/no-image.svg"}
+                                                        alt={items.title}
+                                                        fill
+                                                        className="object-contain"
+                                                    />
+                                                </div>
+
+                                                {/* RIGHT — CONTENT */}
+                                                <div className="p-6 md:p-8 flex flex-col justify-center h-full">
+
+                                                    {/* Category */}
+                                                    <span className="text-xs uppercase tracking-wide text-primary-600 mb-2 font-medium">
+                                                        {items.category?.title}
+                                                    </span>
+
+                                                    {/* Title */}
+                                                    <h3 className="text-xl md:text-2xl font-semibold text-zinc-900 mb-3 leading-snug">
+                                                        {items.title}
+                                                    </h3>
+
+                                                    {/* Description (fallback safe) */}
+                                                    <p className="text-sm text-zinc-600 leading-relaxed mb-5 line-clamp-3">
+                                                        {data?.data.short_description || "High-quality industrial packaging solution designed for durability and performance."}
+                                                    </p>
+
+                                                    {/* Price (optional) */}
+                                                    {(items.mrp || items.offer_rate) && (
+                                                        <div className="flex items-center gap-3 mb-5">
+                                                            {items.offer_rate && (
+                                                                <span className="text-lg font-semibold text-primary-600">
+                                                                    ₹{items.offer_rate}
+                                                                </span>
+                                                            )}
+                                                            {items.mrp && (
+                                                                <span className="text-sm text-zinc-400 line-through">
+                                                                    ₹{items.mrp}
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                    )}
+
+                                                    {/* CTA */}
+                                                    <Link
+                                                        href={`/products/${items.slug}/${items.attribute_value_slug}`}
+                                                        className="inline-block w-fit px-5 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-500 transition"
+                                                    >
+                                                        View Product →
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </CarouselItem>
+                                    ))
+                                }
+                            </CarouselContent>
+
+                            <CarouselPrevious
+                                onClick={() => { api?.scrollPrev(); plugin.current?.reset(); }}
+                                className='border-none bg-primary-600 text-white -left-5 cursor-pointer hover:bg-primary-400 rounded-xs hover:text-white'
+                            />
+                            <CarouselNext
+                                onClick={() => { api?.scrollNext(); plugin.current?.reset(); }}
+                                className='border-none bg-primary-600 text-white -right-5 cursor-pointer hover:bg-primary-400 rounded-xs hover:text-white'
+                            />
+                        </Carousel>
                     </div>
                 </Wrapper>
             </Section>
