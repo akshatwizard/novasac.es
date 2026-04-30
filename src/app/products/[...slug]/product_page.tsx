@@ -173,7 +173,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                     </h1>
 
                     {/* short descriptions */}
-                    <span className='text-sm text-stone-600'>
+                    <span className='text-sm font-medium text-stone-500'>
                         {p.product_short_description}
                     </span>
 
@@ -207,15 +207,15 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                     {p.attributes.length > 0 && (
                         <div className="space-y-4">
                             {p.attributes.map((attr) => (
-                                <div key={attr.id}>
-                                    <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-stone-400 mb-2">
-                                        {attr.attribute.title}
+                                <div key={attr.id} className='flex items-center gap-2'>
+                                    <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-stone-400">
+                                        {attr.attribute.title}:
                                     </p>
                                     <div className="flex flex-wrap gap-2">
                                         {attr.values.map((v) => (
                                             <span
                                                 key={v.id}
-                                                className="px-3 py-1.5 text-[13px] rounded-full bg-stone-100 border border-stone-200 text-stone-700 font-medium"
+                                                className="px-2.5 py-1 text-xs rounded-full bg-stone-100 border border-stone-200 text-stone-700 font-medium"
                                             >
                                                 {v.attribute_value.name}
                                             </span>
