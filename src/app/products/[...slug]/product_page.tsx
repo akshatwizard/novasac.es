@@ -172,6 +172,11 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                         {p.title}
                     </h1>
 
+                    {/* short descriptions */}
+                    <span className='text-sm text-stone-600'>
+                        {p.product_short_description}
+                    </span>
+
                     {/* Price row */}
                     <div className="flex items-baseline gap-3">
                         {p.offer_rate != null ? (
