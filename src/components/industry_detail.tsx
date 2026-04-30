@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { industryDetails } from "@/constant/industries_data";
@@ -12,23 +12,22 @@ import { useRef, useState } from "react";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-
 interface Props {
     slug: string;
 }
 
 export default function IndustryDetailPage({ slug }: Props) {
     const industry = industryDetails.find((i) => i.slug === slug);
-    const [api, setApi] = useState<CarouselApi>()
-    const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }))
+    const [api, setApi] = useState<CarouselApi>();
+    const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }));
 
     const { data, isLoading, isFetching } = useQuery({
         queryKey: ["industry", slug],
         queryFn: async () => {
             const res = await axios.get<RecomendedProductAPIResponse>(`https://www.gangapapers.in/novasac/api/industry/${slug}`);
-            return res.data
-        }
-    })
+            return res.data;
+        },
+    });
 
     if (!industry) {
         return (
@@ -39,9 +38,9 @@ export default function IndustryDetailPage({ slug }: Props) {
     }
 
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-zinc-50">
+            {/* ── HERO ── */}
             <section className="relative h-[75vh] min-h-120 overflow-hidden">
-
                 <Image
                     src={industry.heroImage}
                     alt={industry.label}
@@ -56,18 +55,13 @@ export default function IndustryDetailPage({ slug }: Props) {
                         href="/industries"
                         className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors group"
                     >
-                        <ArrowLeft
-                            size={16}
-                            className="group-hover:-translate-x-1 transition-transform"
-                        />
+                        <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                         All Industries
                     </Link>
                 </div>
 
                 <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16 max-w-4xl">
-                    <span
-                        className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase px-3 py-1 rounded-full mb-4 w-fit ${industry.accentColor} text-white`}
-                    >
+                    <span className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase px-3 py-1 rounded-full mb-4 w-fit ${industry.accentColor} text-white`}>
                         {industry.label}
                     </span>
                     <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight mb-3">
@@ -79,116 +73,85 @@ export default function IndustryDetailPage({ slug }: Props) {
 
             <Section>
                 <Wrapper>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+                    <div className="columns-1 md:columns-2 gap-6 space-y-0">
+                        {industry.sections.map((section, i) => {
+                            const cardStyles = [
+                                "bg-white border border-zinc-200",
+                                `bg-zinc-900 text-white`,
+                                "bg-white border border-zinc-200",
+                                `${industry.accentColor} text-white`,
+                                "bg-white border border-zinc-200",
+                                "bg-zinc-100 border border-zinc-200",
+                            ];
+                            const isDark = i === 1 || i === 3;
+                            const cardStyle = cardStyles[i % cardStyles.length];
 
-                        <div className="lg:col-span-2 space-y-10">
-                            {industry.sections.map((section, i) => (
-                                <article
+                            return (
+                                <div
                                     key={i}
-                                    className="group overflow-hidden relative rounded-2xl border border-zinc-200 bg-white p-6 md:p-7 shadow-sm hover:shadow-lg transition-all duration-300"
+                                    className={`break-inside-avoid mb-6 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 ${cardStyle}`}
                                 >
-                                    {/* Top Accent Bar */}
-                                    <div className={`absolute top-0 left-0 w-full h-1 rounded-t-2xl ${industry.accentColor}`} />
+                                    {/* Top accent bar — only on light cards */}
+                                    {!isDark && (
+                                        <div className={`h-1 w-full ${industry.accentColor}`} />
+                                    )}
 
-                                    {/* Header */}
-                                    <div className="flex items-start gap-4 mb-5">
-                                        <span
-                                            className={`font-display text-4xl md:text-5xl font-bold leading-none opacity-10 ${industry.accentText}`}
+                                    <div className="p-6 md:p-8">
+                                        {/* Index badge */}
+                                        <div className="flex items-center justify-between mb-5">
+                                            <span
+                                                className={`lg:text-5xl md:text-4xl text-3xl font-black leading-none select-none ${isDark ? "text-white/15" : `${industry.accentText} opacity-20`
+                                                    }`}
+                                            >
+                                                {String(i + 1).padStart(2, "0")}
+                                            </span>
+                                            <span
+                                                className={`text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full ${isDark
+                                                    ? "bg-white/15 text-white"
+                                                    : `${industry.accentColor} text-white`
+                                                    }`}
+                                            >
+                                                {industry.label}
+                                            </span>
+                                        </div>
+
+                                        {/* Title */}
+                                        <h2
+                                            className={`font-display text-xl md:text-2xl font-bold leading-snug mb-3 ${isDark ? "text-white" : "text-zinc-900"
+                                                }`}
                                         >
-                                            {String(i + 1).padStart(2, "0")}
-                                        </span>
+                                            {section.title}
+                                        </h2>
 
-                                        <div>
-                                            <h2 className="font-display text-xl md:text-2xl font-semibold text-zinc-900 leading-snug">
-                                                {section.title}
-                                            </h2>
+                                        {/* Divider */}
+                                        <div className={`h-0.5 w-10 rounded-full mb-5 ${isDark ? "bg-white/30" : industry.accentColor}`} />
 
-                                            {/* Small underline */}
-                                            <div className={`mt-2 h-0.5 w-10 ${industry.accentColor} rounded-full`} />
+                                        {/* Content paragraphs */}
+                                        <div className="space-y-3">
+                                            {section.content.split("\n\n").map((para, j) => (
+                                                <p
+                                                    key={j}
+                                                    className={`leading-relaxed text-sm md:text-[15px] ${isDark ? "text-white/70" : "text-zinc-600"
+                                                        }`}
+                                                >
+                                                    {para}
+                                                </p>
+                                            ))}
                                         </div>
                                     </div>
-
-                                    {/* Content */}
-                                    <div className="space-y-4">
-                                        {section.content.split("\n\n").map((para, j) => (
-                                            <p
-                                                key={j}
-                                                className="text-zinc-600 leading-relaxed text-sm md:text-[15px]"
-                                            >
-                                                {para}
-                                            </p>
-                                        ))}
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
-
-                        <aside className="lg:col-span-1">
-                            <div className="lg:sticky lg:top-16 space-y-6">
-                                <div
-                                    className={`rounded-2xl border-2 ${industry.accentBorder} bg-white p-7 shadow-sm`}
-                                >
-                                    <h3 className="font-display text-xl font-bold text-zinc-900 mb-1">
-                                        Recommended Products
-                                    </h3>
-                                    <p className="text-xs text-zinc-400 mb-5 uppercase tracking-wide font-medium">
-                                        For {industry.label}
-                                    </p>
-                                    <ul className="space-y-3">
-                                        {industry.recommendedProducts.map((product, i) => (
-                                            <li
-                                                key={i}
-                                                className="flex items-start gap-3 text-sm text-zinc-700"
-                                            >
-                                                <CheckCircle2
-                                                    size={17}
-                                                    className={`mt-0.5 shrink-0 ${industry.accentText}`}
-                                                />
-                                                <span className="leading-snug">{product}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
                                 </div>
-
-                                <div className="rounded-2xl bg-zinc-900 p-7 text-white">
-                                    <h3 className="font-display text-xl font-bold mb-2">
-                                        Get a Custom Quote
-                                    </h3>
-                                    <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                                        Tell us about your specific needs and we'll recommend the
-                                        perfect packaging solution.
-                                    </p>
-                                    <Link
-                                        href="/contact"
-                                        className={`block text-center text-sm font-semibold py-3 px-5 rounded-xl transition-all
-                    ${industry.accentColor} text-white hover:opacity-90 hover:shadow-lg`}
-                                    >
-                                        Contact Our Team →
-                                    </Link>
-                                </div>
-
-                                {/* All industries link */}
-                                <Link
-                                    href="/industries"
-                                    className="flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-800 transition-colors group"
-                                >
-                                    <ArrowLeft
-                                        size={14}
-                                        className="group-hover:-translate-x-1 transition-transform"
-                                    />
-                                    View all industries
-                                </Link>
-                            </div>
-                        </aside>
+                            );
+                        })}
                     </div>
                 </Wrapper>
             </Section>
 
+            {/* ── CAROUSEL ── */}
             <Section>
                 <Wrapper>
                     <div className="w-full">
                         <Carousel
-                            className="relative w-full z-10 lg:order-2 order-1"
+                            className="relative w-full z-10"
                             plugins={[plugin.current]}
                             opts={{ loop: true }}
                             onMouseEnter={plugin.current.stop}
@@ -200,32 +163,23 @@ export default function IndustryDetailPage({ slug }: Props) {
                                     ? Array.from({ length: 2 }).map((_, idx) => (
                                         <CarouselItem key={idx}>
                                             <div className="grid md:grid-cols-2 gap-6 items-center bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm animate-pulse">
-
-                                                {/* LEFT — IMAGE SKELETON */}
                                                 <div className="w-full h-86 md:h-100 bg-zinc-200" />
-
-                                                {/* RIGHT — CONTENT SKELETON */}
                                                 <div className="p-6 md:p-8 space-y-4">
-
                                                     <div className="h-3 w-24 bg-zinc-200 rounded" />
-
                                                     <div className="h-6 w-3/4 bg-zinc-200 rounded" />
-
                                                     <div className="space-y-2">
                                                         <div className="h-3 w-full bg-zinc-200 rounded" />
                                                         <div className="h-3 w-5/6 bg-zinc-200 rounded" />
                                                         <div className="h-3 w-2/3 bg-zinc-200 rounded" />
                                                     </div>
-
                                                     <div className="h-8 w-32 bg-zinc-200 rounded-lg mt-4" />
                                                 </div>
                                             </div>
                                         </CarouselItem>
-                                    )) : data?.data.products?.map((items, idx) => (
+                                    ))
+                                    : data?.data.products?.map((items, idx) => (
                                         <CarouselItem key={idx}>
                                             <div className="grid md:grid-cols-2 gap-6 items-center bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm">
-
-                                                {/* LEFT — IMAGE */}
                                                 <div className="relative w-full h-86 md:h-100">
                                                     <Image
                                                         src={items.image ?? "/images/no-image.svg"}
@@ -234,42 +188,26 @@ export default function IndustryDetailPage({ slug }: Props) {
                                                         className="object-contain"
                                                     />
                                                 </div>
-
-                                                {/* RIGHT — CONTENT */}
                                                 <div className="p-6 md:p-8 flex flex-col justify-center h-full">
-
-                                                    {/* Category */}
                                                     <span className="text-xs uppercase tracking-wide text-primary-600 mb-2 font-medium">
                                                         {items.category?.title}
                                                     </span>
-
-                                                    {/* Title */}
                                                     <h3 className="text-xl md:text-2xl font-semibold text-zinc-900 mb-3 leading-snug">
                                                         {items.title}
                                                     </h3>
-
-                                                    {/* Description (fallback safe) */}
                                                     <p className="text-sm text-zinc-600 leading-relaxed mb-5 line-clamp-3">
                                                         {data?.data.short_description || "High-quality industrial packaging solution designed for durability and performance."}
                                                     </p>
-
-                                                    {/* Price (optional) */}
                                                     {(items.mrp || items.offer_rate) && (
                                                         <div className="flex items-center gap-3 mb-5">
                                                             {items.offer_rate && (
-                                                                <span className="text-lg font-semibold text-primary-600">
-                                                                    ₹{items.offer_rate}
-                                                                </span>
+                                                                <span className="text-lg font-semibold text-primary-600">₹{items.offer_rate}</span>
                                                             )}
                                                             {items.mrp && (
-                                                                <span className="text-sm text-zinc-400 line-through">
-                                                                    ₹{items.mrp}
-                                                                </span>
+                                                                <span className="text-sm text-zinc-400 line-through">₹{items.mrp}</span>
                                                             )}
                                                         </div>
                                                     )}
-
-                                                    {/* CTA */}
                                                     <Link
                                                         href={`/products/${items.slug}/${items.attribute_value_slug}`}
                                                         className="inline-block w-fit px-5 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-500 transition"
@@ -285,16 +223,47 @@ export default function IndustryDetailPage({ slug }: Props) {
 
                             <CarouselPrevious
                                 onClick={() => { api?.scrollPrev(); plugin.current?.reset(); }}
-                                className='border-none bg-primary-600 text-white -left-5 cursor-pointer hover:bg-primary-400 rounded-xs hover:text-white'
+                                className="border-none bg-primary-600 text-white -left-5 cursor-pointer hover:bg-primary-400 rounded-xs hover:text-white"
                             />
                             <CarouselNext
                                 onClick={() => { api?.scrollNext(); plugin.current?.reset(); }}
-                                className='border-none bg-primary-600 text-white -right-5 cursor-pointer hover:bg-primary-400 rounded-xs hover:text-white'
+                                className="border-none bg-primary-600 text-white -right-5 cursor-pointer hover:bg-primary-400 rounded-xs hover:text-white"
                             />
                         </Carousel>
                     </div>
                 </Wrapper>
             </Section>
+
+            {/* ── BOTTOM CTA ── */}
+            <section className="bg-zinc-900">
+                <Wrapper>
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div className="text-center md:text-left">
+                            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
+                                Ready to get started?
+                            </h2>
+                            <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl">
+                                Tell us about your specific needs and we'll recommend the perfect packaging solution for {industry.label}.
+                            </p>
+                        </div>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+                            <Link
+                                href="/contact"
+                                className={`inline-block text-center text-sm font-semibold py-3.5 px-8 rounded-xl transition-all ${industry.accentColor} text-white hover:opacity-90 hover:shadow-lg`}
+                            >
+                                Get a Custom Quote →
+                            </Link>
+                            <Link
+                                href="/industries"
+                                className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors group"
+                            >
+                                <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                                All Industries
+                            </Link>
+                        </div>
+                    </div>
+                </Wrapper>
+            </section>
         </main>
     );
 }
