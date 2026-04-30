@@ -2,7 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-
 @theme inline {
   --font-sans: var(--font-open-sans);
   --font-mono: var(--font-montserrate);
@@ -36,4 +35,240 @@ p {
 
 body {
   font-family: var(--font-open-sans);
+}
+
+.ws-prose {
+  color: #44403c;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+/* First / last child spacing reset */
+.ws-prose > *:first-child {
+  margin-top: 0 !important;
+}
+.ws-prose > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* ── Headings ── */
+.ws-prose h1,
+.ws-prose h2,
+.ws-prose h3,
+.ws-prose h4 {
+  color: #1c1917;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+.ws-prose h1 {
+  font-size: 1.5rem;
+}
+.ws-prose h2 {
+  font-size: 1.2rem;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #e7e5e4;
+}
+.ws-prose h3 {
+  font-size: 1.05rem;
+  color: #292524;
+}
+.ws-prose h4 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #78716c;
+}
+
+/* ── Paragraphs ── */
+.ws-prose p {
+  margin-top: 0.85em;
+  margin-bottom: 0.85em;
+}
+
+/* ── Inline ── */
+.ws-prose strong {
+  color: #1c1917;
+  font-weight: 600;
+}
+.ws-prose em {
+  color: #57534e;
+  font-style: italic;
+}
+
+/* ── Unordered list ── */
+.ws-prose ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+}
+.ws-prose ul li {
+  position: relative;
+  padding-left: 1.5em;
+}
+.ws-prose ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+/* ── Ordered list ── */
+.ws-prose ol {
+  list-style: none;
+  counter-reset: prose-counter;
+  padding-left: 0;
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.ws-prose ol li {
+  counter-increment: prose-counter;
+  position: relative;
+  padding-left: 2.2em;
+}
+.ws-prose ol li::before {
+  content: counter(prose-counter);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 9999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ── Nested lists ── */
+.ws-prose ul ul,
+.ws-prose ol ul {
+  margin: 0.4em 0 0.4em 1em;
+}
+
+/* ── Table ── */
+.ws-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4em 0;
+  font-size: 0.875rem;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #e7e5e4;
+}
+.ws-prose thead {
+  background: #1c1917;
+  color: #ffffff;
+}
+.ws-prose thead th {
+  padding: 0.65em 1em;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ws-prose tbody tr:nth-child(even) {
+  background: #fafaf9;
+}
+.ws-prose tbody tr:hover {
+  background: #fef9f0;
+}
+.ws-prose tbody td {
+  padding: 0.6em 1em;
+  border-top: 1px solid #f5f5f4;
+  vertical-align: top;
+}
+.ws-prose tbody td:first-child {
+  font-weight: 500;
+  color: #292524;
+}
+
+/* ── Blockquote ── */
+.ws-prose blockquote {
+  border-left: 3px solid #f59e0b;
+  margin: 1.2em 0;
+  padding: 0.8em 1.2em;
+  background: #fffbeb;
+  border-radius: 0 8px 8px 0;
+  color: #78716c;
+  font-style: italic;
+}
+
+/* ── Code ── */
+.ws-prose code {
+  background: #f5f5f4;
+  color: #c2410c;
+  font-size: 0.82em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-family: ui-monospace, monospace;
+}
+.ws-prose pre {
+  background: #1c1917;
+  color: #fef3c7;
+  padding: 1.2em 1.4em;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 1.2em 0;
+  font-size: 0.85em;
+}
+.ws-prose pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── Links ── */
+.ws-prose a {
+  color: #d97706;
+  text-decoration: underline;
+  text-decoration-color: #fcd34d;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+.ws-prose a:hover {
+  color: #92400e;
+}
+
+/* ── Horizontal rule ── */
+.ws-prose hr {
+  border: none;
+  border-top: 1px solid #e7e5e4;
+  margin: 1.8em 0;
+}
+
+/* ── Images ── */
+.ws-prose img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1em 0;
+}
+
+/* ── Definition list (spec sheets) ── */
+.ws-prose dl {
+  margin: 1em 0;
+}
+.ws-prose dt {
+  font-weight: 600;
+  color: #292524;
+  margin-top: 0.8em;
+}
+.ws-prose dd {
+  margin-left: 1.2em;
+  color: #57534e;
 }
