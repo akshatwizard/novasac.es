@@ -60,6 +60,11 @@ export interface ProductFilter {
 
 export interface CatalogData {
     meta: CatalogMeta
+    primary_category: {
+        title: string | null,
+        short_content: string | null,
+        long_content: string | null
+    }
     category: CatalogCategory
     attribute: CatalogAttribute
     attribute_value: CatalogAttributeValue
