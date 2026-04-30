@@ -52,7 +52,8 @@ export interface ProductDetails {
   id: number
   title: string
   slug: string
-  category_id: number
+  category_id: number;
+  product_short_description: string | null;
   product_description: string | null
   product_specification: string | null
   meta_title: string | null
