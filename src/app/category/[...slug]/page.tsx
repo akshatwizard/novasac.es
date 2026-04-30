@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 
 export default async function ProductsLists({ params }: { params: Promise<{ slug: string[] }> }) {
     const { slug } = await params
-    
+
     const queryClient = new QueryClient()
     const activeFilters = {}
 
@@ -25,14 +25,16 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
     const cachedData = queryClient.getQueryData<{ pages: CatalogApiResponse[] }>(catalogKeys.list(slug, activeFilters))
 
     const firstPage = cachedData?.pages?.[0]?.data
-    
+
     const initialFilters = firstPage?.product_filters ?? []
     const initialProducts = firstPage?.products ?? []
     const initialTotalProducts = firstPage?.pagination.total_products ?? 0
-    const categorySlug = firstPage?.category.slug ?? slug[0]
     const attribute_value = firstPage?.attribute_value?.slug ?? firstPage?.products[0].attributes_value_slug
 
-    const pageTitle = firstPage?.attribute_value ? `${firstPage?.attribute_value?.name} ${firstPage.category.title}` : firstPage?.category.title
+    const pageTitle = firstPage?.attribute_value ? `${firstPage?.attribute_value?.name}` : firstPage?.category.title
+
+    const shortContent = firstPage?.primary_category?.short_content
+    const longContent = firstPage?.primary_category?.long_content
 
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
@@ -61,6 +63,19 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                                 {firstPage.pagination.total_products} products available
                             </p>
                         )}
+
+                        {shortContent && (
+                            <div className="mt-6 relative">
+                                {/* Decorative left border accent */}
+                                <div className="absolute left-0 top-0 bottom-0 w-0.75 rounded-full bg-linear-to-b from-primary-400 via-primary-300 to-primary-100" />
+                                <div className="pl-5">
+                                    <div
+                                        className="text-sm md:text-[15px] leading-relaxed text-stone-600 font-light max-w-3xl [&>p]:m-0"
+                                        dangerouslySetInnerHTML={{ __html: shortContent }}
+                                    />
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     <CatalogClient
@@ -70,6 +85,56 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                         initialTotalProducts={initialTotalProducts}
                         attributeValue={attribute_value!}
                     />
+
+                    {longContent && (
+                        <div className="mt-20 mb-10">
+                            {/* Divider with label */}
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="h-px flex-1 bg-stone-200" />
+                                <span className="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-medium whitespace-nowrap">
+                                    About {pageTitle}
+                                </span>
+                                <div className="h-px flex-1 bg-stone-200" />
+                            </div>
+
+                            {/* Content card */}
+                            <div className="relative bg-stone-50 border border-stone-200 rounded-2xl px-7 py-8 md:px-12 md:py-10 overflow-hidden">
+                                {/* Decorative corner grain texture via box-shadow */}
+                                <div className="absolute top-0 right-0 w-48 h-48 rounded-bl-full opacity-15 bg-primary-500 pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 w-32 h-32 rounded-tr-full opacity-15 bg-primary-500 pointer-events-none" />
+
+                                {/* Leaf / nature icon */}
+                                <div className="flex items-center gap-2.5 mb-5">
+                                    <svg
+                                        className="w-5 h-5 text-amber-500 shrink-0"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M12 22c4.97 0 9-3.582 9-8 0-5-4-10-9-12C7 4 3 9 3 14c0 4.418 4.03 8 9 8z" />
+                                        <path d="M12 22V10" />
+                                    </svg>
+                                    <span className="text-xs uppercase tracking-[0.15em] text-amber-600 font-semibold">
+                                        Craftsmanship & Heritage
+                                    </span>
+                                </div>
+
+                                {/* Prose content */}
+                                <div
+                                    className="prose prose-stone prose-sm md:prose-base max-w-none
+                                            prose-headings:font-serif prose-headings:text-stone-800
+                                            prose-p:text-stone-600 prose-p:leading-relaxed prose-p:font-light
+                                            prose-strong:text-stone-700 prose-strong:font-medium
+                                            prose-a:text-amber-700 prose-a:underline-offset-2
+                                            prose-li:text-stone-600"
+                                    dangerouslySetInnerHTML={{ __html: longContent }}
+                                />
+                            </div>
+                        </div>
+                    )}
                 </Wrapper>
             </Section>
         </HydrationBoundary>

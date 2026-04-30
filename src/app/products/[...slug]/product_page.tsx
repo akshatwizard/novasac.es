@@ -1,12 +1,13 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useQuery } from '@tanstack/react-query'
 import { OtherRelatedItem, ProductDetailApiResponse, RelatedProduct } from '@/types/single_product.types'
 import { fetchProductDetail, productKeys } from '@/hooks/fetch_product'
+import { ChevronDown, FileText, Settings2, Sparkles } from 'lucide-react'
 
 interface Props {
     slug: string[]
@@ -161,7 +162,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
 
                     {/* Category tag */}
                     <div>
-                        <span className="inline-block text-[10px] tracking-[0.2em] uppercase font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+                        <span className="inline-block text-[10px] tracking-[0.2em] uppercase font-semibold text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1 rounded-full">
                             {p.category.title}
                         </span>
                     </div>
@@ -313,50 +314,130 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
     )
 }
 
+const COLLAPSED_HEIGHT = 420
+const TAB_META = [
+    { label: 'Description', icon: FileText },
+    { label: 'Specification', icon: Settings2 },
+    { label: 'Features', icon: Sparkles },
+]
 
-function ProductTabs({
-    description,
-    specification,
-    additionalFeatures,
-}: {
+function ProductTabs({ description, specification, additionalFeatures }: {
     description: string | null
     specification: string | null
     additionalFeatures: string | null
 }) {
-    const tabs = [
+    const raw_tabs = [
         { label: 'Description', content: description },
         { label: 'Specification', content: specification },
         { label: 'Features', content: additionalFeatures },
     ].filter((t) => t.content)
 
+    const tabs = raw_tabs.map((t) => ({
+        ...t,
+        icon: TAB_META.find((m) => m.label === t.label)?.icon ?? FileText,
+    }))
+
     const [active, setActive] = useState(0)
+    const [expanded, setExpanded] = useState(false)
+    const [needsClamp, setNeedsClamp] = useState(false)
+    const contentRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const el = contentRef.current
+        if (!el) return
+        setNeedsClamp(el.scrollHeight > COLLAPSED_HEIGHT)
+        setExpanded(false)
+    }, [active])
 
     if (tabs.length === 0) return null
 
     return (
         <div className="mt-16">
+            {/* ── Tab bar ── */}
             <div className="flex gap-1 border-b border-stone-200">
-                {tabs.map((tab, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setActive(i)}
-                        className={`px-5 py-3 text-sm font-medium transition-all duration-200 border-b-2 -mb-px ${active === i
-                            ? 'border-stone-900 text-stone-900'
-                            : 'border-transparent text-stone-400 hover:text-stone-600'
-                            }`}
-                    >
-                        {tab.label}
-                    </button>
-                ))}
+                {tabs.map((tab, i) => {
+                    const Icon = tab.icon
+                    const isActive = active === i
+                    return (
+                        <button
+                            key={i}
+                            onClick={() => setActive(i)}
+                            className={`
+                                    relative flex items-center gap-2 px-5 py-3.5 text-sm font-medium
+                                    whitespace-nowrap transition-all duration-200 -mb-px border-b-2
+                                    ${isActive
+                                    ? 'border-primary-500 text-stone-900'
+                                    : 'border-transparent text-stone-400 hover:text-stone-600 hover:border-stone-300'
+                                }
+                                `}
+                        >
+                            <Icon
+                                className={`w-3.5 h-3.5 transition-colors duration-200 ${isActive ? 'text-primary-500' : 'text-stone-300'}`}
+                                strokeWidth={isActive ? 2 : 1.5}
+                            />
+                            {tab.label}
+                        </button>
+                    )
+                })}
             </div>
-            <div
-                className="mt-6 prose prose-stone prose-sm max-w-none text-stone-600 leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: tabs[active].content! }}
-            />
+
+            {/* ── Content panel ── */}
+            <div className="mt-8">
+                <div className="relative bg-stone-50/60 border border-stone-100 rounded-2xl px-6 py-7 md:px-10 md:py-9 overflow-hidden">
+                    {/* Decorative blobs */}
+                    <div className="absolute top-0 right-0 w-40 h-40 rounded-bl-full bg-primary-100/30 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 rounded-tr-full bg-primary-50/60 pointer-events-none" />
+                    <div className="absolute left-0 top-8 bottom-8 w-0.75 rounded-full bg-linear-to-b from-primary-400/80 via-primary-300/50 to-transparent" />
+
+                    {/* Collapsible wrapper */}
+                    <div
+                        className="relative z-10 transition-[max-height] duration-500 ease-in-out overflow-hidden"
+                        style={{
+                            maxHeight: expanded || !needsClamp
+                                ? '9999px'
+                                : `${COLLAPSED_HEIGHT}px`,
+                        }}
+                    >
+                        <div
+                            ref={contentRef}
+                            className="ws-prose"
+                            dangerouslySetInnerHTML={{ __html: tabs[active].content! }}
+                        />
+                    </div>
+
+                    {/* Fade + See More */}
+                    {needsClamp && !expanded && (
+                        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-stone-50 via-stone-50/80 to-transparent pointer-events-none rounded-b-2xl z-20" />
+                    )}
+                </div>
+
+                {/* See more / See less button — outside the card so it sits below */}
+                {needsClamp && (
+                    <div className="flex justify-center mt-4">
+                        <button
+                            onClick={() => setExpanded((v) => !v)}
+                            className="
+                                    group inline-flex items-center gap-2
+                                    text-sm font-semibold text-primary-600
+                                    bg-primary-50 hover:bg-primary-100
+                                    border border-primary-200 hover:border-primary-300
+                                    px-5 py-2.5 rounded-full
+                                    transition-all duration-200
+                                    shadow-sm hover:shadow
+                                "
+                        >
+                            {expanded ? 'See less' : 'See more'}
+                            <ChevronDown
+                                className={`w-4 h-4 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+                                strokeWidth={2.5}
+                            />
+                        </button>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
-
 
 function RelatedProductsSection({ products }: { products: RelatedProduct[] }) {
     const [ref, api] = useEmblaCarousel({ dragFree: true, align: 'start' })
@@ -365,7 +446,9 @@ function RelatedProductsSection({ products }: { products: RelatedProduct[] }) {
         <div className="mt-16">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
-                <h2 className="font-serif text-xl text-stone-900">You may also like</h2>
+                <h2 className="md:text-3xl text-2xl text-stone-900 font-semibold">
+                    You may also like
+                </h2>
                 <div className="flex gap-2">
                     <button
                         onClick={() => api?.scrollPrev()}
@@ -410,7 +493,7 @@ function RelatedProductsSection({ products }: { products: RelatedProduct[] }) {
                                     <p className="text-[10px] text-stone-400 tracking-wide uppercase mb-1">
                                         {product.category_title}
                                     </p>
-                                    <p className="text-[13px] text-stone-700 font-medium leading-snug line-clamp-2 group-hover:text-amber-800 transition-colors">
+                                    <p className="text-[13px] text-stone-700 font-medium leading-snug line-clamp-2 group-hover:text-primary-800 transition-colors">
                                         {product.title}
                                     </p>
                                 </div>
