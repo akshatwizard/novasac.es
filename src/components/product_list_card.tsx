@@ -53,13 +53,13 @@ export default function ProductListCard({
                 />
 
                 {/* Discount */}
-                {discount !== null && !isOutOfStock && (
+                {/* {discount !== null && !isOutOfStock && (
                     <div className="absolute top-3 left-3">
                         <span className="bg-primary-500/90 backdrop-blur text-white text-[11px] px-2 py-1 rounded-md shadow">
                             {discount}% OFF
                         </span>
                     </div>
-                )}
+                )} */}
 
                 {/* Out of stock */}
                 {isOutOfStock && (
@@ -90,7 +90,7 @@ export default function ProductListCard({
                 {/* Price */}
                 <div className="flex items-end justify-between">
                     <div className="flex flex-col">
-                        {offer > 0 ? (
+                        {/* {offer > 0 ? (
                             <>
                                 <span className="text-lg font-semibold text-gray-900">
                                     {formatINR(offer)}
@@ -103,10 +103,10 @@ export default function ProductListCard({
                                 )}
                             </>
                         ) : (
+                        )} */}
                             <span className="text-xs text-gray-400 italic">
                                 Price on request
                             </span>
-                        )}
                     </div>
 
                     {/* subtle arrow */}

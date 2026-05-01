@@ -6,6 +6,22 @@ import { CatalogApiResponse } from '@/types/catalog.types'
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query'
 import { Metadata } from 'next'
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+    const { slug } = await params
+
+    try {
+        const res: CatalogApiResponse = await fetchCatalog({ slug, page: 1 })
+        const { meta } = res.data
+        return {
+            title: meta.title,
+            description: meta.description,
+            keywords: meta.keywords,
+        }
+    } catch {
+        return { title: 'Product Catalog | Wooden Souvenir' }
+    }
+}
+
 export default async function ProductsLists({ params }: { params: Promise<{ slug: string[] }> }) {
     const { slug } = await params
 
@@ -103,33 +119,9 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                                 <div className="absolute top-0 right-0 w-48 h-48 rounded-bl-full opacity-15 bg-primary-500 pointer-events-none" />
                                 <div className="absolute bottom-0 left-0 w-32 h-32 rounded-tr-full opacity-15 bg-primary-500 pointer-events-none" />
 
-                                {/* Leaf / nature icon */}
-                                <div className="flex items-center gap-2.5 mb-5">
-                                    <svg
-                                        className="w-5 h-5 text-amber-500 shrink-0"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path d="M12 22c4.97 0 9-3.582 9-8 0-5-4-10-9-12C7 4 3 9 3 14c0 4.418 4.03 8 9 8z" />
-                                        <path d="M12 22V10" />
-                                    </svg>
-                                    <span className="text-xs uppercase tracking-[0.15em] text-amber-600 font-semibold">
-                                        Craftsmanship & Heritage
-                                    </span>
-                                </div>
-
                                 {/* Prose content */}
                                 <div
-                                    className="prose prose-stone prose-sm md:prose-base max-w-none
-                                            prose-headings:font-serif prose-headings:text-stone-800
-                                            prose-p:text-stone-600 prose-p:leading-relaxed prose-p:font-light
-                                            prose-strong:text-stone-700 prose-strong:font-medium
-                                            prose-a:text-amber-700 prose-a:underline-offset-2
-                                            prose-li:text-stone-600"
+                                    className="ws-prose"
                                     dangerouslySetInnerHTML={{ __html: longContent }}
                                 />
                             </div>
@@ -139,23 +131,4 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
             </Section>
         </HydrationBoundary>
     )
-}
-
-
-
-
-export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
-    const { slug } = await params
-
-    try {
-        const res: CatalogApiResponse = await fetchCatalog({ slug, page: 1 })
-        const { meta } = res.data
-        return {
-            title: meta.title,
-            description: meta.description,
-            keywords: meta.keywords,
-        }
-    } catch {
-        return { title: 'Product Catalog | Wooden Souvenir' }
-    }
 }

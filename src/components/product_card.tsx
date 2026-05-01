@@ -21,9 +21,7 @@ export default function ProductCard({ product }: Props) {
 
     const mrp = product.mrp ?? DEFAULT_MRP;
     const offerRate = product.offer_rate ?? DEFAULT_OFFER_RATE;
-
-    const discount =
-        mrp > offerRate ? Math.round(((mrp - offerRate) / mrp) * 100) : null;
+    const discount = mrp > offerRate ? Math.round(((mrp - offerRate) / mrp) * 100) : null;
 
     return (
         <div className="w-full h-full border border-gray-200 rounded-xl bg-white group transition-all duration-300 ease-in-out hover:border-primary-300 cursor-pointer hover:shadow-soft">
@@ -58,7 +56,7 @@ export default function ProductCard({ product }: Props) {
                     </Link>
 
                     {/* Pricing */}
-                    <div className="flex flex-col gap-0.5">
+                    {/* <div className="flex flex-col gap-0.5">
                         <span className="text-base font-semibold text-zinc-800">
                             {formatPrice(offerRate)}
                         </span>
@@ -70,7 +68,7 @@ export default function ProductCard({ product }: Props) {
                                 </del>
                             </span>
                         )}
-                    </div>
+                    </div> */}
 
                     {/* SKU */}
                     {product.sku && (
@@ -82,7 +80,7 @@ export default function ProductCard({ product }: Props) {
                 </div>
 
                 {/* Discount ribbon */}
-                {discount !== null && (
+                {/* {discount !== null && (
                     <div className="absolute top-5 left-0 flex items-center">
                         <div className="relative bg-primary-500 text-white text-xs font-medium pl-1.5 pr-1">
                             {discount}% OFF
@@ -97,7 +95,7 @@ export default function ProductCard({ product }: Props) {
                             />
                         </div>
                     </div>
-                )}
+                )} */}
             </div>
         </div>
     );

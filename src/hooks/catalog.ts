@@ -49,7 +49,7 @@ export async function fetchCatalog({
 
   const url = buildCatalogUrl(slug);
 
-  console.log("API URL:", url, params); // 🔥 debug
+  // console.log("API URL:", url, params); // 🔥 debug
 
   const { data } = await axios.get<CatalogApiResponse>(url, {
     params,
