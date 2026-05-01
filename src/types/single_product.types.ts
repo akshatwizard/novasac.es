@@ -68,7 +68,11 @@ export interface ProductDetails {
   image_larges: ImageLarge[]
   category: ProductCategory
   attributes: ProductAttribute[]
-  additional_features: string | null
+  additional_features: {
+    id: number;
+    title: string,
+    value: string;
+  }[] | null
 }
 
 export interface RelatedProduct {

@@ -326,16 +326,22 @@ const TAB_META = [
     { label: 'Features', icon: Sparkles },
 ]
 
-function ProductTabs({ description, specification, additionalFeatures }: {
+type ProductTabsProps = {
     description: string | null
     specification: string | null
-    additionalFeatures: string | null
-}) {
+    additionalFeatures: {
+        id: number;
+        title: string,
+        value: string;
+    }[] | null
+}
+
+function ProductTabs({ description, specification, additionalFeatures }: ProductTabsProps) {
     const raw_tabs = [
         { label: 'Description', content: description },
         { label: 'Specification', content: specification },
         { label: 'Features', content: additionalFeatures },
-    ].filter((t) => t.content)
+    ].filter((t) => t.content && (!Array.isArray(t.content) || t.content.length > 0))  // ← fix empty array
 
     const tabs = raw_tabs.map((t) => ({
         ...t,
@@ -397,17 +403,27 @@ function ProductTabs({ description, specification, additionalFeatures }: {
                     {/* Collapsible wrapper */}
                     <div
                         className="relative z-10 transition-[max-height] duration-500 ease-in-out overflow-hidden"
-                        style={{
-                            maxHeight: expanded || !needsClamp
-                                ? '9999px'
-                                : `${COLLAPSED_HEIGHT}px`,
-                        }}
+                        style={{ maxHeight: expanded || !needsClamp ? '9999px' : `${COLLAPSED_HEIGHT}px` }}
                     >
-                        <div
-                            ref={contentRef}
-                            className="ws-prose"
-                            dangerouslySetInnerHTML={{ __html: tabs[active].content! }}
-                        />
+                        <div ref={contentRef} >
+                            {Array.isArray(tabs[active].content) ? (
+                                <dl className="divide-y divide-stone-100">
+                                    {(tabs[active].content as { id: number; title: string; value: string }[]).map((feat) => (
+                                        <div key={feat.id} className="flex gap-4 py-3 first:pt-0 last:pb-0">
+                                            <dt className="w-2/5 shrink-0 text-sm font-semibold text-stone-500">
+                                                {feat.title}
+                                            </dt>
+                                            <dd className="text-sm text-stone-700">{feat.value}</dd>
+                                        </div>
+                                    ))}
+                                </dl>
+                            ) : (
+                                <div
+                                    className="ws-prose"
+                                    dangerouslySetInnerHTML={{ __html: tabs[active].content as string }}
+                                />
+                            )}
+                        </div>
                     </div>
 
                     {/* Fade + See More */}
