@@ -6,6 +6,20 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ProductDetailClient from './product_page'
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+    const { slug } = await params
+    try {
+        const res = await fetchProductDetail(slug)
+        const p = res.data.product_details
+        return {
+            title: p.meta_title ?? p.title,
+            description: p.meta_description ?? undefined,
+        }
+    } catch {
+        return { title: 'Product | Novasac' }
+    }
+}
+
 export default async function ProductPage({ params }: { params: Promise<{ slug: string[] }> }) {
     const { slug } = await params
     const queryClient = new QueryClient()
@@ -33,19 +47,4 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </Section>
         </HydrationBoundary>
     )
-}
-
-
-export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
-    const { slug } = await params
-    try {
-        const res = await fetchProductDetail(slug)
-        const p = res.data.product_details
-        return {
-            title: p.meta_title ?? p.title,
-            description: p.meta_description ?? undefined,
-        }
-    } catch {
-        return { title: 'Product | Novasac' }
-    }
 }
