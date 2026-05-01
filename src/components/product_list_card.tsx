@@ -74,7 +74,7 @@ export default function ProductListCard({
             {/* Content */}
             <div className="flex flex-col flex-1 px-4 py-4 space-y-2">
                 {/* Title */}
-                <h3 className="text-[14px] font-medium text-gray-800 leading-snug line-clamp-2 transition group-hover:text-primary-600">
+                <h3 className="text-[14px] font-medium text-gray-800 leading-snug transition group-hover:text-primary-600">
                     {product.title}
                 </h3>
 
