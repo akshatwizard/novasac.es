@@ -121,12 +121,7 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
 
                                 {/* Prose content */}
                                 <div
-                                    className="prose prose-stone prose-sm md:prose-base max-w-none
-                                            prose-headings:font-serif prose-headings:text-stone-800
-                                            prose-p:text-stone-600 prose-p:leading-relaxed prose-p:font-light
-                                            prose-strong:text-stone-700 prose-strong:font-medium
-                                            prose-a:text-amber-700 prose-a:underline-offset-2
-                                            prose-li:text-stone-600"
+                                    className="ws-prose"
                                     dangerouslySetInnerHTML={{ __html: longContent }}
                                 />
                             </div>
