@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CatalogApiResponse } from "../types/catalog.types";
 
-const BASE_URL = "https://gangapapers.in/novasac/api";
+const BASE_URL = "https://www.gangapapers.in/novasac/api";
 
 export interface CatalogFetchParams {
   slug: string[];

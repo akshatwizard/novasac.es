@@ -19,7 +19,7 @@ export default function SearchedProducts({ query, initialProducts, initialTotalP
     const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useInfiniteQuery({
         queryKey: ['search', query],
         queryFn: async ({ pageParam = 1 }) => {
-            const res = await axios.get<SearchProductAPIResponse>("https://gangapapers.in/novasac/api/search", {
+            const res = await axios.get<SearchProductAPIResponse>("https://www.gangapapers.in/novasac/api/search", {
                 params: { query, page: pageParam }
             })
             return res.data

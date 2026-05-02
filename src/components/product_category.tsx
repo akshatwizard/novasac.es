@@ -19,7 +19,7 @@ export default function ProductCategory() {
         queryKey: ["home_category"],
         queryFn: async () => {
             const res = await axios.get<HomeCategoryResponse>(
-                "https://gangapapers.in/novasac/api/home/category"
+                "https://www.gangapapers.in/novasac/api/home/category"
             );
             return res.data.data;
         },

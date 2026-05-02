@@ -18,7 +18,7 @@ export default function Blogs() {
         queryKey: ["home_blogs"],
         queryFn: async () => {
             const res = await axios.get<BlogResponse>(
-                "https://gangapapers.in/novasac/api/home/blog"
+                "https://www.gangapapers.in/novasac/api/home/blog"
             );
             return res.data.data;
         },

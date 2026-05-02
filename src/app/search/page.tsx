@@ -7,7 +7,7 @@ import axios from "axios"
 import { Metadata } from "next"
 
 async function fetchSearchProducts(query: string, page = 1): Promise<SearchProductAPIResponse> {
-    const res = await axios.get<SearchProductAPIResponse>("https://gangapapers.in/novasac/api/search", {
+    const res = await axios.get<SearchProductAPIResponse>("https://www.gangapapers.in/novasac/api/search", {
         params: { query, page },
     })
     return res.data
@@ -65,7 +65,7 @@ export default async function QueryPage({ searchParams }: { searchParams: Promis
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ q: string }> }): Promise<Metadata> {
     const { q } = await searchParams
     try {
-        const res = await axios.get("https://gangapapers.in/novasac/api/search", { params: { query: q } })
+        const res = await axios.get("https://www.gangapapers.in/novasac/api/search", { params: { query: q } })
         const { meta } = res.data
         return { title: meta.title, description: meta.description, keywords: meta.keywords }
     } catch {

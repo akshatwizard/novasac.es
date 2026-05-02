@@ -30,7 +30,7 @@ export default function Testimonials() {
         queryKey: ['testimonial'],
         queryFn: async () => {
             const res = await axios.get<TestimonialResponse>(
-                "https://gangapapers.in/novasac/api/home/testimonials"
+                "https://www.gangapapers.in/novasac/api/home/testimonials"
             );
             return res.data.data;
         },

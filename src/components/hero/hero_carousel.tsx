@@ -60,7 +60,7 @@ export default function HeroBanner() {
     const { data, isLoading } = useQuery<BannerData[]>({
         queryKey: ["hero_banner"],
         queryFn: async () => {
-            const res = await axios.get<BannerResponse>("https://gangapapers.in/novasac/api/home/banner");
+            const res = await axios.get<BannerResponse>("https://www.gangapapers.in/novasac/api/home/banner");
             return res.data.data;
         },
     });
