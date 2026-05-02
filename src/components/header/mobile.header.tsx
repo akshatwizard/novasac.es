@@ -22,7 +22,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
     const { data, isFetching, isLoading } = useQuery<MenuResponse>({
         queryKey: ["menu"],
         queryFn: async () => {
-            const res = await axios.get<MenuResponse>("https://gangapapers.in/novasac/api/menu");
+            const res = await axios.get<MenuResponse>("https://www.gangapapers.in/novasac/api/menu");
             return res.data;
         },
     });

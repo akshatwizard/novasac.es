@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
         if (token) {
             setToken(token);
-            axios.get("https://gangapapers.in/novasac/api/customer/profile", {
+            axios.get("https://www.gangapapers.in/novasac/api/customer/profile", {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -104,7 +104,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         try {
             if (token) {
                 await axios.post(
-                    "https://gangapapers.in/novasac/api/customer/logout",
+                    "https://www.gangapapers.in/novasac/api/customer/logout",
                     {},
                     {
                         headers: {

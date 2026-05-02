@@ -106,7 +106,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
     const { mutate, isPending } = useMutation({
         mutationFn: async () => {
             return (
-                await axios.post("https://gangapapers.in/novasac/api/customer/login", { contact })
+                await axios.post("https://www.gangapapers.in/novasac/api/customer/login", { contact })
             )
         },
         onSuccess: async (val) => {
@@ -120,7 +120,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
     const { mutate: resendMutate, isPending: resendPending } = useMutation({
         mutationFn: async () => {
             return (
-                await axios.post("https://gangapapers.in/novasac/api/customer/resend-otp", { contact })
+                await axios.post("https://www.gangapapers.in/novasac/api/customer/resend-otp", { contact })
             )
         },
         onSuccess: async (val) => {
@@ -132,7 +132,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
     const { mutate: verifyOtp, isPending: pendingOtp } = useMutation({
         mutationFn: async () => {
             return (
-                await axios.post("https://gangapapers.in/novasac/api/customer/verify-otp", {
+                await axios.post("https://www.gangapapers.in/novasac/api/customer/verify-otp", {
                     contact, otp
                 })
             )
@@ -153,7 +153,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
     const { mutate: googleLoginMutate, isPending: googlePending } = useMutation({
         mutationFn: async (google_id_token: string) => {
             return await axios.post(
-                "https://gangapapers.in/novasac/api/customer/google-login",
+                "https://www.gangapapers.in/novasac/api/customer/google-login",
                 { google_id_token }
             );
         },

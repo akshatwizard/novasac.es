@@ -16,7 +16,7 @@ export default function TrendingProducts() {
         queryKey: ["trending_products"],
         queryFn: async () => {
             const res = await axios.get<ProductResponse>(
-                "https://gangapapers.in/novasac/api/home/trending-products"
+                "https://www.gangapapers.in/novasac/api/home/trending-products"
             );
             return res.data.data;
         },

@@ -6,7 +6,7 @@ export const searchKeys = {
 }
 
 export async function fetchSearchSuggestions(query: string): Promise<SearchSuggestionApiResponse> {
-    const res = await fetch(`https://gangapapers.in/novasac/api/search-suggestion?query=${encodeURIComponent(query)}`)
+    const res = await fetch(`https://www.gangapapers.in/novasac/api/search-suggestion?query=${encodeURIComponent(query)}`)
     if (!res.ok) throw new Error('Failed to fetch suggestions')
     return res.json()
 }

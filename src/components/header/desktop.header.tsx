@@ -24,7 +24,7 @@ export default function DesktopHeader() {
   const { data, isFetching, isLoading } = useQuery<MenuResponse>({
     queryKey: ["menu"],
     queryFn: async function () {
-      const res = await axios.get<MenuResponse>("https://gangapapers.in/novasac/api/menu");
+      const res = await axios.get<MenuResponse>("https://www.gangapapers.in/novasac/api/menu");
       return res.data
     },
   })
