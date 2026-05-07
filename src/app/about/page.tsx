@@ -47,8 +47,8 @@ const teamMembers: TeamMember[] = [
 const stats: StatItem[] = [
     { num: "40+", label: "Years of experience" },
     { num: "3", label: "Generations of expertise" },
-    { num: "4", label: "Industries served" },
-    { num: "1", label: "Trusted family legacy" },
+    // { num: "4", label: "Industries served" },
+    // { num: "1", label: "Trusted family legacy" },
 ];
 
 const timelineSteps: TimelineStep[] = [
@@ -124,7 +124,7 @@ export default function AboutUs() {
 
             <Section>
                 <Wrapper>
-                    <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+                    <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
                         {stats.map((stat, i) => (
                             <motion.div
                                 key={stat.label}
@@ -133,7 +133,7 @@ export default function AboutUs() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 + i * 0.08 }}
                             >
-                                <div className="font-mono lg:text-5xl md:text-4xl text-3xl font-semibold text-primary-600 mb-1">
+                                <div className="font-mono lg:text-6xl md:text-4xl text-3xl font-semibold text-primary-600 mb-1">
                                     {stat.num}
                                 </div>
                                 <div className=" text-xs lg:text-base md:text-sm text-stone-400 leading-snug">
