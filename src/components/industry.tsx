@@ -37,7 +37,7 @@ export default function Industry() {
                                 />
 
                                 {/* ── Gradient: top open, bottom white so content is readable ── */}
-                                <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/95 pointer-events-none" />
+                                {/* <div className="absolute h-10 inset-x-0 bottom-0 left-0 bg-linear-to-t from-black/80 to-black/50 pointer-events-none" /> */}
 
                                 <div className="relative z-10 p-6 flex flex-col gap-2 h-full justify-between">
                                     {/* Icon badge */}
@@ -47,7 +47,7 @@ export default function Industry() {
 
                                     <div className="space-y-1.5">
                                         <div className="flex items-start justify-between gap-2">
-                                            <h3 className="text-base font-semibold text-zinc-800 leading-snug">
+                                            <h3 className="text-base font-semibold text-black leading-snug">
                                                 {item.title}
                                             </h3>
                                         </div>

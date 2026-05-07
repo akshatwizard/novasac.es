@@ -243,7 +243,7 @@ export default function TechnicalTextile() {
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
                                 Technical<br />
                                 <strong className="text-primary-600">
-                                    Textile Bags
+                                    Textiles
                                 </strong>
                             </h1>
 
