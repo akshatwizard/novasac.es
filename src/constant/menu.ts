@@ -18,7 +18,7 @@ export const MenuItems: MenuType[] = [
     {
         name: "Recycled Bags",
         path: "/recycled-bags",
-        icon: "/images/recycled/recycled.jpg"
+        icon: "/images/recycled/recycled.jpeg"
     },
     {
         name: "Technical Textiles",
