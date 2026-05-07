@@ -150,7 +150,7 @@ const products = [
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
     },
 ]
-
+// backgroundImage: `url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1920&q=80&auto=format&fit=crop')`,
 export default function RecycledBags() {
     return (
         <>
@@ -158,7 +158,7 @@ export default function RecycledBags() {
                 <div
                     className="pointer-events-none absolute inset-0 bg-cover bg-center scale-105"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1920&q=80&auto=format&fit=crop')`,
+                        backgroundImage: `url('/images/hero/recycle.jpeg')`,
                         backgroundPosition: 'center 40%',
                     }}
                 >
