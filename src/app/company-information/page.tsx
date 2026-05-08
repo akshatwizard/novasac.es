@@ -15,7 +15,7 @@ export default function LegalInformation() {
                     className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full overflow-hidden"
                     style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
                 >
-                    <Image src={"/images/hero/bags-each-clean-up.jpg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-right" />
+                    <Image src={"/images/hero/company.jpeg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-right" />
                 </div>
                 <Wrapper className="p-0!">
                     <section className="relative overflow-hidden border-b border-stone-200">
