@@ -30,6 +30,7 @@ const teamMembers: TeamMember[] = [
         text: "text-primary-600",
         border: "border-primary-100",
         bar: "bg-primary-500",
+        image: "/images/about/carmen.jpeg"
     },
     {
         initials: "GA",
@@ -41,6 +42,7 @@ const teamMembers: TeamMember[] = [
         text: "text-primary-700",
         border: "border-primary-200",
         bar: "bg-primary-600",
+        image: "/images/about/gabriel.jpeg"
     },
 ];
 
