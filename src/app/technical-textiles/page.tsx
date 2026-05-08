@@ -218,7 +218,7 @@ export default function TechnicalTextile() {
                 <div
                     className="pointer-events-none absolute inset-0 bg-cover bg-center scale-105"
                     style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1920&q=80&auto=format&fit=crop')`,
+                        backgroundImage: `url('/images/hero/textile.jpeg')`,
                         backgroundPosition: 'center 30%',
                     }}
                 >
