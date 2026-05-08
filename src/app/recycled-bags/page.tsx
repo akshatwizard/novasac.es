@@ -10,6 +10,7 @@ import {
     BadgeCheck,
     ArrowRight,
 } from 'lucide-react'
+import Image from 'next/image'
 
 const stats = [
     { value: 'UNE-EN 15343', label: 'Certified Standard' },
@@ -71,6 +72,7 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/recycled/fibc.jpg"
     },
     {
         id: 'ppws',
@@ -96,6 +98,7 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/recycled/pp-woven.jpg"
     },
     {
         id: 'garden',
@@ -122,6 +125,7 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/recycled/garden.jpg"
     },
     {
         id: 'garbage',
@@ -148,9 +152,9 @@ const products = [
         badgeBg: 'bg-primary-600 text-white',
         subtitleColor: 'text-primary-700',
         ctaBg: 'bg-primary-600 hover:bg-primary-500',
+        images: "/images/recycled/garbage.jpg"
     },
 ]
-// backgroundImage: `url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1920&q=80&auto=format&fit=crop')`,
 export default function RecycledBags() {
     return (
         <>
@@ -159,7 +163,7 @@ export default function RecycledBags() {
                     className="pointer-events-none absolute inset-0 bg-cover bg-center scale-105"
                     style={{
                         backgroundImage: `url('/images/hero/recycle.jpeg')`,
-                        backgroundPosition: 'center 40%',
+                        backgroundPosition: 'center 0%',
                     }}
                 >
 
@@ -300,15 +304,22 @@ export default function RecycledBags() {
                                     className={`relative rounded-3xl overflow-hidden bg-linear-to-br ${p.panelGradient} border ${p.border} aspect-4/3 flex items-center justify-center`}
                                 >
                                     <div className="flex flex-col items-center gap-3 text-center p-8">
-                                        <div className="w-16 h-16 rounded-2xl bg-primary-600 text-white flex items-center justify-center shadow-lg">
+                                        {/* <div className="w-16 h-16 rounded-2xl bg-primary-600 text-white flex items-center justify-center shadow-lg">
                                             <ShoppingBag className="w-8 h-8" />
                                         </div>
                                         <p className={`font-bold text-lg ${p.subtitleColor}`}>{p.badge}</p>
-                                        <p className="text-slate-500 text-sm">Product image coming soon</p>
+                                        <p className="text-slate-500 text-sm">Product image coming soon</p> */}
+                                        <Image
+                                            src={p.images}
+                                            alt={p.title}
+                                            fill
+                                            sizes='(max-width: 1024px) 100vw, 50vw'
+                                            className='w-full h-full object-contain'
+                                        />
                                     </div>
 
                                     {/* certification badge */}
-                                    <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-sm">
+                                    <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-sm">
                                         <BadgeCheck className="w-3.5 h-3.5 text-primary-600" />
                                         <span className="text-xs font-semibold text-slate-700">EN 15343 / AENOR</span>
                                     </div>

@@ -39,8 +39,14 @@ export default function DesktopHeader() {
 
           {
             (isFetching || isLoading) && (
-              Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className='w-20 bg-gray-100 h-5 mr-5 animate-pulse' />
+              ["Big Bags", "Small Bags", "Asbestos Bags", "Garden/Garbage Bags"].map((k, i) => (
+                <button key={i} disabled className="px-1.5 text-sm font-medium text-primary-500 flex items-center gap-1.5" >
+                  {k}
+                  <ChevronDown
+                    size={12}
+                    className={`transition-transform duration-300`}
+                  />
+                </button>
               ))
             )
           }
@@ -56,13 +62,13 @@ export default function DesktopHeader() {
                   onMouseLeave={() => setActive(null)}
                 >
 
-                  <span className="cursor-pointer flex items-center gap-1.5 h-full">
+                  <Link href={`/category/${item.category_slug}`} className="cursor-pointer flex items-center gap-1.5 h-full">
                     {item.title}
                     <ChevronDown
                       size={12}
                       className={`transition-transform duration-300 ${active === key ? "rotate-180" : ""}`}
                     />
-                  </span>
+                  </Link>
 
                   <AnimatePresence>
                     {active === key && item.attributes.map((attr, idx) => (

@@ -54,30 +54,54 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
 
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
-            <Section>
+            <Section className='relative bg-black overflow-hidden'>
+                <div
+                    className="absolute inset-0 opacity-[0.04]"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+                        backgroundSize: "40px 40px",
+                    }}
+                />
+
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(ellipse 60% 80% at 15% 60%, rgba(255,89,3,0.18) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 85% 10%, rgba(255,113,10,0.12) 0%, transparent 65%)",
+                    }}
+                />
+
+                {/* Bottom fade into page */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black/60 to-transparent" />
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary-500/70 to-transparent" />
+
                 <Wrapper>
-                    <div className="mb-10">
-                        {/* Breadcrumb */}
-                        <nav className="text-xs text-stone-400 tracking-wide mb-3 flex items-center gap-1.5">
+                    <div>
+                        <nav className="text-xs text-stone-300 tracking-wide mb-3 flex items-center gap-1.5">
                             <span>Home</span>
                             <span>/</span>
                             <span>{firstPage?.category.title}</span>
                             {firstPage?.attribute_value && (
                                 <>
                                     <span>/</span>
-                                    <span className="text-stone-600">{firstPage.attribute_value.name}</span>
+                                    <span className="text-stone-500">{firstPage.attribute_value.name}</span>
                                 </>
                             )}
                         </nav>
 
-                        <h1 className="font-serif text-3xl md:text-4xl text-stone-900 tracking-tight">
+                        <h1 className="font-serif text-3xl md:text-4xl text-stone-200 tracking-tight">
                             {pageTitle}
                         </h1>
 
                         {firstPage && (
-                            <p className="mt-2 text-sm text-stone-500">
-                                {firstPage.pagination.total_products} products available
-                            </p>
+                            <div className="mt-4 shrink-0 inline-flex items-center gap-2 border border-stone-700/60 bg-stone-900/60 backdrop-blur-sm rounded-full px-4 py-2 self-start sm:self-auto">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
+                                <span className="text-xs text-stone-300 tracking-wide whitespace-nowrap">
+                                    {firstPage.pagination.total_products} products
+                                </span>
+                            </div>
                         )}
 
                         {shortContent && (
@@ -86,14 +110,18 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                                 <div className="absolute left-0 top-0 bottom-0 w-0.75 rounded-full bg-linear-to-b from-primary-400 via-primary-300 to-primary-100" />
                                 <div className="pl-5">
                                     <div
-                                        className="text-sm md:text-[15px] leading-relaxed text-stone-600 font-light max-w-3xl [&>p]:m-0"
+                                        className="text-sm md:text-[15px] leading-relaxed text-stone-300 font-light [&>p]:m-0"
                                         dangerouslySetInnerHTML={{ __html: shortContent }}
                                     />
                                 </div>
                             </div>
                         )}
                     </div>
+                </Wrapper>
+            </Section>
 
+            <Section>
+                <Wrapper>
                     <CatalogClient
                         slug={slug}
                         initialFilters={initialFilters}

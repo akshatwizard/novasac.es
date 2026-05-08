@@ -29,7 +29,7 @@ h6 {
 
 a,
 span,
-p {
+p, button {
   font-family: var(--font-montserrate);
 }
 

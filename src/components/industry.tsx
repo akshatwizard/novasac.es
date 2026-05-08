@@ -47,7 +47,7 @@ export default function Industry() {
 
                                     <div className="space-y-1.5">
                                         <div className="flex items-start justify-between gap-2">
-                                            <h3 className="text-base font-semibold text-black leading-snug">
+                                            <h3 className="text-base font-semibold text-white leading-snug">
                                                 {item.title}
                                             </h3>
                                         </div>
@@ -55,17 +55,6 @@ export default function Industry() {
                                         {/* <p className="text-sm text-zinc-600 leading-tight">
                                             {item.description}
                                         </p> */}
-
-                                        {/* Learn more row */}
-                                        <div className="flex items-center gap-1.5 mt-1">
-                                            <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-primary-500 ">
-                                                Learn more
-                                            </span>
-                                            <ArrowUpRight
-                                                size={11}
-                                                className="text-primary-500 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-75 rotate-45 group-hover:rotate-0"
-                                            />
-                                        </div>
                                     </div>
                                 </div>
                             </Link>

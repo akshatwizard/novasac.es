@@ -11,10 +11,6 @@ export const MenuItems: MenuType[] = [
     //     name: "Home",
     //     path: "/",
     // },
-    // {
-    //     name: "About Us",
-    //     path: "/about",
-    // },
     {
         name: "Recycled Bags",
         path: "/recycled-bags",
@@ -30,4 +26,9 @@ export const MenuItems: MenuType[] = [
         path: "/custom-made-bags",
         icon: "/images/custom-bag/bag.jpg"
     },
+    // {
+    //     name: "About Us",
+    //     path: "/about",
+    //     icon: "/images/recycled/recycled.jpeg"
+    // },
 ];
