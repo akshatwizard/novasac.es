@@ -56,13 +56,13 @@ export default function DesktopHeader() {
                   onMouseLeave={() => setActive(null)}
                 >
 
-                  <span className="cursor-pointer flex items-center gap-1.5 h-full">
+                  <Link href={`/category/${item.category_slug}`} className="cursor-pointer flex items-center gap-1.5 h-full">
                     {item.title}
                     <ChevronDown
                       size={12}
                       className={`transition-transform duration-300 ${active === key ? "rotate-180" : ""}`}
                     />
-                  </span>
+                  </Link>
 
                   <AnimatePresence>
                     {active === key && item.attributes.map((attr, idx) => (
