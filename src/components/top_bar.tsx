@@ -87,7 +87,7 @@ export default function TopBar() {
 
                     <div className="w-px h-4 bg-zinc-200" />
                     <Link href={"/contact"} className='text-sm font-normal text-zinc-500 hover:text-primary-500 duration-300 transition-colors ease-in-out'>
-                        Need Help?
+                        Contact Us
                     </Link>
                 </div>
             </Wrapper>
