@@ -7,8 +7,8 @@ interface ProductCardProps {
     attributeValue: string;
 }
 
-const DEFAULT_MRP = 999;
-const DEFAULT_OFFER_RATE = 799;
+// const DEFAULT_MRP = 999;
+// const DEFAULT_OFFER_RATE = 799;
 
 export default function ProductListCard({
     product,
@@ -16,19 +16,20 @@ export default function ProductListCard({
 }: ProductCardProps) {
     const href = `/products/${product.slug}/${attributeValue}`;
 
-    const mrp = product.mrp ?? DEFAULT_MRP;
-    const offer = product.offer_price ?? DEFAULT_OFFER_RATE;
+    const mrp = product.mrp;
+    const offer = product.offer_price;
 
-    const discount =
-        mrp > offer && offer > 0
-            ? Math.round(((mrp - offer) / mrp) * 100)
-            : null;
+    // const discount =
+    //     mrp > offer && offer > 0
+    //         ? Math.round(((mrp - offer) / mrp) * 100)
+    //         : null;
 
-    const formatINR = (n: number) =>
-        new Intl.NumberFormat("en-IN", {
+    const formatEUR = (n: number) =>
+        new Intl.NumberFormat("en-DE", {
             style: "currency",
-            currency: "INR",
-            maximumFractionDigits: 0,
+            currency: "EUR",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
         }).format(n);
 
     const isOutOfStock = product.stock_quantity === 0;
@@ -90,23 +91,23 @@ export default function ProductListCard({
                 {/* Price */}
                 <div className="flex items-end justify-between">
                     <div className="flex flex-col">
-                        {/* {offer > 0 ? (
+                        {mrp && mrp > 0 ? (
                             <>
-                                <span className="text-lg font-semibold text-gray-900">
+                                {/* <span className="text-lg font-semibold text-gray-900">
                                     {formatINR(offer)}
-                                </span>
+                                </span> */}
 
-                                {mrp > offer && (
-                                    <span className="text-xs text-gray-400 line-through">
-                                        {formatINR(mrp)}
+                                {mrp && (
+                                    <span className="text-lg font-semibold text-gray-900">
+                                        {formatEUR(mrp)}
                                     </span>
                                 )}
                             </>
                         ) : (
-                        )} */}
                             <span className="text-xs text-gray-400 italic">
                                 Price on request
                             </span>
+                        )}
                     </div>
 
                     {/* subtle arrow */}

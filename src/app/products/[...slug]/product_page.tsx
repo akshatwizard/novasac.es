@@ -69,7 +69,15 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
         { label: p.category.title, href: `/category/${p.category.slug}` },
         { label: p.title, href: '#' },
     ]
+    const formatEUR = (n: number) =>
+        new Intl.NumberFormat("en-DE", {
+            style: "currency",
+            currency: "EUR",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        }).format(n);
 
+        
     return (
         <div className="py-6 lg:py-10">
 
@@ -182,18 +190,18 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                         {p.offer_rate != null ? (
                             <>
                                 <span className="text-2xl font-semibold text-stone-900">
-                                    ₹{p.offer_rate.toLocaleString('en-IN')}
+                                    {formatEUR(p.mrp ?? 0)}
                                 </span>
-                                {p.mrp != null && (
+                                {/* {p.mrp != null && (
                                     <span className="text-base text-stone-400 line-through">
                                         ₹{p.mrp.toLocaleString('en-IN')}
                                     </span>
-                                )}
-                                {p.mrp != null && p.offer_rate != null && (
+                                )} */}
+                                {/* {p.mrp != null && p.offer_rate != null && (
                                     <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
                                         {Math.round(((p.mrp - p.offer_rate) / p.mrp) * 100)}% off
                                     </span>
-                                )}
+                                )} */}
                             </>
                         ) : (
                             <span className="text-sm text-stone-400 italic">Price on request — contact us for quote</span>

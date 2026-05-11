@@ -22,7 +22,7 @@ const teamMembers: TeamMember[] = [
     },
     {
         initials: "CA",
-        name: "Carmen",
+        name: "Carmen Sanchez",
         role: "Administration",
         experience: "Operations",
         bio: "Manages administrative operations and ensures that daily processes run smoothly and efficiently across the organization.",
@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
     },
     {
         initials: "GA",
-        name: "Gabriel",
+        name: "Gabriel Beltran",
         role: "Sales Manager",
         experience: "Business Dev",
         bio: "Focuses on business development and building strong client relationships, helping Novasac expand its reach and maintain customer satisfaction.",
