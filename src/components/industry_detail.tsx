@@ -151,8 +151,8 @@ export default function IndustryDetailPage({ slug }: Props) {
                 <Section>
                     <Wrapper>
                         <div className="w-full">
-                            <h3 className="text-zinc-900 text-2xl lg:text-4xl md:text-3xl font-semibold">
-                                Our Recommended <br />Products
+                            <h3 className="text-zinc-900 text-2xl lg:text-4xl md:text-3xl font-semibold text-center">
+                                Our Recommended Products
                             </h3>
                         </div>
                         <div className="w-full">
@@ -195,18 +195,18 @@ export default function IndustryDetailPage({ slug }: Props) {
                                                         />
                                                     </div>
                                                     <div className="p-6 md:p-8 flex flex-col justify-center h-full">
-                                                        <span className="text-xs uppercase tracking-wide text-primary-600 mb-2 font-medium">
+                                                        {/* <span className="text-xs uppercase tracking-wide text-primary-600 mb-2 font-medium">
                                                             {items.category_name}
-                                                        </span>
+                                                        </span> */}
                                                         <h3 className="text-xl md:text-2xl font-semibold text-zinc-900 mb-3 leading-snug">
                                                             {items.title}
                                                         </h3>
-                                                        <p className="text-sm text-zinc-600 leading-relaxed mb-5 line-clamp-3">
+                                                        {/* <p className="text-sm text-zinc-600 leading-relaxed mb-5 line-clamp-3">
                                                             {items?.short_description || "High-quality industrial packaging solution designed for durability and performance."}
-                                                        </p>
+                                                        </p> */}
                                                         <Link
                                                             href={items.page_url ?? "#"}
-                                                            className="inline-block w-fit px-5 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-500 transition"
+                                                            className="inline-block w-fit px-5 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-500 transition mt-5"
                                                         >
                                                             View All Product →
                                                         </Link>
