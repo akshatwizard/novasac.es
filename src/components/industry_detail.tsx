@@ -24,8 +24,8 @@ export default function IndustryDetailPage({ slug }: Props) {
     const { data, isLoading, isFetching } = useQuery({
         queryKey: ["industry", slug],
         queryFn: async () => {
-            const res = await axios.get<RecomendedProductAPIResponse>(`https://www.gangapapers.in/novasac/api/industry/${slug}`);
-            return res.data;
+            const res = await axios.get<RecomendedProductAPIResponse>(`https://www.gangapapers.in/novasac/api/industry-category/${slug}`);
+            return res.data.data;
         },
     });
 
@@ -147,7 +147,7 @@ export default function IndustryDetailPage({ slug }: Props) {
             </Section>
 
             {/* ── CAROUSEL ── */}
-            {data?.data.products.length &&
+            {data?.industries.length &&
                 <Section>
                     <Wrapper>
                         <div className="w-full">
@@ -183,7 +183,7 @@ export default function IndustryDetailPage({ slug }: Props) {
                                                 </div>
                                             </CarouselItem>
                                         ))
-                                        : data?.data.products?.map((items, idx) => (
+                                        : data?.industries?.map((items, idx) => (
                                             <CarouselItem key={idx}>
                                                 <div className="grid md:grid-cols-2 gap-6 items-center bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm">
                                                     <div className="relative w-full h-86 md:h-100">
@@ -196,29 +196,19 @@ export default function IndustryDetailPage({ slug }: Props) {
                                                     </div>
                                                     <div className="p-6 md:p-8 flex flex-col justify-center h-full">
                                                         <span className="text-xs uppercase tracking-wide text-primary-600 mb-2 font-medium">
-                                                            {items.category?.title}
+                                                            {items.category_name}
                                                         </span>
                                                         <h3 className="text-xl md:text-2xl font-semibold text-zinc-900 mb-3 leading-snug">
                                                             {items.title}
                                                         </h3>
                                                         <p className="text-sm text-zinc-600 leading-relaxed mb-5 line-clamp-3">
-                                                            {data?.data.short_description || "High-quality industrial packaging solution designed for durability and performance."}
+                                                            {items?.short_description || "High-quality industrial packaging solution designed for durability and performance."}
                                                         </p>
-                                                        {(items.mrp || items.offer_rate) && (
-                                                            <div className="flex items-center gap-3 mb-5">
-                                                                {items.offer_rate && (
-                                                                    <span className="text-lg font-semibold text-primary-600">₹{items.offer_rate}</span>
-                                                                )}
-                                                                {items.mrp && (
-                                                                    <span className="text-sm text-zinc-400 line-through">₹{items.mrp}</span>
-                                                                )}
-                                                            </div>
-                                                        )}
                                                         <Link
-                                                            href={`/products/${items.slug}/${items.attribute_value_slug}`}
+                                                            href={items.page_url ?? "#"}
                                                             className="inline-block w-fit px-5 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-500 transition"
                                                         >
-                                                            View Product →
+                                                            View All Product →
                                                         </Link>
                                                     </div>
                                                 </div>

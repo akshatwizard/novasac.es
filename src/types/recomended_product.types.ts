@@ -2,26 +2,26 @@ export type RecomendedProductAPIResponse = {
     status: boolean;
     data: RPData
 };
+
 export type RPData = {
-    title: string,
-    slug: string,
-    meta_title: string,
-    meta_description: string,
-    meta_keywords: string,
-    short_description: string | null,
-    long_description: string | null,
-    products: RPProducts[]
+    category: RPCategory;
+    industries: RPIndustries[]
+    total_industries: number
 }
-export type RPProducts = {
+
+export type RPCategory = {
     id: number,
     title: string,
+    slug: string;
+}
+
+export type RPIndustries = {
+    id: number;
+    title: string,
     slug: string,
-    mrp: number | null,
-    offer_rate: number | null,
-    attribute_value_slug: string,
-    category: {
-        title: string,
-        slug: string
-    },
-    image:string
+    page_url: string | null;
+    image: null | string;
+    short_description: null | string,
+    long_description: null | string,
+    category_name: string
 }
