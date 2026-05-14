@@ -380,12 +380,12 @@ export default function AboutUs() {
                         viewport={{ once: true, amount: 0.2 }}
                     >
                         <SectionLabel light>04 — People</SectionLabel>
-                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+                        <div className="flex flex-col justify-between gap-6">
                             <h2 className="font-mono text-4xl md:text-6xl font-light text-white leading-tight">
                                 The People<br />
                                 <strong className="text-primary-400">Behind Novasac</strong>
                             </h2>
-                            <p className=" text-sm font-light text-stone-400 max-w-xs leading-relaxed">
+                            <p className="text-sm font-light text-stone-400 max-w-md leading-relaxed">
                                 The strength of Novasac lies in its experienced and dedicated team,
                                 which works together to deliver quality and reliability in every project.
                             </p>
