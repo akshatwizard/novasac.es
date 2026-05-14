@@ -1,7 +1,7 @@
 'use client';
 import { MenuItems } from '@/constant/menu';
 import { useQuery } from '@tanstack/react-query';
-import { ChevronDown, ChevronRight, Heart, ShoppingCart, User } from 'lucide-react';
+import { ChevronDown, ChevronRight, Factory, Heart, ShoppingCart, User } from 'lucide-react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -35,7 +35,7 @@ export default function DesktopHeader() {
 
       <div className='w-full max-w-7xl mx-auto flex items-center h-full justify-between'>
 
-        <div className='flex items-center h-full gap-1'>
+        <div className='flex items-center h-full gap-1 w-full'>
 
           {
             (isFetching || isLoading) && (
@@ -117,17 +117,19 @@ export default function DesktopHeader() {
           {
             MenuItems.map((items, idx) => {
               const key = `static-bottom-${idx}`
+
               return (
                 <div
-                  key={key}
-                  className='h-full relative px-1.5 group flex items-center text-sm font-medium text-primary-500'
+                  key={items.name}
+                  className={`${idx === MenuItems.length - 1 ? "ml-auto" : ""} h-full relative px-1.5 group flex items-center text-sm font-medium text-primary-500`}
                   onMouseEnter={() => setActive(key)}
                   onMouseLeave={() => setActive(null)}
                 >
                   <Link
                     href={items.path}
-                    className='h-full flex items-center'
+                    className='h-full flex items-center gap-1.5'
                   >
+                    {idx === MenuItems.length - 1 && <Factory size={12} />}
                     {items.name}
                   </Link>
                   <AnimatePresence mode='popLayout'>
