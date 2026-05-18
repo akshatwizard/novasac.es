@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query'
 import { OtherRelatedItem, ProductDetailApiResponse, RelatedProduct } from '@/types/single_product.types'
 import { fetchProductDetail, productKeys } from '@/hooks/fetch_product'
 import { ChevronDown, FileText, Settings2, Sparkles } from 'lucide-react'
+import ProductModals from '@/components/product_modal'
 
 interface Props {
     slug: string[]
@@ -77,7 +78,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
             maximumFractionDigits: 2,
         }).format(n);
 
-        
+
     return (
         <div className="py-6 lg:py-10">
 
@@ -287,26 +288,20 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                     </div>
 
                     {/* CTA */}
-                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                        <a
-                            href={`https://wa.me/?text=Hi, I'm interested in ${encodeURIComponent(p.title)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-stone-900 text-stone-50 text-sm font-medium hover:bg-stone-800 active:scale-[0.98] transition-all"
-                        >
-                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.1 1.508 5.83L.057 23.285a.75.75 0 0 0 .921.921l5.455-1.451A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.68-.497-5.228-1.368l-.374-.215-3.882 1.033 1.033-3.775-.23-.386A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
-                            </svg>
-                            Enquire on WhatsApp
-                        </a>
-                        <button className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border-2 border-stone-200 text-stone-700 text-sm font-medium hover:border-stone-400 active:scale-[0.98] transition-all">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 1 1 0-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 1 0 5.367-2.684 3 3 0 0 0-5.367 2.684zm0 9.316a3 3 0 1 0 5.368 2.684 3 3 0 0 0-5.368-2.684z" />
-                            </svg>
-                            Share
-                        </button>
-                    </div>
+                    <ProductModals
+                        product={{
+                            id: p.id,
+                            title: p.title,
+                            category: p.category.title,
+                            sku: p.sku,
+                            attributes: p.attributes.flatMap(attr =>
+                                attr.values.map(v => ({
+                                    label: attr.attribute.title,
+                                    value: v.attribute_value.name,
+                                }))
+                            ),
+                        }}
+                    />
                 </div>
             </div>
 
