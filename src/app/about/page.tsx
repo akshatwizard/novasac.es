@@ -170,11 +170,11 @@ export default function AboutUs() {
                                     }
                                 /> */}
                                 <Image
-                                    src={"/images/about/Journey-of-progress.png"}
+                                    src={"/images/about/Journey-of-progress.jpeg"}
                                     width={600}
                                     height={450}
                                     alt="A Journey of Progress"
-                                    className="w-full h-full"
+                                    className="w-full h-full scale-x-110"
                                 />
                             </motion.div>
 
