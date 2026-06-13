@@ -148,10 +148,16 @@ export default function Header() {
                     />
 
                     <div className="relative flex items-center gap-2" ref={dropdownRef}>
-                        <button name='Recycle' className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
-                            <Recycle className="text-white" size={28} strokeWidth={1} fill='white' />
-                            <span className='sr-only'>Recycle</span>
-                        </button>
+                        <Link href={"#"}
+                            className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
+                            {/* <Recycle className="text-white" size={28} strokeWidth={1} fill='white' /> */}
+                            <Image
+                                src="/images/recycle.png"
+                                alt="Recycle"
+                                width={64}
+                                height={64}
+                            />
+                        </Link>
 
                         <button name='Shopping cart' className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
                             <ShoppingCart className="text-white" size={28} strokeWidth={1} fill='white' />
