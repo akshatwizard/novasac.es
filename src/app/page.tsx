@@ -1,10 +1,10 @@
 import About from '@/components/about'
-import AdditionalDetails from '@/components/additional_details'
+// import AdditionalDetails from '@/components/additional_details'
 import BentoGrid from '@/components/bento_grid'
 // import Blogs from '@/components/blogs'
 import ContactUs from '@/components/contact'
 import Faq from '@/components/faq'
-import Hero from '@/components/hero/hero'
+// import Hero from '@/components/hero/hero'
 import Industry from '@/components/industry'
 // import NewsLetter from '@/components/news_letter'
 import ProductCategory from '@/components/product_category'
@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <main className='overflow-hidden'>
       <BentoGrid />
-      <AdditionalDetails />
-      <Hero/>
+      {/* <AdditionalDetails /> */}
+      {/* <Hero/> */}
       <About />
       <ProductCategory />
       <Products />
