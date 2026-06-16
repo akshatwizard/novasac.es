@@ -150,7 +150,7 @@ export default function DesktopHeader() {
           }
         </div>
 
-        <AnimatePresence mode='wait'>
+        {/* <AnimatePresence mode='wait'>
           {
             scrolled && (
               <motion.div className='flex items-center gap-3'
@@ -173,7 +173,7 @@ export default function DesktopHeader() {
               </motion.div>
             )
           }
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
     </div>
   )
