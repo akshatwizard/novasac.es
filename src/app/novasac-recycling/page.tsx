@@ -188,16 +188,17 @@ export default function Recycling() {
                                 <span className="h-2 w-2 rounded-full bg-forest-light animate-pulse" />
 
                                 <span className="text-forest-light text-xs font-semibold uppercase tracking-widest">
-                                    Recycling & Recovery Program
+                                    Polytex Bag Recycling Initiative · Valencia
                                 </span>
                             </div>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-                                Give Us Your Old
+                                Can't dispose your
                                 <br />
                                 <strong className="text-forest-light">
-                                    Polytex Bags
+                                    old polytex bags? <br />
                                 </strong>
+                                Give them to us.
                             </h1>
 
                             <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-xl">
