@@ -10,6 +10,7 @@ import Providers from "@/lib/providers";
 import { AuthProvider } from "@/context/auth_context";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   variable: "--font-montserrate",
@@ -52,6 +53,9 @@ export default function RootLayout({
           </Providers>
         </GoogleOAuthProvider>
         <Toaster />
+        <Script id="crisp" strategy="afterInteractive">
+          {`window.$crisp=[];window.CRISP_WEBSITE_ID="bf4c7f16-6457-40f8-af4e-82a2961672f1";(function(){var d = document;var s = d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s)})()`}
+        </Script>
       </body>
     </html>
   );

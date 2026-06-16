@@ -44,6 +44,18 @@ const teamMembers: TeamMember[] = [
         bar: "bg-primary-600",
         image: "/images/about/gabriel.jpeg"
     },
+    {
+        initials: "FS",
+        name: "Fernando Seguí Sala",
+        role: "President",
+        experience: "Business Dev",
+        bio: "",
+        bg: "bg-primary-100",
+        text: "text-primary-700",
+        border: "border-primary-200",
+        bar: "bg-primary-600",
+        image: "/images/about/Fernando-Segui-Sala.png"
+    },
 ];
 
 const stats: StatItem[] = [
@@ -392,7 +404,7 @@ export default function AboutUs() {
                         </div>
                     </motion.div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {teamMembers.map((member, i) => (
                             <motion.div
                                 key={member.name}
