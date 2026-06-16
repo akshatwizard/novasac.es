@@ -35,7 +35,7 @@ const items: GridItems[] = [
         description: "Curated offers updated weekly.",
         image: "/images/custom-bag/bag.jpg",
         cta: "Contact Us",
-        url: "/category/asbestos-bags",
+        url: "/custom-made-bags",
     },
 ];
 
