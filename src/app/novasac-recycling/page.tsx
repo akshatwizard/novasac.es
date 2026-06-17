@@ -510,7 +510,7 @@ export default function Recycling() {
                         <div className="flex flex-col items-center gap-8">
                             <div className="w-full rounded-3xl bg-white p-10 flex justify-center">
                                 <Image
-                                    src="/logo.png"
+                                    src="/images/logo/logo.png"
                                     alt="Novasac"
                                     width={260}
                                     height={100}
