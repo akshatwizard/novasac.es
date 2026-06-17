@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import SearchBar from './search'
-import { Building2, ChevronRight, LogOut, Phone, Recycle, Search, ShoppingBag, ShoppingCart, TextAlignJustify, User } from 'lucide-react'
+import { BadgeCheck, Building2, ChevronRight, LogOut, Phone, Recycle, Search, ShoppingBag, ShoppingCart, TextAlignJustify, User } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '@/context/auth_context';
 import LoginModal from '../login_modal';
@@ -148,7 +148,7 @@ export default function Header() {
                     />
 
                     <div className="relative flex items-center gap-2" ref={dropdownRef}>
-                        <Link href={"#"}
+                        <Link href={"/novasac-recycling"}
                             className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
                             {/* <Recycle className="text-white" size={28} strokeWidth={1} fill='white' /> */}
                             <Image
@@ -259,6 +259,19 @@ export default function Header() {
                                         >
                                             <Phone size={16} />
                                             <span>Contact Us</span>
+                                            <ChevronRight
+                                                size={14}
+                                                className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
+                                            />
+                                        </motion.button>
+                                        
+                                        <motion.button
+                                            variants={itemVariants}
+                                            onClick={() => (router.push("#"), setShowOptions(false))}
+                                            className="cursor-pointer group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-150"
+                                        >
+                                            <BadgeCheck size={16} />
+                                            <span>Certifications</span>
                                             <ChevronRight
                                                 size={14}
                                                 className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
