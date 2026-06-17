@@ -252,7 +252,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                             Sign in to your account to continue
                                         </p>
 
-                                        <GoogleLogin
+                                        {/* <GoogleLogin
                                             onSuccess={
                                                 (credentialResponse) => {
                                                     googleLoginMutate(credentialResponse.credential ?? "");
@@ -262,12 +262,12 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                             }}
                                             useOneTap
                                             auto_select
-                                        />
+                                        /> */}
 
                                         {/* Divider */}
                                         <div className="flex items-center gap-3 my-5">
                                             <div className="flex-1 h-px bg-stone-100" />
-                                            <span className="text-xs text-stone-400 font-medium">or use email / phone</span>
+                                            <span className="text-xs text-stone-400 font-medium">use email / phone</span>
                                             <div className="flex-1 h-px bg-stone-100" />
                                         </div>
 
