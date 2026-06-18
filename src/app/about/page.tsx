@@ -21,6 +21,18 @@ const teamMembers: TeamMember[] = [
         image: "/images/about/Laura-San-Juan.jpg"
     },
     {
+        initials: "FS",
+        name: "Fernando Seguí Sala",
+        role: "President",
+        experience: "Business Dev",
+        bio: "",
+        bg: "bg-primary-100",
+        text: "text-primary-700",
+        border: "border-primary-200",
+        bar: "bg-primary-600",
+        image: "/images/about/Fernando-Segui-Sala.png"
+    },
+    {
         initials: "CA",
         name: "Carmen Sanchez",
         role: "Administration",
@@ -43,18 +55,6 @@ const teamMembers: TeamMember[] = [
         border: "border-primary-200",
         bar: "bg-primary-600",
         image: "/images/about/gabriel.jpeg"
-    },
-    {
-        initials: "FS",
-        name: "Fernando Seguí Sala",
-        role: "President",
-        experience: "Business Dev",
-        bio: "",
-        bg: "bg-primary-100",
-        text: "text-primary-700",
-        border: "border-primary-200",
-        bar: "bg-primary-600",
-        image: "/images/about/Fernando-Segui-Sala.png"
     },
 ];
 
@@ -197,7 +197,7 @@ export default function AboutUs() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <SectionLabel>01 — Journey</SectionLabel>
+                                {/* <SectionLabel>01 — Journey</SectionLabel> */}
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
                                     A Journey<br />
                                     <strong className="text-primary-600">of Progress</strong>
@@ -248,7 +248,7 @@ export default function AboutUs() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <SectionLabel>02 — Legacy</SectionLabel>
+                                {/* <SectionLabel>02 — Legacy</SectionLabel> */}
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
                                     Our Story<br />
                                     <strong className="text-primary-600">&amp; Legacy</strong>
@@ -337,7 +337,7 @@ export default function AboutUs() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <SectionLabel>03 — Services</SectionLabel>
+                                {/* <SectionLabel>03 — Services</SectionLabel> */}
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
                                     What<br />
                                     <strong className="text-primary-600">We Do</strong>
@@ -391,7 +391,7 @@ export default function AboutUs() {
                         whileInView="show"
                         viewport={{ once: true, amount: 0.2 }}
                     >
-                        <SectionLabel light>04 — People</SectionLabel>
+                        {/* <SectionLabel light>04 — People</SectionLabel> */}
                         <div className="flex flex-col justify-between gap-6">
                             <h2 className="font-mono text-4xl md:text-6xl font-light text-white leading-tight">
                                 The People<br />
