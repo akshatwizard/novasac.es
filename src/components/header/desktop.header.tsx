@@ -1,12 +1,13 @@
 'use client';
 import { MenuItems } from '@/constant/menu';
 import { useQuery } from '@tanstack/react-query';
-import { ChevronDown, ChevronRight, Factory, Heart, ShoppingCart, User } from 'lucide-react';
+import { ChevronDown, ChevronRight, Factory, Heart, ShoppingCart, Sprout, User } from 'lucide-react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import axios from 'axios'
 import { MenuResponse } from '@/types/menu.types';
+import Image from 'next/image';
 
 export default function DesktopHeader() {
   const [active, setActive] = useState<string | null>(null)
@@ -129,7 +130,7 @@ export default function DesktopHeader() {
                     href={items.path}
                     className='h-full flex items-center gap-1.5'
                   >
-                    {idx === MenuItems.length - 1 && <Factory size={12} />}
+                    {idx === MenuItems.length - 1 && <Sprout size={16} />}
                     {items.name}
                   </Link>
                   <AnimatePresence mode='popLayout'>
@@ -148,6 +149,15 @@ export default function DesktopHeader() {
               )
             })
           }
+
+          <Image
+            src={"/images/wap.png"}
+            alt='COntact us'
+            width={20}
+            height={20}
+            className='size-5 ml-1 cursor-pointer'
+          />
+
         </div>
 
         {/* <AnimatePresence mode='wait'>

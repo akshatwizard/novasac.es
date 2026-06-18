@@ -27,7 +27,7 @@ export const MenuItems: MenuType[] = [
         icon: "/images/custom-bag/bag.jpg"
     },
     {
-        name: "About Us",
+        name: "Sustainability",
         path: "/about",
         icon: "/images/hero/company.jpeg"
     },
