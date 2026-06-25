@@ -109,6 +109,20 @@ export default function Footer() {
 
                         <div className="space-y-3">
 
+                            <Link
+                                href="https://maps.google.com/?q=Pepe+Alba+29,+3-12,+46022+Valencia,+Spain"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-start gap-2 text-primary-500"
+                            >
+                                <MapIcon size={18} className="shrink-0" />
+                                <span>
+                                    <span className="font-semibold">NOVASAC PACKAGING S.L.U.</span> <br />
+                                    Pepe Alba 29, 3-12, 46022 Valencia, Spain
+                                </span>
+                            </Link>
+
+
                             {/* Email */}
                             <Link
                                 href="mailto:laura.sanjuan@novasac.es"
@@ -137,18 +151,6 @@ export default function Footer() {
                             </Link>
 
                             {/* Location */}
-                            <Link
-                                href="https://maps.google.com/?q=Pepe+Alba+29,+3-12,+46022+Valencia,+Spain"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-start gap-2 text-primary-500"
-                            >
-                                <MapIcon size={18} className="shrink-0" />
-                                <span>
-                                    <span className="font-semibold">NOVASAC PACKAGING S.L.U.</span> <br />
-                                    Pepe Alba 29, 3-12, 46022 Valencia, Spain
-                                </span>
-                            </Link>
 
                         </div>
 
