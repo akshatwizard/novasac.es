@@ -10,7 +10,7 @@ import Industry from '@/components/industry'
 import ProductCategory from '@/components/product_category'
 import Products from '@/components/new_arrival_products'
 // import Promotional from '@/components/promotional'
-import Testimonials from '@/components/testimonials'
+// import Testimonials from '@/components/testimonials'
 import WhyChooseUs from '@/components/why_choose_us'
 // import TrendingProducts from '@/components/trending_product'
 
@@ -27,7 +27,7 @@ export default function Home() {
       {/* <BentoGrid /> */}
       {/* <TrendingProducts /> */}
       <WhyChooseUs />
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* <Blogs /> */}
       <ContactUs />
       <Faq />
