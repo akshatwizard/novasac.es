@@ -4,6 +4,7 @@ import Wrapper from './ui/wrapper'
 import { Heading, SubHeading } from './ui/headings'
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
@@ -75,21 +76,34 @@ export default function ContactUs() {
                 <div className="grid lg:grid-cols-2 gap-12">
                     <div className="space-y-8">
 
+                        {/* NOVASAC Logo */}
+                        <div>
+                            <Image
+                                src="/images/logo/logo.jpg"
+                                alt="NOVASAC Logo"
+                                width={180}
+                                height={60}
+                                className="object-contain"
+                            />
+                            <p className="mt-3 text-sm font-semibold text-zinc-700 tracking-wide">
+                                NOVASAC PACKAGING S.L.U.
+                            </p>
+                        </div>
+
                         <div className="flex items-start gap-4">
                             <div className="p-3 bg-primary-50 text-primary-500 rounded-lg">
                                 <MapPin size={22} />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-zinc-800">Our Address</h4>
+                                <h4 className="font-semibold text-zinc-800">Address</h4>
                                 <Link
-                                    href="https://maps.google.com/?q=Plaça del Professor Santiago Grisolia, 1, Valencia"
+                                    href="https://maps.google.com/?q=Pepe+Alba+29,+3-12,+46022+Valencia,+Spain"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-zinc-500 text-sm mt-1 hover:text-primary-500"
                                 >
-                                    Plaça del Professor Santiago Grisolia, 1,
+                                    Pepe Alba 29, 3-12, 46022 Valencia, Spain
                                     <br />
-                                    Poblats Marítims, 46022 Valencia
                                 </Link>
                             </div>
                         </div>
@@ -99,7 +113,7 @@ export default function ContactUs() {
                                 <Mail size={22} />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-zinc-800">Email Address</h4>
+                                <h4 className="font-semibold text-zinc-800">Email</h4>
                                 <Link
                                     href={"mailto:laura.sanjuan@novasac.es"}
                                     className="text-zinc-500 text-sm mt-1 hover:text-primary-500">
@@ -113,7 +127,7 @@ export default function ContactUs() {
                                 <Phone size={22} />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-zinc-800">Contact Number</h4>
+                                <h4 className="font-semibold text-zinc-800">Contact</h4>
                                 <Link href={"tel:+34628188044"} className="text-zinc-500 text-sm mt-1 hover:text-primary-500">
                                     +34 628188044
                                 </Link>
