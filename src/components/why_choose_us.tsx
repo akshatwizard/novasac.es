@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
     const data: Data[] = [
         {
             title: "Premium Quality",
-            desc: "We source the highest quality wood and materials, ensuring that each creation exhibits unparalleled craftsmanship.",
+            desc: "We provide high-quality, reliable, and innovative packaging solutions designed to meet the diverse needs of industries worldwide.",
             icon: Gem
         },
         {
