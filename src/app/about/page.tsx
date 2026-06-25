@@ -18,7 +18,7 @@ const teamMembers: TeamMember[] = [
         text: "text-primary-700",
         border: "border-primary-200",
         bar: "bg-primary-600",
-        image: "/images/about/Laura-San-Juan.jpg"
+        image: "/images/about/team-1.jpeg"
     },
     {
         initials: "FS",
@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
         text: "text-primary-700",
         border: "border-primary-200",
         bar: "bg-primary-600",
-        image: "/images/about/Fernando-Segui-Sala.png"
+        image: "/images/about/team-2.jpeg"
     },
     {
         initials: "CA",
@@ -54,7 +54,7 @@ const teamMembers: TeamMember[] = [
         text: "text-primary-700",
         border: "border-primary-200",
         bar: "bg-primary-600",
-        image: "/images/about/gabriel.jpeg"
+        image: "/images/about/team-4.jpeg"
     },
 ];
 
