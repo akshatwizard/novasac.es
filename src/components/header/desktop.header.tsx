@@ -150,13 +150,17 @@ export default function DesktopHeader() {
             })
           }
 
-          <Image
-            src={"/images/wap.png"}
-            alt='COntact us'
-            width={20}
-            height={20}
-            className='size-5 ml-1 cursor-pointer'
-          />
+          <Link href={"/novasac-recycling"}
+            className="relative hidden md:flex items-center justify-center w-10 h-10 ">
+            {/* <Recycle className="text-white" size={28} strokeWidth={1} fill='white' /> */}
+            <Image
+              src="/images/recycle.png"
+              alt="Recycle"
+              width={64}
+              height={64}
+              className='size-8'
+            />
+          </Link>
 
         </div>
 
