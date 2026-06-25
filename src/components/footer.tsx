@@ -138,14 +138,16 @@ export default function Footer() {
 
                             {/* Location */}
                             <Link
-                                href="https://maps.google.com/?q=Plaça del Professor Santiago Grisolia, 1, Valencia"
+                                href="https://maps.google.com/?q=Pepe+Alba+29,+3-12,+46022+Valencia,+Spain"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-start gap-2 text-primary-500"
                             >
                                 <MapIcon size={18} className="shrink-0" />
-                                Plaça del Professor Santiago Grisolia, 1,
-                                Poblats Marítims, 46022 Valencia
+                                <span>
+                                    <span className="font-semibold">NOVASAC PACKAGING S.L.U.</span> <br />
+                                    Pepe Alba 29, 3-12, 46022 Valencia, Spain
+                                </span>
                             </Link>
 
                         </div>
