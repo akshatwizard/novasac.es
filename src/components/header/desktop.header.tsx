@@ -130,7 +130,7 @@ export default function DesktopHeader() {
                     href={items.path}
                     className='h-full flex items-center gap-1.5'
                   >
-                    {idx === MenuItems.length - 1 && <Sprout size={16} />}
+                    {/* {idx === MenuItems.length - 1 && <Sprout size={16} />} */}
                     {items.name}
                   </Link>
                   <AnimatePresence mode='popLayout'>
