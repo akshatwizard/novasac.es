@@ -19,7 +19,7 @@ export default function WhyChooseUs() {
         },
         {
             title: "Delivery Time",
-            desc: "We value your time and ensure prompt delivery of your customized wooden souvenirs.",
+            desc: "We value your time and are committed to delivering high-quality packaging solutions with efficiency, reliability, and precision.",
             icon: Truck
         },
         {

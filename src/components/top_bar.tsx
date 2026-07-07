@@ -1,7 +1,7 @@
 // 'use client';
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
-import { Mail, Phone, TruckElectric } from 'lucide-react'
+import { Leaf, Mail, Phone } from 'lucide-react'
 import Link from 'next/link'
 // import { useEffect, useState } from 'react';
 // import { AnimatePresence, motion } from 'motion/react'
@@ -76,10 +76,10 @@ export default function TopBar() {
                     <div className="w-px h-4 bg-zinc-200" />
                     <div className='flex items-center gap-2.5'>
                         <div className='flex gap-1.5 items-center py-3 pr-2'>
-                            <TruckElectric size={18} strokeWidth={1.5} className='text-zinc-500' />
+                            <Leaf size={18} strokeWidth={1.5} className='text-zinc-500' />
                             <Link href={"#"} className='text-zinc-600 text-sm transition-colors duration-300 ease-in-out hover:text-zinc-800'>
                                 <span>
-                                    Express Delivery
+                                    Sustainability Partner
                                 </span>
                             </Link>
                         </div>
