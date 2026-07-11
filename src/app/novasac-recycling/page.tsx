@@ -92,7 +92,7 @@ const industries = [
 const steps = [
     {
         step: "01",
-        title: "You Have Old Polytex Bags",
+        title: "You Have Old fibc Bags",
         description:
             "Used woven polypropylene bags that are no longer required.",
         icon: Archive,
@@ -188,7 +188,7 @@ export default function Recycling() {
                                 <span className="h-2 w-2 rounded-full bg-forest-light animate-pulse" />
 
                                 <span className="text-forest-light text-xs font-semibold uppercase tracking-widest">
-                                    Polytex Bag Recycling Initiative · Valencia
+                                    FIBC Bag Recycling Initiative · Valencia
                                 </span>
                             </div>
 
@@ -196,7 +196,7 @@ export default function Recycling() {
                                 Can't dispose your
                                 <br />
                                 <strong className="text-forest-light">
-                                    old polytex bags? <br />
+                                    old FIBC bags? <br />
                                 </strong>
                                 Give them to us.
                             </h1>
@@ -204,7 +204,7 @@ export default function Recycling() {
                             <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-xl">
                                 Don't send used woven polypropylene bags to landfill.
                                 Novasac helps businesses responsibly recover,
-                                recycle, and repurpose old Polytex bags through
+                                recycle, and repurpose old fibc bags through
                                 a dedicated collection initiative.
                             </p>
 
@@ -310,7 +310,7 @@ export default function Recycling() {
 
                             <p className="mt-6 text-content-muted leading-relaxed">
                                 We work with companies across multiple industries that
-                                regularly use woven polypropylene and Polytex bags.
+                                regularly use woven polypropylene and fibc bags.
                             </p>
 
                             <p className="mt-4 text-content-muted leading-relaxed">
@@ -357,7 +357,7 @@ export default function Recycling() {
                         </h2>
 
                         <p className="mt-5 text-content-muted leading-relaxed">
-                            Getting rid of old Polytex bags shouldn't be complicated.
+                            Getting rid of old fibc bags shouldn't be complicated.
                             We've designed a straightforward process that helps businesses
                             dispose of packaging responsibly.
                         </p>
@@ -410,7 +410,7 @@ export default function Recycling() {
                             </span>
 
                             <h2 className="mt-4 text-4xl font-bold text-content">
-                                A Responsible Partner For Polytex Bag Recovery
+                                A Responsible Partner For FIBC Bag Recovery
                             </h2>
 
                             <p className="mt-6 text-content-muted leading-relaxed">
@@ -483,7 +483,7 @@ export default function Recycling() {
 
                             <p className="mt-4 text-white/70 leading-relaxed">
                                 Through this recycling initiative, we help companies
-                                divert used Polytex bags away from landfill and into
+                                divert used fibc bags away from landfill and into
                                 more responsible recovery channels.
                             </p>
 
@@ -536,7 +536,7 @@ export default function Recycling() {
                         </span>
 
                         <h2 className="mt-4 text-4xl lg:text-5xl font-bold text-white">
-                            Ready To Recycle Your Old Polytex Bags?
+                            Ready To Recycle Your Old FIBC Bags?
                         </h2>
 
                         <p className="mt-6 text-white/80 leading-relaxed max-w-2xl mx-auto">
