@@ -84,9 +84,9 @@ export default function Faq() {
         <Section id='faq'>
             <Wrapper>
                 <div className="w-full flex flex-col gap-2">
-                    <Heading>Frequently Asked Questions</Heading>
+                    <Heading>Preguntas Frecuentes</Heading>
                     <SubHeading>
-                        Everything you need to know about our packaging solutions.
+                        Todo lo que necesitas saber sobre nuestras soluciones de embalaje.
                     </SubHeading>
                 </div>
 
@@ -96,9 +96,9 @@ export default function Faq() {
                             <FAQSkeleton key={i} />
                         ))
                     ) : error ? (
-                        <EmptyState message="Failed to load FAQs. Please try again later." />
+                        <EmptyState message="No se pudieron cargar las preguntas frecuentes. Inténtalo de nuevo más tarde." />
                     ) : !data?.length ? (
-                        <EmptyState message="No FAQs available." />
+                        <EmptyState message="No hay preguntas frecuentes disponibles." />
                     ) : (
                         data.map((faq) => (
                             <FAQItem
