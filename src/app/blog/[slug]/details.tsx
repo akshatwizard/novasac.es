@@ -14,7 +14,7 @@ export default function BlogDetail({ slug }: BlogDetailProps) {
     const { data: blog, isLoading, isError, error, } = useQuery<Blog>({
         queryKey: ["blog", slug],
         queryFn: async () => {
-            const res = await axios.get<BlogDetailResponse>(`http://gangapapers.in/novasac/api/blog/${slug}`)
+            const res = await axios.get<BlogDetailResponse>(`https://admin.novasac.es/api/blog/${slug}`)
             return res.data.data
         }
     });
