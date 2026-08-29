@@ -40,7 +40,7 @@ export default function DesktopHeader() {
 
           {
             (isFetching || isLoading) && (
-              ["Big Bags", "Small Bags", "Asbestos Bags", "Garden/Garbage Bags"].map((k, i) => (
+              ["Bolsa Grande", "Bolsas Pequeñas", "Bolsas de Amianto", "Bolsas de Jardín/Basura"].map((k, i) => (
                 <button key={i} disabled className="px-1.5 text-sm font-medium text-primary-500 flex items-center gap-1.5" >
                   {k}
                   <ChevronDown
@@ -155,7 +155,7 @@ export default function DesktopHeader() {
             {/* <Recycle className="text-white" size={28} strokeWidth={1} fill='white' /> */}
             <Image
               src="/images/recycle.png"
-              alt="Recycle"
+              alt="Reciclaje"
               width={64}
               height={64}
               className='size-8'
