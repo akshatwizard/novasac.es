@@ -21,7 +21,7 @@ export default function Footer() {
         queryKey: ["home_category"],
         queryFn: async () => {
             const res = await axios.get<HomeCategoryResponse>(
-                "https://www.gangapapers.in/novasac/api/home/category"
+                "https://admin.novasac.es/api/home/category"
             );
             return res.data.data;
         },
