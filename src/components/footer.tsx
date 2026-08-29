@@ -36,15 +36,15 @@ export default function Footer() {
                     {/* Customer Service */}
                     <div>
                         <h4 className="font-semibold text-zinc-800 mb-4">
-                            Customer Service
+                            Atención al Cliente
                         </h4>
 
                         <ul className="space-y-2">
-                            <li><Link href="/about">About Us</Link></li>
-                            <li><Link href="/company-information">Company Information</Link></li>
-                            <li><Link href="/#faq">Frequently Asked Questions</Link></li>
-                            <li><Link href="/custom-made-bags">Custom-made Bulk Bags</Link></li>
-                            <li><Link href="/contact">Contact Us</Link></li>
+                            <li><Link href="/about">Sobre Nosotros</Link></li>
+                            <li><Link href="/company-information">Información de la Empresa</Link></li>
+                            <li><Link href="/#faq">Preguntas Frecuentes</Link></li>
+                            <li><Link href="/custom-made-bags">Bolsas a Granel Personalizadas</Link></li>
+                            <li><Link href="/contact">Contacto</Link></li>
                             {/* <li><Link href="/delivery-info">Delivery Info</Link></li> */}
                         </ul>
                     </div>
@@ -52,7 +52,7 @@ export default function Footer() {
                     {/* Assortment */}
                     <div>
                         <h4 className="font-semibold text-zinc-800 mb-4">
-                            Assortment
+                            Catálogo
                         </h4>
 
                         <ul className="space-y-1">
@@ -87,7 +87,7 @@ export default function Footer() {
                     {/* ✅ Industries We Serve (Dynamic) */}
                     <div>
                         <h4 className="font-semibold text-zinc-800 mb-4">
-                            Industries We Serve
+                            Industrias a las que Servimos
                         </h4>
 
                         <ul className="space-y-2">
@@ -104,7 +104,7 @@ export default function Footer() {
                     {/* Contact */}
                     <div>
                         <h4 className="font-semibold text-zinc-800 mb-4">
-                            Contact Us
+                            Contacto
                         </h4>
 
                         <div className="space-y-3">
@@ -118,7 +118,7 @@ export default function Footer() {
                                 <MapIcon size={18} className="shrink-0" />
                                 <span>
                                     <span className="font-semibold">NOVASAC PACKAGING S.L.U.</span> <br />
-                                    Pepe Alba 29, 3-12, 46022 Valencia, Spain
+                                    Pepe Alba 29, 3-12, 46022 Valencia, España
                                 </span>
                             </Link>
 
@@ -156,25 +156,25 @@ export default function Footer() {
 
                         <div className="flex gap-3 mt-5">
 
-                            <Link href="#" aria-label="Facebook Handle">
+                            <Link href="#" aria-label="Cuenta de Facebook">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Facebook size={16} />
                                 </div>
                             </Link>
 
-                            <Link href="#" aria-label="Instagram Handle">
+                            <Link href="#" aria-label="Cuenta de Instagram">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Instagram size={16} />
                                 </div>
                             </Link>
 
-                            <Link href="#" aria-label="LinkedIn Handle">
+                            <Link href="#" aria-label="Cuenta de LinkedIn">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Linkedin size={16} />
                                 </div>
                             </Link>
 
-                            <Link href="#" aria-label="Youtube Handle">
+                            <Link href="#" aria-label="Cuenta de YouTube">
                                 <div className="p-2 bg-white rounded-full shadow-sm hover:bg-primary-500 hover:text-white transition">
                                     <Youtube size={16} />
                                 </div>
@@ -188,23 +188,23 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 py-6 border-t border-zinc-200">
 
                     <div className="flex items-center gap-3">
-                        <img alt="Payment Options" src="/images/footer/mastercard.png" className="h-7" />
-                        <img alt="Payment Options" src="/images/footer/visa.png" className="h-7" />
-                        <img alt="Payment Options" src="/images/footer/paypal.png" className="h-7" />
-                        <img alt="Payment Options" src="/images/footer/applepay.png" className="h-7" />
+                        <img alt="Opciones de Pago" src="/images/footer/mastercard.png" className="h-7" />
+                        <img alt="Opciones de Pago" src="/images/footer/visa.png" className="h-7" />
+                        <img alt="Opciones de Pago" src="/images/footer/paypal.png" className="h-7" />
+                        <img alt="Opciones de Pago" src="/images/footer/applepay.png" className="h-7" />
                     </div>
 
                     <div className="text-center text-xs text-zinc-500">
-                        <Link href="/terms" className="mx-3">Terms and Conditions</Link>
-                        <Link href="/privacy" className="mx-3">Privacy Statement</Link>
-                        <Link href="/cookies" className="mx-3">Cookie Policy</Link>
+                        <Link href="/terms" className="mx-3">Términos y Condiciones</Link>
+                        <Link href="/privacy" className="mx-3">Política de Privacidad</Link>
+                        <Link href="/cookies" className="mx-3">Política de Cookies</Link>
                     </div>
 
                 </div>
 
                 <div className="text-center text-xs text-zinc-500 border-t border-zinc-200 py-5">
                     Copyright © {new Date().getFullYear()} Novasac.
-                    <span className="mx-3">Design & developed by Wizards Next</span>
+                    <span className="mx-3">Diseñado y desarrollado por Wizards Next</span>
                 </div>
 
             </div>
