@@ -27,20 +27,20 @@ type NormalizedBanner = {
 
 const fallbackBanners: NormalizedBanner[] = [
     {
-        title: "Custom Printed Packaging Bags",
+        title: "Bolsas de Embalaje con Impresión Personalizada",
         desktopImage: "/images/hero/banner-3.jpg",
         mobileImage: "/images/hero/banner-3.jpg",
         collection_link: null,
         content:
-            "Enhance your brand visibility with our Custom Printed Packaging Bags. Manufactured with advanced printing technology, these bags provide vibrant branding, durability, and professional packaging solutions.",
+            "Mejora la visibilidad de tu marca con nuestras Bolsas de Embalaje con Impresión Personalizada. Fabricadas con tecnología de impresión avanzada, estas bolsas ofrecen un branding vibrante, durabilidad y soluciones de embalaje profesionales.",
     },
     {
-        title: "Food Grade Packaging Bags",
+        title: "Bolsas de Embalaje de Grado Alimenticio",
         desktopImage: "/images/hero/banner-4.jpg",
         mobileImage: "/images/hero/banner-4.jpg",
         collection_link: null,
         content:
-            "Our Food Grade Packaging Bags are designed to safely store and transport food products. Made using hygienic materials, they provide excellent sealing, freshness protection, and reliable quality.",
+            "Nuestras Bolsas de Embalaje de Grado Alimenticio están diseñadas para almacenar y transportar productos alimenticios de forma segura. Fabricadas con materiales higiénicos, ofrecen un sellado excelente, protección de la frescura y una calidad fiable.",
     },
 ];
 
@@ -113,9 +113,9 @@ export default function HeroBanner() {
                     className='relative z-10 w-full md:pr-10 flex flex-col justify-center h-full'
                 >
                     <motion.div variants={itemVariants} className="flex gap-2 mb-4 flex-wrap">
-                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">Durable Material</span>
-                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">Custom Printing</span>
-                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">Bulk Orders Available</span>
+                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">Material Duradero</span>
+                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">Impresión Personalizada</span>
+                        <span className="px-3 py-1 text-xs bg-primary-100 text-primary-600 rounded-full">Pedidos al por Mayor Disponibles</span>
                     </motion.div>
 
                     <motion.span
@@ -142,7 +142,7 @@ export default function HeroBanner() {
                                 // target="_blank"
                                 className="px-5 py-2.5 bg-primary-500 text-white rounded-md shadow-md hover:bg-primary-600 hover:shadow-lg transition-all duration-300 font-medium"
                             >
-                                Explore Collections
+                                Explorar Colecciones
                             </Link>
                             {/* <Link
                                 href="#"
