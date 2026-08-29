@@ -54,12 +54,12 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
                             <div className="flex items-center gap-2.5">
                                 <span className="size-2 rounded-full bg-primary-500" />
                                 <span className="text-sm font-semibold tracking-wide text-zinc-800 uppercase">
-                                    Browse
+                                    Explorar
                                 </span>
                             </div>
                             <button
                                 onClick={onClose}
-                                aria-label="Close menu"
+                                aria-label="Cerrar menú"
                                 className="flex size-9 items-center justify-center rounded-xl bg-zinc-100 text-zinc-500 transition hover:bg-zinc-200 hover:text-zinc-800"
                             >
                                 <X size={16} strokeWidth={2.5} />
@@ -188,7 +188,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
                         {/* Footer */}
                         <div className="border-t border-zinc-100 px-5 py-4">
                             <p className="text-center text-[11px] text-zinc-400 tracking-wide">
-                                Novasac — Quality Packaging Solutions
+                                Novasac — Soluciones de Embalaje de Calidad
                             </p>
                         </div>
                     </motion.div>
