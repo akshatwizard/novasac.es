@@ -7,7 +7,7 @@ import axios from "axios"
 import { Metadata } from "next"
 
 async function fetchSearchProducts(query: string, page = 1): Promise<SearchProductAPIResponse> {
-    const res = await axios.get<SearchProductAPIResponse>("https://www.gangapapers.in/novasac/api/search", {
+    const res = await axios.get<SearchProductAPIResponse>("https://admin.novasac.es/api/search", {
         params: { query, page },
     })
     return res.data
