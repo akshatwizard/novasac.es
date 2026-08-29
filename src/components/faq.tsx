@@ -74,7 +74,7 @@ export default function Faq() {
         queryKey: ['faq'],
         queryFn: async () => {
             const res = await axios.get<FAQResponse>(
-                "https://www.gangapapers.in/novasac/api/home/faq"
+                "https://admin.novasac.es/api/home/faq"
             );
             return res.data.data;
         },
