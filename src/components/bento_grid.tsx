@@ -24,17 +24,17 @@ const items: GridItems[] = [
     //     tag: "Featured"
     // },
     {
-        title: "Big Bag Outlet",
-        description: "High-quality branded packaging solutions for businesses of every scale.",
+        title: "Outlet de Bolsa Grande",
+        description: "Soluciones de embalaje de marca y alta calidad para empresas de todos los tamaños.",
         image: "/images/bento/big_bag.png",
-        cta: "Shop Now",
+        cta: "Comprar Ahora",
         url: "/category/big-bags",
     },
     {
-        title: "Custom Made Bulks Bags",
-        description: "Curated offers updated weekly.",
+        title: "Bolsas a Granel Personalizadas",
+        description: "Ofertas seleccionadas, actualizadas semanalmente.",
         image: "/images/custom-bag/bag.jpg",
-        cta: "Contact Us",
+        cta: "Contáctanos",
         url: "/custom-made-bags",
     },
 ];
