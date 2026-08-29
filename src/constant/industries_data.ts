@@ -10,42 +10,42 @@ export interface Industry {
 
 export const industries: Industry[] = [
   {
-    slug: "construction-industry",
-    title: "Construction Industry",
+    slug: "industria-de-la-construccion",
+    title: "Industria de la Construcción",
     description:
-      "Durable and heavy-duty packaging bags designed for transporting cement, sand, and construction materials safely.",
+      "Bolsas de embalaje duraderas y resistentes diseñadas para transportar cemento, arena y materiales de construcción de forma segura.",
     icon: HardHat,
     image: "/images/industry/img-1.png",
   },
   {
-    slug: "food-and-agriculture-sector",
-    title: "Food and Agriculture Sector",
+    slug: "sector-de-alimentos-y-agricultura",
+    title: "Sector de Alimentos y Agricultura",
     description:
-      "Food-grade and moisture-resistant bags ideal for storing and transporting grains and agricultural products.",
+      "Bolsas de grado alimenticio y resistentes a la humedad, ideales para almacenar y transportar granos y productos agrícolas.",
     icon: Wheat,
     image: "/images/industry/img-2.png",
   },
   {
-    slug: "chemical-industry",
-    title: "Chemical Industry",
+    slug: "industria-quimica",
+    title: "Industria Química",
     description:
-      "Specialized packaging solutions built to safely handle chemicals, powders, and industrial materials.",
+      "Soluciones de embalaje especializadas diseñadas para manejar de forma segura productos químicos, polvos y materiales industriales.",
     icon: FlaskConical,
     image: "/images/industry/img-3.png",
   },
   {
-    slug: "recycling-and-waste-management",
-    title: "Recycling and Waste Management",
+    slug: "reciclaje-y-gestion-de-residuos",
+    title: "Reciclaje y Gestión de Residuos",
     description:
-      "Strong and eco-friendly bags suitable for collecting and transporting recyclable materials.",
+      "Bolsas resistentes y ecológicas adecuadas para la recolección y el transporte de materiales reciclables.",
     icon: Recycle,
     image: "/images/industry/img-4.png",
   },
   {
-    slug: "mining-and-minerals",
-    title: "Mining and Minerals",
+    slug: "mineria-y-minerales",
+    title: "Minería y Minerales",
     description:
-      "High-strength industrial bags designed to carry minerals, ores, and heavy mining materials.",
+      "Bolsas industriales de alta resistencia diseñadas para transportar minerales, menas y materiales mineros pesados.",
     icon: Pickaxe,
     image: "/images/industry/img-5.png",
   },
@@ -59,8 +59,8 @@ interface Section {
 
 interface IndustryDetail {
   slug: string;
-  label: string;         // e.g. "Food & Agriculture"
-  tagline: string;       // e.g. "Harvested Right, Packed Tight"
+  label: string;         // e.g. "Alimentos y Agricultura"
+  tagline: string;       // e.g. "Cosechado Bien, Empacado Firme"
   accentColor: string;   // Tailwind bg class for the accent pill / icon bg
   accentText: string;    // Tailwind text class
   accentBorder: string;  // Tailwind border class
@@ -72,9 +72,9 @@ interface IndustryDetail {
 
 export const industryDetails: IndustryDetail[] = [
   {
-    slug: "construction-industry",
-    label: "Construction Industry",
-    tagline: "Packaging Solutions That Carry the Load",
+    slug: "industria-de-la-construccion",
+    label: "Industria de la Construcción",
+    tagline: "Soluciones de Embalaje que Soportan la Carga",
     accentColor: "bg-amber-600",
     accentText: "text-amber-700",
     accentBorder: "border-amber-300",
@@ -82,24 +82,24 @@ export const industryDetails: IndustryDetail[] = [
     heroImage: "/images/industry/construction.png",
     sections: [
       {
-        title: "About Our Solutions",
+        title: "Acerca de Nuestras Soluciones",
         content:
-          "NOVASAC packaging solutions are specially designed to meet the demanding needs of the construction industry. Whether it is sand, gravel, cement, or aggregates, our bags ensure safe and efficient handling of heavy materials. Built with a strong focus on durability and load-bearing capacity, our packaging helps reduce the risk of damage during transportation and on-site movement.\n\nOur solutions are created to improve logistics by making handling easier, faster, and more organized. With excellent stackability and space-saving designs, they allow better storage management at construction sites. This not only improves operational efficiency but also enhances safety for workers. By choosing reliable and high-performance packaging, businesses can ensure smoother workflows and better cost control across their operations.",
+          "Las soluciones de embalaje de NOVASAC están especialmente diseñadas para satisfacer las exigentes necesidades de la industria de la construcción. Ya sea arena, grava, cemento o áridos, nuestras bolsas garantizan un manejo seguro y eficiente de materiales pesados. Fabricadas con un fuerte enfoque en la durabilidad y la capacidad de carga, nuestro embalaje ayuda a reducir el riesgo de daños durante el transporte y el movimiento en obra.\n\nNuestras soluciones están creadas para mejorar la logística, haciendo que el manejo sea más fácil, rápido y organizado. Con una excelente apilabilidad y diseños que ahorran espacio, permiten una mejor gestión del almacenamiento en las obras de construcción. Esto no solo mejora la eficiencia operativa, sino que también aumenta la seguridad de los trabajadores. Al elegir un embalaje confiable y de alto rendimiento, las empresas pueden garantizar flujos de trabajo más fluidos y un mejor control de costos en todas sus operaciones.",
       },
       {
-        title: "Smart Packaging for Your Needs",
+        title: "Embalaje Inteligente para sus Necesidades",
         content:
-          "Choosing the right packaging can make a significant difference in how efficiently your operations run. At Novasac, we offer flexible options that can be tailored to your specific requirements. From selecting suitable lifting features such as loops or sleeves to deciding between single-use or reusable bags, every detail is designed to improve ease of handling and performance.\n\nWe also provide customization options that allow you to add your branding or logo, helping your business stand out in the market. Our team works closely with clients to understand their needs and recommend the most suitable packaging solutions. With the right combination of design, functionality, and customization, we help you achieve better efficiency, cost savings, and a more professional presentation for your products.",
+          "Elegir el embalaje adecuado puede marcar una diferencia significativa en la eficiencia de sus operaciones. En Novasac, ofrecemos opciones flexibles que pueden adaptarse a sus necesidades específicas. Desde la selección de características de elevación adecuadas, como asas o mangas, hasta la decisión entre bolsas de un solo uso o reutilizables, cada detalle está diseñado para mejorar la facilidad de manejo y el rendimiento.\n\nTambién ofrecemos opciones de personalización que le permiten agregar su marca o logotipo, ayudando a que su empresa destaque en el mercado. Nuestro equipo trabaja estrechamente con los clientes para comprender sus necesidades y recomendar las soluciones de embalaje más adecuadas. Con la combinación correcta de diseño, funcionalidad y personalización, le ayudamos a lograr mayor eficiencia, ahorro de costos y una presentación más profesional para sus productos.",
       },
       {
-        title: "Key Benefits of Our Construction Packaging Solutions",
+        title: "Principales Beneficios de Nuestras Soluciones de Embalaje para la Construcción",
         content:
-          "Our packaging solutions are designed to deliver both performance and safety across all stages of use. They ensure efficient handling and strong protection of construction materials during storage, transportation, and movement. The durable design helps reduce risks related to worker safety while also minimizing environmental impact.\n\nOur products meet all relevant legal and regulatory standards, giving you confidence in compliance and reliability. They provide secure containment, even for materials that may require extra care or handling. In addition, customizable printing options offer strong branding opportunities, allowing your packaging to represent your business effectively. With a focus on sustainability, our solutions also support environmentally responsible practices, helping your company move towards more efficient and eco-conscious operations.",
+          "Nuestras soluciones de embalaje están diseñadas para ofrecer tanto rendimiento como seguridad en todas las etapas de uso. Garantizan un manejo eficiente y una protección sólida de los materiales de construcción durante el almacenamiento, el transporte y el movimiento. El diseño duradero ayuda a reducir los riesgos relacionados con la seguridad de los trabajadores, minimizando también el impacto ambiental.\n\nNuestros productos cumplen con todas las normas legales y regulatorias pertinentes, brindándole confianza en cuanto a cumplimiento y fiabilidad. Proporcionan una contención segura, incluso para materiales que puedan requerir un manejo especial. Además, las opciones de impresión personalizables ofrecen sólidas oportunidades de branding, permitiendo que su embalaje represente eficazmente a su empresa. Con un enfoque en la sostenibilidad, nuestras soluciones también apoyan prácticas ambientalmente responsables, ayudando a su empresa a avanzar hacia operaciones más eficientes y ecológicas.",
       },
       {
-        title: "Supporting Your Products",
+        title: "Apoyando sus Productos",
         content:
-          "Our packaging is designed to support your products at every stage, from storage to transportation. Using high-quality materials and practical design features, we ensure strength, stability, and protection even in challenging conditions. This helps prevent damage, reduce material loss, and maintain consistency in delivery.\n\nBy improving handling efficiency and minimizing risks during transit, our solutions contribute to smoother operations and better overall performance. Reliable packaging also plays a key role in enhancing customer satisfaction by ensuring that products reach their destination safely and in good condition. With a strong focus on durability and dependability, Novasac packaging allows you to manage your operations with confidence while maintaining high standards of quality.",
+          "Nuestro embalaje está diseñado para apoyar sus productos en cada etapa, desde el almacenamiento hasta el transporte. Utilizando materiales de alta calidad y características de diseño prácticas, garantizamos resistencia, estabilidad y protección incluso en condiciones difíciles. Esto ayuda a prevenir daños, reducir la pérdida de material y mantener la consistencia en la entrega.\n\nAl mejorar la eficiencia del manejo y minimizar los riesgos durante el tránsito, nuestras soluciones contribuyen a operaciones más fluidas y a un mejor rendimiento general. Un embalaje confiable también desempeña un papel clave en la mejora de la satisfacción del cliente, garantizando que los productos lleguen a su destino de forma segura y en buenas condiciones. Con un fuerte enfoque en la durabilidad y la fiabilidad, el embalaje de Novasac le permite gestionar sus operaciones con confianza mientras mantiene altos estándares de calidad.",
       },
     ],
     recommendedProducts: [
@@ -111,33 +111,33 @@ export const industryDetails: IndustryDetail[] = [
     ],
   },
   {
-    slug: "food-and-agriculture-sector",
-    label: "Food & Agriculture",
-    tagline: "Harvested Right, Packed Tight",
+    slug: "alimentos-y-agricultura",
+    label: "Alimentos y Agricultura",
+    tagline: "Cosechado Bien, Empacado Firme",
     accentColor: "bg-green-700",
     accentText: "text-green-800",
     accentBorder: "border-green-300",
     heroImage: "/images/industry/food-agriculture.png",
     sections: [
       {
-        title: "About Our Solutions",
+        title: "Acerca de Nuestras Soluciones",
         content:
-          "NOVASAC packaging solutions have transformed the way agricultural and food products are handled, stored, and transported. From fertilizers and seeds to harvested crops like grains and tubers, our bags are designed to manage large quantities efficiently and safely. Built with strong and durable materials, they ensure reliable performance even in demanding conditions.\n\nFor the food industry, we offer specially developed food-grade Big Bags that are ideal for bulk products such as grains, sugar, and salt. These bags are manufactured under strict hygiene and safety standards to protect products from contamination throughout the supply chain. With features like ventilation options for sensitive produce, our packaging helps maintain product quality and freshness. By improving handling efficiency and reducing losses, NOVASAC plays a key role in supporting modern agriculture and food distribution systems.",
+          "Las soluciones de embalaje de NOVASAC han transformado la forma en que se manejan, almacenan y transportan los productos agrícolas y alimentarios. Desde fertilizantes y semillas hasta cultivos cosechados como granos y tubérculos, nuestras bolsas están diseñadas para gestionar grandes cantidades de manera eficiente y segura. Fabricadas con materiales resistentes y duraderos, garantizan un rendimiento confiable incluso en condiciones exigentes.\n\nPara la industria alimentaria, ofrecemos Big Bags de grado alimenticio especialmente desarrolladas, ideales para productos a granel como granos, azúcar y sal. Estas bolsas se fabrican bajo estrictos estándares de higiene y seguridad para proteger los productos de la contaminación en toda la cadena de suministro. Con características como opciones de ventilación para productos sensibles, nuestro embalaje ayuda a mantener la calidad y frescura del producto. Al mejorar la eficiencia del manejo y reducir las pérdidas, NOVASAC desempeña un papel clave en el apoyo a los sistemas modernos de agricultura y distribución de alimentos.",
       },
       {
-        title: "Smart Packaging for Your Needs",
+        title: "Embalaje Inteligente para sus Necesidades",
         content:
-          "Selecting the right packaging is essential for maintaining the quality and safety of food and agricultural products. At Novasac, we help you choose solutions that ensure secure transportation and efficient storage. While traditional options like jute bags were commonly used in the past, modern packaging such as FIBCs, woven polypropylene (WPP) bags, and advanced laminated solutions offer better protection and handling.\n\nOur focus is on delivering high-quality, food-grade packaging that minimizes the risk of contamination and preserves product integrity. We continuously invest in advanced manufacturing processes and maintain strict quality control to meet global standards. Our FIBC solutions are produced in certified cleanroom environments, ensuring the highest levels of hygiene. With expert guidance and customized solutions, we help businesses improve efficiency while maintaining safety and compliance across operations.",
+          "Seleccionar el embalaje adecuado es esencial para mantener la calidad y seguridad de los productos alimentarios y agrícolas. En Novasac, le ayudamos a elegir soluciones que garanticen un transporte seguro y un almacenamiento eficiente. Si bien opciones tradicionales como las bolsas de yute se usaban comúnmente en el pasado, los embalajes modernos como los FIBC, las bolsas de polipropileno tejido (WPP) y las soluciones laminadas avanzadas ofrecen una mejor protección y manejo.\n\nNuestro enfoque está en ofrecer embalaje de grado alimenticio de alta calidad que minimice el riesgo de contaminación y preserve la integridad del producto. Invertimos continuamente en procesos de fabricación avanzados y mantenemos un estricto control de calidad para cumplir con los estándares globales. Nuestras soluciones FIBC se producen en entornos de sala limpia certificados, garantizando los más altos niveles de higiene. Con orientación experta y soluciones personalizadas, ayudamos a las empresas a mejorar la eficiencia mientras mantienen la seguridad y el cumplimiento en todas sus operaciones.",
       },
       {
-        title: "Key Benefits of Our Food & Agriculture Packaging Solutions",
+        title: "Principales Beneficios de Nuestras Soluciones de Embalaje para Alimentos y Agricultura",
         content:
-          "Our packaging solutions are designed to preserve freshness, quality, and hygiene throughout storage and transportation. They are suitable for bulk handling of grains, seeds, fertilizers, and other agricultural products, ensuring safe and efficient movement across the supply chain. With features that minimize contamination and reduce spoilage, our solutions help maintain product integrity from origin to destination.\n\nWe offer food-grade options that meet strict safety standards for handling consumable products. Ventilation features are available where required to maintain proper airflow and product condition. Our packaging also improves handling efficiency, reduces product loss, and optimizes storage space through flexible and stackable designs. In addition, all solutions comply with relevant food safety and industry regulations while supporting cost-effective and sustainable packaging practices.",
+          "Nuestras soluciones de embalaje están diseñadas para preservar la frescura, la calidad y la higiene durante el almacenamiento y el transporte. Son adecuadas para el manejo a granel de granos, semillas, fertilizantes y otros productos agrícolas, garantizando un movimiento seguro y eficiente en toda la cadena de suministro. Con características que minimizan la contaminación y reducen el deterioro, nuestras soluciones ayudan a mantener la integridad del producto desde el origen hasta el destino.\n\nOfrecemos opciones de grado alimenticio que cumplen con estrictos estándares de seguridad para el manejo de productos consumibles. Las características de ventilación están disponibles cuando se requieren para mantener un flujo de aire adecuado y la condición del producto. Nuestro embalaje también mejora la eficiencia del manejo, reduce la pérdida de producto y optimiza el espacio de almacenamiento mediante diseños flexibles y apilables. Además, todas las soluciones cumplen con las normativas pertinentes de seguridad alimentaria e industria, al tiempo que apoyan prácticas de embalaje rentables y sostenibles.",
       },
       {
-        title: "Supporting Your Products",
+        title: "Apoyando sus Productos",
         content:
-          "Our packaging is designed to support your products at every stage, ensuring strength, protection, and convenience during handling, storage, and transportation. Using high-quality materials and well-designed structures, we help maintain product stability and prevent damage, even in challenging conditions. This results in consistent quality and reduced losses during transit.\n\nBy minimizing risks related to handling and storage, our solutions improve operational efficiency and simplify logistics. Reliable packaging also plays an important role in maintaining customer satisfaction by ensuring that products reach their destination safely and in the best possible condition. With a focus on durability, hygiene, and performance, Novasac packaging helps businesses manage their supply chains with confidence and consistency.",
+          "Nuestro embalaje está diseñado para apoyar sus productos en cada etapa, garantizando resistencia, protección y comodidad durante el manejo, almacenamiento y transporte. Utilizando materiales de alta calidad y estructuras bien diseñadas, ayudamos a mantener la estabilidad del producto y prevenir daños, incluso en condiciones difíciles. Esto resulta en una calidad consistente y menores pérdidas durante el tránsito.\n\nAl minimizar los riesgos relacionados con el manejo y almacenamiento, nuestras soluciones mejoran la eficiencia operativa y simplifican la logística. Un embalaje confiable también desempeña un papel importante en el mantenimiento de la satisfacción del cliente, garantizando que los productos lleguen a su destino de forma segura y en las mejores condiciones posibles. Con un enfoque en la durabilidad, la higiene y el rendimiento, el embalaje de Novasac ayuda a las empresas a gestionar sus cadenas de suministro con confianza y consistencia.",
       },
     ],
     recommendedProducts: [
@@ -149,33 +149,33 @@ export const industryDetails: IndustryDetail[] = [
     ],
   },
   {
-    slug: "chemical-industry",
-    label: "Chemical Industry",
-    tagline: "Safe Solutions for Complex Chemistry",
+    slug: "industria-quimica",
+    label: "Industria Química",
+    tagline: "Soluciones Seguras para una Química Compleja",
     accentColor: "bg-blue-700",
     accentText: "text-blue-800",
     accentBorder: "border-blue-300",
     heroImage: "/images/industry/chemical.png",
     sections: [
       {
-        title: "About Our Solutions",
+        title: "Acerca de Nuestras Soluciones",
         content:
-          "NOVASAC packaging solutions play a critical role in the chemical industry, where safety, reliability, and secure containment are essential. Our bags are specifically engineered to handle chemicals in powder, granular, or pellet form, ensuring safe storage and transportation across every stage of the supply chain. Built with strong and durable materials, they help minimize the risks of leakage, contamination, and exposure, even when dealing with sensitive or hazardous substances.\n\nTo meet the specific needs of chemical applications, our packaging includes advanced features such as inner liners, moisture barriers, and anti-static or conductive properties. These features help prevent unwanted reactions and maintain product stability. Designed in compliance with strict industry regulations, NOVASAC solutions ensure both product integrity and environmental safety, making them a reliable choice for modern chemical packaging requirements.",
+          "Las soluciones de embalaje de NOVASAC desempeñan un papel fundamental en la industria química, donde la seguridad, la fiabilidad y la contención segura son esenciales. Nuestras bolsas están diseñadas específicamente para manejar productos químicos en forma de polvo, gránulos o pellets, garantizando un almacenamiento y transporte seguros en cada etapa de la cadena de suministro. Fabricadas con materiales resistentes y duraderos, ayudan a minimizar los riesgos de fugas, contaminación y exposición, incluso al tratar con sustancias sensibles o peligrosas.\n\nPara satisfacer las necesidades específicas de las aplicaciones químicas, nuestro embalaje incluye características avanzadas como forros internos, barreras de humedad y propiedades antiestáticas o conductivas. Estas características ayudan a prevenir reacciones no deseadas y a mantener la estabilidad del producto. Diseñadas en cumplimiento con estrictas regulaciones de la industria, las soluciones de NOVASAC garantizan tanto la integridad del producto como la seguridad ambiental, convirtiéndolas en una opción confiable para los requisitos modernos de embalaje químico.",
       },
       {
-        title: "Smart Packaging for Your Needs",
+        title: "Embalaje Inteligente para sus Necesidades",
         content:
-          "At Novasac, we understand the complex requirements involved in packaging and handling chemical products. With strong in-house capabilities and a reliable network of production partners, we offer solutions that address the challenges of storing and transporting environmentally sensitive materials. Our experience covers a wide range of applications, including specialty polymers, titanium dioxide (TiO₂), glass fibres, pigments, powder coatings, resins, detergents, carbon powders, intermediates, granulates, pesticides, and fertilizers.\n\nWe focus on delivering packaging solutions that combine safety, efficiency, and regulatory compliance. Each solution is designed to ensure secure handling while maintaining the quality of the material. Our team works closely with clients to understand their specific needs and recommend the most suitable packaging options. With the right approach, we help businesses improve operational efficiency while ensuring safe and compliant handling of chemical products.",
+          "En Novasac, comprendemos los complejos requisitos que implica el embalaje y manejo de productos químicos. Con sólidas capacidades internas y una red confiable de socios de producción, ofrecemos soluciones que abordan los desafíos de almacenar y transportar materiales sensibles al medio ambiente. Nuestra experiencia abarca una amplia gama de aplicaciones, incluidos polímeros especiales, dióxido de titanio (TiO₂), fibras de vidrio, pigmentos, recubrimientos en polvo, resinas, detergentes, polvos de carbono, intermedios, granulados, pesticidas y fertilizantes.\n\nNos enfocamos en ofrecer soluciones de embalaje que combinen seguridad, eficiencia y cumplimiento normativo. Cada solución está diseñada para garantizar un manejo seguro mientras se mantiene la calidad del material. Nuestro equipo trabaja estrechamente con los clientes para comprender sus necesidades específicas y recomendar las opciones de embalaje más adecuadas. Con el enfoque correcto, ayudamos a las empresas a mejorar la eficiencia operativa garantizando al mismo tiempo un manejo seguro y conforme de los productos químicos.",
       },
       {
-        title: "Key Benefits of Our Chemical Packaging Solutions",
+        title: "Principales Beneficios de Nuestras Soluciones de Embalaje Químico",
         content:
-          "Our chemical packaging solutions are designed to ensure maximum safety and reliability during storage and transportation. They provide secure containment of chemicals, significantly reducing the risks of leakage, exposure, and contamination. Suitable for handling powders, granules, and hazardous materials, our packaging supports efficient and safe operations across various applications.\n\nEquipped with advanced features such as inner liners, moisture barriers, and anti-static properties, our solutions help maintain product stability and prevent unwanted reactions. All packaging is developed in compliance with strict safety and regulatory standards, ensuring confidence in performance and reliability. By enhancing storage conditions and simplifying transportation, our solutions contribute to smoother supply chain operations while protecting both people and the environment.",
+          "Nuestras soluciones de embalaje químico están diseñadas para garantizar la máxima seguridad y fiabilidad durante el almacenamiento y transporte. Proporcionan una contención segura de los productos químicos, reduciendo significativamente los riesgos de fugas, exposición y contaminación. Adecuadas para el manejo de polvos, gránulos y materiales peligrosos, nuestro embalaje respalda operaciones eficientes y seguras en diversas aplicaciones.\n\nEquipadas con características avanzadas como forros internos, barreras de humedad y propiedades antiestáticas, nuestras soluciones ayudan a mantener la estabilidad del producto y prevenir reacciones no deseadas. Todo el embalaje se desarrolla en cumplimiento con estrictas normas de seguridad y regulación, garantizando confianza en el rendimiento y la fiabilidad. Al mejorar las condiciones de almacenamiento y simplificar el transporte, nuestras soluciones contribuyen a operaciones más fluidas en la cadena de suministro, protegiendo tanto a las personas como al medio ambiente.",
       },
       {
-        title: "Supporting Your Products",
+        title: "Apoyando sus Productos",
         content:
-          "Our packaging is designed to support your products at every stage, delivering strength, protection, and convenience throughout handling, storage, and transportation. Using high-quality materials and carefully engineered designs, we ensure product stability and reduce the risk of damage, even in demanding conditions. This helps maintain consistency and reliability across all operations.\n\nBy minimizing risks during handling and transit, our solutions improve overall efficiency and reduce material loss. Reliable packaging also plays a key role in maintaining customer satisfaction by ensuring that products reach their destination safely and in optimal condition. With a strong focus on performance, safety, and dependability, Novasac packaging enables businesses to handle chemical products with confidence and control.",
+          "Nuestro embalaje está diseñado para apoyar sus productos en cada etapa, ofreciendo resistencia, protección y comodidad durante el manejo, almacenamiento y transporte. Utilizando materiales de alta calidad y diseños cuidadosamente elaborados, garantizamos la estabilidad del producto y reducimos el riesgo de daños, incluso en condiciones exigentes. Esto ayuda a mantener la consistencia y fiabilidad en todas las operaciones.\n\nAl minimizar los riesgos durante el manejo y el tránsito, nuestras soluciones mejoran la eficiencia general y reducen la pérdida de material. Un embalaje confiable también desempeña un papel clave en el mantenimiento de la satisfacción del cliente, garantizando que los productos lleguen a su destino de forma segura y en condiciones óptimas. Con un fuerte enfoque en el rendimiento, la seguridad y la fiabilidad, el embalaje de Novasac permite a las empresas manejar productos químicos con confianza y control.",
       },
     ],
     recommendedProducts: [
@@ -185,65 +185,65 @@ export const industryDetails: IndustryDetail[] = [
     ],
   },
   {
-    slug: "recycling-and-waste-management",
-    label: "Recycling & Waste Management",
-    tagline: "Sustainable Solutions for Smarter Waste Management",
+    slug: "reciclaje-y-gestion-de-residuos",
+    label: "Reciclaje y Gestión de Residuos",
+    tagline: "Soluciones Sostenibles para una Gestión de Residuos más Inteligente",
     accentColor: "bg-teal-700",
     accentText: "text-teal-800",
     accentBorder: "border-teal-300",
     heroImage: "/images/industry/recycle-and-wast-management.png",
     sections: [
       {
-        title: "About Our Solutions",
+        title: "Acerca de Nuestras Soluciones",
         content:
-          "NOVASAC packaging solutions provide a reliable and efficient way to manage recycling and waste operations. Designed for strength and durability, our bags are capable of handling heavy loads as well as irregularly shaped materials without compromising safety or performance. They are widely used for the collection, segregation, and transportation of recyclable materials and waste across different industries.\n\nWith a focus on practicality, our packaging simplifies handling processes and improves operational efficiency. The reusable nature of our bags helps reduce packaging waste and supports environmentally responsible practices. By lowering the need for single-use materials, businesses can reduce their overall carbon footprint. Combining durability with sustainability, NOVASAC solutions play an important role in creating cleaner, safer, and more efficient waste management systems.",
+          "Las soluciones de embalaje de NOVASAC ofrecen una forma confiable y eficiente de gestionar las operaciones de reciclaje y residuos. Diseñadas para ser resistentes y duraderas, nuestras bolsas son capaces de manejar cargas pesadas, así como materiales de forma irregular, sin comprometer la seguridad ni el rendimiento. Se utilizan ampliamente para la recolección, segregación y transporte de materiales reciclables y residuos en diferentes industrias.\n\nCon un enfoque en la practicidad, nuestro embalaje simplifica los procesos de manejo y mejora la eficiencia operativa. La naturaleza reutilizable de nuestras bolsas ayuda a reducir los residuos de embalaje y apoya prácticas ambientalmente responsables. Al reducir la necesidad de materiales de un solo uso, las empresas pueden disminuir su huella de carbono general. Al combinar durabilidad con sostenibilidad, las soluciones de NOVASAC desempeñan un papel importante en la creación de sistemas de gestión de residuos más limpios, seguros y eficientes.",
       },
       {
-        title: "Smart Packaging for Your Needs",
+        title: "Embalaje Inteligente para sus Necesidades",
         content:
-          "Our smart packaging solutions are designed to make recycling and waste management processes more organized and efficient. From collection to segregation and transportation, our bags offer flexibility and durability to handle a wide range of waste materials, including heavy and uneven loads. This ensures smoother operations and reduces the challenges commonly faced in waste handling.\n\nWe focus on providing solutions that are both practical and sustainable. Our packaging helps optimize storage, improve handling efficiency, and reduce environmental impact. With well-designed structures and reliable materials, our solutions support safe and effective waste management practices. By choosing the right packaging, businesses can manage resources more efficiently while maintaining cleanliness, safety, and environmental responsibility across their operations.",
+          "Nuestras soluciones de embalaje inteligente están diseñadas para hacer que los procesos de reciclaje y gestión de residuos sean más organizados y eficientes. Desde la recolección hasta la segregación y el transporte, nuestras bolsas ofrecen flexibilidad y durabilidad para manejar una amplia gama de materiales de desecho, incluidas cargas pesadas y desiguales. Esto garantiza operaciones más fluidas y reduce los desafíos comúnmente enfrentados en el manejo de residuos.\n\nNos enfocamos en ofrecer soluciones que sean tanto prácticas como sostenibles. Nuestro embalaje ayuda a optimizar el almacenamiento, mejorar la eficiencia del manejo y reducir el impacto ambiental. Con estructuras bien diseñadas y materiales confiables, nuestras soluciones respaldan prácticas de gestión de residuos seguras y efectivas. Al elegir el embalaje adecuado, las empresas pueden gestionar los recursos de manera más eficiente mientras mantienen la limpieza, la seguridad y la responsabilidad ambiental en sus operaciones.",
       },
       {
-        title: "Key Benefits of Our Recycling & Waste Management Packaging Solutions",
+        title: "Principales Beneficios de Nuestras Soluciones de Embalaje para Reciclaje y Gestión de Residuos",
         content:
-          "Our packaging solutions are built to handle the demanding requirements of waste management operations. They feature strong and durable designs that can safely carry heavy and irregular waste materials without risk of damage. This ensures efficient collection, segregation, and transportation of recyclable materials across different stages of the process.\n\nBy minimizing spillage and improving safety during handling and transit, our solutions help create a more controlled and organized workflow. The reusable and long-lasting nature of our packaging supports sustainable practices and reduces the need for frequent replacements. In addition, these solutions help lower environmental impact and contribute to reducing the overall carbon footprint. With improved storage and logistics efficiency, businesses can manage waste more effectively and responsibly.",
+          "Nuestras soluciones de embalaje están construidas para satisfacer los exigentes requisitos de las operaciones de gestión de residuos. Cuentan con diseños fuertes y duraderos que pueden transportar de forma segura materiales de desecho pesados e irregulares sin riesgo de daño. Esto garantiza una recolección, segregación y transporte eficientes de materiales reciclables en las diferentes etapas del proceso.\n\nAl minimizar los derrames y mejorar la seguridad durante el manejo y el tránsito, nuestras soluciones ayudan a crear un flujo de trabajo más controlado y organizado. La naturaleza reutilizable y duradera de nuestro embalaje respalda las prácticas sostenibles y reduce la necesidad de reemplazos frecuentes. Además, estas soluciones ayudan a reducir el impacto ambiental y contribuyen a disminuir la huella de carbono general. Con una mayor eficiencia en el almacenamiento y la logística, las empresas pueden gestionar los residuos de manera más efectiva y responsable.",
       },
       {
-        title: "Supporting Your Products",
+        title: "Apoyando sus Productos",
         content:
-          "Our packaging solutions are designed to support waste and recyclable materials at every stage, from collection and segregation to storage and transportation. Built with high-quality materials, they provide the strength and reliability needed to handle bulky, heavy, or irregular loads with ease. This helps reduce the risk of spillage and ensures safer handling throughout the process.\n\nBy improving organization and reducing operational challenges, our packaging contributes to smoother and more efficient waste management systems. The durability and reusability of our solutions also support long-term sustainability goals. With a strong focus on performance and environmental responsibility, Novasac packaging helps businesses maintain efficient operations while contributing to cleaner and more sustainable practices.",
+          "Nuestras soluciones de embalaje están diseñadas para apoyar los materiales de desecho y reciclables en cada etapa, desde la recolección y segregación hasta el almacenamiento y transporte. Fabricadas con materiales de alta calidad, ofrecen la resistencia y fiabilidad necesarias para manejar cargas voluminosas, pesadas o irregulares con facilidad. Esto ayuda a reducir el riesgo de derrames y garantiza un manejo más seguro durante todo el proceso.\n\nAl mejorar la organización y reducir los desafíos operativos, nuestro embalaje contribuye a sistemas de gestión de residuos más fluidos y eficientes. La durabilidad y reutilización de nuestras soluciones también respaldan los objetivos de sostenibilidad a largo plazo. Con un fuerte enfoque en el rendimiento y la responsabilidad ambiental, el embalaje de Novasac ayuda a las empresas a mantener operaciones eficientes mientras contribuyen a prácticas más limpias y sostenibles.",
       },
     ],
     recommendedProducts: ["FIBC / Jumbo Bags", "Heavy-duty PP Woven Sacks"],
   },
   {
-    slug: "mining-and-minerals",
-    label: "Mining & Minerals",
-    tagline: "Supporting Safe and Efficient Mining",
+    slug: "mineria-y-minerales",
+    label: "Minería y Minerales",
+    tagline: "Apoyando una Minería Segura y Eficiente",
     accentColor: "bg-stone-700",
     accentText: "text-stone-800",
     accentBorder: "border-stone-400",
     heroImage: "/images/industry/mining.png",
     sections: [
       {
-        title: "About Our Solutions",
+        title: "Acerca de Nuestras Soluciones",
         content:
-          "NOVASAC packaging solutions are designed to meet the demanding requirements of the mining industry, where strength, safety, and efficiency are critical. Our bags provide a reliable solution for handling minerals, concentrates, and other extracted materials from the point of extraction to processing and final distribution. They ensure smooth and organized movement of bulk materials across every stage of the supply chain.\n\nBuilt to perform in extreme conditions, our packaging offers exceptional durability and high load-bearing capacity. This makes it ideal for managing heavy and abrasive materials commonly found in mining operations. The robust construction helps prevent spillage, reduces material loss, and supports safer handling in challenging environments. With a strong focus on reliability and performance, NOVASAC delivers packaging solutions that help improve efficiency and safety in mining operations.",
+          "Las soluciones de embalaje de NOVASAC están diseñadas para satisfacer los exigentes requisitos de la industria minera, donde la resistencia, la seguridad y la eficiencia son fundamentales. Nuestras bolsas ofrecen una solución confiable para el manejo de minerales, concentrados y otros materiales extraídos, desde el punto de extracción hasta el procesamiento y la distribución final. Garantizan un movimiento fluido y organizado de materiales a granel en cada etapa de la cadena de suministro.\n\nFabricado para funcionar en condiciones extremas, nuestro embalaje ofrece una durabilidad excepcional y una alta capacidad de carga. Esto lo hace ideal para gestionar materiales pesados y abrasivos comúnmente presentes en las operaciones mineras. La construcción robusta ayuda a prevenir derrames, reduce la pérdida de material y favorece un manejo más seguro en entornos exigentes. Con un fuerte enfoque en la fiabilidad y el rendimiento, NOVASAC ofrece soluciones de embalaje que ayudan a mejorar la eficiencia y la seguridad en las operaciones mineras.",
       },
       {
-        title: "Smart Packaging for Your Needs",
+        title: "Embalaje Inteligente para sus Necesidades",
         content:
-          "Our smart packaging solutions for the mining industry are engineered to handle heavy, abrasive, and bulk materials with maximum efficiency. Designed with durability and high load capacity, they provide reliable support for the storage, transportation, and handling of minerals and concentrates. This ensures smooth operations even in tough and demanding environments.\n\nWe focus on improving operational efficiency by reducing material loss and simplifying handling processes. Our packaging solutions are built to enhance safety during loading, unloading, and transit, helping businesses maintain better control over their operations. With strong and dependable performance, our solutions support mining companies in optimizing their workflows while maintaining safety and consistency across the supply chain.",
+          "Nuestras soluciones de embalaje inteligente para la industria minera están diseñadas para manejar materiales pesados, abrasivos y a granel con la máxima eficiencia. Diseñadas con durabilidad y alta capacidad de carga, ofrecen un soporte confiable para el almacenamiento, transporte y manejo de minerales y concentrados. Esto garantiza operaciones fluidas incluso en entornos difíciles y exigentes.\n\nNos enfocamos en mejorar la eficiencia operativa reduciendo la pérdida de material y simplificando los procesos de manejo. Nuestras soluciones de embalaje están diseñadas para mejorar la seguridad durante la carga, descarga y tránsito, ayudando a las empresas a mantener un mejor control sobre sus operaciones. Con un rendimiento sólido y confiable, nuestras soluciones apoyan a las empresas mineras en la optimización de sus flujos de trabajo, manteniendo al mismo tiempo la seguridad y la consistencia en toda la cadena de suministro.",
       },
       {
-        title: "Key Benefits of Our Mining Packaging Solutions",
+        title: "Principales Beneficios de Nuestras Soluciones de Embalaje Minero",
         content:
-          "Our packaging solutions offer high load-bearing capacity, making them suitable for handling heavy minerals and concentrates with ease. The durable construction is designed to withstand abrasive materials and harsh environmental conditions commonly found in mining operations. This ensures reliable performance even in the most challenging situations.\n\nBy minimizing spillage and reducing material loss during transit, our solutions help improve efficiency and cost control. They also support safe handling, storage, and transportation of bulk materials, reducing risks during operations. With features that enhance loading, unloading, and logistics processes, our packaging contributes to smoother workflows. Overall, they provide consistent and dependable performance across the entire mining supply chain.",
+          "Nuestras soluciones de embalaje ofrecen una alta capacidad de carga, lo que las hace adecuadas para manejar minerales y concentrados pesados con facilidad. La construcción duradera está diseñada para resistir materiales abrasivos y condiciones ambientales adversas comúnmente presentes en las operaciones mineras. Esto garantiza un rendimiento confiable incluso en las situaciones más exigentes.\n\nAl minimizar los derrames y reducir la pérdida de material durante el tránsito, nuestras soluciones ayudan a mejorar la eficiencia y el control de costos. También respaldan el manejo, almacenamiento y transporte seguros de materiales a granel, reduciendo los riesgos durante las operaciones. Con características que mejoran los procesos de carga, descarga y logística, nuestro embalaje contribuye a flujos de trabajo más fluidos. En general, proporcionan un rendimiento consistente y confiable en toda la cadena de suministro minera.",
       },
       {
-        title: "Supporting Your Products",
+        title: "Apoyando sus Productos",
         content:
-          "Our packaging solutions are built to support the demanding nature of mining operations at every stage. From extraction sites to processing units and transportation, they provide the strength and reliability needed to handle heavy and abrasive materials effectively. This helps ensure safe and efficient movement of bulk products.\n\nWith a focus on durability and performance, our packaging minimizes material loss and improves handling efficiency. It also enhances safety by reducing risks associated with heavy loads and difficult environments. Designed to perform consistently in tough conditions, our solutions help streamline operations and support better productivity. With Novasac packaging, businesses can manage their mining processes with confidence and reliability.",
+          "Nuestras soluciones de embalaje están construidas para apoyar la naturaleza exigente de las operaciones mineras en cada etapa. Desde los sitios de extracción hasta las unidades de procesamiento y el transporte, ofrecen la resistencia y fiabilidad necesarias para manejar materiales pesados y abrasivos de manera efectiva. Esto ayuda a garantizar un movimiento seguro y eficiente de los productos a granel.\n\nCon un enfoque en la durabilidad y el rendimiento, nuestro embalaje minimiza la pérdida de material y mejora la eficiencia del manejo. También mejora la seguridad al reducir los riesgos asociados con cargas pesadas y entornos difíciles. Diseñadas para rendir consistentemente en condiciones adversas, nuestras soluciones ayudan a optimizar las operaciones y respaldar una mejor productividad. Con el embalaje de Novasac, las empresas pueden gestionar sus procesos mineros con confianza y fiabilidad.",
       },
     ],
     recommendedProducts: ["FIBC Bags (Heavy-duty)", "PP Woven Sacks"],
