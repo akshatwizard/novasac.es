@@ -199,7 +199,7 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
     const { mutate, isPending, isError, error, reset } = useMutation({
         mutationFn: async () => {
             return (
-                await axios.post("https://www.gangapapers.in/novasac/api/product/buy-now", { product_id: product.id, qty: qty, ...form })
+                await axios.post("https://admin.novasac.es/api/product/buy-now", { product_id: product.id, qty: qty, ...form })
             )
         },
         onSuccess(val) {
@@ -384,7 +384,7 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
     const { mutate, isPending, isError, error, reset } = useMutation({
         mutationFn: async () => {
             return (
-                await axios.post("https://www.gangapapers.in/novasac/api/product/enquiry", { product_id: product.id, ...form })
+                await axios.post("https://admin.novasac.es/api/product/enquiry", { product_id: product.id, ...form })
             )
         },
         onSuccess(val) {
