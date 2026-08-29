@@ -9,11 +9,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "gangapapers.in",
+        hostname: "admin.novasac.es",
       },
       {
         protocol: "https",
-        hostname: "www.gangapapers.in",
+        hostname: "novasac.es",
       },
     ],
   },
