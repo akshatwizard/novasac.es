@@ -110,7 +110,7 @@ export default function Profile() {
   const { data: profile, isLoading, isError, error } = useQuery<ProfileData>({
     queryKey: ['customer-profile'],
     queryFn: async () => {
-      const res = await axios.get('https://www.gangapapers.in/novasac/api/customer/profile', {
+      const res = await axios.get('https://admin.novasac.es/api/customer/profile', {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: 'application/json',
