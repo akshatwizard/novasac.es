@@ -16,7 +16,7 @@ export default function Products() {
         queryKey: ["new_arrival_products"],
         queryFn: async () => {
             const res = await axios.get<ProductResponse>(
-                "https://www.gangapapers.in/novasac/api/home/new-arrivals"
+                "https://admin.novasac.es/api/home/new-arrivals"
             );
             return res.data.data;
         },
