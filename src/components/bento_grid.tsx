@@ -1,109 +1,60 @@
-import Link from 'next/link';
+import React from 'react'
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
-import Image from "next/image";
-
-type GridItems = {
-    title: string;
-    description?: string;
-    image: string;
-    large?: boolean;
-    cta: string;
-    url: string;
-    tag?: string;
+import { Headset, LucideIcon, Package, Palette, Truck } from 'lucide-react'
+type Details = {
+    title: string
+    description: string
+    icon: LucideIcon
 }
-
-const items: GridItems[] = [
-    // {
-    //     title: "Our Popular Product",
-    //     description: "High-quality branded packaging solutions for businesses of every scale.",
-    //     image: "/images/bento/popular_product.png",
-    //     large: true,
-    //     cta: "Shop Now",
-    //     url: "/popular-products",
-    //     tag: "Featured"
-    // },
-    {
-        title: "Big Bag Outlet",
-        description: "High-quality branded packaging solutions for businesses of every scale.",
-        image: "/images/bento/big_bag.png",
-        cta: "Shop Now",
-        url: "/category/big-bags",
-    },
-    {
-        title: "Custom Made Bulks Bags",
-        description: "Curated offers updated weekly.",
-        image: "/images/custom-bag/bag.jpg",
-        cta: "Contact Us",
-        url: "/custom-made-bags",
-    },
-];
-
-export default function BentoGrid() {
+export default function AdditionalDetails() {
+    const details: Details[] = [
+        {
+            title: "Más de 100 Modelos de Embalaje",
+            description: "Elige entre una amplia gama de diseños y tamaños de bolsas de embalaje.",
+            icon: Package,
+        },
+        {
+            title: "Soluciones de Diseño Personalizado",
+            description: "Mejora tu marca con bolsas impresas personalizadas de alta calidad.",
+            icon: Palette,
+        },
+        {
+            title: "Atención al Cliente 24/7",
+            description: "Nuestro equipo está siempre disponible para ayudarte en cualquier momento.",
+            icon: Headset,
+        },
+        {
+            title: "Entrega Exprés",
+            description: "Entrega rápida y fiable para todas tus necesidades de embalaje.",
+            icon: Truck,
+        },
+    ]
     return (
         <Section>
             <Wrapper>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {items.map((item, i) => (
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+                    {details.map((item, idx) => (
                         <div
-                            key={item.title}
-                            className={`group relative overflow-hidden bg-neutral-900 rounded-3xl ${item.large ? "md:col-span-2 h-90" : "h-110"
-                                }`}
+                            key={idx}
+                            className='group border border-zinc-200 rounded-xl p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1'
                         >
-                            <Image
-                                src={item.image}
-                                alt={item.title}
-                                fill
-                                priority={i === 0}
-                                fetchPriority={i === 0 ? "high" : "auto"}
-                                sizes={item.large
-                                    ? "(max-width: 768px) 100vw, 100vw"
-                                    : "(max-width: 768px) 100vw, 50vw"
-                                }
-                                className="object-cover transition-all duration-700 ease-out group-hover:scale-105"
-                            />
-
-                            <div className="absolute inset-0 bg-black/20 transition-all duration-500 group-hover:bg-black/60" />
-
-                            <div
-                                className="absolute inset-0 z-20 flex items-center justify-center opacity-100  transition-all duration-500 pointer-events-none"
-                            >
-                                <Link
-                                    href={item.url}
-                                    className="pointer-events-auto translate-y-4 md:translate-y-8 md:group-hover:translate-y-0 transition-all duration-500 rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-white shadow-xl hover:scale-105"
-                                >
-                                    {item.cta}
-                                </Link>
+                            {/* Icon */}
+                            <div className='w-12 h-12 flex items-center justify-center rounded-lg bg-primary-50 text-primary-500 group-hover:scale-110 transition'>
+                                <item.icon size={26} strokeWidth={1.5} />
                             </div>
-
-                            {/* Tag */}
-                            {item.tag && (
-                                <span className="absolute top-5 left-5 z-10 rounded-full bg-primary-500 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white">
-                                    {item.tag}
-                                </span>
-                            )}
-
-                            {/* Bottom Content */}
-                            <div
-                                className="absolute bottom-0 left-0 right-0 z-10 p-6 transition-all duration-500 md:group-hover:translate-y-4"
-                            >
-                                <h3
-                                    className={`font-bold leading-tight text-white ${item.large ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"
-                                        }`}
-                                >
+                            <div className='flex flex-col gap-1'>
+                                <h3 className='font-semibold text-primary-500 text-lg'>
                                     {item.title}
                                 </h3>
-
-                                {item.description && (
-                                    <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/80">
-                                        {item.description}
-                                    </p>
-                                )}
+                                <p className='text-sm text-zinc-500 leading-tight'>
+                                    {item.description}
+                                </p>
                             </div>
                         </div>
                     ))}
                 </div>
             </Wrapper>
         </Section>
-    );
+    )
 }
