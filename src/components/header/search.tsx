@@ -46,7 +46,7 @@ export default function SearchBar({
                     onKeyDown={onKeyDown}
                     className="w-full bg-transparent outline-none border-none h-full px-3 text-sm text-zinc-600"
                 />
-                <label htmlFor="search" className='sr-only'>Search</label>
+                <label htmlFor="search" className='sr-only'>Buscar</label>
                 <SearchPlaceholder hidden={query.length > 0} />
             </div>
 
