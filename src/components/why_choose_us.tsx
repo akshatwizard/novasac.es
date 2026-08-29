@@ -2,29 +2,26 @@ import { Heading, SubHeading } from './ui/headings'
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import { BadgePercent, Gem, LucideIcon, Truck } from 'lucide-react';
-
-
 type Data = {
     title: string;
     desc: string;
     icon: LucideIcon
 }
-
 export default function WhyChooseUs() {
     const data: Data[] = [
         {
-            title: "Premium Quality",
-            desc: "We provide high-quality, reliable, and innovative packaging solutions designed to meet the diverse needs of industries worldwide.",
+            title: "Calidad Premium",
+            desc: "Ofrecemos soluciones de embalaje fiables, innovadoras y de alta calidad, diseñadas para satisfacer las diversas necesidades de las industrias de todo el mundo.",
             icon: Gem
         },
         {
-            title: "Delivery Time",
-            desc: "We value your time and are committed to delivering high-quality packaging solutions with efficiency, reliability, and precision.",
+            title: "Tiempo de Entrega",
+            desc: "Valoramos tu tiempo y nos comprometemos a entregar soluciones de embalaje de alta calidad con eficiencia, fiabilidad y precisión.",
             icon: Truck
         },
         {
-            title: "Competitive Pricing",
-            desc: "Our products are priced affordably without compromising on quality, making us an affordable option",
+            title: "Precios Competitivos",
+            desc: "Nuestros productos tienen precios asequibles sin comprometer la calidad, lo que nos convierte en una opción económica",
             icon: BadgePercent
         },
     ]
@@ -33,13 +30,12 @@ export default function WhyChooseUs() {
             <Wrapper>
                 <div className='w-full flex flex-col gap-2'>
                     <Heading>
-                        Why Choose Us
+                        Por Qué Elegirnos
                     </Heading>
                     <SubHeading className='max-w-lg'>
-                        Reliable packaging solutions designed for durability, customization, and efficient delivery across industries.
+                        Soluciones de embalaje fiables diseñadas para la durabilidad, la personalización y una entrega eficiente en todas las industrias.
                     </SubHeading>
                 </div>
-
                 <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                     {
                         data.map((item, idx) => (
@@ -50,11 +46,9 @@ export default function WhyChooseUs() {
                                 <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary-50 text-primary-500 mb-4 group-hover:scale-110 transition-transform">
                                     <item.icon size={26} />
                                 </div>
-
                                 <h3 className="text-lg font-semibold text-zinc-800 mb-2">
                                     {item.title}
                                 </h3>
-
                                 <p className="text-sm text-zinc-500 leading-relaxed">
                                     {item.desc}
                                 </p>
