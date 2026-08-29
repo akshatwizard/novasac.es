@@ -166,7 +166,7 @@ export default function CustomBags() {
     const { mutate, isPending, isSuccess, isError, error } = useMutation({
         mutationFn: async () => {
             return (
-                await axios.post("https://www.gangapapers.in/novasac/api/custom-made-bags/submit", form, {
+                await axios.post("https://admin.novasac.es/api/custom-made-bags/submit", form, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
