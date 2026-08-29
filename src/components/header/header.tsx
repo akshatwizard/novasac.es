@@ -150,7 +150,7 @@ export default function Header() {
                     <div className="relative flex items-center gap-2" ref={dropdownRef}>
                         <Image
                             src={"/images/wap.png"}
-                            alt='COntact us'
+                            alt='Contáctanos'
                             width={20}
                             height={20}
                             className='size-7 cursor-pointer'
@@ -158,28 +158,28 @@ export default function Header() {
 
                         <button name='Shopping cart' className="relative hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer">
                             <ShoppingCart className="text-white" size={28} strokeWidth={1} fill='white' />
-                            <span className='sr-only'>Shopping cart</span>
+                            <span className='sr-only'>Carrito de compra</span>
                         </button>
 
                         <button name='Options' className="hidden md:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-primary-400 cursor-pointer"
                             onClick={() => setShowOptions(!showOptions)}
                         >
                             <TextAlignJustify className="text-white" size={28} strokeWidth={1} fill='white' />
-                            <span className='sr-only'>Options</span>
+                            <span className='sr-only'>Opciones</span>
                         </button>
 
                         <button name='Serch Now' className="relative md:hidden flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
                             onClick={() => setOpenMobileSearch(true)}
                         >
                             <Search className="text-white" size={24} strokeWidth={1.5} />
-                            <span className='sr-only'>Search Now</span>
+                            <span className='sr-only'>Buscar ahora</span>
                         </button>
 
                         <button name='Open Menu' className="hidden max-[1150px]:flex items-center justify-center w-10 h-10 rounded-sm transition-colors duration-300 ease-in-out hover:bg-zinc-800/10 cursor-pointer"
                             onClick={() => setOpenMenu(true)}
                         >
                             <TextAlignJustify className="text-white" size={24} strokeWidth={1.5} />
-                            <span className='sr-only'>Open Menu</span>
+                            <span className='sr-only'>Abrir menú</span>
                         </button>
 
                         <AnimatePresence>
@@ -205,7 +205,7 @@ export default function Header() {
                                             className="cursor-pointer group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                                         >
                                             <User size={16} />
-                                            <span>{isAuthenticated && user ? user.name : "Login"}</span>
+                                            <span>{isAuthenticated && user ? user.name : "Iniciar sesión"}</span>
                                             <ChevronRight
                                                 size={14}
                                                 className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
@@ -217,7 +217,7 @@ export default function Header() {
                                             className="cursor-pointer group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                                         >
                                             <ShoppingBag size={16} />
-                                            <span>Orders</span>
+                                            <span>Pedidos</span>
                                             <ChevronRight
                                                 size={14}
                                                 className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
@@ -229,7 +229,7 @@ export default function Header() {
                                             className="cursor-pointer group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                                         >
                                             <ShoppingCart size={16} />
-                                            <span>Cart</span>
+                                            <span>Carrito</span>
                                             <ChevronRight
                                                 size={14}
                                                 className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
@@ -242,7 +242,7 @@ export default function Header() {
                                             className="cursor-pointer group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                                         >
                                             <Building2 size={16} />
-                                            <span>About Us</span>
+                                            <span>Sobre nosotros</span>
                                             <ChevronRight
                                                 size={14}
                                                 className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
@@ -255,7 +255,7 @@ export default function Header() {
                                             className="cursor-pointer group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                                         >
                                             <Phone size={16} />
-                                            <span>Contact Us</span>
+                                            <span>Contacto</span>
                                             <ChevronRight
                                                 size={14}
                                                 className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
@@ -268,7 +268,7 @@ export default function Header() {
                                             className="cursor-pointer group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                                         >
                                             <BadgeCheck size={16} />
-                                            <span>Certifications</span>
+                                            <span>Certificaciones</span>
                                             <ChevronRight
                                                 size={14}
                                                 className="ml-auto text-gray-400 group-hover:translate-x-0.5 transition-transform"
@@ -282,7 +282,7 @@ export default function Header() {
                                                     onClick={() => (logout(), setShowOptions(false))}
                                                     className="cursor-pointer group flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors duration-150"
                                                 >
-                                                    <span>Logout</span>
+                                                    <span>Cerrar sesión</span>
                                                     <LogOut
                                                         size={14}
                                                         className="text-red-500 group-hover:scale-110 transition-transform"
