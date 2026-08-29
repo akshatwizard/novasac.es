@@ -7,20 +7,6 @@ import Link from 'next/link'
 // import { AnimatePresence, motion } from 'motion/react'
 
 export default function TopBar() {
-    // const items: string[] = [
-    //     "Welcome to Our Store!",
-    //     "Use HOLI for 10% discount on every products.",
-    //     "Get 30% discount on First Order. Use FIRST",
-    // ]
-    // const [active, setActive] = useState<number>(0);
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setActive((prevIndex) => (prevIndex + 1) % items.length);
-    //     }, 6000);
-
-    //     return () => clearInterval(interval);
-    // }, []);
 
     return (
         <Section className='bg-zinc-50 border-b border-zinc-200 hidden min-[950px]:block overflow-hidden'>
@@ -79,7 +65,7 @@ export default function TopBar() {
                             <Leaf size={18} strokeWidth={1.5} className='text-zinc-500' />
                             <Link href={"#"} className='text-zinc-600 text-sm transition-colors duration-300 ease-in-out hover:text-zinc-800'>
                                 <span>
-                                    Sustainability Partner
+                                    Socio de Sostenibilidad
                                 </span>
                             </Link>
                         </div>
@@ -87,7 +73,7 @@ export default function TopBar() {
 
                     <div className="w-px h-4 bg-zinc-200" />
                     <Link href={"/contact"} className='text-sm font-normal text-zinc-500 hover:text-primary-500 duration-300 transition-colors ease-in-out'>
-                        Contact Us
+                        Contáctenos
                     </Link>
                 </div>
             </Wrapper>
