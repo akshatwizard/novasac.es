@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const { slug } = await params
 
     try {
-        const res = await axios.get<BlogDetailResponse>(`http://gangapapers.in/novasac/api/blog/${slug}`);
+        const res = await axios.get<BlogDetailResponse>(`https://admin.novasac.es/api/blog/${slug}`);
         const blog = res.data?.data;
 
         if (!blog) {
