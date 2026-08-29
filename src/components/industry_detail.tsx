@@ -24,7 +24,7 @@ export default function IndustryDetailPage({ slug }: Props) {
     const { data, isLoading, isFetching } = useQuery({
         queryKey: ["industry", slug],
         queryFn: async () => {
-            const res = await axios.get<RecomendedProductAPIResponse>(`https://www.gangapapers.in/novasac/api/industry-category/${slug}`);
+            const res = await axios.get<RecomendedProductAPIResponse>(`https://admin.novasac.es/api/industry-category/${slug}`);
             return res.data.data;
         },
     });
