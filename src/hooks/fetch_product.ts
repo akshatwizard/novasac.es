@@ -1,7 +1,7 @@
 import { ProductDetailApiResponse } from '@/types/single_product.types'
 import axios from 'axios'
 
-const BASE_URL = 'https://www.gangapapers.in/novasac/api/products'
+const BASE_URL = 'https://admin.novasac.es/api/products'
 
 export function buildProductUrl(slug: string[]): string {
     return `${BASE_URL}/${slug.join('/')}`
