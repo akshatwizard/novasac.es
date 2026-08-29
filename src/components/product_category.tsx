@@ -52,7 +52,7 @@ export default function ProductCategory() {
                         {
                             MenuItems.map((category) => {
                                 return (
-                                    category.name !== "About Us" && (
+                                    category.name !== "Sobre Nosotros" && (
                                         <Link
                                             key={category.name}
                                             href={category.path}
