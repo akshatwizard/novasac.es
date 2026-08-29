@@ -5,22 +5,19 @@ import Wrapper from "./ui/wrapper";
 import { Heading, SubHeading } from "./ui/headings";
 import { industries } from "@/constant/industries_data";
 import { ArrowUpRight } from "lucide-react";
-
 export default function Industry() {
     return (
         <Section className="bg-primary-100">
             <Wrapper>
                 <div className="text-center flex flex-col gap-2">
-                    <Heading className="text-primary-500">Industries We Serve</Heading>
+                    <Heading className="text-primary-500">Industrias a las que Servimos</Heading>
                     <SubHeading className="text-primary-400">
-                        Providing reliable packaging solutions across multiple industries.
+                        Ofrecemos soluciones de embalaje fiables en múltiples industrias.
                     </SubHeading>
                 </div>
-
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {industries.map((item, index) => {
                         const Icon = item.icon;
-
                         return (
                             <Link
                                 key={index}
@@ -35,23 +32,19 @@ export default function Industry() {
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:opacity-70"
                                 />
-
                                 {/* ── Gradient: top open, bottom white so content is readable ── */}
                                 {/* <div className="absolute h-10 inset-x-0 bottom-0 left-0 bg-linear-to-t from-black/80 to-black/50 pointer-events-none" /> */}
-
                                 <div className="relative z-10 p-6 flex flex-col gap-2 h-full justify-between">
                                     {/* Icon badge */}
                                     <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-zinc-200 text-primary-500 shadow-sm group-hover:bg-primary-500 group-hover:border-primary-500 group-hover:text-white group-hover:shadow-md transition-all duration-300">
                                         <Icon size={22} />
                                     </div>
-
                                     <div className="space-y-1.5">
                                         <div className="flex items-start justify-between gap-2">
                                             <h3 className="text-base font-semibold text-white leading-snug">
                                                 {item.title}
                                             </h3>
                                         </div>
-
                                         {/* <p className="text-sm text-zinc-600 leading-tight">
                                             {item.description}
                                         </p> */}
