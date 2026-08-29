@@ -65,7 +65,7 @@ export default async function QueryPage({ searchParams }: { searchParams: Promis
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ q: string }> }): Promise<Metadata> {
     const { q } = await searchParams
     try {
-        const res = await axios.get("https://www.gangapapers.in/novasac/api/search", { params: { query: q } })
+        const res = await axios.get("https://admin.novasac.es/api/search", { params: { query: q } })
         const { meta } = res.data
         return { title: meta.title, description: meta.description, keywords: meta.keywords }
     } catch {
