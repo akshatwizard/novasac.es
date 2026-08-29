@@ -30,8 +30,8 @@ export default function ProductCategory() {
             <Wrapper className="lg:gap-5">
 
                 <div className="flex flex-col gap-2 mb-10">
-                    <Heading>Our Product Categories</Heading>
-                    <SubHeading>Explore the most visited categories right now.</SubHeading>
+                    <Heading>Nuestras Categorías de Productos</Heading>
+                    <SubHeading>Explora las categorías más visitadas en este momento.</SubHeading>
                 </div>
 
                 {isLoading ? (
@@ -41,9 +41,9 @@ export default function ProductCategory() {
                         ))}
                     </div>
                 ) : error ? (
-                    <EmptyState message="Failed to load categories. Please try again later." />
+                    <EmptyState message="No se pudieron cargar las categorías. Inténtalo de nuevo más tarde." />
                 ) : !data?.length ? (
-                    <EmptyState message="No categories found." />
+                    <EmptyState message="No se encontraron categorías." />
                 ) : (
                     <SliderWrapper className="gap-4" autoPlay>
                         {data.map((category) => (
@@ -137,7 +137,7 @@ function CategoryCard({ category }: { category: HomeCategoryData }) {
             </div>
 
             <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-zinc-700 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
-                {category.products_count} items
+                {category.products_count} artículos
             </span>
 
             <div className="p-4 flex items-center justify-between gap-2">
@@ -146,7 +146,7 @@ function CategoryCard({ category }: { category: HomeCategoryData }) {
                         {category.title}
                     </p>
                     <p className="text-xs text-zinc-400 mt-0.5">
-                        {category.products_count} products available
+                        {category.products_count} productos disponibles
                     </p>
                 </div>
                 <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-zinc-100 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
