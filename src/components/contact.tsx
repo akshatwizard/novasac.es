@@ -66,10 +66,10 @@ export default function ContactUs() {
             <Wrapper>
                 <div className='w-full flex flex-col gap-2'>
                     <Heading>
-                        Contact Us
+                        Contacto
                     </Heading>
                     <SubHeading className='max-w-lg'>
-                        Have questions about our packaging solutions? Our team is here to help.
+                        ¿Tienes preguntas sobre nuestras soluciones de embalaje? Nuestro equipo está aquí para ayudarte.
                     </SubHeading>
                 </div>
 
@@ -80,7 +80,7 @@ export default function ContactUs() {
                         <div>
                             <Image
                                 src="/images/logo/logo.jpg"
-                                alt="NOVASAC Logo"
+                                alt="Logotipo de NOVASAC"
                                 width={180}
                                 height={60}
                                 className="object-contain"
@@ -95,14 +95,14 @@ export default function ContactUs() {
                                 <MapPin size={22} />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-zinc-800">Address</h4>
+                                <h4 className="font-semibold text-zinc-800">Dirección</h4>
                                 <Link
                                     href="https://maps.google.com/?q=Pepe+Alba+29,+3-12,+46022+Valencia,+Spain"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-zinc-500 text-sm mt-1 hover:text-primary-500"
                                 >
-                                    Pepe Alba 29, 3-12, 46022 Valencia, Spain
+                                    Pepe Alba 29, 3-12, 46022 Valencia, España
                                     <br />
                                 </Link>
                             </div>
@@ -113,7 +113,7 @@ export default function ContactUs() {
                                 <Mail size={22} />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-zinc-800">Email</h4>
+                                <h4 className="font-semibold text-zinc-800">Correo Electrónico</h4>
                                 <Link
                                     href={"mailto:laura.sanjuan@novasac.es"}
                                     className="text-zinc-500 text-sm mt-1 hover:text-primary-500">
@@ -127,7 +127,7 @@ export default function ContactUs() {
                                 <Phone size={22} />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-zinc-800">Contact</h4>
+                                <h4 className="font-semibold text-zinc-800">Contacto</h4>
                                 <Link href={"tel:+34628188044"} className="text-zinc-500 text-sm mt-1 hover:text-primary-500">
                                     +34 628188044
                                 </Link>
@@ -151,7 +151,7 @@ export default function ContactUs() {
                                     type="text"
                                     onChange={handleChange}
                                     value={contactDetails.name}
-                                    placeholder="Your Name"
+                                    placeholder="Tu Nombre"
                                     className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                                 />
                                 <input
@@ -159,7 +159,7 @@ export default function ContactUs() {
                                     name='email'
                                     onChange={handleChange}
                                     value={contactDetails.email}
-                                    placeholder="Email Address"
+                                    placeholder="Correo Electrónico"
                                     className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                                 />
                             </div>
@@ -169,7 +169,7 @@ export default function ContactUs() {
                                 name='phone'
                                 onChange={handleChange}
                                 value={contactDetails.phone}
-                                placeholder="Phone Number"
+                                placeholder="Número de Teléfono"
                                 className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                             />
 
@@ -178,7 +178,7 @@ export default function ContactUs() {
                                 name='subject'
                                 onChange={handleChange}
                                 value={contactDetails.subject}
-                                placeholder="Subject"
+                                placeholder="Asunto"
                                 className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                             />
 
@@ -187,7 +187,7 @@ export default function ContactUs() {
                                 name='message'
                                 onChange={handleChange}
                                 value={contactDetails.message}
-                                placeholder="Your Message"
+                                placeholder="Tu Mensaje"
                                 className="w-full border border-zinc-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary-500"
                             />
 
@@ -196,7 +196,7 @@ export default function ContactUs() {
                                 disabled={isPending}
                                 className="w-full bg-primary-500 text-white py-3 rounded-lg font-medium hover:bg-primary-600 transition-colors flex items-center justify-center"
                             >
-                                {isPending ? <div className="w-4 h-4 border-2 border-white border-t-zinc-800 rounded-full animate-spin" /> : "Send Message"}
+                                {isPending ? <div className="w-4 h-4 border-2 border-white border-t-zinc-800 rounded-full animate-spin" /> : "Enviar Mensaje"}
                             </button>
 
                         </form>
