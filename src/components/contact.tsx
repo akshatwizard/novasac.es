@@ -38,7 +38,7 @@ export default function ContactUs() {
     const { mutate, isPending } = useMutation({
         mutationFn: async () => {
             return (
-                await axios.post("https://www.gangapapers.in/novasac/api/contact-submit", contactDetails)
+                await axios.post("https://admin.novasac.es/api/contact-submit", contactDetails)
             )
         },
         onSuccess(value) {
