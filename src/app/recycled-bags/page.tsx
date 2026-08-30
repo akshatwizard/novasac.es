@@ -13,36 +13,36 @@ import {
 import Image from 'next/image'
 
 const stats = [
-    { value: 'UNE-EN 15343', label: 'Certified Standard' },
-    { value: 'AENOR', label: 'Certification Body' },
-    { value: '100%', label: 'Traceable Recycled Content' },
-    { value: 'EU', label: 'Regulation Compliant' },
+    { value: 'UNE-EN 15343', label: 'Norma Certificada' },
+    { value: 'AENOR', label: 'Organismo de Certificación' },
+    { value: '100%', label: 'Contenido Reciclado Trazable' },
+    { value: 'EU', label: 'Conforme a la Normativa' },
 ]
 
 const commitments = [
     {
         icon: <Package className="w-6 h-6" />,
-        title: 'Post-Consumer & Post-Industrial Materials',
+        title: 'Materiales Postconsumo y Postindustriales',
         description:
-            'We integrate both post-consumer and post-industrial recycled plastics into our production, maximising material recovery and reducing landfill burden.',
+            'Integramos plásticos reciclados tanto postconsumo como postindustriales en nuestra producción, maximizando la recuperación de materiales y reduciendo la carga en los vertederos.',
     },
     {
         icon: <Sun className="w-6 h-6" />,
-        title: 'Reduced Carbon Footprint',
+        title: 'Huella de Carbono Reducida',
         description:
-            'By choosing recycled materials over virgin polymers, our bags generate significantly lower CO₂ emissions throughout their production lifecycle.',
+            'Al elegir materiales reciclados en lugar de polímeros vírgenes, nuestras bolsas generan emisiones de CO₂ significativamente menores a lo largo de todo su ciclo de producción.',
     },
     {
         icon: <ShieldCheck className="w-6 h-6" />,
-        title: 'Certified Traceability',
+        title: 'Trazabilidad Certificada',
         description:
-            'Full traceability under UNE-EN 15343 ensures every kilogram of recycled content is verifiable, giving our clients complete confidence in their sustainable sourcing.',
+            'La trazabilidad completa conforme a la norma UNE-EN 15343 garantiza que cada kilogramo de contenido reciclado sea verificable, dando a nuestros clientes total confianza en su abastecimiento sostenible.',
     },
     {
         icon: <Globe className="w-6 h-6" />,
-        title: 'European Environmental Compliance',
+        title: 'Cumplimiento Medioambiental Europeo',
         description:
-            'Our products meet current EU environmental regulations, supporting businesses with their regulatory obligations and ESG reporting requirements.',
+            'Nuestros productos cumplen con la normativa medioambiental vigente de la UE, ayudando a las empresas con sus obligaciones normativas y sus requisitos de reporte ESG.',
     },
 ]
 
@@ -50,22 +50,22 @@ const products = [
     {
         id: 'fibc',
         badge: 'FIBC / Jumbo Bags',
-        title: 'FIBC Bags with Recycled Content',
-        subtitle: 'High-performance bulk bags for sustainable large-volume handling',
+        title: 'Bolsas FIBC con Contenido Reciclado',
+        subtitle: 'Bolsones de alto rendimiento para la manipulación sostenible de grandes volúmenes',
         description:
-            'Manufactured using recycled polypropylene (PP), our FIBC bags are engineered for safe and reliable handling of bulk materials across industrial, agricultural, and construction sectors — without compromising on load capacity or durability.',
+            'Fabricadas con polipropileno (PP) reciclado, nuestras bolsas FIBC están diseñadas para la manipulación segura y fiable de materiales a granel en los sectores industrial, agrícola y de la construcción, sin comprometer la capacidad de carga ni la durabilidad.',
         specs: [
-            { label: 'Bag Type', value: 'FIBC with Recycled PP Fabric' },
-            { label: 'Size Range', value: '80×80×90 cm — 100×100×120 cm' },
-            { label: 'Fabric', value: 'Recycled PP Woven Fabric' },
-            { label: 'Fabric GSM', value: '140 – 220 GSM' },
-            { label: 'Safe Working Load', value: '500 – 2,000 kg' },
-            { label: 'Safety Factor', value: '5:1 / 6:1' },
-            { label: 'Liner', value: 'Optional (LDPE / Form-Fit)' },
-            { label: 'Loop Configuration', value: '4 Corner / Cross Corner Loops' },
-            { label: 'Filling / Discharge', value: 'Customizable' },
-            { label: 'UV Stabilization', value: 'Optional' },
-            { label: 'Certification', value: 'UN / AENOR / EN 15343' },
+            { label: 'Tipo de Bolsa', value: 'FIBC con Tejido de PP Reciclado' },
+            { label: 'Rango de Tamaños', value: '80×80×90 cm — 100×100×120 cm' },
+            { label: 'Tejido', value: 'Tejido de PP Reciclado' },
+            { label: 'Gramaje del Tejido (GSM)', value: '140 – 220 GSM' },
+            { label: 'Carga de Trabajo Segura', value: '500 – 2,000 kg' },
+            { label: 'Factor de Seguridad', value: '5:1 / 6:1' },
+            { label: 'Forro Interior', value: 'Opcional (LDPE / Ajustado a la Forma)' },
+            { label: 'Configuración de Asas', value: '4 Asas en Esquina / Asas Cruzadas' },
+            { label: 'Llenado / Descarga', value: 'Personalizable' },
+            { label: 'Estabilización UV', value: 'Opcional' },
+            { label: 'Certificación', value: 'UN / AENOR / EN 15343' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -76,22 +76,22 @@ const products = [
     },
     {
         id: 'ppws',
-        badge: 'PP Woven Sacks',
-        title: 'PP Woven Sacks with Recycled Content',
-        subtitle: 'Durable, cost-effective sacks for industrial and agricultural use',
+        badge: 'Sacos Tejidos de PP',
+        title: 'Sacos Tejidos de PP con Contenido Reciclado',
+        subtitle: 'Sacos duraderos y económicos para uso industrial y agrícola',
         description:
-            'Our recycled PP woven sacks offer a sustainable alternative for packaging a wide range of bulk dry goods. From fertilisers and grains to minerals and chemicals, these sacks deliver reliability at scale while incorporating verified recycled material.',
+            'Nuestros sacos tejidos de PP reciclado ofrecen una alternativa sostenible para envasar una amplia gama de productos secos a granel. Desde fertilizantes y cereales hasta minerales y productos químicos, estos sacos ofrecen fiabilidad a gran escala incorporando material reciclado verificado.',
         specs: [
-            { label: 'Bag Type', value: 'PP Woven Sack (Recycled)' },
-            { label: 'Size Range', value: '50×80 cm — 70×110 cm' },
-            { label: 'Fabric', value: 'Recycled PP Fabric' },
-            { label: 'Fabric GSM', value: '70 – 120 GSM' },
-            { label: 'Capacity', value: '10 – 50 kg' },
-            { label: 'Liner', value: 'Optional' },
-            { label: 'Lamination', value: 'Optional' },
-            { label: 'Printing', value: 'Customizable' },
-            { label: 'UV Stabilization', value: 'Optional' },
-            { label: 'Certification', value: 'EN 15343 compliant / AENOR' },
+            { label: 'Tipo de Bolsa', value: 'Saco Tejido de PP (Reciclado)' },
+            { label: 'Rango de Tamaños', value: '50×80 cm — 70×110 cm' },
+            { label: 'Tejido', value: 'Tejido de PP Reciclado' },
+            { label: 'Gramaje del Tejido (GSM)', value: '70 – 120 GSM' },
+            { label: 'Capacidad', value: '10 – 50 kg' },
+            { label: 'Forro Interior', value: 'Opcional' },
+            { label: 'Laminado', value: 'Opcional' },
+            { label: 'Impresión', value: 'Personalizable' },
+            { label: 'Estabilización UV', value: 'Opcional' },
+            { label: 'Certificación', value: 'Conforme a EN 15343 / AENOR' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -102,23 +102,23 @@ const products = [
     },
     {
         id: 'garden',
-        badge: 'Garden Bags',
-        title: 'Garden Bags with Recycled Content',
-        subtitle: 'Reusable outdoor waste collection bags built from recycled PP',
+        badge: 'Bolsas de Jardín',
+        title: 'Bolsas de Jardín con Contenido Reciclado',
+        subtitle: 'Bolsas reutilizables para la recogida de residuos de exterior, fabricadas con PP reciclado',
         description:
-            'Designed for sustainable garden and green waste collection, these bags combine the strength of woven polypropylene with a commitment to circular packaging. Available in multiple sizes to suit municipal, landscaping, and domestic applications.',
+            'Diseñadas para la recogida sostenible de residuos de jardín y restos vegetales, estas bolsas combinan la resistencia del polipropileno tejido con un compromiso con el embalaje circular. Disponibles en varios tamaños para aplicaciones municipales, de jardinería y domésticas.',
         specs: [
-            { label: 'Type', value: 'Big Bag' },
-            { label: 'Safety Factor', value: '6:1' },
-            { label: 'Available Sizes', value: '45×45×45 cm / 80×80×80 cm / 50×30×50 cm' },
-            { label: 'Filling System', value: 'Open Top' },
-            { label: 'Emptying System', value: 'Flat Base' },
-            { label: 'Fabric', value: 'Non-Laminated Recycled Polypropylene' },
-            { label: 'Loops', value: 'Two Loops' },
-            { label: 'Liner', value: 'None' },
-            { label: 'Safe Working Load', value: '500 kg' },
-            { label: 'Colour', value: 'White' },
-            { label: 'Sort of Use', value: 'Garden Waste' },
+            { label: 'Tipo', value: 'Big Bag' },
+            { label: 'Factor de Seguridad', value: '6:1' },
+            { label: 'Tamaños Disponibles', value: '45×45×45 cm / 80×80×80 cm / 50×30×50 cm' },
+            { label: 'Sistema de Llenado', value: 'Boca Abierta' },
+            { label: 'Sistema de Vaciado', value: 'Base Plana' },
+            { label: 'Tejido', value: 'Polipropileno Reciclado No Laminado' },
+            { label: 'Asas', value: 'Dos Asas' },
+            { label: 'Forro Interior', value: 'Ninguno' },
+            { label: 'Carga de Trabajo Segura', value: '500 kg' },
+            { label: 'Color', value: 'Blanco' },
+            { label: 'Tipo de Uso', value: 'Residuos de Jardín' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -129,23 +129,23 @@ const products = [
     },
     {
         id: 'garbage',
-        badge: 'Garbage Bags',
-        title: 'Garbage Bags with Recycled Content',
-        subtitle: 'Eco-conscious waste disposal bags from recycled LDPE/HDPE',
+        badge: 'Bolsas de Basura',
+        title: 'Bolsas de Basura con Contenido Reciclado',
+        subtitle: 'Bolsas de eliminación de residuos ecológicas fabricadas con LDPE/HDPE reciclado',
         description:
-            'Our recycled-content garbage bags provide an eco-friendly solution for general waste disposal. Manufactured from recycled LDPE and HDPE, they retain full puncture and tear resistance while significantly reducing the use of virgin plastics.',
+            'Nuestras bolsas de basura con contenido reciclado ofrecen una solución ecológica para la eliminación de residuos generales. Fabricadas con LDPE y HDPE reciclados, conservan toda su resistencia a la perforación y al desgarro, reduciendo significativamente el uso de plásticos vírgenes.',
         specs: [
-            { label: 'Type', value: 'Big Bag' },
-            { label: 'Safety Factor', value: '6:1' },
-            { label: 'Available Sizes', value: '45×45×45 cm / 80×80×80 cm / 50×30×50 cm' },
-            { label: 'Filling System', value: 'Open Top' },
-            { label: 'Emptying System', value: 'Flat Base' },
-            { label: 'Fabric', value: 'Non-Laminated Recycled Polypropylene' },
-            { label: 'Loops', value: 'Two Loops' },
-            { label: 'Liner', value: 'None' },
-            { label: 'Safe Working Load', value: '500 kg' },
-            { label: 'Colour', value: 'White' },
-            { label: 'Sort of Use', value: 'General Waste' },
+            { label: 'Tipo', value: 'Big Bag' },
+            { label: 'Factor de Seguridad', value: '6:1' },
+            { label: 'Tamaños Disponibles', value: '45×45×45 cm / 80×80×80 cm / 50×30×50 cm' },
+            { label: 'Sistema de Llenado', value: 'Boca Abierta' },
+            { label: 'Sistema de Vaciado', value: 'Base Plana' },
+            { label: 'Tejido', value: 'Polipropileno Reciclado No Laminado' },
+            { label: 'Asas', value: 'Dos Asas' },
+            { label: 'Forro Interior', value: 'Ninguno' },
+            { label: 'Carga de Trabajo Segura', value: '500 kg' },
+            { label: 'Color', value: 'Blanco' },
+            { label: 'Tipo de Uso', value: 'Residuos Generales' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -185,28 +185,29 @@ export default function RecycledBags() {
                             <div className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-500/15 border border-primary-500/30 px-4 py-1.5 backdrop-blur-sm">
                                 <span className="h-2 w-2 rounded-full bg-primary-400 animate-pulse" />
                                 <span className="text-primary-300 text-xs font-semibold uppercase tracking-widest">
-                                    Certified Sustainable Packaging
+                                    Embalaje Sostenible Certificado
                                 </span>
                             </div>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-                                Bags with<br />
+                                Bolsas con<br />
                                 <strong className="text-primary-600">
-                                    Recycled Content
+                                    Contenido Reciclado
                                 </strong>
                             </h1>
 
                             <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-xl">
-                                At Novasac, sustainability is at the core of our innovation. We offer a wide range of
-                                flexible packaging solutions manufactured with recycled content — reducing environmental
-                                impact while maintaining high performance and durability.
+                                En Novasac, la sostenibilidad es el eje central de nuestra innovación. Ofrecemos
+                                una amplia gama de soluciones de embalaje flexible fabricadas con contenido
+                                reciclado, reduciendo el impacto ambiental sin renunciar a un alto rendimiento
+                                y durabilidad.
                             </p>
 
                             <p className="text-slate-300 text-xs md:text-sm leading-relaxed max-w-xl">
-                                Our products are developed in compliance with{' '}
-                                <strong className="text-white">UNE-EN 15343</strong>, ensuring full traceability of
-                                recycled plastics, and are certified by{' '}
-                                <strong className="text-white">AENOR</strong> for guaranteed transparency and reliability.
+                                Nuestros productos se desarrollan conforme a la norma{' '}
+                                <strong className="text-white">UNE-EN 15343</strong>, garantizando la
+                                trazabilidad completa de los plásticos reciclados, y están certificados por{' '}
+                                <strong className="text-white">AENOR</strong> para garantizar transparencia y fiabilidad.
                             </p>
 
                             <div className="flex flex-wrap gap-3 pt-2">
@@ -214,14 +215,14 @@ export default function RecycledBags() {
                                     href="/contact"
                                     className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 transition-colors text-white font-semibold px-6 py-3 rounded-full text-sm"
                                 >
-                                    Request a Quote
+                                    Solicita un Presupuesto
                                     <ArrowRight className="w-4 h-4" />
                                 </Link>
                                 <Link
                                     href="#products"
                                     className="inline-flex items-center gap-2 border border-slate-600 hover:border-primary-500 hover:text-primary-300 transition-colors text-slate-300 font-medium px-6 py-3 rounded-full text-sm backdrop-blur-sm"
                                 >
-                                    Explore Products
+                                    Explora los Productos
                                 </Link>
                             </div>
                         </div>
@@ -247,14 +248,15 @@ export default function RecycledBags() {
                 <Wrapper>
                     <div className="flex flex-col gap-4 max-w-2xl">
                         <span className="text-xs font-medium uppercase tracking-widest text-primary-600">
-                            Our Commitment
+                            Nuestro Compromiso
                         </span>
                         <h2 className="text-3xl md:text-4xl font-medium text-stone-900 ">
-                            Sustainability at Every Step
+                            Sostenibilidad en Cada Paso
                         </h2>
                         <p className="text-slate-500 text-sm">
-                            From raw material selection to certified delivery, every Novasac recycled-content bag
-                            is built on a foundation of environmental responsibility.
+                            Desde la selección de materias primas hasta la entrega certificada, cada bolsa
+                            de contenido reciclado de Novasac se construye sobre una base de responsabilidad
+                            medioambiental.
                         </p>
                     </div>
 
@@ -280,14 +282,15 @@ export default function RecycledBags() {
                 <Wrapper>
                     <div className="text-center flex flex-col items-center gap-3">
                         <span className="text-xs font-medium uppercase tracking-widest text-primary-600">
-                            Product Range
+                            Gama de Productos
                         </span>
                         <h2 className="text-3xl md:text-4xl font-medium text-stone-900 max-w-xl">
-                            Four Categories, One Commitment
+                            Cuatro Categorías, Un Mismo Compromiso
                         </h2>
                         <p className="text-slate-500 max-w-2xl text-sm">
-                            All product lines carry verified recycled content certified under EN 15343 and AENOR,
-                            so your packaging choices support a circular economy — without compromise.
+                            Todas nuestras líneas de producto cuentan con contenido reciclado verificado y
+                            certificado según la norma EN 15343 y AENOR, para que tus decisiones de embalaje
+                            apoyen la economía circular sin renunciar a nada.
                         </p>
                     </div>
 
@@ -344,7 +347,7 @@ export default function RecycledBags() {
                                             className={`px-5 py-3 bg-linear-to-r ${p.panelGradient} border-b ${p.border}`}
                                         >
                                             <p className="text-xs font-bold uppercase tracking-widest text-slate-600">
-                                                Technical Specifications
+                                                Especificaciones Técnicas
                                             </p>
                                         </div>
                                         <div className="divide-y divide-slate-100">
@@ -366,7 +369,7 @@ export default function RecycledBags() {
                                         href="/contact"
                                         className={`inline-flex w-fit items-center gap-2 ${p.ctaBg} transition-colors text-white font-semibold px-6 py-3 rounded-full text-sm`}
                                     >
-                                        Request Samples
+                                        Solicita Muestras
                                         <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </div>
@@ -381,10 +384,10 @@ export default function RecycledBags() {
                 <Wrapper>
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
                         <div className="flex flex-col gap-3">
-                            <h2 className="text-3xl font-bold text-white">Ready to go circular?</h2>
+                            <h2 className="text-3xl font-bold text-white">¿Listo para pasarte a lo circular?</h2>
                             <p className="text-primary-100 text-lg max-w-xl">
-                                Our team will help you select the right recycled-content bag for your application,
-                                volume, and sustainability goals.
+                                Nuestro equipo te ayudará a elegir la bolsa de contenido reciclado adecuada
+                                para tu aplicación, volumen y objetivos de sostenibilidad.
                             </p>
                         </div>
                         <div className="flex flex-wrap justify-center gap-3 shrink-0">
@@ -392,13 +395,13 @@ export default function RecycledBags() {
                                 href="/contact"
                                 className="bg-white text-primary-700 hover:bg-primary-50 transition-colors font-bold px-8 py-3.5 rounded-full text-sm"
                             >
-                                Contact Our Team →
+                                Contacta con Nuestro Equipo →
                             </Link>
                             <Link
                                 href="/custom-made-bags"
                                 className="border border-white/40 hover:border-white/80 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-colors"
                             >
-                                Custom-Made Bags
+                                Bolsas a Medida
                             </Link>
                         </div>
                     </div>
