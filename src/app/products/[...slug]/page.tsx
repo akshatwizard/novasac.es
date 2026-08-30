@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             description: p.meta_description ?? undefined,
         }
     } catch {
-        return { title: 'Product | Novasac' }
+        return { title: 'Producto | Novasac' }
     }
 }
 
