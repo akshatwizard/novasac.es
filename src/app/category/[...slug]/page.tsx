@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             keywords: meta.keywords,
         }
     } catch {
-        return { title: 'Product Catalog | Wooden Souvenir' }
+        return { title: 'Catálogo de Productos | Wooden Souvenir' }
     }
 }
 
@@ -80,7 +80,7 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                 <Wrapper>
                     <div>
                         <nav className="text-xs text-stone-300 tracking-wide mb-3 flex items-center gap-1.5">
-                            <span>Home</span>
+                            <span>Inicio</span>
                             <span>/</span>
                             <span>{firstPage?.category.title}</span>
                             {firstPage?.attribute_value && (
@@ -99,7 +99,7 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                             <div className="mt-4 shrink-0 inline-flex items-center gap-2 border border-stone-700/60 bg-stone-900/60 backdrop-blur-sm rounded-full px-4 py-2 self-start sm:self-auto">
                                 <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
                                 <span className="text-xs text-stone-300 tracking-wide whitespace-nowrap">
-                                    {firstPage.pagination.total_products} products
+                                    {firstPage.pagination.total_products} productos
                                 </span>
                             </div>
                         )}
@@ -136,7 +136,7 @@ export default async function ProductsLists({ params }: { params: Promise<{ slug
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="h-px flex-1 bg-stone-200" />
                                 <span className="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-medium whitespace-nowrap">
-                                    About {pageTitle}
+                                    Sobre {pageTitle}
                                 </span>
                                 <div className="h-px flex-1 bg-stone-200" />
                             </div>
