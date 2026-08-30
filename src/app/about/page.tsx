@@ -11,9 +11,9 @@ const teamMembers: TeamMember[] = [
     {
         initials: "LS",
         name: "Laura Sanjuan",
-        role: "Founder & Leader",
+        role: "Fundadora y Líder",
         experience: "40+ years",
-        bio: "Her leadership, industry knowledge, and strategic vision guide the company's growth and innovation across every project.",
+        bio: "Su liderazgo, conocimiento del sector y visión estratégica guían el crecimiento y la innovación de la empresa en cada proyecto.",
         bg: "bg-primary-100",
         text: "text-primary-700",
         border: "border-primary-200",
@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
     {
         initials: "FS",
         name: "Fernando Seguí Sala",
-        role: "President",
+        role: "Presidente",
         experience: "Business Dev",
         bio: "",
         bg: "bg-primary-100",
@@ -35,9 +35,9 @@ const teamMembers: TeamMember[] = [
     {
         initials: "CA",
         name: "Carmen Sanchez",
-        role: "Administration",
+        role: "Administración",
         experience: "Operations",
-        bio: "Manages administrative operations and ensures that daily processes run smoothly and efficiently across the organization.",
+        bio: "Gestiona las operaciones administrativas y garantiza que los procesos diarios funcionen de forma fluida y eficiente en toda la organización.",
         bg: "bg-primary-50",
         text: "text-primary-600",
         border: "border-primary-100",
@@ -47,9 +47,9 @@ const teamMembers: TeamMember[] = [
     {
         initials: "GA",
         name: "Gabriel Beltran",
-        role: "Sales Manager",
+        role: "Director de Ventas",
         experience: "Business Dev",
-        bio: "Focuses on business development and building strong client relationships, helping Novasac expand its reach and maintain customer satisfaction.",
+        bio: "Se centra en el desarrollo de negocio y en construir relaciones sólidas con los clientes, ayudando a Novasac a ampliar su alcance y mantener la satisfacción del cliente.",
         bg: "bg-primary-100",
         text: "text-primary-700",
         border: "border-primary-200",
@@ -59,31 +59,31 @@ const teamMembers: TeamMember[] = [
 ];
 
 const stats: StatItem[] = [
-    { num: "40+", label: "Years of experience" },
-    { num: "3", label: "Generations of expertise" },
+    { num: "40+", label: "Años de experiencia" },
+    { num: "3", label: "Generaciones de experiencia" },
     // { num: "4", label: "Industries served" },
     // { num: "1", label: "Trusted family legacy" },
 ];
 
 const timelineSteps: TimelineStep[] = [
-    { label: "Traditional Packaging", sub: "Foundation", dot: "bg-stone-300" },
-    { label: "Valsac", sub: "Growth", dot: "bg-primary-400" },
-    { label: "Novasac", sub: "Today", dot: "bg-primary-600" },
+    { label: "Embalaje Tradicional", sub: "Fundación", dot: "bg-stone-300" },
+    { label: "Valsac", sub: "Crecimiento", dot: "bg-primary-400" },
+    { label: "Novasac", sub: "Actualidad", dot: "bg-primary-600" },
 ];
 
 const industries: string[] = [
-    "Agriculture",
-    "Food Products",
-    "Chemicals",
-    "Industrial Goods",
+    "Agricultura",
+    "Productos Alimentarios",
+    "Productos Químicos",
+    "Bienes Industriales",
 ];
 
 const features: FeatureItem[] = [
-    { label: "Delivering High Quality", icon: BadgeCheck },
-    { label: "Reliable", icon: ShieldCheck },
-    { label: "Customized Bags", icon: Settings2 },
-    { label: "Design to meet various Industries", icon: Layers },
-    { label: "Practical, Durable and Cost Effective", icon: Wallet },
+    { label: "Máxima Calidad", icon: BadgeCheck },
+    { label: "Fiable", icon: ShieldCheck },
+    { label: "Bolsas Personalizadas", icon: Settings2 },
+    { label: "Diseño Adaptado a Cada Sector", icon: Layers },
+    { label: "Prácticas, Duraderas y Económicas", icon: Wallet },
 ];
 
 
@@ -95,7 +95,7 @@ export default function AboutUs() {
                     className="hidden md:inline-block absolute top-0 right-0 md:w-1/2 w-4/5 h-full bg-primary-50 overflow-hidden"
                     style={{ clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)" }}
                 >
-                    <Image src={"/images/hero/about.png"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-center" />
+                    <Image src={"/images/hero/about.png"} fill alt="bolsas-cada-limpieza" className="w-full h-full object-cover object-center" />
                 </div>
                 <Wrapper className="p-0!">
                     <div className="relative overflow-hidden border-b border-stone-200">
@@ -107,7 +107,7 @@ export default function AboutUs() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, ease: "easeOut" }}
                                 >
-                                    About Novasac
+                                    Sobre Novasac
                                 </motion.p>
 
                                 <motion.h1
@@ -116,9 +116,9 @@ export default function AboutUs() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
                                 >
-                                    Flexible<br />
-                                    <strong className="text-primary-600">Packaging,</strong><br />
-                                    Built on<br />Legacy
+                                    Embalaje<br />
+                                    <strong className="text-primary-600">Flexible,</strong><br />
+                                    Construido con<br />Legado
                                 </motion.h1>
 
                                 <motion.p
@@ -127,8 +127,8 @@ export default function AboutUs() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
                                 >
-                                    From family roots to modern innovation — delivering reliable,
-                                    customized packaging solutions for industries worldwide.
+                                    De las raíces familiares a la innovación moderna: ofrecemos
+                                    soluciones de embalaje fiables y personalizadas para industrias de todo el mundo.
                                 </motion.p>
                             </div>
                         </div>
@@ -185,7 +185,7 @@ export default function AboutUs() {
                                     src={"/images/about/Journey-of-progress.jpeg"}
                                     width={600}
                                     height={450}
-                                    alt="A Journey of Progress"
+                                    alt="Un Camino de Progreso"
                                     className="w-full h-full scale-x-110"
                                 />
                             </motion.div>
@@ -199,17 +199,17 @@ export default function AboutUs() {
                             >
                                 {/* <SectionLabel>01 — Journey</SectionLabel> */}
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
-                                    A Journey<br />
-                                    <strong className="text-primary-600">of Progress</strong>
+                                    Un Camino<br />
+                                    <strong className="text-primary-600">de Progreso</strong>
                                 </h2>
                                 <p className=" text-sm md:text-base font-normal text-stone-500 leading-relaxed mb-10">
-                                    Novasac's journey reflects steady growth built on experience,
-                                    innovation, and a commitment to quality. What began as traditional
-                                    packaging knowledge has evolved into a modern approach that focuses
-                                    on flexible and practical solutions for today's industries. Each
-                                    stage of this journey has contributed to shaping Novasac into a
-                                    forward-thinking company that understands both traditional methods
-                                    and modern expectations.
+                                    El camino de Novasac refleja un crecimiento constante basado en la
+                                    experiencia, la innovación y el compromiso con la calidad. Lo que
+                                    comenzó como conocimiento tradicional del embalaje ha evolucionado
+                                    hacia un enfoque moderno centrado en soluciones flexibles y prácticas
+                                    para las industrias de hoy. Cada etapa de este camino ha contribuido
+                                    a convertir a Novasac en una empresa con visión de futuro que entiende
+                                    tanto los métodos tradicionales como las expectativas modernas.
                                 </p>
 
                                 <div className="flex items-start">
@@ -250,26 +250,28 @@ export default function AboutUs() {
                             >
                                 {/* <SectionLabel>02 — Legacy</SectionLabel> */}
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
-                                    Our Story<br />
-                                    <strong className="text-primary-600">&amp; Legacy</strong>
+                                    Nuestra Historia<br />
+                                    <strong className="text-primary-600">&amp; Legado</strong>
                                 </h2>
                                 <p className="md:text-base text-sm font-normal text-stone-500 leading-relaxed mb-4">
-                                    Novasac is rooted in a strong family legacy that began with Valsac,
-                                    a company established by the founder's family. Valsac built a solid
-                                    reputation in industrial packaging through years of dedication,
-                                    quality service, and industry knowledge.
+                                    Novasac tiene sus raíces en un fuerte legado familiar que comenzó
+                                    con Valsac, una empresa fundada por la familia de su fundadora.
+                                    Valsac construyó una sólida reputación en el embalaje industrial a
+                                    través de años de dedicación, un servicio de calidad y conocimiento
+                                    del sector.
                                 </p>
                                 <p className="md:text-base text-sm font-normal text-stone-500 leading-relaxed">
-                                    As the industry evolved, there was a need to modernize and expand
-                                    capabilities, which led to the creation of Novasac. While embracing
-                                    innovation, Novasac continues to carry forward the trust, experience,
-                                    and commitment that defined its origins — serving clients with
-                                    confidence and modern capability.
+                                    A medida que el sector evolucionaba, surgió la necesidad de
+                                    modernizar y ampliar capacidades, lo que llevó a la creación de
+                                    Novasac. Sin dejar de lado la innovación, Novasac sigue manteniendo
+                                    la confianza, la experiencia y el compromiso que definieron sus
+                                    orígenes, atendiendo a sus clientes con seguridad y capacidad
+                                    moderna.
                                 </p>
 
                                 <div className="mt-8 pl-5 border-l-2 border-primary-500">
                                     <p className="font-mono text-xl italic text-stone-600 font-light leading-relaxed">
-                                        "Heritage and progress — not as opposites, but as partners."
+                                        "Herencia y progreso: no como opuestos, sino como aliados."
                                     </p>
                                 </div>
                             </motion.div>
@@ -293,7 +295,7 @@ export default function AboutUs() {
                                     src={"/images/about/our-story-&-legacy.jpg"}
                                     width={600}
                                     height={450}
-                                    alt="A Journey of Progress"
+                                    alt="Un Camino de Progreso"
                                     className="w-full h-full object-cover"
                                 />
                             </motion.div>
@@ -325,7 +327,7 @@ export default function AboutUs() {
                                     src={"/images/about/what-do-we-do.png"}
                                     width={600}
                                     height={450}
-                                    alt="A Journey of Progress"
+                                    alt="Un Camino de Progreso"
                                     className="w-full h-full object-cover"
                                 />
                             </motion.div>
@@ -339,15 +341,15 @@ export default function AboutUs() {
                             >
                                 {/* <SectionLabel>03 — Services</SectionLabel> */}
                                 <h2 className="font-mono text-4xl md:text-5xl font-light text-stone-900 mb-6 leading-tight">
-                                    What<br />
-                                    <strong className="text-primary-600">We Do</strong>
+                                    Lo Que<br />
+                                    <strong className="text-primary-600">Hacemos</strong>
                                 </h2>
                                 <p className="md:text-base text-sm font-normal text-stone-500 leading-relaxed mb-8">
-                                    At Novasac, we specialize in delivering high-quality, reliable, and
-                                    customized flexible packaging solutions designed to meet the needs of
-                                    various industries. We focus on understanding each client's
-                                    requirements and providing solutions that are practical, durable,
-                                    and cost-effective.
+                                    En Novasac nos especializamos en ofrecer soluciones de embalaje
+                                    flexible de alta calidad, fiables y personalizadas, diseñadas para
+                                    cubrir las necesidades de diferentes sectores. Nos centramos en
+                                    entender los requisitos de cada cliente y ofrecer soluciones
+                                    prácticas, duraderas y rentables.
                                 </p>
 
                                 <div className="flex flex-wrap gap-2 mb-10">
@@ -394,12 +396,12 @@ export default function AboutUs() {
                         {/* <SectionLabel light>04 — People</SectionLabel> */}
                         <div className="flex flex-col justify-between gap-6">
                             <h2 className="font-mono text-4xl md:text-6xl font-light text-white leading-tight">
-                                The People<br />
-                                <strong className="text-primary-400">Behind Novasac</strong>
+                                Las Personas<br />
+                                <strong className="text-primary-400">Detrás de Novasac</strong>
                             </h2>
                             <p className="text-sm font-light text-stone-400 max-w-md leading-relaxed">
-                                The strength of Novasac lies in its experienced and dedicated team,
-                                which works together to deliver quality and reliability in every project.
+                                La fuerza de Novasac reside en su equipo experimentado y comprometido,
+                                que trabaja unido para ofrecer calidad y fiabilidad en cada proyecto.
                             </p>
                         </div>
                     </motion.div>
@@ -480,17 +482,17 @@ export default function AboutUs() {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <p className=" text-xs tracking-[0.2em] uppercase text-primary-500 mb-6">
-                        Get in touch
+                        Ponte en contacto
                     </p>
                     <h2 className="font-mono text-4xl md:text-6xl font-light text-stone-900 mb-8 leading-tight">
-                        Ready to work<br />
-                        <strong className="text-primary-600">together?</strong>
+                        ¿Listo para trabajar<br />
+                        <strong className="text-primary-600">juntos?</strong>
                     </h2>
-                    <a
+                    
                         href="/contact"
                         className=" inline-block text-sm px-10 py-4 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors duration-300"
                     >
-                        Contact us
+                        Contáctanos
                     </a>
                 </motion.div>
             </Section>
