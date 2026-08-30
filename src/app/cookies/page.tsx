@@ -14,35 +14,35 @@ const cookieTypes: CookieType[] = [
     {
         name: "_ga",
         provider: "Google Analytics",
-        purpose: "Distinguishes unique users by assigning a randomly generated number.",
+        purpose: "Distingue a usuarios únicos asignando un número generado de forma aleatoria.",
         type: "Analytics",
         duration: "2 years",
     },
     {
         name: "_gid",
         provider: "Google Analytics",
-        purpose: "Stores and updates a unique value for each page visited.",
+        purpose: "Almacena y actualiza un valor único para cada página visitada.",
         type: "Analytics",
         duration: "24 hours",
     },
     {
         name: "_fbp",
         provider: "Facebook Ads",
-        purpose: "Identifies browsers for advertising and site analytics.",
+        purpose: "Identifica navegadores para publicidad y análisis del sitio.",
         type: "Advertising",
         duration: "3 months",
     },
     {
         name: "cookie_consent",
         provider: "NOVASAC",
-        purpose: "Stores the user's cookie consent preferences.",
+        purpose: "Almacena las preferencias de consentimiento de cookies del usuario.",
         type: "Functional",
         duration: "1 year",
     },
     {
         name: "session_id",
         provider: "NOVASAC",
-        purpose: "Maintains the user's session state across page requests.",
+        purpose: "Mantiene el estado de la sesión del usuario entre solicitudes de página.",
         type: "Essential",
         duration: "Session",
     },
@@ -55,36 +55,44 @@ const typeColors: Record<CookieType["type"], string> = {
     Essential: "bg-green-50 text-green-700 border-green-200",
 };
 
+// Display-only labels for CookieType["type"] values — underlying type/logic untouched
+const typeLabels: Record<CookieType["type"], string> = {
+    Analytics: "Analítica",
+    Advertising: "Publicidad",
+    Functional: "Funcional",
+    Essential: "Esencial",
+};
+
 const sections = [
     {
         id: "what-are-cookies",
-        title: "What Are Cookies?",
+        title: "¿Qué Son las Cookies?",
         content:
-            "Cookies are small text files placed on your device (computer, tablet, or mobile) when you visit a website. They are widely used to make websites work more efficiently, remember your preferences, and provide website owners with information about how their site is being used.",
+            "Las cookies son pequeños archivos de texto que se colocan en tu dispositivo (ordenador, tablet o móvil) cuando visitas un sitio web. Se utilizan ampliamente para que los sitios web funcionen de forma más eficiente, recuerden tus preferencias y proporcionen a los propietarios del sitio información sobre cómo se utiliza.",
     },
     {
         id: "how-we-use",
-        title: "How We Use Cookies",
+        title: "Cómo Utilizamos las Cookies",
         content:
-            "NOVASAC uses cookies to improve your browsing experience on our site, analyze traffic and usage patterns, deliver relevant advertising, and remember your preferences between visits. We use both session cookies (which expire when you close your browser) and persistent cookies (which remain on your device for a defined period).",
+            "NOVASAC utiliza cookies para mejorar tu experiencia de navegación en nuestro sitio, analizar el tráfico y los patrones de uso, mostrar publicidad relevante y recordar tus preferencias entre visitas. Utilizamos tanto cookies de sesión (que caducan al cerrar el navegador) como cookies persistentes (que permanecen en tu dispositivo durante un periodo definido).",
     },
     {
         id: "third-party",
-        title: "Third-Party Cookies",
+        title: "Cookies de Terceros",
         content:
-            "We partner with Google Analytics and Facebook Ads, which place their own cookies on your device to collect usage and behavioral data. These third-party cookies are governed by the respective companies' privacy and cookie policies. We encourage you to review them directly on their websites.",
+            "Colaboramos con Google Analytics y Facebook Ads, que colocan sus propias cookies en tu dispositivo para recopilar datos de uso y comportamiento. Estas cookies de terceros se rigen por las políticas de privacidad y de cookies de las respectivas empresas. Te recomendamos consultarlas directamente en sus sitios web.",
     },
     {
         id: "managing",
-        title: "Managing Your Cookie Preferences",
+        title: "Gestiona tus Preferencias de Cookies",
         content:
-            "You have full control over cookies. Most browsers allow you to view, block, or delete cookies through settings. You can also use opt-out tools provided by services such as Google and Facebook. Please be aware that disabling certain cookies may reduce the functionality or performance of parts of this website.",
+            "Tienes control total sobre las cookies. La mayoría de los navegadores te permiten ver, bloquear o eliminar cookies desde su configuración. También puedes usar las herramientas de exclusión que ofrecen servicios como Google y Facebook. Ten en cuenta que desactivar ciertas cookies puede reducir la funcionalidad o el rendimiento de algunas partes de este sitio web.",
     },
     {
         id: "changes",
-        title: "Changes to This Policy",
+        title: "Cambios en Esta Política",
         content:
-            "We may update this Cookie Policy from time to time to reflect changes in technology, regulation, or our practices. We recommend reviewing this page periodically. Your continued use of our website after any changes signifies your acceptance of the updated policy.",
+            "Podemos actualizar esta Política de Cookies de vez en cuando para reflejar cambios en la tecnología, la normativa o nuestras prácticas. Te recomendamos revisar esta página periódicamente. El uso continuado de nuestro sitio web tras cualquier cambio implica la aceptación de la política actualizada.",
     },
 ];
 
@@ -105,19 +113,19 @@ export default function CookiePolicyPage() {
                     <Wrapper className="lg:py-14 md:py-12 py-10 lg:gap-4 md:gap-3 gap-2">
                         <div className="flex items-center gap-2 text-sm font-medium text-primary-400 uppercase tracking-widest">
                             <span className="inline-block w-6 h-px bg-primary-500" />
-                            Legal Documentation
+                            Documentación Legal
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                            Cookie{" "}
-                            <span className="text-primary-500">Policy</span>
+                            Política de{" "}
+                            <span className="text-primary-500">Cookies</span>
                         </h1>
                         <p className="text-gray-400 text-base md:text-lg max-w-2xl">
-                            We use cookies to improve your experience. Here's a transparent
-                            overview of what we collect, why, and how you can control it.
+                            Utilizamos cookies para mejorar tu experiencia. Aquí tienes un resumen
+                            transparente de qué recopilamos, por qué, y cómo puedes controlarlo.
                         </p>
                         <p className="text-gray-500 text-sm">
-                            Last updated:{" "}
-                            <span className="text-gray-300">January 2025</span>
+                            Última actualización:{" "}
+                            <span className="text-gray-300">enero de 2025</span>
                         </p>
                     </Wrapper>
                 </Section>
@@ -136,12 +144,12 @@ export default function CookiePolicyPage() {
                                         className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-semibold ${typeColors[type]}`}
                                     >
                                         <span className="w-1.5 h-1.5 rounded-full bg-current" />
-                                        {type}
+                                        {typeLabels[type]}
                                     </span>
                                 )
                             )}
                             <span className="text-xs text-gray-400 self-center ml-2">
-                                Cookie categories used on this site
+                                Categorías de cookies utilizadas en este sitio
                             </span>
                         </div>
 
@@ -149,16 +157,16 @@ export default function CookiePolicyPage() {
                         <div>
                             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-5 flex items-center gap-3">
                                 <span className="w-1 h-6 rounded-full bg-primary-500 inline-block" />
-                                Cookies We Use
+                                Cookies Que Utilizamos
                             </h2>
                             <div className="rounded-2xl border border-gray-100 overflow-hidden">
                                 {/* Table header */}
                                 <div className="hidden md:grid grid-cols-[1.5fr_1.5fr_2fr_1fr_1fr] bg-gray-950 text-gray-400 text-xs uppercase tracking-wider font-semibold px-6 py-3 gap-4">
-                                    <span>Cookie Name</span>
-                                    <span>Provider</span>
-                                    <span>Purpose</span>
-                                    <span>Type</span>
-                                    <span>Duration</span>
+                                    <span>Nombre de la Cookie</span>
+                                    <span>Proveedor</span>
+                                    <span>Finalidad</span>
+                                    <span>Tipo</span>
+                                    <span>Duración</span>
                                 </div>
                                 <div className="divide-y divide-gray-100">
                                     {cookieTypes.map((c) => (
@@ -176,7 +184,7 @@ export default function CookiePolicyPage() {
                                             </div>
                                             <div className="text-sm text-gray-600">
                                                 <span className="text-xs text-gray-400 md:hidden font-semibold uppercase">
-                                                    Provider:{" "}
+                                                    Proveedor:{" "}
                                                 </span>
                                                 {c.provider}
                                             </div>
@@ -187,7 +195,7 @@ export default function CookiePolicyPage() {
                                                 <span
                                                     className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-semibold ${typeColors[c.type]}`}
                                                 >
-                                                    {c.type}
+                                                    {typeLabels[c.type]}
                                                 </span>
                                             </div>
                                             <div className="text-sm text-gray-600 font-medium">
@@ -223,7 +231,7 @@ export default function CookiePolicyPage() {
                         <div>
                             <h2 className="text-xl font-bold text-gray-900 mb-5 flex items-center gap-3">
                                 <span className="w-1 h-6 rounded-full bg-primary-500 inline-block" />
-                                How to Manage Cookies in Your Browser
+                                Cómo Gestionar las Cookies en tu Navegador
                             </h2>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 {[
@@ -232,7 +240,7 @@ export default function CookiePolicyPage() {
                                     { browser: "Safari", link: "https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" },
                                     { browser: "Edge", link: "https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" },
                                 ].map((b) => (
-                                    <a
+                                    
                                         key={b.browser}
                                         href={b.link}
                                         target="_blank"
@@ -246,7 +254,7 @@ export default function CookiePolicyPage() {
                                             {b.browser}
                                         </span>
                                         <span className="text-xs text-primary-600 group-hover:underline">
-                                            Cookie settings →
+                                            Configuración de cookies →
                                         </span>
                                     </a>
                                 ))}
@@ -257,11 +265,11 @@ export default function CookiePolicyPage() {
                         <div className="rounded-2xl bg-gray-950 p-6 md:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
                             <div>
                                 <p className="text-white font-bold text-lg mb-1">
-                                    Have questions about cookies?
+                                    ¿Tienes preguntas sobre las cookies?
                                 </p>
                                 <p className="text-gray-400 text-sm">
-                                    Contact us at{" "}
-                                    <a
+                                    Contáctanos en{" "}
+                                    
                                         href="mailto:laura.sanjuan@novasac.es"
                                         className="text-primary-400 hover:underline"
                                     >
@@ -273,7 +281,7 @@ export default function CookiePolicyPage() {
                                 href="/contact"
                                 className="shrink-0 inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors"
                             >
-                                Contact Us
+                                Contáctanos
                                 <svg
                                     className="w-4 h-4"
                                     fill="none"
