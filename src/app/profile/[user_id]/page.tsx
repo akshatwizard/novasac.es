@@ -34,7 +34,7 @@ function Avatar({ profile }: { profile: ProfileData }) {
       {profile.status && (
         <span
           className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 ring-2 ring-white"
-          title="Active"
+          title="Activo"
         />
       )}
     </div>
@@ -142,8 +142,8 @@ export default function Profile() {
             {/* Page heading */}
             <div className="flex items-center justify-between mb-2">
               <div>
-                <h1 className="text-xl font-bold text-zinc-800 tracking-tight">My Profile</h1>
-                <p className="text-xs text-stone-400 mt-0.5">Manage your account information</p>
+                <h1 className="text-xl font-bold text-zinc-800 tracking-tight">Mi Perfil</h1>
+                <p className="text-xs text-stone-400 mt-0.5">Gestiona la información de tu cuenta</p>
               </div>
               <button
                 onClick={logout}
@@ -151,7 +151,7 @@ export default function Profile() {
               >
                 {isLoggingOut ? <div className="w-4 h-4 border-2 border-primary-300 border-t-primary-600 rounded-full animate-spin" /> : <>
                   <LogOut size={13} />
-                  Logout
+                  Cerrar Sesión
                 </>}
               </button>
             </div>
@@ -160,9 +160,9 @@ export default function Profile() {
 
             {isError && (
               <div className="rounded-3xl border border-rose-100 bg-rose-50 p-6 text-center space-y-1.5">
-                <p className="text-sm font-semibold text-rose-600">Failed to load profile</p>
+                <p className="text-sm font-semibold text-rose-600">No se pudo cargar el perfil</p>
                 <p className="text-xs text-rose-400">
-                  {(error as any)?.response?.data?.message || 'Something went wrong. Please try again.'}
+                  {(error as any)?.response?.data?.message || 'Algo salió mal. Por favor, inténtalo de nuevo.'}
                 </p>
               </div>
             )}
@@ -183,7 +183,7 @@ export default function Profile() {
                         </div>
                         <button
                           className="size-8 shrink-0 flex items-center justify-center rounded-xl bg-stone-100 hover:bg-amber-100 text-stone-400 hover:text-primary-600 border border-stone-200 hover:border-amber-200 transition-all duration-150 cursor-pointer"
-                          aria-label="Edit profile"
+                          aria-label="Editar perfil"
                         >
                           <Pencil size={13} />
                         </button>
@@ -197,7 +197,7 @@ export default function Profile() {
                         {profile.status && (
                           <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-100 text-emerald-700 text-[11px] font-semibold">
                             <ShieldCheck size={10} />
-                            Verified
+                            Verificado
                           </span>
                         )}
                       </div>
@@ -213,14 +213,14 @@ export default function Profile() {
 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-3">
-                  <StatPill label="Days Active" value={`${accountAgeDays}d`} color="amber" />
+                  <StatPill label="Días Activo" value={`${accountAgeDays}d`} color="amber" />
                   <StatPill
-                    label="Status"
-                    value={profile.status ? 'Active' : 'Inactive'}
+                    label="Estado"
+                    value={profile.status ? 'Activo' : 'Inactivo'}
                     color={profile.status ? 'emerald' : 'rose'}
                   />
                   <StatPill
-                    label="Login Tries"
+                    label="Intentos de Acceso"
                     value={String(profile.login_attempts)}
                     color={profile.login_attempts > 3 ? 'rose' : 'violet'}
                   />
@@ -229,24 +229,24 @@ export default function Profile() {
                 {/* Details card */}
                 <div className="rounded-3xl border border-stone-100 bg-white shadow-sm shadow-stone-200/60 p-5 md:p-6">
                   <p className="text-[11px] font-semibold tracking-widest uppercase text-stone-400 mb-1">
-                    Account Details
+                    Datos de la Cuenta
                   </p>
 
                   <DetailItem icon={Mail} label="Email" value={profile.email} />
-                  <DetailItem icon={Phone} label="Phone" value={profile.phone_number} />
+                  <DetailItem icon={Phone} label="Teléfono" value={profile.phone_number} />
                   <DetailItem
                     icon={GenderIcon}
-                    label="Gender"
+                    label="Género"
                     value={
                       profile.gender
                         ? profile.gender.charAt(0).toUpperCase() + profile.gender.slice(1)
                         : null
                     }
                   />
-                  <DetailItem icon={Calendar} label="Date of Birth" value={formatDate(profile.date_of_birth)} />
+                  <DetailItem icon={Calendar} label="Fecha de Nacimiento" value={formatDate(profile.date_of_birth)} />
                   <DetailItem
                     icon={Clock}
-                    label="Member Since"
+                    label="Miembro Desde"
                     value={formatDate(profile.created_at) ?? undefined}
                   />
 
@@ -257,7 +257,7 @@ export default function Profile() {
                     </div>
                     <div className="flex-1 flex items-center justify-between gap-2 min-w-0">
                       <div className="min-w-0">
-                        <p className="text-[11px] font-semibold tracking-widest uppercase text-stone-400">Last Login</p>
+                        <p className="text-[11px] font-semibold tracking-widest uppercase text-stone-400">Último Acceso</p>
                         <p className="text-sm text-zinc-700 font-medium truncate">
                           {formatDateTime(profile.last_login_at)}
                         </p>
@@ -272,7 +272,7 @@ export default function Profile() {
                 {/* Edit CTA */}
                 <button className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl font-semibold text-sm text-white bg-linear-to-r from-primary-500 to-amber-500 hover:from-amber-400 hover:to-orange-400 shadow-md shadow-amber-200 active:scale-[0.98] transition-all duration-150 cursor-pointer">
                   <Pencil size={14} />
-                  Edit Profile
+                  Editar Perfil
                 </button>
               </>
             )}
@@ -314,7 +314,7 @@ function getInitials(name: string): string {
 
 function formatDate(dateStr: string | null): string | null {
   if (!dateStr) return null
-  return new Date(dateStr).toLocaleDateString('en-IN', {
+  return new Date(dateStr).toLocaleDateString('es-ES', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -323,7 +323,7 @@ function formatDate(dateStr: string | null): string | null {
 
 function formatDateTime(dateStr: string | null): string {
   if (!dateStr) return '—'
-  return new Date(dateStr).toLocaleString('en-IN', {
+  return new Date(dateStr).toLocaleString('es-ES', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
@@ -335,10 +335,10 @@ function formatDateTime(dateStr: string | null): string {
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime()
   const days = Math.floor(diff / 86400000)
-  if (days === 0) return 'Today'
-  if (days === 1) return 'Yesterday'
-  if (days < 30) return `${days}d ago`
+  if (days === 0) return 'Hoy'
+  if (days === 1) return 'Ayer'
+  if (days < 30) return `Hace ${days}d`
   const months = Math.floor(days / 30)
-  if (months < 12) return `${months}mo ago`
-  return `${Math.floor(months / 12)}y ago`
+  if (months < 12) return `Hace ${months}m`
+  return `Hace ${Math.floor(months / 12)}a`
 }
