@@ -5,59 +5,59 @@ import Link from "next/link";
 const sections = [
     {
         id: "introduction",
-        title: "Introduction",
+        title: "Introducción",
         icon: "🔐",
         content:
-            "By using our website, you acknowledge and agree to be bound by this Privacy Policy. If you do not agree with any part of this policy, please discontinue use of our website. Your continued use constitutes your acceptance of the practices described herein.",
+            "Al utilizar nuestro sitio web, reconoces y aceptas quedar sujeto a esta Política de Privacidad. Si no estás de acuerdo con alguna parte de esta política, te rogamos que dejes de utilizar nuestro sitio web. El uso continuado del sitio implica la aceptación de las prácticas aquí descritas.",
     },
     {
         id: "website-use",
-        title: "Use of the Website",
+        title: "Uso del Sitio Web",
         icon: "🌐",
         content:
-            "You agree to use our website solely for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit the use and enjoyment of the site by any third party. This includes, but is not limited to, unlawful conduct or conduct that may harass, cause distress or inconvenience to any person.",
+            "Aceptas utilizar nuestro sitio web únicamente para fines lícitos y de una manera que no infrinja los derechos de terceros, ni restrinja o impida su uso y disfrute del sitio. Esto incluye, entre otros, cualquier conducta ilícita o que pueda acosar, causar angustia o molestias a cualquier persona.",
     },
     {
         id: "intellectual-property",
-        title: "Intellectual Property",
+        title: "Propiedad Intelectual",
         icon: "©️",
         content:
-            "All content on this website — including texts, graphics, logos, and source code — is the exclusive property of NOVASAC PACKAGING SL. Any reproduction, distribution, or modification of this content without prior written consent constitutes a violation of intellectual property rights and may result in legal action.",
+            "Todo el contenido de este sitio web —incluyendo textos, gráficos, logotipos y código fuente— es propiedad exclusiva de NOVASAC PACKAGING SL. Cualquier reproducción, distribución o modificación de este contenido sin el consentimiento previo por escrito constituye una infracción de los derechos de propiedad intelectual y puede dar lugar a acciones legales.",
     },
     {
         id: "cookies-usage",
-        title: "Use of Cookies",
+        title: "Uso de Cookies",
         icon: "🍪",
         content:
-            "Our website uses cookies to enhance your user experience and to analyze how the site is used. Cookies are small text files stored on your device when you visit our site. They help us understand traffic patterns, personalize your experience, and improve overall site functionality.",
+            "Nuestro sitio web utiliza cookies para mejorar tu experiencia de usuario y analizar cómo se utiliza el sitio. Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio. Nos ayudan a entender los patrones de tráfico, personalizar tu experiencia y mejorar el funcionamiento general del sitio.",
     },
     {
         id: "third-party-cookies",
-        title: "Third-Party Cookies",
+        title: "Cookies de Terceros",
         icon: "📊",
         content:
-            "We use services including Google Analytics and Facebook Ads, which may place cookies on your device to collect data about your use of our website. This data is used for analytical and advertising purposes, helping us better understand our audience and improve our offerings. These third parties operate under their own privacy policies.",
+            "Utilizamos servicios como Google Analytics y Facebook Ads, que pueden colocar cookies en tu dispositivo para recopilar datos sobre el uso que haces de nuestro sitio web. Estos datos se utilizan con fines analíticos y publicitarios, ayudándonos a entender mejor a nuestra audiencia y mejorar nuestra oferta. Estos terceros operan bajo sus propias políticas de privacidad.",
     },
     {
         id: "cookie-management",
-        title: "Cookie Management",
+        title: "Gestión de Cookies",
         icon: "⚙️",
         content:
-            "You can control and manage cookies through your browser settings at any time. Most browsers allow you to block, delete, or restrict cookies. Please note that disabling or blocking cookies may affect the functionality of certain areas of our website and limit your experience.",
+            "Puedes controlar y gestionar las cookies en cualquier momento a través de la configuración de tu navegador. La mayoría de los navegadores te permiten bloquear, eliminar o restringir las cookies. Ten en cuenta que desactivar o bloquear las cookies puede afectar al funcionamiento de determinadas áreas de nuestro sitio web y limitar tu experiencia.",
     },
     {
         id: "changes",
-        title: "Changes to This Policy",
+        title: "Cambios en Esta Política",
         icon: "📝",
         content:
-            "We reserve the right to modify this Privacy Policy at any time. We recommend that you review it regularly to stay informed of any updates. Your continued use of our website following the posting of changes will be deemed your acceptance of those changes.",
+            "Nos reservamos el derecho a modificar esta Política de Privacidad en cualquier momento. Te recomendamos revisarla periódicamente para estar al tanto de cualquier actualización. El uso continuado de nuestro sitio web tras la publicación de los cambios se entenderá como la aceptación de dichos cambios.",
     },
     {
         id: "gdpr",
-        title: "GDPR Compliance Note",
+        title: "Nota sobre Cumplimiento del RGPD",
         icon: "🇪🇺",
         content:
-            "This document serves as a starting point and has been drafted to align with GDPR requirements. It should be reviewed and customized by a qualified legal professional to ensure full compliance with all applicable laws and regulations specific to your jurisdiction.",
+            "Este documento sirve como punto de partida y ha sido redactado conforme a los requisitos del RGPD. Debe ser revisado y adaptado por un profesional legal cualificado para garantizar el pleno cumplimiento de todas las leyes y normativas aplicables en tu jurisdicción.",
     },
 ];
 
@@ -78,19 +78,19 @@ export default function PrivacyStatementPage() {
                     <Wrapper className="lg:py-14 md:py-12 py-10 lg:gap-4 md:gap-3 gap-2">
                         <div className="flex items-center gap-2 text-sm font-medium text-primary-400 uppercase tracking-widest">
                             <span className="inline-block w-6 h-px bg-primary-500" />
-                            Legal Documentation
+                            Documentación Legal
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                            Privacy{" "}
-                            <span className="text-primary-500">Statement</span>
+                            Declaración{" "}
+                            <span className="text-primary-500">de Privacidad</span>
                         </h1>
                         <p className="text-gray-400 text-base md:text-lg max-w-2xl">
-                            Your privacy matters to us. This policy explains how NOVASAC
-                            collects, uses, and protects information when you use our website.
+                            Tu privacidad nos importa. Esta política explica cómo NOVASAC
+                            recopila, utiliza y protege tu información cuando utilizas nuestro sitio web.
                         </p>
                         <p className="text-gray-500 text-sm">
-                            Last updated:{" "}
-                            <span className="text-gray-300">January 2025</span>
+                            Última actualización:{" "}
+                            <span className="text-gray-300">enero de 2025</span>
                         </p>
                     </Wrapper>
                 </Section>
@@ -103,9 +103,9 @@ export default function PrivacyStatementPage() {
                         {/* Highlights bar */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
                             {[
-                                { label: "GDPR Aligned", desc: "European data standards" },
-                                { label: "No Data Selling", desc: "Your data stays yours" },
-                                { label: "Cookie Control", desc: "Manage your preferences" },
+                                { label: "Conforme al RGPD", desc: "Estándares europeos de datos" },
+                                { label: "Sin Venta de Datos", desc: "Tus datos siguen siendo tuyos" },
+                                { label: "Control de Cookies", desc: "Gestiona tus preferencias" },
                             ].map((h) => (
                                 <div
                                     key={h.label}
@@ -137,7 +137,7 @@ export default function PrivacyStatementPage() {
                                         <span className="text-2xl select-none">{s.icon}</span>
                                         <div>
                                             <span className="text-xs uppercase tracking-widest text-primary-600 font-semibold block mb-1">
-                                                Section {i + 1}
+                                                Sección {i + 1}
                                             </span>
                                             <h2 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors">
                                                 {s.title}
@@ -155,10 +155,10 @@ export default function PrivacyStatementPage() {
                         <div className="mt-10 rounded-2xl bg-gray-950 p-6 md:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
                             <div>
                                 <p className="text-white font-bold text-lg mb-1">
-                                    Privacy concerns or requests?
+                                    ¿Dudas o solicitudes sobre privacidad?
                                 </p>
                                 <p className="text-gray-400 text-sm">
-                                    Reach our data protection contact at{" "}
+                                    Contacta con nuestro responsable de protección de datos en{" "}
                                     <a
                                         href="mailto:laura.sanjuan@novasac.es"
                                         className="text-primary-400 hover:underline"
@@ -171,7 +171,7 @@ export default function PrivacyStatementPage() {
                                 href="/contact"
                                 className="shrink-0 inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors"
                             >
-                                Get in Touch
+                                Ponte en Contacto
                                 <svg
                                     className="w-4 h-4"
                                     fill="none"
