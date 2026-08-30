@@ -13,65 +13,65 @@ import {
 import Image from 'next/image'
 
 const stats = [
-    { value: 'PP / PET', label: 'Core Materials' },
-    { value: '600 g/m²', label: 'Max Fabric Weight' },
-    { value: '5 Categories', label: 'Specialist Products' },
-    { value: 'Custom', label: 'Sizes Available' },
+    { value: 'PP / PET', label: 'Materiales Principales' },
+    { value: '600 g/m²', label: 'Peso Máximo del Tejido' },
+    { value: '5 Categorías', label: 'Productos Especializados' },
+    { value: 'Personalizado', label: 'Tamaños Disponibles' },
 ]
 
 const commitments = [
     {
         icon: <Layers className="w-6 h-6" />,
-        title: 'Engineered for Industrial Strength',
+        title: 'Diseñado para la Resistencia Industrial',
         description:
-            'Each product is built from high-performance technical fabrics — woven PP, PET, HDPE — chosen specifically for the demands of its application.',
+            'Cada producto está fabricado con tejidos técnicos de alto rendimiento —PP tejido, PET, HDPE— elegidos específicamente según las exigencias de su aplicación.',
     },
     {
         icon: <Droplets className="w-6 h-6" />,
-        title: 'Waterproof & Weather-Ready',
+        title: 'Impermeable y Preparado para Cualquier Clima',
         description:
-            'From waterproof pond liners to moisture-repellent roof underlayments, our technical textiles keep contents protected in any environment.',
+            'Desde láminas impermeables para estanques hasta membranas hidrófugas para tejados, nuestros textiles técnicos mantienen protegido el contenido en cualquier entorno.',
     },
     {
         icon: <ShieldCheck className="w-6 h-6" />,
-        title: 'UV-Stabilised Construction',
+        title: 'Construcción Estabilizada frente a los Rayos UV',
         description:
-            'Every outdoor product is UV-stabilised up to 1,500 hours of exposure, ensuring structural integrity and long service life under direct sunlight.',
+            'Todos nuestros productos para exterior están estabilizados frente a los rayos UV hasta 1.500 horas de exposición, garantizando la integridad estructural y una larga vida útil bajo la luz solar directa.',
     },
     {
         icon: <Wind className="w-6 h-6" />,
-        title: 'Fully Customisable Specifications',
+        title: 'Especificaciones Totalmente Personalizables',
         description:
-            'Size, weight, colour, seam type, closure, and coating — all parameters are available to configure for your exact operational requirements.',
+            'Tamaño, peso, color, tipo de costura, cierre y recubrimiento: todos los parámetros se pueden configurar según tus necesidades operativas exactas.',
     },
 ]
 
 const products = [
     {
         id: 'geotextile',
-        badge: 'Geotextile Bags',
-        title: 'Geotextile Bags',
-        subtitle: 'Erosion control, shoreline protection, sandbagging & flood barriers',
+        badge: 'Bolsas Geotextiles',
+        title: 'Bolsas Geotextiles',
+        subtitle: 'Control de erosión, protección de costas, sacos terreros y barreras contra inundaciones',
         description:
-            'Manufactured from durable woven or non-woven polypropylene (PP) or polyester (PET), our geotextile bags allow water to pass freely while retaining soil or sand. UV-resistant and available in custom sizes, they are suited to both temporary and permanent civil engineering installations.',
+            'Fabricadas con polipropileno (PP) o poliéster (PET) tejido o no tejido de gran resistencia, nuestras bolsas geotextiles permiten el paso libre del agua mientras retienen la tierra o la arena. Resistentes a los rayos UV y disponibles en tamaños personalizados, son ideales tanto para instalaciones civiles temporales como permanentes.',
         features: [
-            'Woven or needle-punched non-woven fabric options',
-            'Allows water passage while retaining soil/sand',
-            'UV-resistant for long-term outdoor exposure',
-            'Reinforced stitched or heat-sealed seams',
-            'Applications: shoreline protection, flood barriers, erosion control',
+            'Disponible en tejido o en no tejido punzonado por agujas',
+            'Permite el paso del agua mientras retiene la tierra o la arena',
+            'Resistente a los rayos UV para exposición prolongada al exterior',
+            'Costuras reforzadas cosidas o termoselladas',
+            'Aplicaciones: protección de costas, barreras contra inundaciones, control de erosión',
         ],
         specs: [
-            { label: 'Material', value: 'Woven or Non-Woven PP / PET' },
-            { label: 'Fabric Type', value: 'Woven or Needle-Punched Non-Woven' },
-            { label: 'Fabric Weight', value: '200 – 600 g/m²' },
-            { label: 'Bag Size / Capacity', value: '1 – 3 m³ (customisable)' },
-            { label: 'Tensile Strength', value: '30 – 60 kN/m' },
-            { label: 'Elongation at Break', value: '15 – 25%' },
-            { label: 'Permeability', value: '0.1 – 1.0 m/s' },
-            { label: 'UV Resistance', value: '≥ 500 hours' },
-            { label: 'Colour', value: 'White, Black, UV-stabilised' },
-            { label: 'Edge / Seam', value: 'Reinforced stitched or heat-sealed' },
+            { label: 'Material', value: 'PP / PET Tejido o No Tejido' },
+            { label: 'Tipo de Tejido', value: 'Tejido o No Tejido Punzonado por Agujas' },
+            { label: 'Peso del Tejido', value: '200 – 600 g/m²' },
+            { label: 'Tamaño de Bolsa / Capacidad', value: '1 – 3 m³ (personalizable)' },
+            { label: 'Resistencia a la Tracción', value: '30 – 60 kN/m' },
+            { label: 'Alargamiento a la Rotura', value: '15 – 25%' },
+            { label: 'Permeabilidad', value: '0.1 – 1.0 m/s' },
+            { label: 'Resistencia UV', value: '≥ 500 horas' },
+            { label: 'Color', value: 'Blanco, Negro, Estabilizado UV' },
+            { label: 'Borde / Costura', value: 'Cosido reforzado o termosellado' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -82,28 +82,28 @@ const products = [
     },
     {
         id: 'pond-liner',
-        badge: 'Pond Liner Bags',
-        title: 'Pond Liner Bags',
-        subtitle: 'Temporary water containment, fish farming, landscaping & agriculture',
+        badge: 'Bolsas para Estanques',
+        title: 'Bolsas para Estanques',
+        subtitle: 'Contención temporal de agua, acuicultura, paisajismo y agricultura',
         description:
-            'Constructed from waterproof HDPE, LLDPE, or PVC-coated PP, our pond liner bags prevent leakage and protect water quality. Durable and UV-resistant for long-term outdoor deployment, they are available in a wide range of sizes from small decorative ponds to large agricultural containment.',
+            'Fabricadas con HDPE, LLDPE o PP recubierto de PVC, todos ellos impermeables, nuestras bolsas para estanques evitan fugas y protegen la calidad del agua. Duraderas y resistentes a los rayos UV para un uso prolongado al aire libre, están disponibles en una amplia gama de tamaños, desde pequeños estanques decorativos hasta grandes depósitos agrícolas.',
         features: [
-            'Made from waterproof HDPE, LLDPE, or PVC-coated PP',
-            'Prevents leakage and protects water quality',
-            'UV-stabilised for ≥ 1,000 hours outdoor exposure',
-            'Heat-sealed or welded seams for watertight integrity',
-            'Applications: fish farming, landscaping, temporary water storage',
+            'Fabricadas con HDPE, LLDPE o PP recubierto de PVC, impermeables',
+            'Evita fugas y protege la calidad del agua',
+            'Estabilizadas frente a los rayos UV para ≥ 1.000 horas de exposición al exterior',
+            'Costuras termoselladas o soldadas para una estanqueidad total',
+            'Aplicaciones: acuicultura, paisajismo, almacenamiento temporal de agua',
         ],
         specs: [
-            { label: 'Material', value: 'HDPE, LLDPE, PVC-coated PP' },
-            { label: 'Fabric Thickness', value: '0.2 – 0.8 mm' },
-            { label: 'Bag Size / Capacity', value: 'Custom, typically 1 – 10 m³' },
-            { label: 'Tensile Strength', value: '20 – 50 MPa' },
-            { label: 'Elongation at Break', value: '10 – 20%' },
-            { label: 'Waterproofing', value: 'Full — prevents leakage & water loss' },
-            { label: 'UV Resistance', value: '≥ 1,000 hours' },
-            { label: 'Colour', value: 'Black / Custom' },
-            { label: 'Seam / Edge', value: 'Heat-sealed or welded' },
+            { label: 'Material', value: 'HDPE, LLDPE, PP recubierto de PVC' },
+            { label: 'Grosor del Tejido', value: '0.2 – 0.8 mm' },
+            { label: 'Tamaño de Bolsa / Capacidad', value: 'Personalizado, normalmente entre 1 y 10 m³' },
+            { label: 'Resistencia a la Tracción', value: '20 – 50 MPa' },
+            { label: 'Alargamiento a la Rotura', value: '10 – 20%' },
+            { label: 'Impermeabilización', value: 'Total: evita fugas y pérdida de agua' },
+            { label: 'Resistencia UV', value: '≥ 1.000 horas' },
+            { label: 'Color', value: 'Negro / Personalizado' },
+            { label: 'Costura / Borde', value: 'Termosellada o soldada' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -114,27 +114,27 @@ const products = [
     },
     {
         id: 'roof-underlayment',
-        badge: 'Roof Underlayment Bags',
-        title: 'Roof Underlayment Bags',
-        subtitle: 'Packaging & transporting shingles, membranes & roofing materials',
+        badge: 'Bolsas para Membranas de Tejado',
+        title: 'Bolsas para Membranas de Tejado',
+        subtitle: 'Embalaje y transporte de tejas, membranas y materiales para tejados',
         description:
-            'Engineered from woven or non-woven polypropylene with a water-repellent coating, these bags protect roofing materials from moisture during transport and storage. Available in flap, gusseted, or open-top designs to suit standard roofing material packages.',
+            'Fabricadas con polipropileno tejido o no tejido con recubrimiento hidrófugo, estas bolsas protegen los materiales para tejados de la humedad durante el transporte y el almacenamiento. Disponibles con solapa, fuelle o boca abierta, se adaptan a los envases estándar de materiales para tejados.',
         features: [
-            'Water-repellent coating shields contents from rain and humidity',
-            'High tensile strength and abrasion resistance',
-            'Flap closure, gusseted, or open-top designs available',
-            'Available loose or roll-packed for flexible logistics',
-            'Applications: roofing material transport, storage, and protection',
+            'El recubrimiento hidrófugo protege el contenido de la lluvia y la humedad',
+            'Alta resistencia a la tracción y a la abrasión',
+            'Disponible con cierre de solapa, fuelle o boca abierta',
+            'Disponible suelta o enrollada para una logística flexible',
+            'Aplicaciones: transporte, almacenamiento y protección de materiales para tejados',
         ],
         specs: [
-            { label: 'Material', value: 'Woven or Non-Woven Polypropylene (PP)' },
-            { label: 'Fabric Weight', value: '80 – 200 g/m²' },
-            { label: 'Bag Size / Capacity', value: 'Custom sizes' },
-            { label: 'Tensile Strength', value: '15 – 40 kN/m' },
-            { label: 'Moisture Resistance', value: 'Water-repellent coating' },
-            { label: 'Sealing / Closure', value: 'Flap, gusseted, or open-top' },
-            { label: 'Bag Form', value: 'Loose or roll-packed' },
-            { label: 'Colour', value: 'Black, natural, or custom' },
+            { label: 'Material', value: 'Polipropileno (PP) Tejido o No Tejido' },
+            { label: 'Peso del Tejido', value: '80 – 200 g/m²' },
+            { label: 'Tamaño de Bolsa / Capacidad', value: 'Tamaños personalizados' },
+            { label: 'Resistencia a la Tracción', value: '15 – 40 kN/m' },
+            { label: 'Resistencia a la Humedad', value: 'Recubrimiento hidrófugo' },
+            { label: 'Sellado / Cierre', value: 'Solapa, fuelle o boca abierta' },
+            { label: 'Formato de Bolsa', value: 'Suelta o enrollada' },
+            { label: 'Color', value: 'Negro, natural o personalizado' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -145,28 +145,28 @@ const products = [
     },
     {
         id: 'lumber-wrap',
-        badge: 'Lumber Wrap Bags',
-        title: 'Lumber Wrap Bags',
-        subtitle: 'Wrapping & transporting timber, wood products & sheet materials',
+        badge: 'Bolsas para Envolver Madera',
+        title: 'Bolsas para Envolver Madera',
+        subtitle: 'Envoltura y transporte de madera, productos de madera y materiales en planchas',
         description:
-            'Made from strong and breathable woven PP or PE fabric, our lumber wraps protect timber from dirt, moisture, and UV exposure while remaining semi-permeable for ventilation. Available in custom sizes for any timber dimension, with reinforced grommets for secure fixing.',
+            'Fabricadas con tejido resistente y transpirable de PP o PE, nuestras envolturas para madera protegen la madera de la suciedad, la humedad y la exposición a los rayos UV, manteniendo a la vez una permeabilidad parcial para la ventilación. Disponibles en tamaños personalizados para cualquier dimensión de madera, con ojales reforzados para una fijación segura.',
         features: [
-            'Breathable woven PP/PE fabric with PVC or PE coating',
-            'Protects from dirt, moisture, and UV exposure',
-            'Semi-permeable for natural wood ventilation',
-            'Hemmed edges with reinforced grommets',
-            'Applications: construction sites, warehouses, trucks, agriculture',
+            'Tejido transpirable de PP/PE con recubrimiento de PVC o PE',
+            'Protege de la suciedad, la humedad y la exposición a los rayos UV',
+            'Semipermeable para una ventilación natural de la madera',
+            'Bordes dobladillados con ojales reforzados',
+            'Aplicaciones: obras de construcción, almacenes, camiones, agricultura',
         ],
         specs: [
-            { label: 'Material', value: 'Woven PP/PE with PVC or PE coating' },
-            { label: 'Fabric Weight', value: '150 – 500 g/m²' },
-            { label: 'Tensile Strength', value: '30 – 70 kN/m' },
-            { label: 'Tear Resistance', value: '50 – 200 N' },
-            { label: 'Waterproofing', value: 'Full coating — water penetration proof' },
-            { label: 'UV Resistance', value: '500 – 1,500 hours' },
-            { label: 'Edge Finish', value: 'Hemmed with reinforced grommets' },
-            { label: 'Colour', value: 'Blue, Green, Silver, Custom' },
-            { label: 'Size Range', value: '1×2 m up to 12×20 m' },
+            { label: 'Material', value: 'PP/PE Tejido con Recubrimiento de PVC o PE' },
+            { label: 'Peso del Tejido', value: '150 – 500 g/m²' },
+            { label: 'Resistencia a la Tracción', value: '30 – 70 kN/m' },
+            { label: 'Resistencia al Desgarro', value: '50 – 200 N' },
+            { label: 'Impermeabilización', value: 'Recubrimiento total: a prueba de penetración de agua' },
+            { label: 'Resistencia UV', value: '500 – 1.500 horas' },
+            { label: 'Acabado del Borde', value: 'Dobladillado con ojales reforzados' },
+            { label: 'Color', value: 'Azul, Verde, Plateado, Personalizado' },
+            { label: 'Rango de Tamaños', value: '1×2 m hasta 12×20 m' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -177,28 +177,28 @@ const products = [
     },
     {
         id: 'tarpaulin',
-        badge: 'Tarpaulins',
-        title: 'Industrial Textile Tarpaulins',
-        subtitle: 'Covering goods, construction sites, agricultural produce & temporary shelters',
+        badge: 'Lonas',
+        title: 'Lonas Textiles Industriales',
+        subtitle: 'Cobertura de mercancías, obras de construcción, productos agrícolas y refugios temporales',
         description:
-            'Our industrial-grade tarpaulins are manufactured from woven PP/PE with a PVC or PE coating, delivering waterproof, tear-resistant, and UV-stabilised performance across the most demanding outdoor applications. Reinforced edges with grommets enable fast and secure installation.',
+            'Nuestras lonas de uso industrial están fabricadas con PP/PE tejido con recubrimiento de PVC o PE, ofreciendo un rendimiento impermeable, resistente al desgarro y estabilizado frente a los rayos UV en las aplicaciones exteriores más exigentes. Los bordes reforzados con ojales permiten una instalación rápida y segura.',
         features: [
-            'Woven PP/PE with PVC or PE coating — waterproof and tear-resistant',
-            'UV-stabilised for 500 – 1,500 hours of outdoor exposure',
-            'Reinforced edges with grommets for easy, secure fixing',
-            'Available in a wide range of sizes and fabric weights',
-            'Applications: construction, warehouses, agriculture, temporary shelters',
+            'PP/PE tejido con recubrimiento de PVC o PE: impermeable y resistente al desgarro',
+            'Estabilizadas frente a los rayos UV para 500 – 1.500 horas de exposición al exterior',
+            'Bordes reforzados con ojales para una fijación fácil y segura',
+            'Disponibles en una amplia gama de tamaños y pesos de tejido',
+            'Aplicaciones: construcción, almacenes, agricultura, refugios temporales',
         ],
         specs: [
-            { label: 'Material', value: 'Woven PP/PE with PVC or PE coating' },
-            { label: 'Fabric Weight', value: '150 – 500 g/m²' },
-            { label: 'Tensile Strength', value: '30 – 70 kN/m' },
-            { label: 'Tear Resistance', value: '50 – 200 N' },
-            { label: 'Waterproofing', value: 'Full coating — water penetration proof' },
-            { label: 'UV Resistance', value: '500 – 1,500 hours' },
-            { label: 'Edge Finish', value: 'Hemmed with reinforced grommets' },
-            { label: 'Colour', value: 'Blue, Green, Silver, Custom' },
-            { label: 'Size Range', value: '1×2 m up to 12×20 m' },
+            { label: 'Material', value: 'PP/PE Tejido con Recubrimiento de PVC o PE' },
+            { label: 'Peso del Tejido', value: '150 – 500 g/m²' },
+            { label: 'Resistencia a la Tracción', value: '30 – 70 kN/m' },
+            { label: 'Resistencia al Desgarro', value: '50 – 200 N' },
+            { label: 'Impermeabilización', value: 'Recubrimiento total: a prueba de penetración de agua' },
+            { label: 'Resistencia UV', value: '500 – 1.500 horas' },
+            { label: 'Acabado del Borde', value: 'Dobladillado con ojales reforzados' },
+            { label: 'Color', value: 'Azul, Verde, Plateado, Personalizado' },
+            { label: 'Rango de Tamaños', value: '1×2 m hasta 12×20 m' },
         ],
         panelGradient: 'from-primary-50 to-primary-100',
         border: 'border-primary-200',
@@ -236,27 +236,29 @@ export default function TechnicalTextile() {
                             <div className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-500/15 border border-primary-500/30 px-4 py-1.5 backdrop-blur-sm">
                                 <span className="h-2 w-2 rounded-full bg-primary-400 animate-pulse" />
                                 <span className="text-primary-300 text-xs font-semibold uppercase tracking-widest">
-                                    Industrial & Commercial Applications
+                                    Aplicaciones Industriales y Comerciales
                                 </span>
                             </div>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-                                Technical<br />
+                                Textiles<br />
                                 <strong className="text-primary-600">
-                                    Textiles
+                                    Técnicos
                                 </strong>
                             </h1>
 
                             <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-xl">
-                                Our range of technical textile bags is designed to meet the highest standards of
-                                strength, durability, and functionality — engineered for industrial, agricultural,
-                                and construction applications where standard packaging simply isn't enough.
+                                Nuestra gama de bolsas de textil técnico está diseñada para cumplir los más
+                                altos estándares de resistencia, durabilidad y funcionalidad, pensada para
+                                aplicaciones industriales, agrícolas y de construcción donde el embalaje
+                                estándar simplemente no es suficiente.
                             </p>
 
                             <p className="text-slate-300 text-xs md:text-sm leading-relaxed max-w-xl">
-                                From geotextile erosion control to waterproof pond liners and industrial tarpaulins,
-                                Novasac offers <strong className="text-white">five specialist product categories</strong>,
-                                each fully customisable to your exact specification.
+                                Desde el control de erosión con geotextiles hasta las láminas impermeables
+                                para estanques y las lonas industriales, Novasac ofrece{' '}
+                                <strong className="text-white">cinco categorías de productos especializados</strong>,
+                                cada una totalmente personalizable según tus especificaciones exactas.
                             </p>
 
                             <div className="flex flex-wrap gap-3 pt-2">
@@ -264,14 +266,14 @@ export default function TechnicalTextile() {
                                     href="/contact"
                                     className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 transition-colors text-white font-semibold px-6 py-3 rounded-full text-sm"
                                 >
-                                    Request a Quote
+                                    Solicita un Presupuesto
                                     <ArrowRight className="w-4 h-4" />
                                 </Link>
                                 <Link
                                     href="#products"
                                     className="inline-flex items-center gap-2 border border-slate-600 hover:border-primary-500 hover:text-primary-300 transition-colors text-slate-300 font-medium px-6 py-3 rounded-full text-sm backdrop-blur-sm"
                                 >
-                                    Explore Products
+                                    Explora los Productos
                                 </Link>
                             </div>
                         </div>
@@ -297,15 +299,16 @@ export default function TechnicalTextile() {
                 <Wrapper>
                     <div className="flex flex-col gap-4 max-w-2xl">
                         <span className="text-xs font-medium uppercase tracking-widest text-primary-600">
-                            Why Technical Textiles
+                            Por Qué Textiles Técnicos
                         </span>
                         <h2 className="text-3xl md:text-4xl font-medium text-stone-900">
-                            Built for the Conditions Standard Bags Cannot Handle
+                            Diseñados para Condiciones que las Bolsas Estándar no Pueden Soportar
                         </h2>
                         <p className="text-slate-500 text-sm">
-                            Technical textile products go beyond conventional packaging. Each solution is
-                            engineered to perform under specific environmental and mechanical stresses — from
-                            shoreline erosion to sustained outdoor UV exposure.
+                            Los productos de textil técnico van más allá del embalaje convencional. Cada
+                            solución está diseñada para funcionar bajo tensiones ambientales y mecánicas
+                            específicas, desde la erosión costera hasta la exposición prolongada a los
+                            rayos UV en exteriores.
                         </p>
                     </div>
 
@@ -331,14 +334,15 @@ export default function TechnicalTextile() {
                 <Wrapper>
                     <div className="text-center flex flex-col items-center gap-3">
                         <span className="text-xs font-medium uppercase tracking-widest text-primary-600">
-                            Product Range
+                            Gama de Productos
                         </span>
                         <h2 className="text-3xl md:text-4xl font-medium text-stone-900 max-w-xl">
-                            Five Specialist Categories, One Expert Partner
+                            Cinco Categorías Especializadas, Un Socio Experto
                         </h2>
                         <p className="text-slate-500 max-w-2xl text-sm">
-                            Every product is available with custom dimensions, fabric weights, coatings, and
-                            closures — so your specification is never a compromise.
+                            Todos nuestros productos están disponibles con dimensiones, pesos de tejido,
+                            recubrimientos y cierres personalizados, para que tu especificación nunca sea
+                            un compromiso.
                         </p>
                     </div>
 
@@ -372,7 +376,7 @@ export default function TechnicalTextile() {
                                     {/* certification badge */}
                                     <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-sm">
                                         <BadgeCheck className="w-3.5 h-3.5 text-primary-600" />
-                                        <span className="text-xs font-semibold text-slate-700">Custom Specifications</span>
+                                        <span className="text-xs font-semibold text-slate-700">Especificaciones Personalizadas</span>
                                     </div>
                                 </div>
 
@@ -405,7 +409,7 @@ export default function TechnicalTextile() {
                                             className={`px-5 py-3 bg-linear-to-r ${p.panelGradient} border-b ${p.border}`}
                                         >
                                             <p className="text-xs font-bold uppercase tracking-widest text-slate-600">
-                                                Technical Specifications
+                                                Especificaciones Técnicas
                                             </p>
                                         </div>
                                         <div className="divide-y divide-slate-100">
@@ -427,7 +431,7 @@ export default function TechnicalTextile() {
                                         href="/contact"
                                         className={`inline-flex w-fit items-center gap-2 ${p.ctaBg} transition-colors text-white font-semibold px-6 py-3 rounded-full text-sm`}
                                     >
-                                        Request Samples
+                                        Solicita Muestras
                                         <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </div>
@@ -442,10 +446,10 @@ export default function TechnicalTextile() {
                 <Wrapper>
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
                         <div className="flex flex-col gap-3">
-                            <h2 className="text-3xl font-bold text-white">Need a specialist technical textile?</h2>
+                            <h2 className="text-3xl font-bold text-white">¿Necesitas un textil técnico especializado?</h2>
                             <p className="text-primary-100 text-lg max-w-xl">
-                                Our team will help you configure the right product — material, weight, size, and
-                                coating — for your exact application and environment.
+                                Nuestro equipo te ayudará a configurar el producto adecuado —material, peso,
+                                tamaño y recubrimiento— para tu aplicación y entorno exactos.
                             </p>
                         </div>
                         <div className="flex flex-wrap justify-center gap-3 shrink-0">
@@ -453,13 +457,13 @@ export default function TechnicalTextile() {
                                 href="/contact"
                                 className="bg-white text-primary-700 hover:bg-primary-50 transition-colors font-bold px-8 py-3.5 rounded-full text-sm"
                             >
-                                Contact Our Team →
+                                Contacta con Nuestro Equipo →
                             </Link>
                             <Link
                                 href="/custom-made-bags"
                                 className="border border-white/40 hover:border-white/80 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-colors"
                             >
-                                Custom-Made Bags
+                                Bolsas a Medida
                             </Link>
                         </div>
                     </div>
