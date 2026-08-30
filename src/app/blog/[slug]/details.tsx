@@ -118,3 +118,30 @@ function BlogSkeleton() {
             {/* Title */}
             <div className="space-y-3 mb-6">
                 <div className="h-8 bg-stone-200 rounded w-full" />
+                <div className="h-8 bg-stone-200 rounded w-4/5" />
+                <div className="h-8 bg-stone-200 rounded w-3/5" />
+            </div>
+            {/* Short desc */}
+            <div className="h-5 bg-stone-100 rounded w-full mb-2" />
+            <div className="h-5 bg-stone-100 rounded w-3/4 mb-10" />
+            {/* Image */}
+            <div className="h-72 bg-stone-200 rounded-lg mb-12" />
+            {/* Content lines */}
+            <div className="space-y-3">
+                {[...Array(6)].map((_, i) => (
+                    <div key={i} className={`h-4 bg-stone-100 rounded ${i % 3 === 2 ? "w-3/5" : "w-full"}`} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function BlogError({ message }: { message: string }) {
+    return (
+        <div className="max-w-3xl mx-auto px-4 py-20 text-center">
+            <p className="text-4xl mb-4">⚠️</p>
+            <h2 className="text-xl font-semibold text-stone-800 mb-2">Algo ha salido mal</h2>
+            <p className="text-stone-500 text-sm">{message}</p>
+        </div>
+    );
+}
