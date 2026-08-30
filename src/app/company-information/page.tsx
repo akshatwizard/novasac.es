@@ -83,7 +83,7 @@ export default function LegalInformation() {
                                     <p className="font-sans text-sm text-stone-500">C/ Pepe Alba 29, 3, 12</p>
                                     <p className="font-sans text-sm text-stone-500">46022 Valencia, Spain</p>
                                 </address>
-                                
+                                <a 
                                     href="https://maps.google.com/?q=C/+Pepe+Alba+29,+46022+Valencia,+Spain"
                                     target="_blank"
                                     rel="noopener noreferrer"
