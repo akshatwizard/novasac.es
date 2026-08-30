@@ -47,8 +47,8 @@ const features = [
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
         ),
-        title: "Custom Dimensions",
-        desc: "Specify exact width, height, and depth to match your product and storage requirements.",
+        title: "Dimensiones Personalizadas",
+        desc: "Indica el ancho, alto y profundidad exactos para adaptarse a tu producto y necesidades de almacenamiento.",
     },
     {
         icon: (
@@ -57,8 +57,8 @@ const features = [
                 <path d="M12 8v4l3 3" />
             </svg>
         ),
-        title: "Fast Turnaround",
-        desc: "We work quickly to review your request and provide a competitive quote as soon as possible.",
+        title: "Respuesta Rápida",
+        desc: "Trabajamos con rapidez para revisar tu solicitud y ofrecerte un presupuesto competitivo lo antes posible.",
     },
     {
         icon: (
@@ -66,8 +66,8 @@ const features = [
                 <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
             </svg>
         ),
-        title: "Your Logo & Colors",
-        desc: "Have your branding printed directly on the bags. Choose colors and add your logo.",
+        title: "Tu Logo y Tus Colores",
+        desc: "Imprime tu marca directamente en las bolsas. Elige los colores y añade tu logo.",
     },
     {
         icon: (
@@ -75,8 +75,8 @@ const features = [
                 <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
             </svg>
         ),
-        title: "Certified Quality",
-        desc: "All custom bags meet industry safety and quality standards for reliable performance.",
+        title: "Calidad Certificada",
+        desc: "Todas las bolsas personalizadas cumplen con los estándares del sector en seguridad y calidad para un rendimiento fiable.",
     },
 ];
 
@@ -152,13 +152,13 @@ export default function CustomBags() {
 
     const validate = (): boolean => {
         const newErrors: FormErrors = {};
-        if (!form.name.trim()) newErrors.name = "Name is required.";
-        if (!form.email.trim()) newErrors.email = "Email is required.";
+        if (!form.name.trim()) newErrors.name = "El nombre es obligatorio.";
+        if (!form.email.trim()) newErrors.email = "El email es obligatorio.";
         else if (!/\S+@\S+\.\S+/.test(form.email))
-            newErrors.email = "Enter a valid email address.";
-        if (!form.phone.trim()) newErrors.phone = "Phone number is required.";
+            newErrors.email = "Introduce una dirección de email válida.";
+        if (!form.phone.trim()) newErrors.phone = "El número de teléfono es obligatorio.";
         // if (!form.requestFor) newErrors.requestFor = "Please select a request type.";
-        if (!form.message.trim()) newErrors.message = "Message is required.";
+        if (!form.message.trim()) newErrors.message = "El mensaje es obligatorio.";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -221,8 +221,8 @@ export default function CustomBags() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
                             >
-                                Custom-made<br />
-                                <strong className="text-primary-600">Bulk Bags</strong>
+                                A Medida<br />
+                                <strong className="text-primary-600">Big Bags</strong>
                             </motion.h1>
                             <motion.p
                                 className="font-sans md:text-base text-sm text-stone-500 leading-relaxed max-w-md"
@@ -230,9 +230,10 @@ export default function CustomBags() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
                             >
-                                Would you like a bulk bag with different product specifications?
-                                Besides our standard range we also offer custom-made solutions —
-                                high quality tailor-made bulk bags at a great price.
+                                ¿Te gustaría un big bag con especificaciones de producto diferentes?
+                                Además de nuestra gama estándar, también ofrecemos soluciones a
+                                medida: big bags de alta calidad hechos a tu medida y a un precio
+                                inmejorable.
                             </motion.p>
                             <motion.p
                                 className="font-sans md:text-base text-sm text-stone-500 leading-relaxed max-w-md mt-4"
@@ -240,10 +241,10 @@ export default function CustomBags() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.28 }}
                             >
-                                Have your bulk bags produced according to your individual
-                                requirements in size, dimensions, colors and much more. Simply
-                                fill in the form below and we will contact you as soon as possible
-                                to work on a quote together.
+                                Fabrica tus big bags según tus necesidades específicas de tamaño,
+                                dimensiones, colores y mucho más. Solo tienes que rellenar el
+                                formulario y nos pondremos en contacto contigo lo antes posible
+                                para preparar tu presupuesto.
                             </motion.p>
                         </div>
 
@@ -255,7 +256,7 @@ export default function CustomBags() {
                         >
                             <Image
                                 src={"/images/custom-bag/bag.jpg"}
-                                alt="Custom Bags"
+                                alt="Bolsas Personalizadas"
                                 width={1080}
                                 height={1080}
                                 className="w-full h-full object-contain"
@@ -297,11 +298,11 @@ export default function CustomBags() {
                         >
                             <div className="mb-8">
                                 <p className="font-sans text-xs tracking-[0.2em] uppercase text-primary-500 mb-2">
-                                    Request a Quote
+                                    Solicita un Presupuesto
                                 </p>
                                 <h2 className="font-mono text-3xl md:text-4xl font-light text-stone-900">
-                                    Tell us what<br />
-                                    <strong className="text-primary-600">you need</strong>
+                                    Cuéntanos qué<br />
+                                    <strong className="text-primary-600">necesitas</strong>
                                 </h2>
                             </div>
 
@@ -318,9 +319,9 @@ export default function CustomBags() {
                                             <polyline points="22 4 12 14.01 9 11.01" />
                                         </svg>
                                     </div>
-                                    <h3 className="font-mono text-2xl font-light text-stone-900 mb-2">Request sent!</h3>
+                                    <h3 className="font-mono text-2xl font-light text-stone-900 mb-2">¡Solicitud enviada!</h3>
                                     <p className="font-sans text-sm text-stone-500 leading-relaxed max-w-sm mx-auto">
-                                        Thank you for your request. Our team will review your requirements and get back to you as soon as possible.
+                                        Gracias por tu solicitud. Nuestro equipo revisará tus necesidades y se pondrá en contacto contigo lo antes posible.
                                     </p>
                                 </motion.div>
                             ) : (
@@ -332,49 +333,49 @@ export default function CustomBags() {
                                     {isError && (
                                         <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3">
                                             <p className="font-sans text-sm text-red-600">
-                                                Your request could not be sent to our team. Please try again.
+                                                No hemos podido enviar tu solicitud. Por favor, inténtalo de nuevo.
                                             </p>
                                         </div>
                                     )}
 
                                     {/* Company Name */}
-                                    <Field label="Company Name">
+                                    <Field label="Nombre de la Empresa">
                                         <input
                                             type="text"
                                             name="companyName"
                                             value={form.companyName}
                                             onChange={handleChange}
-                                            placeholder="Your company name"
+                                            placeholder="Nombre de tu empresa"
                                             className={inputClass}
                                         />
                                     </Field>
 
                                     {/* Name + Email */}
                                     <div className="grid sm:grid-cols-2 gap-5">
-                                        <Field label="Your Name" required error={errors.name}>
+                                        <Field label="Tu Nombre" required error={errors.name}>
                                             <input
                                                 type="text"
                                                 name="name"
                                                 value={form.name}
                                                 onChange={handleChange}
-                                                placeholder="Full name"
+                                                placeholder="Nombre completo"
                                                 className={`${inputClass} ${errors.name ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
                                             />
                                         </Field>
-                                        <Field label="Your Email" required error={errors.email}>
+                                        <Field label="Tu Email" required error={errors.email}>
                                             <input
                                                 type="email"
                                                 name="email"
                                                 value={form.email}
                                                 onChange={handleChange}
-                                                placeholder="you@company.com"
+                                                placeholder="tu@empresa.com"
                                                 className={`${inputClass} ${errors.email ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
                                             />
                                         </Field>
                                     </div>
 
                                     {/* Phone */}
-                                    <Field label="Phone Number" required error={errors.phone}>
+                                    <Field label="Número de Teléfono" required error={errors.phone}>
                                         <input
                                             type="tel"
                                             name="phone"
@@ -411,19 +412,19 @@ export default function CustomBags() {
                                     </Field> */}
 
                                     {/* Message */}
-                                    <Field label="Your Message" required error={errors.message}>
+                                    <Field label="Tu Mensaje" required error={errors.message}>
                                         <textarea
                                             name="message"
                                             value={form.message}
                                             onChange={handleChange}
                                             rows={5}
-                                            placeholder="Describe your requirements: dimensions, load capacity, material, quantity, delivery location..."
+                                            placeholder="Describe tus necesidades: dimensiones, capacidad de carga, material, cantidad, lugar de entrega..."
                                             className={`${inputClass} resize-none ${errors.message ? "border-red-300 focus:border-red-400 focus:ring-red-100" : ""}`}
                                         />
                                     </Field>
 
                                     {/* Attachment */}
-                                    <Field label="Your Attachment">
+                                    <Field label="Tu Archivo Adjunto">
                                         <label className="flex items-center gap-3 px-4 py-3 rounded-xl border border-dashed border-stone-300 bg-stone-50 cursor-pointer hover:border-primary-300 hover:bg-primary-50 transition-all duration-200 group">
                                             <div className="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-stone-400 group-hover:text-primary-500 group-hover:border-primary-200 transition-colors">
                                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -432,9 +433,9 @@ export default function CustomBags() {
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="font-sans text-sm text-stone-500 truncate">
-                                                    {form.attachment ? form.attachment.name : "Click to attach a file"}
+                                                    {form.attachment ? form.attachment.name : "Haz clic para adjuntar un archivo"}
                                                 </p>
-                                                <p className="font-sans text-xs text-stone-400">PDF, PNG, JPG, DXF up to 10MB</p>
+                                                <p className="font-sans text-xs text-stone-400">PDF, PNG, JPG, DXF hasta 10MB</p>
                                             </div>
                                             <input
                                                 type="file"
@@ -462,7 +463,7 @@ export default function CustomBags() {
                                             )}
                                         </div>
                                         <span className="font-sans text-xs text-stone-400 leading-relaxed">
-                                            I agree to receive marketing communications, special offers, and updates from Novasac.
+                                            Acepto recibir comunicaciones comerciales, ofertas especiales y novedades de Novasac.
                                         </span>
                                     </label>
 
@@ -477,11 +478,11 @@ export default function CustomBags() {
                                                 <svg className="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                     <path d="M21 12a9 9 0 11-6.219-8.56" />
                                                 </svg>
-                                                Sending request...
+                                                Enviando solicitud...
                                             </>
                                         ) : (
                                             <>
-                                                Send Request
+                                                Enviar Solicitud
                                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                                 </svg>
@@ -512,12 +513,12 @@ export default function CustomBags() {
                                     </svg>
                                 </div>
                                 <h3 className="font-mono text-lg font-light text-stone-900 mb-2">
-                                    Bags with your logo?
+                                    ¿Bolsas con tu logo?
                                 </h3>
                                 <p className="font-sans text-sm font-light text-stone-500 leading-relaxed">
-                                    If you are interested in having your logo printed on the bulk
-                                    bags, you can opt for a custom-made bag printed with your logo,
-                                    or choose from our standard range and have your logo added.
+                                    Si te interesa imprimir tu logo en los big bags, puedes optar
+                                    por una bolsa personalizada con tu logo impreso, o elegir de
+                                    nuestra gama estándar y añadir tu logo.
                                 </p>
                                 {/* <a
                                     href="/bags-with-logo"
@@ -564,14 +565,14 @@ export default function CustomBags() {
                                 viewport={{ once: true, amount: 0.2 }}
                             >
                                 <h3 className="font-mono text-lg font-light text-stone-900 mb-5">
-                                    How it works
+                                    Cómo Funciona
                                 </h3>
                                 <ol className="space-y-5">
                                     {[
-                                        { step: "01", title: "Fill in the form", desc: "Submit your requirements and specifications." },
-                                        { step: "02", title: "We review your request", desc: "Our team reviews your needs and prepares an offer." },
-                                        { step: "03", title: "Receive your quote", desc: "We contact you with a competitive custom quote." },
-                                        { step: "04", title: "Production & delivery", desc: "Your bags are produced and delivered to your door." },
+                                        { step: "01", title: "Rellena el formulario", desc: "Envíanos tus necesidades y especificaciones." },
+                                        { step: "02", title: "Revisamos tu solicitud", desc: "Nuestro equipo revisa tus necesidades y prepara una oferta." },
+                                        { step: "03", title: "Recibe tu presupuesto", desc: "Nos ponemos en contacto contigo con un presupuesto personalizado y competitivo." },
+                                        { step: "04", title: "Producción y entrega", desc: "Tus bolsas se fabrican y se entregan en tu puerta." },
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-4">
                                             <span className="font-mono text-xs text-primary-500 shrink-0 mt-0.5 w-6">
@@ -595,15 +596,15 @@ export default function CustomBags() {
                                 whileInView="show"
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <p className="font-sans text-xs text-stone-400 mb-1">Need help first?</p>
+                                <p className="font-sans text-xs text-stone-400 mb-1">¿Necesitas ayuda antes?</p>
                                 <h3 className="font-mono text-lg font-light text-white mb-3">
-                                    Talk to our team
+                                    Habla con nuestro equipo
                                 </h3>
                                 <Link
                                     href="/contact"
                                     className="font-sans inline-block text-xs px-6 py-2.5 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors duration-200"
                                 >
-                                    Contact us
+                                    Contáctanos
                                 </Link>
                             </motion.div>
 
@@ -631,5 +632,3 @@ export default function CustomBags() {
         </main>
     );
 }
-
-
