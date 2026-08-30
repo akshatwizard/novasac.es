@@ -41,14 +41,14 @@ export default function Testimonials() {
             <Wrapper>
                 <div className='w-full text-center mb-2'>
                     <Heading className='text-primary-500'>
-                        Testimonials
+                        Opiniones de Nuestros Clientes
                     </Heading>
                 </div>
 
                 {error ? (
-                    <InlineMessage message="Unable to load testimonials right now." />
+                    <InlineMessage message="No hemos podido cargar las opiniones en este momento." />
                 ) : !isLoading && !data?.length ? (
-                    <InlineMessage message="No testimonials yet." />
+                    <InlineMessage message="Todavía no hay opiniones." />
                 ) : (
                     <div className='relative'>
                         <SliderWrapper
