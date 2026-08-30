@@ -41,7 +41,7 @@ export default function DesktopHeader() {
           {
             (isFetching || isLoading) && (
               ["Bolsa Grande", "Bolsas Pequeñas", "Bolsas de Amianto", "Bolsas de Jardín/Basura"].map((k, i) => (
-                <button key={i} disabled className="px-1.5 text-sm font-medium text-primary-500 flex items-center gap-1.5" >
+                <button key={i} disabled className="px-1.5 text-[13px] font-medium text-primary-500 flex items-center gap-1.5 whitespace-nowrap shrink-0" >
                   {k}
                   <ChevronDown
                     size={12}
@@ -58,12 +58,12 @@ export default function DesktopHeader() {
               return (
                 <div
                   key={key}
-                  className='h-full relative px-1.5 group flex items-center text-sm font-medium text-primary-500'
+                  className='h-full relative px-1.5 group flex items-center text-[13px] font-medium text-primary-500 shrink-0'
                   onMouseEnter={() => setActive(key)}
                   onMouseLeave={() => setActive(null)}
                 >
 
-                  <Link href={`/category/${item.category_slug}`} className="cursor-pointer flex items-center gap-1.5 h-full">
+                  <Link href={`/category/${item.category_slug}`} className="cursor-pointer flex items-center gap-1.5 h-full whitespace-nowrap">
                     {item.title}
                     <ChevronDown
                       size={12}
@@ -85,7 +85,7 @@ export default function DesktopHeader() {
                           <Link
                             key={j}
                             href={`/category/${item.category_slug}/${sub.slug}/${attr.slug}` || "#"}
-                            className="px-4 py-2 flex items-center gap-1.5 hover:text-primary-500 transition-colors duration-300 text-zinc-600 text-sm group/sub hover:bg-primary-50"
+                            className="px-4 py-2 flex items-center gap-1.5 hover:text-primary-500 transition-colors duration-300 text-zinc-600 text-sm group/sub hover:bg-primary-50 whitespace-nowrap"
                           >
                             <ChevronRight
                               size={10}
@@ -122,13 +122,13 @@ export default function DesktopHeader() {
               return (
                 <div
                   key={items.name}
-                  className={`${idx === MenuItems.length - 1 ? "ml-auto" : ""} h-full relative px-1.5 group flex items-center text-sm font-medium text-primary-500`}
+                  className={`${idx === MenuItems.length - 1 ? "ml-auto" : ""} h-full relative px-1.5 group flex items-center text-[13px] font-medium text-primary-500 shrink-0`}
                   onMouseEnter={() => setActive(key)}
                   onMouseLeave={() => setActive(null)}
                 >
                   <Link
                     href={items.path}
-                    className='h-full flex items-center gap-1.5'
+                    className='h-full flex items-center gap-1.5 whitespace-nowrap'
                   >
                     {/* {idx === MenuItems.length - 1 && <Sprout size={16} />} */}
                     {items.name}
@@ -151,7 +151,7 @@ export default function DesktopHeader() {
           }
 
           <Link href={"/novasac-recycling"}
-            className="relative hidden md:flex items-center justify-center w-10 h-10 ">
+            className="relative hidden md:flex items-center justify-center w-10 h-10 shrink-0">
             {/* <Recycle className="text-white" size={28} strokeWidth={1} fill='white' /> */}
             <Image
               src="/images/recycle.png"
