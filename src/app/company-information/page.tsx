@@ -140,7 +140,7 @@ export default function LegalInformation() {
                                     <p className="font-sans text-sm text-stone-500">Avda. Puerto de Sagunto, 8</p>
                                     <p className="font-sans text-sm text-stone-500">46190 – Ribarroja del Turia, Spain</p>
                                 </address>
-                                
+                                <a 
                                     href="https://maps.google.com/?q=Avda.+Puerto+de+Sagunto+8,+46190+Ribarroja+del+Turia,+Spain"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -167,7 +167,7 @@ export default function LegalInformation() {
                                         con terceros sin tu consentimiento.
                                     </p>
                                     <div className="flex flex-col gap-3">
-                                        
+                                        <a 
                                             href="/privacy-policy"
                                             className="inline-flex items-center justify-between gap-3 px-5 py-3 rounded-xl border border-primary-200 bg-primary-50 text-primary-700 hover:bg-primary-100 transition-colors duration-200 group"
                                         >
@@ -176,7 +176,7 @@ export default function LegalInformation() {
                                                 <path d="M5 12h14M12 5l7 7-7 7" />
                                             </svg>
                                         </a>
-                                        
+                                        <a 
                                             href="/terms-and-conditions"
                                             className="inline-flex items-center justify-between gap-3 px-5 py-3 rounded-xl border border-stone-200 bg-white text-stone-600 hover:border-primary-200 hover:text-primary-700 transition-colors duration-200 group"
                                         >
@@ -225,7 +225,7 @@ export default function LegalInformation() {
                                     Nuestro equipo está disponible de lunes a viernes, de 08:30 a 17:30.
                                 </p>
                             </div>
-                            
+                            <a 
                                 href="/contact"
                                 className="font-sans shrink-0 text-sm px-8 py-3 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors duration-300"
                             >
