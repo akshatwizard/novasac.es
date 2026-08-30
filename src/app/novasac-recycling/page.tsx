@@ -27,64 +27,64 @@ import Link from 'next/link';
 const heroStats = [
     {
         value: "100%",
-        label: "Recycling Focus",
+        label: "Enfoque en el Reciclaje",
         icon: Recycle,
     },
     {
         value: "40+",
-        label: "Years Experience",
+        label: "Años de Experiencia",
         icon: Factory,
     },
     {
         value: "EU",
-        label: "Collection Support",
+        label: "Soporte de Recogida",
         icon: Truck,
     },
     {
         value: "Eco",
-        label: "Sustainable Disposal",
+        label: "Eliminación Sostenible",
         icon: Leaf,
     },
 ];
 
 const trustItems = [
-    "Polypropylene Bag Recovery",
-    "Industrial Recycling Support",
-    "Sustainable Waste Solutions",
-    "Responsible Disposal",
+    "Recuperación de Bolsas de Polipropileno",
+    "Apoyo al Reciclaje Industrial",
+    "Soluciones Sostenibles de Residuos",
+    "Eliminación Responsable",
 ];
 
 const industries = [
     {
-        title: "Agriculture",
+        title: "Agricultura",
         icon: Wheat,
     },
     {
-        title: "Construction",
+        title: "Construcción",
         icon: Building2,
     },
     {
-        title: "Food Production",
+        title: "Producción Alimentaria",
         icon: Package,
     },
     {
-        title: "Chemical Industry",
+        title: "Industria Química",
         icon: FlaskConical,
     },
     {
-        title: "Mining",
+        title: "Minería",
         icon: Pickaxe,
     },
     {
-        title: "Logistics",
+        title: "Logística",
         icon: Truck,
     },
     {
-        title: "Manufacturing",
+        title: "Fabricación",
         icon: Factory,
     },
     {
-        title: "Recycling",
+        title: "Reciclaje",
         icon: Recycle,
     },
 ];
@@ -92,57 +92,57 @@ const industries = [
 const steps = [
     {
         step: "01",
-        title: "You Have Old FIBC Bags",
+        title: "Tienes Bolsas FIBC Usadas",
         description:
-            "Used woven polypropylene bags that are no longer required.",
+            "Bolsas tejidas de polipropileno usadas que ya no necesitas.",
         icon: Archive,
     },
     {
         step: "02",
-        title: "Contact Novasac",
+        title: "Contacta con Novasac",
         description:
-            "Our team will discuss collection options and requirements.",
+            "Nuestro equipo hablará contigo sobre las opciones y necesidades de recogida.",
         icon: PhoneCall,
     },
     {
         step: "03",
-        title: "Send The Bags",
+        title: "Envía las Bolsas",
         description:
-            "Arrange collection or delivery through an agreed process.",
+            "Organiza la recogida o entrega mediante un proceso acordado.",
         icon: Truck,
     },
     {
         step: "04",
-        title: "We Recycle & Recover",
+        title: "Reciclamos y Recuperamos",
         description:
-            "The materials are diverted from landfill and responsibly processed.",
+            "Los materiales se desvían del vertedero y se procesan de forma responsable.",
         icon: Recycle,
     },
 ];
 
 const benefits = [
     {
-        title: "Sustainable Recovery",
+        title: "Recuperación Sostenible",
         description:
-            "Reduce landfill waste and support responsible recycling initiatives.",
+            "Reduce los residuos en vertederos y apoya iniciativas responsables de reciclaje.",
         icon: Leaf,
     },
     {
-        title: "Industry Expertise",
+        title: "Experiencia en el Sector",
         description:
-            "Decades of experience in industrial packaging and material handling.",
+            "Décadas de experiencia en embalaje industrial y manejo de materiales.",
         icon: Factory,
     },
     {
-        title: "Trusted Partner",
+        title: "Socio de Confianza",
         description:
-            "Work with a recognised packaging company that understands your needs.",
+            "Trabaja con una empresa de embalaje reconocida que entiende tus necesidades.",
         icon: ShieldCheck,
     },
     {
-        title: "Simple Collection Process",
+        title: "Proceso de Recogida Sencillo",
         description:
-            "Easy communication and straightforward collection arrangements.",
+            "Comunicación fácil y gestiones de recogida sin complicaciones.",
         icon: BadgeCheck,
     },
 ];
@@ -150,19 +150,19 @@ const benefits = [
 const stats = [
     {
         value: "40+",
-        label: "Years Experience",
+        label: "Años de Experiencia",
     },
     {
         value: "1000+",
-        label: "Businesses Served",
+        label: "Empresas Atendidas",
     },
     {
         value: "EU",
-        label: "Packaging Expertise",
+        label: "Experiencia en Embalaje",
     },
     {
         value: "Eco",
-        label: "Sustainable Solutions",
+        label: "Soluciones Sostenibles",
     },
 ];
 
@@ -188,31 +188,30 @@ export default function Recycling() {
                                 <span className="h-2 w-2 rounded-full bg-forest-500 animate-pulse" />
 
                                 <span className="text-forest-500 text-xs font-semibold uppercase tracking-widest">
-                                    FIBC Bag Recycling Initiative · Valencia
+                                    Iniciativa de Reciclaje de Bolsas FIBC · Valencia
                                 </span>
                             </div>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-                                Can't dispose your
+                                ¿No sabes qué hacer con tus
                                 <br />
                                 <strong className="text-forest-500">
-                                    old FIBC bags? <br />
+                                    bolsas FIBC usadas? <br />
                                 </strong>
-                                Give them to us.
+                                Dánoslas a nosotros.
                             </h1>
 
                             <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-xl">
-                                Don't send used woven polypropylene bags to landfill.
-                                Novasac helps businesses responsibly recover,
-                                recycle, and repurpose old FIBC bags through
-                                a dedicated collection initiative.
+                                No mandes tus bolsas de polipropileno tejido usadas al
+                                vertedero. Novasac ayuda a las empresas a recuperar,
+                                reciclar y reutilizar de forma responsable las bolsas FIBC
+                                usadas a través de una iniciativa de recogida dedicada.
                             </p>
 
                             <p className="text-slate-300 text-xs md:text-sm leading-relaxed max-w-xl">
-                                Whether you're in agriculture, construction,
-                                chemicals, food production, or industrial packaging,
-                                we provide a simple and sustainable route for
-                                disposing of used bags responsibly.
+                                Ya trabajes en agricultura, construcción, química, producción
+                                alimentaria o embalaje industrial, te ofrecemos una vía sencilla
+                                y sostenible para eliminar tus bolsas usadas de forma responsable.
                             </p>
 
                             <div className="flex flex-wrap gap-3 pt-2">
@@ -220,7 +219,7 @@ export default function Recycling() {
                                     href="/contact"
                                     className="inline-flex items-center gap-2 bg-forest-500 hover:bg-forest-600 transition-colors text-white font-semibold px-6 py-3 rounded-full text-sm"
                                 >
-                                    Contact Us
+                                    Contáctanos
 
                                     <ArrowRight className="w-4 h-4" />
                                 </Link>
@@ -229,7 +228,7 @@ export default function Recycling() {
                                     href="#how"
                                     className="inline-flex items-center gap-2 border border-white/20 hover:border-forest-500 hover:text-forest-500 transition-colors text-slate-300 font-medium px-6 py-3 rounded-full text-sm backdrop-blur-sm"
                                 >
-                                    How It Works
+                                    Cómo Funciona
                                 </Link>
                             </div>
                         </div>
@@ -291,7 +290,7 @@ export default function Recycling() {
                         <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-soft">
                             <Image
                                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600"
-                                alt="Recycling"
+                                alt="Reciclaje"
                                 fill
                                 className="object-cover"
                             />
@@ -301,22 +300,23 @@ export default function Recycling() {
 
                         <div>
                             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-forest-600">
-                                Who Is This For
+                                Para Quién Es Esto
                             </span>
 
                             <h2 className="mt-4 text-4xl font-bold text-forest-500">
-                                Businesses Looking For A Sustainable Disposal Solution
+                                Empresas Que Buscan Una Solución Sostenible de Eliminación
                             </h2>
 
                             <p className="mt-6 text-content-muted leading-relaxed">
-                                We work with companies across multiple industries that
-                                regularly use woven polypropylene and FIBC bags.
+                                Trabajamos con empresas de múltiples sectores que utilizan
+                                habitualmente bolsas de polipropileno tejido y bolsas FIBC.
                             </p>
 
                             <p className="mt-4 text-content-muted leading-relaxed">
-                                Instead of sending used bags to landfill, Novasac helps
-                                businesses recover and recycle packaging materials through
-                                a simple collection and recycling initiative.
+                                En lugar de mandar las bolsas usadas al vertedero, Novasac
+                                ayuda a las empresas a recuperar y reciclar materiales de
+                                embalaje mediante una sencilla iniciativa de recogida y
+                                reciclaje.
                             </p>
 
                             <div className="grid grid-cols-2 gap-3 mt-8">
@@ -349,17 +349,17 @@ export default function Recycling() {
                 <Wrapper>
                     <div className="max-w-3xl">
                         <span className="text-xs font-semibold tracking-[0.2em] uppercase text-forest-600">
-                            How It Works
+                            Cómo Funciona
                         </span>
 
                         <h2 className="mt-4 text-4xl font-bold text-forest-500">
-                            A Simple Four-Step Recycling Process
+                            Un Sencillo Proceso de Reciclaje en Cuatro Pasos
                         </h2>
 
                         <p className="mt-5 text-content-muted leading-relaxed">
-                            Getting rid of old FIBC bags shouldn't be complicated.
-                            We've designed a straightforward process that helps businesses
-                            dispose of packaging responsibly.
+                            Deshacerte de tus bolsas FIBC usadas no tiene por qué ser
+                            complicado. Hemos diseñado un proceso sencillo que ayuda a
+                            las empresas a eliminar el embalaje de forma responsable.
                         </p>
                     </div>
 
@@ -379,7 +379,7 @@ export default function Recycling() {
                                     )}
 
                                     <span className="text-xs font-bold tracking-widest uppercase text-forest-500">
-                                        Step {item.step}
+                                        Paso {item.step}
                                     </span>
 
                                     <Icon className="w-10 h-10 text-forest-500 mt-5" />
@@ -406,17 +406,17 @@ export default function Recycling() {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-forest-500">
-                                Why Novasac
+                                Por Qué Novasac
                             </span>
 
                             <h2 className="mt-4 text-4xl font-bold text-forest-500">
-                                A Responsible Partner For FIBC Bag Recovery
+                                Un Socio Responsable Para la Recuperación de Bolsas FIBC
                             </h2>
 
                             <p className="mt-6 text-content-muted leading-relaxed">
-                                We combine decades of packaging expertise with a commitment
-                                to sustainability, helping businesses find practical
-                                alternatives to landfill disposal.
+                                Combinamos décadas de experiencia en embalaje con un
+                                compromiso con la sostenibilidad, ayudando a las empresas
+                                a encontrar alternativas prácticas al vertedero.
                             </p>
 
                             <div className="mt-10 space-y-4">
@@ -450,7 +450,7 @@ export default function Recycling() {
                         <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-soft">
                             <Image
                                 src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600"
-                                alt="Sustainability"
+                                alt="Sostenibilidad"
                                 fill
                                 className="object-cover"
                             />
@@ -467,24 +467,24 @@ export default function Recycling() {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white">
-                                About Novasac
+                                Sobre Novasac
                             </span>
 
                             <h2 className="mt-4 text-4xl lg:text-5xl font-bold text-white">
-                                Decades Of Packaging Experience
+                                Décadas de Experiencia en Embalaje
                             </h2>
 
                             <p className="mt-6 text-white leading-relaxed">
-                                Novasac has been serving industrial and commercial
-                                packaging markets for decades, helping businesses
-                                across Europe source reliable woven polypropylene
-                                packaging solutions.
+                                Novasac lleva décadas dando servicio a los mercados de
+                                embalaje industrial y comercial, ayudando a empresas de
+                                toda Europa a conseguir soluciones fiables de embalaje
+                                en polipropileno tejido.
                             </p>
 
                             <p className="mt-4 text-white leading-relaxed">
-                                Through this recycling initiative, we help companies
-                                divert used FIBC bags away from landfill and into
-                                more responsible recovery channels.
+                                A través de esta iniciativa de reciclaje, ayudamos a las
+                                empresas a desviar sus bolsas FIBC usadas del vertedero
+                                hacia canales de recuperación más responsables.
                             </p>
 
                             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10 border border-white/20 mt-10">
@@ -519,8 +519,8 @@ export default function Recycling() {
                             </div>
 
                             <blockquote className="text-center text-white italic leading-relaxed max-w-lg">
-                                “Helping businesses move towards more sustainable
-                                packaging recovery and recycling solutions.”
+                                “Ayudamos a las empresas a avanzar hacia soluciones más
+                                sostenibles de recuperación y reciclaje de embalaje.”
                             </blockquote>
                         </div>
                     </div>
@@ -532,16 +532,17 @@ export default function Recycling() {
                 <Wrapper className="py-20">
                     <div className="text-center max-w-4xl mx-auto">
                         <span className="text-xs font-semibold tracking-[0.2em] uppercase text-forest-light">
-                            Get Started
+                            Empieza Ahora
                         </span>
 
                         <h2 className="mt-4 text-4xl lg:text-5xl font-bold text-white">
-                            Ready To Recycle Your Old FIBC Bags?
+                            ¿Listo Para Reciclar tus Bolsas FIBC Usadas?
                         </h2>
 
                         <p className="mt-6 text-white/80 leading-relaxed max-w-2xl mx-auto">
-                            Contact our team today to discuss collection options,
-                            recycling support, and sustainable disposal solutions.
+                            Contacta hoy mismo con nuestro equipo para hablar sobre las
+                            opciones de recogida, el apoyo al reciclaje y las soluciones
+                            de eliminación sostenible.
                         </p>
 
                         <div className="flex flex-wrap justify-center gap-4 mt-10">
@@ -558,7 +559,7 @@ export default function Recycling() {
                   transition-colors
                 "
                             >
-                                Contact Our Team
+                                Contacta con Nuestro Equipo
 
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
@@ -577,7 +578,7 @@ export default function Recycling() {
                   transition-colors
                 "
                             >
-                                Request Collection Information
+                                Solicita Información de Recogida
                             </Link>
                         </div>
                     </div>
@@ -591,16 +592,16 @@ export default function Recycling() {
                 <Wrapper>
                     <div className="text-center max-w-3xl mx-auto">
                         <span className="text-xs font-semibold tracking-[0.2em] uppercase text-forest-500">
-                            Contact Information
+                            Información de Contacto
                         </span>
 
                         <h2 className="mt-4 text-4xl font-bold text-forest-500">
-                            Let's Talk About Recycling
+                            Hablemos de Reciclaje
                         </h2>
 
                         <p className="mt-5 text-content-muted">
-                            Reach out to our team for collection enquiries,
-                            sustainability initiatives, or packaging support.
+                            Ponte en contacto con nuestro equipo para consultas de
+                            recogida, iniciativas de sostenibilidad o apoyo en embalaje.
                         </p>
                     </div>
 
@@ -632,7 +633,7 @@ export default function Recycling() {
                             </div>
 
                             <p className="mt-6 text-xs uppercase tracking-widest text-content-soft">
-                                Phone
+                                Teléfono
                             </p>
 
                             <Link
@@ -651,11 +652,11 @@ export default function Recycling() {
                             </div>
 
                             <p className="mt-6 text-xs uppercase tracking-widest text-content-soft">
-                                Location
+                                Ubicación
                             </p>
 
                             <p className="mt-2 font-semibold text-content">
-                                Valencia, Spain
+                                Valencia, España
                             </p>
                         </div>
                     </div>
