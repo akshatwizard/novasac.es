@@ -122,7 +122,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setUser(null);
 
         router.push("/");
-        toast.success("Logout Successful...!!");
+        toast.success("¡Sesión cerrada con éxito...!!");
 
         setIsLoggingOut(false);
     };
