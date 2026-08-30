@@ -240,7 +240,7 @@ export default function CookiePolicyPage() {
                                     { browser: "Safari", link: "https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" },
                                     { browser: "Edge", link: "https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" },
                                 ].map((b) => (
-                                    
+                                    <a 
                                         key={b.browser}
                                         href={b.link}
                                         target="_blank"
