@@ -15,7 +15,7 @@ export default function LegalInformation() {
                     className="absolute top-0 right-0 md:w-1/2 w-4/5 h-full overflow-hidden"
                     style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
                 >
-                    <Image src={"/images/hero/company.jpeg"} fill alt="bags-each-clean-up" className="w-full h-full object-cover object-right" />
+                    <Image src={"/images/hero/company.jpeg"} fill alt="bolsas-cada-limpieza" className="w-full h-full object-cover object-right" />
                 </div>
                 <Wrapper className="p-0!">
                     <section className="relative overflow-hidden border-b border-stone-200">
@@ -34,8 +34,8 @@ export default function LegalInformation() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
                             >
-                                Company &amp;<br />
-                                <strong className="text-primary-600">Legal Information</strong>
+                                Empresa e<br />
+                                <strong className="text-primary-600">Información Legal</strong>
                             </motion.h1>
                             <motion.p
                                 className="md:text-base text-sm text-stone-500 max-w-md leading-relaxed"
@@ -43,8 +43,8 @@ export default function LegalInformation() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
                             >
-                                All official company details, registration numbers, bank information,
-                                and legal notices for Novasac Packaging.
+                                Todos los datos oficiales de la empresa, números de registro, información
+                                bancaria y avisos legales de Novasac Packaging.
                             </motion.p>
                         </div>
                     </section>
@@ -57,33 +57,33 @@ export default function LegalInformation() {
                         <div className="grid md:grid-cols-2 gap-5">
 
                             {/* Owner */}
-                            <Card icon={<IconUser />} title="Owner" delay={0}>
+                            <Card icon={<IconUser />} title="Titular" delay={0}>
                                 <InfoTable
                                     rows={[
-                                        { label: "Name", value: "Ms. Laura Sanjuan" },
-                                        { label: "Title", value: "Owner of Novasac Packaging" },
+                                        { label: "Nombre", value: "Ms. Laura Sanjuan" },
+                                        { label: "Cargo", value: "Titular de Novasac Packaging" },
                                     ]}
                                 />
                             </Card>
 
                             {/* Company Details */}
-                            <Card icon={<IconBuilding />} title="Company Details" delay={0.08}>
+                            <Card icon={<IconBuilding />} title="Datos de la Empresa" delay={0.08}>
                                 <InfoTable
                                     rows={[
-                                        { label: "VAT Number", value: "B75357491" },
-                                        { label: "EORI Number", value: "B75357491" },
+                                        { label: "Número de IVA", value: "B75357491" },
+                                        { label: "Número EORI", value: "B75357491" },
                                     ]}
                                 />
                             </Card>
 
                             {/* Registered Address */}
-                            <Card icon={<IconMapPin />} title="Registered Address" delay={0.12}>
+                            <Card icon={<IconMapPin />} title="Domicilio Social" delay={0.12}>
                                 <address className="not-italic space-y-1">
                                     <p className="font-sans text-sm text-stone-700 font-medium">Novasac Packaging</p>
                                     <p className="font-sans text-sm text-stone-500">C/ Pepe Alba 29, 3, 12</p>
                                     <p className="font-sans text-sm text-stone-500">46022 Valencia, Spain</p>
                                 </address>
-                                <a
+                                
                                     href="https://maps.google.com/?q=C/+Pepe+Alba+29,+46022+Valencia,+Spain"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -92,55 +92,55 @@ export default function LegalInformation() {
                                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
                                     </svg>
-                                    View on map
+                                    Ver en el mapa
                                 </a>
                             </Card>
 
                             {/* Bank Details */}
-                            <Card icon={<IconBank />} title="Bank Details" delay={0.16}>
+                            <Card icon={<IconBank />} title="Datos Bancarios" delay={0.16}>
                                 <InfoTable
                                     rows={[
-                                        { label: "Bank", value: "Banco Sabadell" },
+                                        { label: "Banco", value: "Banco Sabadell" },
                                         { label: "IBAN", value: "ES29 0081 0145 0500 0459 8168" },
                                     ]}
                                 />
                                 <div className="mt-5 p-3 bg-primary-50 border border-primary-100 rounded-xl">
                                     <p className="font-sans text-xs text-primary-600 leading-relaxed">
-                                        Please use your order number as payment reference when making a bank transfer.
+                                        Por favor, utiliza el número de tu pedido como referencia de pago al realizar una transferencia bancaria.
                                     </p>
                                 </div>
                             </Card>
 
                             {/* Office Hours */}
-                            <Card icon={<IconClock />} title="Office Hours" delay={0.2}>
+                            <Card icon={<IconClock />} title="Horario de Oficina" delay={0.2}>
                                 <div className="flex items-start gap-4">
                                     <div className="flex-1">
-                                        <p className="font-sans text-xs uppercase tracking-widest text-stone-400 mb-1">Mon – Fri</p>
+                                        <p className="font-sans text-xs uppercase tracking-widest text-stone-400 mb-1">Lun – Vie</p>
                                         <p className="font-mono text-2xl font-light text-stone-900">08:30 – 17:30</p>
                                     </div>
                                     <div className="w-px h-12 bg-stone-100 self-center" />
                                     <div className="flex-1">
-                                        <p className="font-sans text-xs uppercase tracking-widest text-stone-400 mb-1">Weekend</p>
-                                        <p className="font-mono text-2xl font-light text-stone-400">Closed</p>
+                                        <p className="font-sans text-xs uppercase tracking-widest text-stone-400 mb-1">Fin de Semana</p>
+                                        <p className="font-mono text-2xl font-light text-stone-400">Cerrado</p>
                                     </div>
                                 </div>
                                 <p className="font-sans text-xs text-stone-400 leading-relaxed mt-5">
-                                    We are also available outside office hours via our{" "}
+                                    También estamos disponibles fuera del horario de oficina a través de nuestro{" "}
                                     <a href="/contact" className="text-primary-600 hover:underline">
-                                        chat and contact form
+                                        chat y formulario de contacto
                                     </a>
                                     .
                                 </p>
                             </Card>
 
                             {/* Warehouse Address */}
-                            <Card icon={<IconWarehouse />} title="Warehouse Address" delay={0.24}>
+                            <Card icon={<IconWarehouse />} title="Dirección del Almacén" delay={0.24}>
                                 <address className="not-italic space-y-1">
                                     <p className="font-sans text-sm text-stone-700 font-medium">Parque Logístico de Valencia</p>
                                     <p className="font-sans text-sm text-stone-500">Avda. Puerto de Sagunto, 8</p>
                                     <p className="font-sans text-sm text-stone-500">46190 – Ribarroja del Turia, Spain</p>
                                 </address>
-                                <a
+                                
                                     href="https://maps.google.com/?q=Avda.+Puerto+de+Sagunto+8,+46190+Ribarroja+del+Turia,+Spain"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -149,7 +149,7 @@ export default function LegalInformation() {
                                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
                                     </svg>
-                                    View on map
+                                    Ver en el mapa
                                 </a>
                             </Card>
 
@@ -159,28 +159,28 @@ export default function LegalInformation() {
                         <div className="mt-5 grid gap-5">
 
                             {/* Data Protection */}
-                            <Card icon={<IconShield />} title="Data Protection" delay={0.28}>
+                            <Card icon={<IconShield />} title="Protección de Datos" delay={0.28}>
                                 <div className="grid md:grid-cols-2 gap-6 items-start">
                                     <p className="md:text-base text-sm text-stone-500 leading-relaxed">
-                                        Your personal information and privacy are very important to us. At Novasac,
-                                        we handle your data with the highest level of professionalism and never share
-                                        it with third parties without your consent.
+                                        Tu información personal y tu privacidad son muy importantes para nosotros. En Novasac,
+                                        tratamos tus datos con el máximo nivel de profesionalidad y nunca los compartimos
+                                        con terceros sin tu consentimiento.
                                     </p>
                                     <div className="flex flex-col gap-3">
-                                        <a
+                                        
                                             href="/privacy-policy"
                                             className="inline-flex items-center justify-between gap-3 px-5 py-3 rounded-xl border border-primary-200 bg-primary-50 text-primary-700 hover:bg-primary-100 transition-colors duration-200 group"
                                         >
-                                            <span className="font-sans text-sm">Privacy Policy</span>
+                                            <span className="font-sans text-sm">Política de Privacidad</span>
                                             <svg className="group-hover:translate-x-0.5 transition-transform" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                 <path d="M5 12h14M12 5l7 7-7 7" />
                                             </svg>
                                         </a>
-                                        <a
+                                        
                                             href="/terms-and-conditions"
                                             className="inline-flex items-center justify-between gap-3 px-5 py-3 rounded-xl border border-stone-200 bg-white text-stone-600 hover:border-primary-200 hover:text-primary-700 transition-colors duration-200 group"
                                         >
-                                            <span className="font-sans text-sm">Terms &amp; Conditions</span>
+                                            <span className="font-sans text-sm">Términos y Condiciones</span>
                                             <svg className="group-hover:translate-x-0.5 transition-transform" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                 <path d="M5 12h14M12 5l7 7-7 7" />
                                             </svg>
@@ -190,20 +190,20 @@ export default function LegalInformation() {
                             </Card>
 
                             {/* Liability */}
-                            <Card icon={<IconScale />} title="Liability" delay={0.32}>
+                            <Card icon={<IconScale />} title="Responsabilidad" delay={0.32}>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <p className="md:text-base text-sm text-stone-500 leading-relaxed">
-                                        Novasac continually updates the content of this website. However, we cannot
-                                        guarantee the accuracy or completeness of all information at all times.
-                                        All text, images, design, and other content on this website are the property
-                                        of Novasac Packaging and may not be copied or distributed without prior
-                                        written permission.
+                                        Novasac actualiza continuamente el contenido de este sitio web. Sin embargo, no
+                                        podemos garantizar la exactitud o integridad de toda la información en todo momento.
+                                        Todos los textos, imágenes, diseño y demás contenido de este sitio web son propiedad
+                                        de Novasac Packaging y no pueden copiarse ni distribuirse sin autorización previa
+                                        por escrito.
                                     </p>
                                     <p className="md:text-base text-sm text-stone-500 leading-relaxed">
-                                        Novasac is not liable for any damages arising from the use of information
-                                        published on this website. For more information, please refer to our{" "}
+                                        Novasac no se hace responsable de los daños derivados del uso de la información
+                                        publicada en este sitio web. Para más información, consulta nuestros{" "}
                                         <a href="/terms-and-conditions" className="text-primary-600 hover:underline">
-                                            General Terms &amp; Conditions
+                                            Términos y Condiciones Generales
                                         </a>
                                         .
                                     </p>
@@ -220,16 +220,16 @@ export default function LegalInformation() {
                     <section className="border-t border-stone-200 bg-white">
                         <div className="py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
                             <div>
-                                <p className="font-mono text-lg font-light text-stone-900">Have a question?</p>
+                                <p className="font-mono text-lg font-light text-stone-900">¿Tienes alguna pregunta?</p>
                                 <p className="font-sans text-sm text-stone-400 mt-1">
-                                    Our team is available Monday to Friday, 08:30 – 17:30.
+                                    Nuestro equipo está disponible de lunes a viernes, de 08:30 a 17:30.
                                 </p>
                             </div>
-                            <a
+                            
                                 href="/contact"
                                 className="font-sans shrink-0 text-sm px-8 py-3 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors duration-300"
                             >
-                                Contact us
+                                Contáctanos
                             </a>
                         </div>
                     </section>
