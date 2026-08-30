@@ -5,58 +5,58 @@ import Link from "next/link";
 const sections = [
     {
         id: "identification",
-        title: "1. Identification",
+        title: "1. Identificación",
         content: null,
         list: [
-            { label: "Legal Name", value: "NOVASAC PACKAGING SL." },
-            { label: "Trade Name", value: "NOVASAC" },
-            { label: "Tax ID (NIF)", value: "B75357491" },
-            { label: "Registered Address", value: "C/Pepe Alba 29, pta 12, 46022 Valencia, Spain" },
-            { label: "Phone", value: "961 070 274" },
+            { label: "Razón Social", value: "NOVASAC PACKAGING SL." },
+            { label: "Nombre Comercial", value: "NOVASAC" },
+            { label: "NIF", value: "B75357491" },
+            { label: "Domicilio Social", value: "C/Pepe Alba 29, pta 12, 46022 Valencia, Spain" },
+            { label: "Teléfono", value: "961 070 274" },
             { label: "Email", value: "laura.sanjuan@novasac.es" },
-            { label: "Authorized Representative", value: "Laura Sanjuan" },
+            { label: "Representante Autorizado", value: "Laura Sanjuan" },
         ],
     },
     {
         id: "purpose",
-        title: "2. Purpose",
+        title: "2. Objeto",
         content:
-            "This website has been designed to present the products and services offered by NOVASAC PACKAGING SL, whose principal activity is the sale and distribution of sacks and burlap bags. This legal notice governs access to and use of this website, as well as any liability arising from its use.",
+            "Este sitio web ha sido diseñado para presentar los productos y servicios ofrecidos por NOVASAC PACKAGING SL, cuya actividad principal es la venta y distribución de sacos y bolsas de arpillera. Este aviso legal regula el acceso y el uso de este sitio web, así como la responsabilidad derivada de su utilización.",
         list: null,
     },
     {
         id: "intellectual-property",
-        title: "3. Intellectual & Industrial Property",
+        title: "3. Propiedad Intelectual e Industrial",
         content:
-            "NOVASAC PACKAGING SL holds all intellectual and industrial property rights to its website and all elements contained therein — including, but not limited to, images, audio, video, software, text, trademarks, logos, color combinations, structure and design. All rights reserved. Any unauthorized use without prior consent from NOVASAC PACKAGING SL shall be deemed a serious infringement of the author's intellectual or industrial property rights.",
+            "NOVASAC PACKAGING SL es titular de todos los derechos de propiedad intelectual e industrial de su sitio web y de todos los elementos contenidos en él —incluyendo, entre otros, imágenes, audio, vídeo, software, textos, marcas, logotipos, combinaciones de colores, estructura y diseño. Todos los derechos reservados. Cualquier uso no autorizado sin el consentimiento previo de NOVASAC PACKAGING SL se considerará una infracción grave de los derechos de propiedad intelectual o industrial de su autor.",
         list: null,
     },
     {
         id: "disclaimer",
-        title: "4. Disclaimer of Warranties & Liability",
+        title: "4. Exención de Garantías y Responsabilidad",
         content:
-            "NOVASAC PACKAGING SL shall not be liable, under any circumstances, for damages of any nature arising from — without limitation — errors or omissions in content, lack of availability of the portal, or the transmission of viruses or malicious programs, despite having adopted all necessary technological measures to prevent such occurrences.",
+            "NOVASAC PACKAGING SL no será responsable, en ningún caso, de los daños de cualquier naturaleza derivados de —entre otros— errores u omisiones en el contenido, la falta de disponibilidad del portal o la transmisión de virus o programas maliciosos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitar que esto ocurra.",
         list: null,
     },
     {
         id: "modifications",
-        title: "5. Modifications",
+        title: "5. Modificaciones",
         content:
-            "NOVASAC PACKAGING SL reserves the right to make, without prior notice, any modifications it deems appropriate to its website, including changes, removal, or additions to the content and services provided, as well as the manner in which they are presented or located.",
+            "NOVASAC PACKAGING SL se reserva el derecho a realizar, sin previo aviso, las modificaciones que considere oportunas en su sitio web, incluyendo cambios, eliminación o adición de contenidos y servicios prestados, así como la forma en que se presentan o se ubican.",
         list: null,
     },
     {
         id: "website-use",
-        title: "6. Use of the Website",
+        title: "6. Uso del Sitio Web",
         content:
-            "By using our website, you agree to be bound by these terms and conditions. If you do not agree, please refrain from using our site. You agree to use this website solely for lawful purposes and in a manner that does not infringe the rights of, or restrict or inhibit, the use and enjoyment of the site by any third party.",
+            "Al utilizar nuestro sitio web, aceptas quedar sujeto a estos términos y condiciones. Si no estás de acuerdo, te rogamos que no utilices nuestro sitio. Aceptas utilizar este sitio web únicamente para fines lícitos y de una manera que no infrinja los derechos de terceros, ni restrinja o impida su uso y disfrute del sitio.",
         list: null,
     },
     {
         id: "governing-law",
-        title: "7. Governing Law & Jurisdiction",
+        title: "7. Legislación Aplicable y Jurisdicción",
         content:
-            "The relationship between NOVASAC PACKAGING SL and the user shall be governed by the applicable Spanish legislation. Any disputes shall be submitted to the Courts and Tribunals of the city of Valencia, unless applicable law provides otherwise.",
+            "La relación entre NOVASAC PACKAGING SL y el usuario se regirá por la legislación española aplicable. Cualquier controversia se someterá a los Juzgados y Tribunales de la ciudad de Valencia, salvo que la legislación aplicable disponga lo contrario.",
         list: null,
     },
 ];
@@ -79,20 +79,20 @@ export default function TermsAndConditionsPage() {
                     <Wrapper className="lg:py-14 md:py-12 py-10 lg:gap-4 md:gap-3 gap-2">
                         <div className="flex items-center gap-2 text-sm font-medium text-primary-400 uppercase tracking-widest">
                             <span className="inline-block w-6 h-px bg-primary-500" />
-                            Legal Documentation
+                            Documentación Legal
                         </div>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                            Terms &amp;{" "}
-                            <span className="text-primary-500">Conditions</span>
+                            Términos y{" "}
+                            <span className="text-primary-500">Condiciones</span>
                         </h1>
                         <p className="text-gray-400 text-base md:text-lg max-w-2xl">
-                            Please read these terms carefully before using our website or
-                            services. By accessing NOVASAC, you agree to the following
-                            conditions.
+                            Por favor, lee estos términos detenidamente antes de utilizar
+                            nuestro sitio web o nuestros servicios. Al acceder a NOVASAC,
+                            aceptas las siguientes condiciones.
                         </p>
                         <p className="text-gray-500 text-sm">
-                            Last updated:{" "}
-                            <span className="text-gray-300">January 2025</span>
+                            Última actualización:{" "}
+                            <span className="text-gray-300">enero de 2025</span>
                         </p>
                     </Wrapper>
                 </Section>
@@ -106,7 +106,7 @@ export default function TermsAndConditionsPage() {
                         <aside className="hidden lg:block">
                             <div className="sticky top-8">
                                 <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
-                                    Contents
+                                    Índice
                                 </p>
                                 <nav className="flex flex-col gap-1">
                                     {sections.map((s) => (
@@ -127,11 +127,11 @@ export default function TermsAndConditionsPage() {
                             {/* Intro card */}
                             <div className="rounded-2xl border border-primary-100 bg-primary-50 p-6 md:p-8">
                                 <p className="text-gray-700 text-base leading-relaxed">
-                                    In compliance with the duty of information set out in Law
-                                    34/2002, of 11 July, on Information Society Services and
-                                    Electronic Commerce, users of the website are informed that
-                                    the data presented herein correspond to the entity that owns
-                                    the website.
+                                    En cumplimiento del deber de información recogido en la
+                                    Ley 34/2002, de 11 de julio, de Servicios de la Sociedad
+                                    de la Información y de Comercio Electrónico, se informa a
+                                    los usuarios del sitio web de que los datos que se presentan
+                                    a continuación corresponden a la entidad titular del mismo.
                                 </p>
                             </div>
 
@@ -182,10 +182,10 @@ export default function TermsAndConditionsPage() {
                             <div className="rounded-2xl bg-gray-950 text-white p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
                                 <div>
                                     <p className="font-semibold text-base mb-1">
-                                        Questions about our terms?
+                                        ¿Tienes dudas sobre nuestros términos?
                                     </p>
                                     <p className="text-gray-400 text-sm">
-                                        Contact our legal team at{" "}
+                                        Contacta con nuestro equipo legal en{" "}
                                         <a
                                             href="mailto:laura.sanjuan@novasac.es"
                                             className="text-primary-400 hover:underline"
@@ -198,7 +198,7 @@ export default function TermsAndConditionsPage() {
                                     href="/contact"
                                     className="shrink-0 inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
                                 >
-                                    Contact Us
+                                    Contáctanos
                                     <svg
                                         className="w-4 h-4"
                                         fill="none"
