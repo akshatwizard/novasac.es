@@ -488,7 +488,7 @@ export default function AboutUs() {
                         ¿Listo para trabajar<br />
                         <strong className="text-primary-600">juntos?</strong>
                     </h2>
-                    
+                    <a 
                         href="/contact"
                         className=" inline-block text-sm px-10 py-4 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors duration-300"
                     >
