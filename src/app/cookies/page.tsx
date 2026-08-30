@@ -269,7 +269,7 @@ export default function CookiePolicyPage() {
                                 </p>
                                 <p className="text-gray-400 text-sm">
                                     Contáctanos en{" "}
-                                    
+                                    <a 
                                         href="mailto:laura.sanjuan@novasac.es"
                                         className="text-primary-400 hover:underline"
                                     >
