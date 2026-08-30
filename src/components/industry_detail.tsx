@@ -32,7 +32,7 @@ export default function IndustryDetailPage({ slug }: Props) {
     if (!industry) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <p className="text-zinc-500 text-lg">Industry not found.</p>
+                <p className="text-zinc-500 text-lg">Industria no encontrada.</p>
             </div>
         );
     }
@@ -56,7 +56,7 @@ export default function IndustryDetailPage({ slug }: Props) {
                         className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors group"
                     >
                         <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                        All Industries
+                        Todas las Industrias
                     </Link>
                 </div>
 
@@ -152,7 +152,7 @@ export default function IndustryDetailPage({ slug }: Props) {
                     <Wrapper>
                         <div className="w-full">
                             <h3 className="text-zinc-900 text-2xl lg:text-4xl md:text-3xl font-semibold text-center">
-                                Our Recommended Products
+                                Nuestros Productos Recomendados
                             </h3>
                         </div>
                         <div className="w-full">
@@ -208,7 +208,7 @@ export default function IndustryDetailPage({ slug }: Props) {
                                                             href={items.page_url ?? "#"}
                                                             className="inline-block w-fit px-5 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-500 transition mt-5"
                                                         >
-                                                            View All Product →
+                                                            Ver Todos los Productos →
                                                         </Link>
                                                     </div>
                                                 </div>
@@ -237,10 +237,10 @@ export default function IndustryDetailPage({ slug }: Props) {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="text-center md:text-left">
                             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
-                                Ready to get started?
+                                ¿Listo para empezar?
                             </h2>
                             <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl">
-                                Tell us about your specific needs and we'll recommend the perfect packaging solution for {industry.label}.
+                                Cuéntanos qué necesitas y te recomendaremos la solución de embalaje perfecta para {industry.label}.
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
@@ -248,14 +248,14 @@ export default function IndustryDetailPage({ slug }: Props) {
                                 href="/contact"
                                 className={`inline-block text-center text-sm font-semibold py-3.5 px-8 rounded-xl transition-all ${industry.accentColor} text-white hover:opacity-90 hover:shadow-lg`}
                             >
-                                Get a Custom Quote →
+                                Solicita un Presupuesto Personalizado →
                             </Link>
                             <Link
                                 href="/industries"
                                 className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors group"
                             >
                                 <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-                                All Industries
+                                Todas las Industrias
                             </Link>
                         </div>
                     </div>
