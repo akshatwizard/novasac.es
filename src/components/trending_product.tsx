@@ -26,9 +26,9 @@ export default function TrendingProducts() {
         <Section>
             <Wrapper>
                 <div className="w-full flex flex-col gap-2">
-                    <Heading>Trending products</Heading>
+                    <Heading>Productos en Tendencia</Heading>
                     <SubHeading>
-                        Our most trending products at great prices. Just for you!
+                        Nuestros productos más populares a precios inmejorables. ¡Solo para ti!
                     </SubHeading>
                 </div>
 
@@ -38,9 +38,9 @@ export default function TrendingProducts() {
                             <ProductCardSkeleton key={i} />
                         ))
                     ) : error ? (
-                        <EmptyState message="Failed to load products. Please try again later." />
+                        <EmptyState message="No se han podido cargar los productos. Por favor, inténtalo de nuevo más tarde." />
                     ) : !data?.length ? (
-                        <EmptyState message="No products found." />
+                        <EmptyState message="No se han encontrado productos." />
                     ) : (
                         data.map((product) => (
                             <ProductCard product={product} key={product.id} />
@@ -53,7 +53,7 @@ export default function TrendingProducts() {
                         href="/products"
                         className="group flex items-center gap-2 text-sm font-medium text-zinc-700 hover:text-primary-500 transition"
                     >
-                        View Other Products
+                        Ver Más Productos
                         <ChevronRight
                             size={18}
                             className="transition-transform group-hover:translate-x-1"
@@ -86,4 +86,3 @@ function EmptyState({ message }: { message: string }) {
         </div>
     );
 }
-
