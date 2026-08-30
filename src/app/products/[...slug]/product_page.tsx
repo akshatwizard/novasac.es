@@ -66,7 +66,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
     }, [mainApi, onSelect])
 
     const breadcrumb = [
-        { label: 'Home', href: '/' },
+        { label: 'Inicio', href: '/' },
         { label: p.category.title, href: `/category/${p.category.slug}` },
         { label: p.title, href: '#' },
     ]
@@ -108,7 +108,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                                 <div key={i} className="relative flex-[0_0_100%] aspect-square">
                                     <Image
                                         src={src}
-                                        alt={`${p.title} — image ${i + 1}`}
+                                        alt={`${p.title} — imagen ${i + 1}`}
                                         fill
                                         priority={i === 0}
                                         sizes="(max-width: 1024px) 100vw, 50vw"
@@ -154,7 +154,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                                     >
                                         <Image
                                             src={src}
-                                            alt={`Thumbnail ${i + 1}`}
+                                            alt={`Miniatura ${i + 1}`}
                                             fill
                                             sizes="72px"
                                             className="object-cover"
@@ -193,19 +193,10 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                                 <span className="text-2xl font-semibold text-stone-900">
                                     {formatEUR(p.mrp ?? 0)}
                                 </span>
-                                {/* {p.mrp != null && (
-                                    <span className="text-base text-stone-400 line-through">
-                                        ₹{p.mrp.toLocaleString('en-IN')}
-                                    </span>
-                                )} */}
-                                {/* {p.mrp != null && p.offer_rate != null && (
-                                    <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
-                                        {Math.round(((p.mrp - p.offer_rate) / p.mrp) * 100)}% off
-                                    </span>
-                                )} */}
+
                             </>
                         ) : (
-                            <span className="text-sm text-stone-400 italic">Price on request — contact us for quote</span>
+                            <span className="text-sm text-stone-400 italic">Precio bajo consulta — contáctanos para un presupuesto</span>
                         )}
                     </div>
 
@@ -281,7 +272,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
                             <span>
                                 Stock:{' '}
                                 <span className={p.stock_quantity > 0 ? 'text-emerald-600 font-medium' : 'text-red-500 font-medium'}>
-                                    {p.stock_quantity > 0 ? `${p.stock_quantity} available` : 'Out of stock'}
+                                    {p.stock_quantity > 0 ? `${p.stock_quantity} disponibles` : 'Agotado'}
                                 </span>
                             </span>
                         )}
@@ -324,9 +315,9 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
 
 const COLLAPSED_HEIGHT = 420
 const TAB_META = [
-    { label: 'Description', icon: FileText },
-    { label: 'Specification', icon: Settings2 },
-    { label: 'Features', icon: Sparkles },
+    { label: 'Descripción', icon: FileText },
+    { label: 'Especificación', icon: Settings2 },
+    { label: 'Características', icon: Sparkles },
 ]
 
 type ProductTabsProps = {
@@ -341,9 +332,9 @@ type ProductTabsProps = {
 
 function ProductTabs({ description, specification, additionalFeatures }: ProductTabsProps) {
     const raw_tabs = [
-        { label: 'Description', content: description },
-        { label: 'Specification', content: specification },
-        { label: 'Features', content: additionalFeatures },
+        { label: 'Descripción', content: description },
+        { label: 'Especificación', content: specification },
+        { label: 'Características', content: additionalFeatures },
     ].filter((t) => t.content && (!Array.isArray(t.content) || t.content.length > 0))  // ← fix empty array
 
     const tabs = raw_tabs.map((t) => ({
@@ -450,7 +441,7 @@ function ProductTabs({ description, specification, additionalFeatures }: Product
                                     shadow-sm hover:shadow
                                 "
                         >
-                            {expanded ? 'See less' : 'See more'}
+                            {expanded ? 'Ver menos' : 'Ver más'}
                             <ChevronDown
                                 className={`w-4 h-4 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
                                 strokeWidth={2.5}
@@ -471,7 +462,7 @@ function RelatedProductsSection({ products }: { products: RelatedProduct[] }) {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 <h2 className="md:text-3xl text-2xl text-stone-900 font-semibold">
-                    You may also like
+                    También te puede interesar
                 </h2>
                 <div className="flex gap-2">
                     <button
