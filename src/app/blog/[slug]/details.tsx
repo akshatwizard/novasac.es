@@ -24,7 +24,7 @@ export default function BlogDetail({ slug }: BlogDetailProps) {
     if (isError) {
         return (
             <BlogError
-                message={error instanceof Error ? error.message : "Unable to load blog post."}
+                message={error instanceof Error ? error.message : "No se ha podido cargar el artículo del blog."}
             />
         );
     }
@@ -38,7 +38,7 @@ export default function BlogDetail({ slug }: BlogDetailProps) {
                 <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-stone-400 mb-4">
                     <span>{blog.published_at}</span>
                     <span className="text-stone-300">—</span>
-                    <span className="text-orange-600 font-semibold">Industry Insights</span>
+                    <span className="text-orange-600 font-semibold">Novedades del Sector</span>
                 </div>
 
                 <h1 className="font-serif text-3xl md:text-5xl font-bold leading-tight tracking-tight text-stone-900 mb-5">
@@ -81,7 +81,7 @@ export default function BlogDetail({ slug }: BlogDetailProps) {
 
             {blog.images && blog.images.length > 0 && (
                 <div className="mt-14 pt-8 border-t border-stone-200">
-                    <h2 className="font-serif text-2xl font-bold text-stone-900 mb-6">Gallery</h2>
+                    <h2 className="font-serif text-2xl font-bold text-stone-900 mb-6">Galería</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                         {blog.images.map((img, idx) => (
                             <div
@@ -118,30 +118,3 @@ function BlogSkeleton() {
             {/* Title */}
             <div className="space-y-3 mb-6">
                 <div className="h-8 bg-stone-200 rounded w-full" />
-                <div className="h-8 bg-stone-200 rounded w-4/5" />
-                <div className="h-8 bg-stone-200 rounded w-3/5" />
-            </div>
-            {/* Short desc */}
-            <div className="h-5 bg-stone-100 rounded w-full mb-2" />
-            <div className="h-5 bg-stone-100 rounded w-3/4 mb-10" />
-            {/* Image */}
-            <div className="h-72 bg-stone-200 rounded-lg mb-12" />
-            {/* Content lines */}
-            <div className="space-y-3">
-                {[...Array(6)].map((_, i) => (
-                    <div key={i} className={`h-4 bg-stone-100 rounded ${i % 3 === 2 ? "w-3/5" : "w-full"}`} />
-                ))}
-            </div>
-        </div>
-    );
-}
-
-function BlogError({ message }: { message: string }) {
-    return (
-        <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-            <p className="text-4xl mb-4">⚠️</p>
-            <h2 className="text-xl font-semibold text-stone-800 mb-2">Something went wrong</h2>
-            <p className="text-stone-500 text-sm">{message}</p>
-        </div>
-    );
-}
