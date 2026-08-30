@@ -70,10 +70,10 @@ export default function SearchedProducts({ query, initialProducts, initialTotalP
             {!isLoading && products.length > 0 && (
                 <div className="flex items-center justify-between mb-6 gap-4">
                     <p className="text-xs text-stone-400 tracking-wide">
-                        Showing{' '}
+                        Mostrando{' '}
                         <span className="text-stone-700 font-medium">{products.length}</span>
-                        {' '}of{' '}
-                        <span className="text-stone-700 font-medium">{total}</span>{' '}products
+                        {' '}de{' '}
+                        <span className="text-stone-700 font-medium">{total}</span>{' '}productos
                     </p>
                     <div className="h-px flex-1 bg-stone-100 max-w-xs" />
                 </div>
@@ -103,7 +103,7 @@ export default function SearchedProducts({ query, initialProducts, initialTotalP
 
             {!hasNextPage && products.length > 0 && (
                 <p className="text-center text-[11px] text-stone-300 tracking-[0.2em] uppercase py-10">
-                    — End of results —
+                    — Fin de los resultados —
                 </p>
             )}
         </div>
@@ -130,10 +130,10 @@ function EmptyState({ query }: { query: string }) {
             <div className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-5">
                 <Search className="w-7 h-7 text-stone-300" strokeWidth={1.5} />
             </div>
-            <h3 className="font-serif text-xl text-stone-700 mb-2">No results found</h3>
+            <h3 className="font-serif text-xl text-stone-700 mb-2">No se han encontrado resultados</h3>
             <p className="text-stone-400 text-sm max-w-xs">
-                We couldn&apos;t find anything for &ldquo;<span className="text-stone-600 font-medium">{query}</span>&rdquo;.
-                Try a different keyword.
+                No hemos encontrado nada para &ldquo;<span className="text-stone-600 font-medium">{query}</span>&rdquo;.
+                Prueba con otra palabra clave.
             </p>
         </div>
     )
