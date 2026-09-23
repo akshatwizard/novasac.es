@@ -485,7 +485,7 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
                         </p>
                     )}
                     {member.bio && (
-                        <p className="text-stone-300 leading-relaxed font-bold text-base">
+                        <p className="text-primary-600 leading-relaxed font-bold text-base">
                             {member.bio}
                         </p>
                     )}
@@ -532,7 +532,7 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
                     </p>
                 )}
                 {member.bio && (
-                    <p className="text-stone-300 leading-relaxed font-bold text-sm">
+                    <p className="text-primary-600 leading-relaxed font-bold text-sm">
                         {member.bio}
                     </p>
                 )}
