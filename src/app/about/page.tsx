@@ -449,7 +449,7 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
     if (featured) {
         return (
             <motion.div
-                className="group grid md:grid-cols-2 overflow-hidden rounded-3xl border border-stone-700 hover:border-primary-600 bg-stone-800 transition-all duration-300"
+                className="group grid md:grid-cols-2 overflow-hidden rounded-3xl border border-stone-700 hover:border-primary-600 bg-stone-800 transition-all duration-300 md:w-1/2 md:mx-auto"
                 variants={fadeUp}
                 custom={index * 0.12}
                 initial="hidden"
