@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import Image from "next/image";
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { MenuResponse } from '@/types/menu.types';
 
 type GridItems = {
     title: string;
@@ -13,33 +18,53 @@ type GridItems = {
     tag?: string;
 }
 
-const items: GridItems[] = [
-    // {
-    //     title: "Our Popular Product",
-    //     description: "High-quality branded packaging solutions for businesses of every scale.",
-    //     image: "/images/bento/popular_product.png",
-    //     large: true,
-    //     cta: "Shop Now",
-    //     url: "/popular-products",
-    //     tag: "Featured"
-    // },
-    {
-        title: "Outlet de Bolsa Grande",
-        description: "Soluciones de embalaje de marca y alta calidad para empresas de todos los tamaños.",
-        image: "/images/bento/big_bag.png",
-        cta: "Comprar Ahora",
-        url: "/category/big-bags",
-    },
-    {
-        title: "Bolsas a Granel Personalizadas",
-        description: "Ofertas seleccionadas, actualizadas semanalmente.",
-        image: "/images/custom-bag/bag.jpg",
-        cta: "Contáctanos",
-        url: "/custom-made-bags",
-    },
-];
-
 export default function BentoGrid() {
+    // Reuses the same "menu" query the header already fetches — React Query
+    // de-dupes this against that request, so it's not an extra network call.
+    const { data } = useQuery<MenuResponse>({
+        queryKey: ["menu"],
+        queryFn: async function () {
+            const res = await axios.get<MenuResponse>("https://admin.novasac.es/api/menu");
+            return res.data
+        },
+    })
+
+    // Resolve the live category slug for "Bolsas Grandes" instead of a hardcoded guess.
+    // Falls back to the previous known-good path if the menu hasn't loaded yet or the
+    // category can't be matched, so the link is never broken.
+    const bulkBagsCategory = data?.data.find(
+        (item) => item.title.trim().toLowerCase() === "bolsas grandes"
+    );
+    const bulkBagsUrl = bulkBagsCategory
+        ? `/category/${bulkBagsCategory.category_slug}`
+        : "/category/big-bags";
+
+    const items: GridItems[] = [
+        // {
+        //     title: "Our Popular Product",
+        //     description: "High-quality branded packaging solutions for businesses of every scale.",
+        //     image: "/images/bento/popular_product.png",
+        //     large: true,
+        //     cta: "Shop Now",
+        //     url: "/popular-products",
+        //     tag: "Featured"
+        // },
+        {
+            title: "Outlet de Bolsa Grande",
+            description: "Soluciones de embalaje de marca y alta calidad para empresas de todos los tamaños.",
+            image: "/images/bento/big_bag.png",
+            cta: "Comprar Ahora",
+            url: bulkBagsUrl,
+        },
+        {
+            title: "Bolsas a Granel Personalizadas",
+            description: "Ofertas seleccionadas, actualizadas semanalmente.",
+            image: "/images/custom-bag/bag.jpg",
+            cta: "Contáctanos",
+            url: "/custom-made-bags",
+        },
+    ];
+
     return (
         <Section>
             <Wrapper>
