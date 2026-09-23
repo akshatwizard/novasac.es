@@ -446,6 +446,54 @@ export default function AboutUs() {
 }
 
 function TeamCard({ member, index, featured = false }: { member: TeamMember; index: number; featured?: boolean }) {
+    if (featured) {
+        return (
+            <motion.div
+                className="group grid md:grid-cols-2 overflow-hidden rounded-3xl border border-stone-700 hover:border-primary-600 bg-stone-800 transition-all duration-300"
+                variants={fadeUp}
+                custom={index * 0.12}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.15 }}
+            >
+                {/* Image — portrait-friendly aspect ratio so the photo isn't crushed into a wide letterbox */}
+                <div className="relative w-full h-80 md:h-auto md:aspect-3/4 overflow-hidden">
+                    {member.image ? (
+                        <Image
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        />
+                    ) : (
+                        <div
+                            className={`w-full h-full flex items-center justify-center font-mono font-light text-7xl md:text-8xl ${member.bg} ${member.text}`}
+                        >
+                            {member.initials}
+                        </div>
+                    )}
+                </div>
+
+                {/* Text */}
+                <div className="flex flex-col justify-center gap-3 p-6 md:p-10">
+                    <h3 className="font-mono font-bold text-white text-2xl md:text-3xl">
+                        {member.name}
+                    </h3>
+                    {member.role && (
+                        <p className="text-xs text-primary-400 uppercase tracking-wide font-bold">
+                            {member.role}
+                        </p>
+                    )}
+                    {member.bio && (
+                        <p className="text-stone-300 leading-relaxed font-bold text-base">
+                            {member.bio}
+                        </p>
+                    )}
+                </div>
+            </motion.div>
+        );
+    }
+
     return (
         <motion.div
             className="group overflow-hidden rounded-3xl border border-stone-700 hover:border-primary-600 bg-stone-800 transition-all duration-300 flex flex-col"
@@ -456,7 +504,7 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
             viewport={{ once: true, amount: 0.15 }}
         >
             {/* Image */}
-            <div className={`relative w-full overflow-hidden shrink-0 ${featured ? "h-72 md:h-96" : "h-64 md:h-72"}`}>
+            <div className="relative w-full overflow-hidden shrink-0 h-64 md:h-72">
                 {member.image ? (
                     <Image
                         src={member.image}
@@ -466,7 +514,7 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
                     />
                 ) : (
                     <div
-                        className={`w-full h-full flex items-center justify-center font-mono font-light ${featured ? "text-7xl md:text-8xl" : "text-6xl md:text-7xl"} ${member.bg} ${member.text}`}
+                        className={`w-full h-full flex items-center justify-center font-mono font-light text-6xl md:text-7xl ${member.bg} ${member.text}`}
                     >
                         {member.initials}
                     </div>
@@ -474,8 +522,8 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
             </div>
 
             {/* Text — always visible below the image */}
-            <div className={`flex flex-col gap-2 ${featured ? "p-6 md:p-8" : "p-6"}`}>
-                <h3 className={`font-mono font-bold text-white ${featured ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"}`}>
+            <div className="flex flex-col gap-2 p-6">
+                <h3 className="font-mono font-bold text-white text-xl md:text-2xl">
                     {member.name}
                 </h3>
                 {member.role && (
@@ -484,7 +532,7 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
                     </p>
                 )}
                 {member.bio && (
-                    <p className={`text-stone-300 leading-relaxed font-bold ${featured ? "text-base" : "text-sm"}`}>
+                    <p className="text-stone-300 leading-relaxed font-bold text-sm">
                         {member.bio}
                     </p>
                 )}
