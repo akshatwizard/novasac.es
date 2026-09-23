@@ -44,6 +44,18 @@ const teamMembers: TeamMember[] = [
         bar: "bg-primary-500",
         image: "/images/about/carmen.jpeg"
     },
+    {
+        initials: "CM",
+        name: "Carmina",
+        role: "",
+        experience: "",
+        bio: "",
+        bg: "bg-primary-100",
+        text: "text-primary-700",
+        border: "border-primary-200",
+        bar: "bg-primary-600",
+        image: "/images/about/carmina.jpeg"
+    },
 ];
 
 const stats: StatItem[] = [
@@ -394,69 +406,14 @@ export default function AboutUs() {
                         </div>
                     </motion.div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {teamMembers.map((member, i) => (
-                            <motion.div
-                                key={member.name}
-                                className="group relative h-96 overflow-hidden rounded-3xl border border-stone-700 hover:border-primary-600 transition-all duration-300"
-                                variants={fadeUp}
-                                custom={i * 0.12}
-                                initial="hidden"
-                                whileInView="show"
-                                viewport={{ once: true, amount: 0.15 }}
-                            >
-                                {/* Background */}
-                                <div className="absolute inset-0">
-                                    {member.image ? (
-                                        <Image
-                                            src={member.image}
-                                            alt={member.name}
-                                            fill
-                                            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                    ) : (
-                                        <div
-                                            className={`w-full h-full flex items-center justify-center text-7xl md:text-8xl font-mono font-light ${member.bg} ${member.text}`}
-                                        >
-                                            {member.initials}
-                                        </div>
-                                    )}
+                    <div className="flex flex-col gap-6">
+                        <TeamCard member={teamMembers[0]} index={0} featured />
 
-                                    {/* Overlay */}
-                                    {/* <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/20 to-transparent md:group-hover:from-black/90" /> */}
-                                </div>
-
-                                {/* DEFAULT CONTENT (always visible) */}
-                                <div className="absolute group-hover:opacity-0 bottom-0 w-full p-6 z-10 transition-all duration-200">
-                                    <h3 className="font-mono text-xl md:text-2xl text-white">
-                                        {member.name}
-                                    </h3>
-                                    <p className="text-xs text-primary-400 uppercase tracking-wide">
-                                        {member.role}
-                                    </p>
-                                </div>
-
-                                {/* HOVER CONTENT (desktop only) */}
-                                <div className="hidden md:flex absolute inset-0 flex-col justify-end p-6 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 z-20">
-                                    <h3 className="font-mono text-2xl text-white mb-1">
-                                        {member.name}
-                                    </h3>
-                                    <p className="text-xs text-primary-400 uppercase tracking-wide mb-3">
-                                        {member.role}
-                                    </p>
-                                    <p className="text-sm text-stone-300 leading-relaxed">
-                                        {member.bio}
-                                    </p>
-                                </div>
-
-                                {/* MOBILE EXPANDED CONTENT */}
-                                {/* <div className="md:hidden absolute inset-x-0 bottom-0 p-6 z-20">
-                                    <p className="text-sm text-stone-300 leading-relaxed mt-2">
-                                        {member.bio}
-                                    </p>
-                                </div> */}
-                            </motion.div>
-                        ))}
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {teamMembers.slice(1).map((member, i) => (
+                                <TeamCard key={member.name} member={member} index={i + 1} />
+                            ))}
+                        </div>
                     </div>
                 </Wrapper>
             </Section>
@@ -485,6 +442,54 @@ export default function AboutUs() {
                 </motion.div>
             </Section>
         </main>
+    );
+}
+
+function TeamCard({ member, index, featured = false }: { member: TeamMember; index: number; featured?: boolean }) {
+    return (
+        <motion.div
+            className="group overflow-hidden rounded-3xl border border-stone-700 hover:border-primary-600 bg-stone-800 transition-all duration-300 flex flex-col"
+            variants={fadeUp}
+            custom={index * 0.12}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+        >
+            {/* Image */}
+            <div className={`relative w-full overflow-hidden shrink-0 ${featured ? "h-72 md:h-96" : "h-64 md:h-72"}`}>
+                {member.image ? (
+                    <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                ) : (
+                    <div
+                        className={`w-full h-full flex items-center justify-center font-mono font-light ${featured ? "text-7xl md:text-8xl" : "text-6xl md:text-7xl"} ${member.bg} ${member.text}`}
+                    >
+                        {member.initials}
+                    </div>
+                )}
+            </div>
+
+            {/* Text — always visible below the image */}
+            <div className={`flex flex-col gap-2 ${featured ? "p-6 md:p-8" : "p-6"}`}>
+                <h3 className={`font-mono font-bold text-white ${featured ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"}`}>
+                    {member.name}
+                </h3>
+                {member.role && (
+                    <p className="text-xs text-primary-400 uppercase tracking-wide font-bold">
+                        {member.role}
+                    </p>
+                )}
+                {member.bio && (
+                    <p className={`text-stone-300 leading-relaxed font-bold ${featured ? "text-base" : "text-sm"}`}>
+                        {member.bio}
+                    </p>
+                )}
+            </div>
+        </motion.div>
     );
 }
 
