@@ -44,18 +44,6 @@ const teamMembers: TeamMember[] = [
         bar: "bg-primary-500",
         image: "/images/about/carmen.jpeg"
     },
-    {
-        initials: "GA",
-        name: "Gabriel Beltran",
-        role: "Director de Ventas",
-        experience: "Business Dev",
-        bio: "Se centra en el desarrollo de negocio y en construir relaciones sólidas con los clientes, ayudando a Novasac a ampliar su alcance y mantener la satisfacción del cliente.",
-        bg: "bg-primary-100",
-        text: "text-primary-700",
-        border: "border-primary-200",
-        bar: "bg-primary-600",
-        image: "/images/about/team-4.jpeg"
-    },
 ];
 
 const stats: StatItem[] = [
@@ -406,7 +394,7 @@ export default function AboutUs() {
                         </div>
                     </motion.div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {teamMembers.map((member, i) => (
                             <motion.div
                                 key={member.name}
