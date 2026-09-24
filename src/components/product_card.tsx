@@ -8,20 +8,23 @@ type Props = {
     product: ProductData | SPProducts;
 }
 
-const DEFAULT_MRP = 999;
-const DEFAULT_OFFER_RATE = 799;
-
 export default function ProductCard({ product }: Props) {
     const formatPrice = (amount: number) =>
         new Intl.NumberFormat("en-IN", {
             style: "currency",
-            currency: "INR",
-            maximumFractionDigits: 0,
+            currency: "EUR",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
         }).format(amount);
 
-    const mrp = product.mrp ?? DEFAULT_MRP;
-    const offerRate = product.offer_rate ?? DEFAULT_OFFER_RATE;
-    const discount = mrp > offerRate ? Math.round(((mrp - offerRate) / mrp) * 100) : null;
+        const mrp = product.mrp;
+        const offerRate = product.offer_rate;
+        const discount =
+            mrp !== null &&
+            offerRate !== null &&
+            mrp > offerRate
+        ? Math.round(((mrp - offerRate) / mrp) * 100)
+        : null;
 
     return (
         <div className="w-full h-full border border-gray-200 rounded-xl bg-white group transition-all duration-300 ease-in-out hover:border-primary-300 cursor-pointer hover:shadow-soft">
@@ -56,20 +59,22 @@ export default function ProductCard({ product }: Props) {
                     </Link>
 
                     {/* Pricing */}
-                    {/* <div className="flex flex-col gap-0.5">
-                        <span className="text-base font-semibold text-zinc-800">
-                            {formatPrice(offerRate)}
-                        </span>
-                        {mrp > offerRate && (
+                    <div className="flex flex-col gap-0.5">
+                        {mrp !== null && (
+                            <span className="text-[18px] font-semibold text-primary-500">
+                                {/* {formatPrice(offerRate)} */}
+                                {formatPrice(mrp)}
+                            </span>
+                        )}
+
+                        {/* {mrp !== null && offerRate !== null && mrp > offerRate && (
                             <span className="text-xs text-gray-400">
-                                M.R.P{" "}
-                                <del className="text-gray-400">
+                                <del>
                                     {formatPrice(mrp)}
                                 </del>
                             </span>
-                        )}
-                    </div> */}
-
+                        )} */}
+                    </div>
                     {/* SKU */}
                     {product.sku && (
                         <p className="text-[10px] text-zinc-400 flex items-center gap-1">
