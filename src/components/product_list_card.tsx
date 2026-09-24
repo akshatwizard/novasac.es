@@ -6,34 +6,28 @@ interface ProductCardProps {
     product: CatalogProduct;
     attributeValue: string;
 }
-
-// const DEFAULT_MRP = 999;
-// const DEFAULT_OFFER_RATE = 799;
-
 export default function ProductListCard({
     product,
     attributeValue,
 }: ProductCardProps) {
     const href = `/products/${product.slug}/${attributeValue}`;
-
-    const mrp = product.mrp;
-    const offer = product.offer_price;
-
-    // const discount =
-    //     mrp > offer && offer > 0
-    //         ? Math.round(((mrp - offer) / mrp) * 100)
-    //         : null;
-
-    const formatEUR = (n: number) =>
-        new Intl.NumberFormat("en-DE", {
+    const formatPrice = (amount: number) =>
+        new Intl.NumberFormat("en-IN", {
             style: "currency",
             currency: "EUR",
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
-        }).format(n);
+        }).format(amount);
 
+        const mrp = product.mrp;
+        const offerRate = product.offer_price;
+        const discount =
+            mrp !== null &&
+            offerRate !== null &&
+            mrp > offerRate
+        ? Math.round(((mrp - offerRate) / mrp) * 100)
+        : null;
     const isOutOfStock = product.stock_quantity === 0;
-
     return (
         <Link
             href={href}
@@ -85,30 +79,24 @@ export default function ProductListCard({
                         SKU · {product.sku}
                     </p>
                 )}
-
-                <div className="flex-1" />
-
                 {/* Price */}
                 <div className="flex items-end justify-between">
-                    <div className="flex flex-col">
-                        {mrp && mrp > 0 ? (
-                            <>
-                                {/* <span className="text-lg font-semibold text-gray-900">
-                                    {formatINR(offer)}
-                                </span> */}
 
-                                {mrp && (
-                                    <span className="text-lg font-semibold text-gray-900">
-                                        {formatEUR(mrp)}
-                                    </span>
-                                )}
-                            </>
-                        ) : (
-                            <span className="text-xs text-gray-400 italic">
-                                Price on request
+                    <div className="flex flex-col gap-0.5">
+                        {mrp !== null && (
+                            <span className="text-[18px] font-semibold text-primary-500">
+                                {formatPrice(mrp)}
                             </span>
                         )}
-                    </div>
+
+                        {/* {mrp !== null && offerRate !== null && mrp > offerRate && (
+                            <span className="text-xs text-gray-400">
+                                <del>
+                                    {formatPrice(mrp)}
+                                </del>
+                            </span>
+                        )} */}
+                    </div>                   
 
                     {/* subtle arrow */}
                     <div className="opacity-0 group-hover:opacity-100 transition transform group-hover:translate-x-1">

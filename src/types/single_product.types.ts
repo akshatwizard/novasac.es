@@ -80,8 +80,9 @@ export interface RelatedProduct {
   title: string
   slug: string
   attribute_value_slug: string
-  category_title: string
   image: string | null
+  category_title: string | null
+  mrp: number | string | null  
 }
 
 export interface OtherRelatedItem {
