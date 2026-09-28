@@ -25,7 +25,7 @@ const teamMembers: TeamMember[] = [
         name: "Fernando Seguí Sala",
         role: "Presidente",
         experience: "Business Dev",
-        bio: "",
+        bio: "Lidera la visión estratégica de la empresa, centrándose en el crecimiento, la innovación y unas relaciones sólidas con los clientes.",
         bg: "bg-primary-100",
         text: "text-primary-700",
         border: "border-primary-200",
@@ -47,9 +47,9 @@ const teamMembers: TeamMember[] = [
     {
         initials: "CM",
         name: "Carmina",
-        role: "",
+        role: "Representante de Ventas",
         experience: "",
-        bio: "",
+        bio: "Acompaña a los clientes durante todo el proceso de venta, coordina las actividades comerciales y garantiza una comunicación fluida desde la consulta hasta el pedido.",
         bg: "bg-primary-100",
         text: "text-primary-700",
         border: "border-primary-200",
@@ -456,8 +456,8 @@ function TeamCard({ member, index, featured = false }: { member: TeamMember; ind
                 whileInView="show"
                 viewport={{ once: true, amount: 0.15 }}
             >
-                {/* Image — portrait-friendly aspect ratio so the photo isn't crushed into a wide letterbox */}
-                <div className="relative w-full h-80 md:h-auto md:aspect-3/4 overflow-hidden">
+                {/* Image — frame matches the photo's own 2:3 ratio, so it shows in full (no crop, no stretch) */}
+                <div className="relative w-full aspect-2/3 overflow-hidden">
                     {member.image ? (
                         <Image
                             src={member.image}
