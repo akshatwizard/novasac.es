@@ -11,32 +11,32 @@ export const Category: CategoryTypes[] = [
         link: "#"
     },
     {
-        name: "PP Woven Bags",
+        name: "Bolsas de PP Tejido",
         image: "/images/category/img-2.png",
         link: "#"
     },
     {
-        name: "Asbestos Bags",
+        name: "Bolsas de Amianto",
         image: "/images/category/img-3.png",
         link: "#"
     },
     {
-        name: "Garden Bags",
+        name: "Bolsas de Jardín",
         image: "/images/category/img-4.png",
         link: "#"
     },
     {
-        name: "Container Liners",
+        name: "Forros para Contenedor",
         image: "/images/category/img-5.png",
         link: "#"
     },
     {
-        name: "Recycled Content Bags",
+        name: "Bolsas con Contenido Reciclado",
         image: "/images/category/img-6.png",
         link: "#"
     },
     {
-        name: "Customized Bags",
+        name: "Bolsas Personalizadas",
         image: "/images/category/img-7.png",
         link: "#"
     },

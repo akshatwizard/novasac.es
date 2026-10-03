@@ -60,7 +60,7 @@ export default function ProductListCard({
                 {isOutOfStock && (
                     <div className="absolute inset-0 flex items-center justify-center">
                         <span className="bg-black/70 text-white text-[11px] px-3 py-1.5 rounded-full backdrop-blur">
-                            Out of Stock
+                            Agotado
                         </span>
                     </div>
                 )}

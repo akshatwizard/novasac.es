@@ -27,7 +27,7 @@ export default function FilterPanel({ filters, activeFilters, onFilterChange, on
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h18M7 9h10M11 14h2" />
                     </svg>
                     <h2 className="text-xs font-semibold tracking-[0.18em] uppercase text-stone-600">
-                        Filters
+                        Filtros
                     </h2>
                     {totalActive > 0 && (
                         <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-stone-800 text-stone-50 text-[10px] font-bold">
@@ -41,7 +41,7 @@ export default function FilterPanel({ filters, activeFilters, onFilterChange, on
                             onClick={onClearAll}
                             className="text-[11px] text-amber-700 hover:text-amber-900 font-medium underline underline-offset-2 transition-colors"
                         >
-                            Clear all
+                            Borrar todo
                         </button>
                     )}
                     <button
@@ -159,7 +159,7 @@ export default function FilterPanel({ filters, activeFilters, onFilterChange, on
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h18M7 9h10M11 14h2" />
                     </svg>
-                    Filters
+                    Filtros
                     {totalActive > 0 && (
                         <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-500 text-stone-900 text-[10px] font-bold">
                             {totalActive}
@@ -190,7 +190,7 @@ export default function FilterPanel({ filters, activeFilters, onFilterChange, on
                             {/* Header row */}
                             <div className="flex items-center justify-between py-3">
                                 <div className="flex items-center gap-2">
-                                    <h2 className="text-xs font-semibold tracking-[0.18em] uppercase text-stone-600">Filters</h2>
+                                    <h2 className="text-xs font-semibold tracking-[0.18em] uppercase text-stone-600">Filtros</h2>
                                     {totalActive > 0 && (
                                         <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-stone-800 text-stone-50 text-[10px] font-bold">
                                             {totalActive}
@@ -200,7 +200,7 @@ export default function FilterPanel({ filters, activeFilters, onFilterChange, on
                                 <div className="flex items-center gap-3">
                                     {totalActive > 0 && (
                                         <button onClick={onClearAll} className="text-[11px] text-amber-700 font-medium underline underline-offset-2">
-                                            Clear all
+                                            Borrar todo
                                         </button>
                                     )}
                                     <button onClick={() => setDrawerOpen(false)} className="p-1.5 rounded-lg bg-stone-200 hover:bg-stone-300 transition-colors">
@@ -293,7 +293,7 @@ export default function FilterPanel({ filters, activeFilters, onFilterChange, on
                                 onClick={() => setDrawerOpen(false)}
                                 className="w-full py-3 rounded-xl bg-stone-900 text-stone-50 text-sm font-medium active:scale-[0.98] transition-transform"
                             >
-                                Show results
+                                Ver resultados
                             </button>
                         </div>
                     </div>

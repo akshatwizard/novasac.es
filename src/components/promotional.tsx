@@ -15,16 +15,16 @@ export default function Promotional() {
                         <div className='flex flex-col gap-2 h-full justify-evenly'>
                             <div>
                                 <span className='font-bold text-xl lg:text-4xl md:text-2xl text-white font-sans!'>
-                                    Big Bag with loading mouth.
+                                    Big Bag con boca de carga.
                                 </span>
                                 <p className='text-white text-sm mt-2'>
-                                    Buy custom Big Bag with loading mouth from our online store and get massive discount on it.
+                                    Compra Big Bags a medida con boca de carga en nuestra tienda online y aprovecha un gran descuento.
                                 </p>
                             </div>
                             <Link href={"#"} className='mt-6 w-max flex items-center gap-1.5 px-5 py-2.5 bg-white text-primary-500 rounded-md'>
                                 <ShoppingBag size={16} />
                                 <span className='font-medium'>
-                                    Buy Now
+                                    Comprar ahora
                                 </span>
                             </Link>
                         </div>
@@ -32,7 +32,7 @@ export default function Promotional() {
                         <div>
                             <Image
                                 src={"/images/products/bag-1.png"}
-                                alt='Promotional Bag'
+                                alt='Bolsa promocional'
                                 width={500}
                                 height={300}
                                 className='h-auto max-w-52'
@@ -45,16 +45,16 @@ export default function Promotional() {
                         <div className='flex flex-col gap-2 h-full justify-evenly'>
                             <div>
                                 <span className='font-bold text-xl lg:text-4xl md:text-2xl text-primary-500 font-sans!'>
-                                    Buy customised UN Bags.
+                                    Compra bolsas UN personalizadas.
                                 </span>
                                 <p className='text-primary-400 text-sm mt-2'>
-                                    Buy custom UN Bags from our online store and get massive discount on it.
+                                    Compra bolsas UN personalizadas en nuestra tienda online y aprovecha un gran descuento.
                                 </p>
                             </div>
                             <Link href={"#"} className='mt-6 w-max flex items-center gap-1.5 px-5 py-2.5 bg-primary-500 text-white rounded-md'>
                                 <ShoppingBag size={16} />
                                 <span className='font-medium'>
-                                    Buy Now
+                                    Comprar ahora
                                 </span>
                             </Link>
                         </div>
@@ -62,7 +62,7 @@ export default function Promotional() {
                         <div>
                             <Image
                                 src={"/images/products/bag-2.png"}
-                                alt='Promotional Bag'
+                                alt='Bolsa promocional'
                                 width={500}
                                 height={300}
                                 className='h-auto max-w-52'

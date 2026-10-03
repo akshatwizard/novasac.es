@@ -81,9 +81,9 @@ const features = [
 ];
 
 const requestOptions = [
-    { value: "logo", label: "Bulk Bag with your logo (min 1 pallet)" },
-    { value: "custom", label: "Custom Big Bag (min 1 pallet)" },
-    { value: "standard", label: "Standard Big Bag 2 pallets or more" },
+    { value: "logo", label: "Big Bag con tu logo (mín. 1 palé)" },
+    { value: "custom", label: "Big Bag a medida (mín. 1 palé)" },
+    { value: "standard", label: "Big Bag estándar (2 palés o más)" },
 ];
 
 

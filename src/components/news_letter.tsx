@@ -9,12 +9,12 @@ export default function NewsletterSubscribe() {
             <div className="max-w-4xl mx-auto px-6 text-center text-white">
 
                 <Heading className="mb-3 text-primary-500">
-                    Subscribe to Our Newsletter
+                    Suscríbete a Nuestro Boletín
                 </Heading>
 
                 <p className="text-primary-400 max-w-xl mx-auto mb-8 text-sm">
-                    Stay updated with our latest packaging products, industry insights,
-                    special offers, and company news delivered straight to your inbox.
+                    Recibe en tu correo nuestras últimas novedades en productos de embalaje, análisis del sector,
+                    ofertas especiales y noticias de la empresa.
                 </p>
 
                 <form className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
@@ -27,7 +27,7 @@ export default function NewsletterSubscribe() {
 
                         <input
                             type="email"
-                            placeholder="Enter your email address"
+                            placeholder="Introduce tu correo electrónico"
                             className="w-full bg-white text-zinc-700 rounded-lg py-3 pl-11 pr-4 text-sm outline-none"
                         />
                     </div>
@@ -36,14 +36,14 @@ export default function NewsletterSubscribe() {
                         type="submit"
                         className="bg-primary-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-600 transition-colors"
                     >
-                        Subscribe
+                        Suscribirme
                     </button>
 
                 </form>
 
                 {/* Small note */}
                 <p className="text-xs text-primary-400 mt-4">
-                    We respect your privacy. No spam, only useful updates.
+                    Respetamos tu privacidad. Nada de spam, solo novedades útiles.
                 </p>
 
             </div>
