@@ -18,7 +18,7 @@ export const industries: Industry[] = [
     image: "/images/industry/img-1.png",
   },
   {
-    slug: "sector-de-alimentos-y-agricultura",
+    slug: "alimentos-y-agricultura",
     title: "Sector de Alimentos y Agricultura",
     description:
       "Bolsas de grado alimenticio y resistentes a la humedad, ideales para almacenar y transportar granos y productos agrícolas.",
