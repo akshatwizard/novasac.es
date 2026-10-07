@@ -28,9 +28,9 @@ export default function Blogs() {
         <Section>
             <Wrapper>
                 <div className="w-full flex flex-col gap-2">
-                    <Heading>Latest Blogs</Heading>
+                    <Heading>Últimas Entradas del Blog</Heading>
                     <SubHeading className="max-w-lg">
-                        Insights and updates from the packaging industry.
+                        Novedades y análisis del sector del embalaje.
                     </SubHeading>
                 </div>
 
@@ -40,9 +40,9 @@ export default function Blogs() {
                             <BlogCardSkeleton key={i} />
                         ))
                     ) : error ? (
-                        <EmptyState message="Failed to load blogs. Please try again later." />
+                        <EmptyState message="No se han podido cargar las entradas del blog. Por favor, inténtalo de nuevo más tarde." />
                     ) : !data?.length ? (
-                        <EmptyState message="No blog posts found." />
+                        <EmptyState message="No se han encontrado entradas del blog." />
                     ) : (
                         data.map((blog) => (
                             <BlogCard key={blog.id} blog={blog} />
@@ -112,7 +112,7 @@ function BlogCard({ blog }: { blog: BlogData }) {
                 </p>
 
                 <span className="mt-2 text-xs font-medium text-primary-500 group-hover:underline underline-offset-2 w-max">
-                    Read more →
+                    Leer más →
                 </span>
             </div>
         </Link>

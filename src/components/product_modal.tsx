@@ -32,14 +32,14 @@ export default function ProductModals({ product }: ProductModalsProps) {
                     className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-stone-900 text-stone-50 text-sm font-medium hover:bg-stone-800 active:scale-[0.98] transition-all"
                 >
                     <ShoppingCart size={18} />
-                    Buy Now
+                    Comprar ahora
                 </button>
                 <button
                     onClick={() => openModal('enquire')}
                     className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border-2 border-stone-200 text-stone-700 text-sm font-medium hover:border-stone-400 active:scale-[0.98] transition-all"
                 >
                     <MailCheck size={18} />
-                    Enquire Now
+                    Solicitar información
                 </button>
             </div>
 
@@ -55,7 +55,7 @@ export default function ProductModals({ product }: ProductModalsProps) {
 
 
 //Shared: Overlay wrapper
-function ModalOverlay({ onClose, children }: { onClose: () => void, children: React.ReactNode }) {
+export function ModalOverlay({ onClose, children }: { onClose: () => void, children: React.ReactNode }) {
 
     useEffect(() => {
         const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
@@ -105,7 +105,7 @@ function ProductStrip({ product }: { product: ProductInfo }) {
 }
 
 // Shared: Field label + input wrapper
-function Field({ label, required, children }: { label: string, required?: boolean, children: React.ReactNode }) {
+export function Field({ label, required, children }: { label: string, required?: boolean, children: React.ReactNode }) {
     return (
         <div className="flex flex-col gap-1.5">
             <label className="text-[10px] font-semibold tracking-[0.18em] uppercase text-stone-400">
@@ -116,12 +116,12 @@ function Field({ label, required, children }: { label: string, required?: boolea
     )
 }
 
-const inputCls =
+export const inputCls =
     'w-full rounded-xl border border-stone-200 bg-stone-50 px-3.5 py-2.5 text-sm text-stone-800 placeholder-stone-300 outline-none transition focus:border-amber-400 focus:bg-white focus:ring-2 focus:ring-amber-100'
 
 
 // Shared: Section divider
-function SectionDivider({ label }: { label: string }) {
+export function SectionDivider({ label }: { label: string }) {
     return (
         <div className="flex items-center gap-3">
             <span className="text-[10px] font-semibold tracking-[0.18em] uppercase text-stone-300">
@@ -133,7 +133,7 @@ function SectionDivider({ label }: { label: string }) {
 }
 
 // Shared: Success screen
-function SuccessScreen({ icon, title, subtitle, accentClass, onClose }: {
+export function SuccessScreen({ icon, title, subtitle, accentClass, onClose }: {
     icon: React.ReactNode, title: string, subtitle: string, accentClass: string, onClose: () => void
 }) {
     return (
@@ -147,13 +147,13 @@ function SuccessScreen({ icon, title, subtitle, accentClass, onClose }: {
                 onClick={onClose}
                 className="mt-2 rounded-xl bg-stone-900 px-8 py-3 text-sm font-medium text-stone-50 hover:bg-stone-800 active:scale-[0.98] transition-all"
             >
-                Done
+                Cerrar
             </button>
         </div>
     )
 }
 
-function ErrorBanner({ message }: { message: string }) {
+export function ErrorBanner({ message }: { message: string }) {
     return (
         <div className="mx-0 flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             <span className="mt-0.5 shrink-0">⚠</span>
@@ -162,17 +162,17 @@ function ErrorBanner({ message }: { message: string }) {
     )
 }
 //Error display Function
-function getApiError(err: unknown): string {
+export function getApiError(err: unknown): string {
     if (err instanceof AxiosError) {
         return (
             err.response?.data?.message ??
             err.response?.data?.error ??
             err.message ??
-            'Something went wrong.'
+            'Algo ha salido mal.'
         )
     }
     if (err instanceof Error) return err.message
-    return 'Something went wrong.'
+    return 'Algo ha salido mal.'
 }
 
 // Buy Now Modal
@@ -189,9 +189,9 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
 
     const validate = () => {
         const errs: Record<string, string> = {}
-        if (!form.name.trim()) errs.name = 'Required'
-        if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'Enter a valid email'
-        if (!form.contact.trim()) errs.contact = 'Required'
+        if (!form.name.trim()) errs.name = 'Campo obligatorio'
+        if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'Introduce un correo electrónico válido'
+        if (!form.contact.trim()) errs.contact = 'Campo obligatorio'
         setErrors(errs)
         return Object.keys(errs).length === 0
     }
@@ -203,7 +203,7 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
             )
         },
         onSuccess(val) {
-            toast.success(val.data?.message ?? 'Order request sent!')
+            toast.success(val.data?.message ?? '¡Solicitud de pedido enviada!')
             setSubmitted(true)
         },
         onError(err) {
@@ -227,9 +227,9 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
                 <div className="flex items-start justify-between px-7 pt-7">
                     <div>
                         <span className="inline-block rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-700">
-                            Place Order
+                            Realizar pedido
                         </span>
-                        <h2 className="mt-2.5 font-serif text-2xl text-stone-900">Complete Your Purchase</h2>
+                        <h2 className="mt-2.5 font-serif text-2xl text-stone-900">Completa tu compra</h2>
                     </div>
                     <button
                         onClick={onClose}
@@ -243,8 +243,8 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
                 {submitted ? (
                     <SuccessScreen
                         icon={<ShoppingCart size={28} className="text-amber-700" />}
-                        title="Order Request Sent!"
-                        subtitle="Our team will contact you within 24 hours to confirm your order and arrange payment."
+                        title="¡Solicitud de pedido enviada!"
+                        subtitle="Nuestro equipo se pondrá en contacto contigo en un plazo de 24 horas para confirmar tu pedido y gestionar el pago."
                         accentClass="bg-amber-50"
                         onClose={onClose}
                     />
@@ -256,23 +256,23 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
 
                             {isError && <ErrorBanner message={getApiError(error)} />}
 
-                            <SectionDivider label="Your details" />
+                            <SectionDivider label="Tus datos" />
 
                             <div className="grid grid-cols-2 gap-4">
-                                <Field label="Full Name" required>
+                                <Field label="Nombre completo" required>
                                     <input
                                         className={inputCls + (errors.name ? ' border-red-300! ring-red-100!!' : '')}
-                                        placeholder="Rahul Sharma"
+                                        placeholder="María García"
                                         value={form.name}
                                         onChange={set('name')}
                                         disabled={isPending}
                                     />
                                     {errors.name && <span className="text-[11px] text-red-500">{errors.name}</span>}
                                 </Field>
-                                <Field label="Contact Number" required>
+                                <Field label="Teléfono de contacto" required>
                                     <input
                                         className={inputCls + (errors.contact ? ' border-red-300! ring-red-100!' : '')}
-                                        placeholder="+91 98765 43210"
+                                        placeholder="+34 600 123 456"
                                         type="tel"
                                         value={form.contact}
                                         onChange={set('contact')}
@@ -282,10 +282,10 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
                                 </Field>
                             </div>
 
-                            <Field label="Email Address" required>
+                            <Field label="Correo electrónico" required>
                                 <input
                                     className={inputCls + (errors.email ? ' border-red-300! ring-red-100!' : '')}
-                                    placeholder="rahul@example.com"
+                                    placeholder="maria@ejemplo.com"
                                     type="email"
                                     value={form.email}
                                     onChange={set('email')}
@@ -294,9 +294,9 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
                                 {errors.email && <span className="text-[11px] text-red-500">{errors.email}</span>}
                             </Field>
 
-                            <SectionDivider label="Order details" />
+                            <SectionDivider label="Detalles del pedido" />
 
-                            <Field label="Quantity">
+                            <Field label="Cantidad">
                                 <div className="flex items-center">
                                     <button
                                         onClick={() => setQty(q => Math.max(1, q - 1))}
@@ -320,11 +320,11 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
                                 </div>
                             </Field>
 
-                            <Field label="Additional Note (optional)">
+                            <Field label="Nota adicional (opcional)">
                                 <textarea
                                     className={inputCls + ' resize-none'}
                                     rows={3}
-                                    placeholder="Customisation, engraving text, delivery requirements…"
+                                    placeholder="Personalización, impresión de logotipo, requisitos de entrega…"
                                     value={form.note}
                                     onChange={set('note')}
                                     disabled={isPending}
@@ -339,18 +339,18 @@ export function BuyNowModal({ product, onClose }: { product: ProductInfo; onClos
                                 {isPending ? (
                                     <>
                                         <Loader2 size={16} className="animate-spin" />
-                                        Sending…
+                                        Enviando…
                                     </>
                                 ) : (
                                     <>
                                         <ShoppingCart size={16} />
-                                        Send Order Request
+                                        Enviar solicitud de pedido
                                     </>
                                 )}
                             </button>
 
                             <p className="text-center text-[11px] leading-relaxed text-stone-300">
-                                🔒 Your details are safe with us. We'll confirm within 24 hours.
+                                🔒 Tus datos están seguros con nosotros. Te confirmaremos en un plazo de 24 horas.
                             </p>
                         </div>
                     </div>
@@ -373,10 +373,10 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
 
     const validate = () => {
         const errs: Record<string, string> = {}
-        if (!form.name.trim()) errs.name = 'Required'
-        if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'Enter a valid email'
-        if (!form.contact.trim()) errs.contact = 'Required'
-        if (!form.message.trim()) errs.message = 'Please describe your requirements'
+        if (!form.name.trim()) errs.name = 'Campo obligatorio'
+        if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'Introduce un correo electrónico válido'
+        if (!form.contact.trim()) errs.contact = 'Campo obligatorio'
+        if (!form.message.trim()) errs.message = 'Cuéntanos qué necesitas'
         setErrors(errs)
         return Object.keys(errs).length === 0
     }
@@ -388,7 +388,7 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
             )
         },
         onSuccess(val) {
-            toast.success(val.data?.message ?? 'Enquiry sent successfully!')
+            toast.success(val.data?.message ?? '¡Consulta enviada correctamente!')
             setForm({ name: '', email: '', contact: '', org: '', message: '' })
             setSubmitted(true)
         },
@@ -413,9 +413,9 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
                 <div className="flex items-start justify-between px-7 pt-7">
                     <div>
                         <span className="inline-block rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-                            Enquire
+                            Consulta
                         </span>
-                        <h2 className="mt-2.5 font-serif text-2xl text-stone-900">Send an Enquiry</h2>
+                        <h2 className="mt-2.5 font-serif text-2xl text-stone-900">Envía tu consulta</h2>
                     </div>
                     <button
                         onClick={onClose}
@@ -429,8 +429,8 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
                 {submitted ? (
                     <SuccessScreen
                         icon={<MailCheck size={28} className="text-emerald-600" />}
-                        title="Enquiry Received!"
-                        subtitle="Thanks for reaching out. Our team will review your requirements and respond within 1 business day."
+                        title="¡Consulta recibida!"
+                        subtitle="Gracias por escribirnos. Nuestro equipo revisará lo que necesitas y te responderá en un plazo de 1 día laborable."
                         accentClass="bg-emerald-50"
                         onClose={onClose}
                     />
@@ -443,23 +443,23 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
                             {/* API-level error banner */}
                             {isError && <ErrorBanner message={getApiError(error)} />}
 
-                            <SectionDivider label="Your details" />
+                            <SectionDivider label="Tus datos" />
 
                             <div className="grid grid-cols-2 gap-4">
-                                <Field label="Full Name" required>
+                                <Field label="Nombre completo" required>
                                     <input
                                         className={inputCls + (errors.name ? ' border-red-300! ring-red-100!' : '')}
-                                        placeholder="Priya Mehta"
+                                        placeholder="Carlos Martínez"
                                         value={form.name}
                                         onChange={set('name')}
                                         disabled={isPending}
                                     />
                                     {errors.name && <span className="text-[11px] text-red-500">{errors.name}</span>}
                                 </Field>
-                                <Field label="Contact Number" required>
+                                <Field label="Teléfono de contacto" required>
                                     <input
                                         className={inputCls + (errors.contact ? ' border-red-300! ring-red-100!' : '')}
-                                        placeholder="+91 98765 43210"
+                                        placeholder="+34 600 123 456"
                                         type="tel"
                                         value={form.contact}
                                         onChange={set('contact')}
@@ -469,10 +469,10 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
                                 </Field>
                             </div>
 
-                            <Field label="Email Address" required>
+                            <Field label="Correo electrónico" required>
                                 <input
                                     className={inputCls + (errors.email ? ' border-red-300! ring-red-100!' : '')}
-                                    placeholder="priya@company.com"
+                                    placeholder="carlos@empresa.com"
                                     type="email"
                                     value={form.email}
                                     onChange={set('email')}
@@ -481,23 +481,23 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
                                 {errors.email && <span className="text-[11px] text-red-500">{errors.email}</span>}
                             </Field>
 
-                            <Field label="Organisation Name">
+                            <Field label="Nombre de la empresa">
                                 <input
                                     className={inputCls}
-                                    placeholder="Acme Corp Pvt. Ltd."
+                                    placeholder="Empresa Ejemplo, S.L."
                                     value={form.org}
                                     onChange={set('org')}
                                     disabled={isPending}
                                 />
                             </Field>
 
-                            <SectionDivider label="Your requirements" />
+                            <SectionDivider label="Lo que necesitas" />
 
-                            <Field label="Message / Requirements" required>
+                            <Field label="Mensaje / Necesidades" required>
                                 <textarea
                                     className={inputCls + ' resize-none' + (errors.message ? ' border-red-300! ring-red-100!' : '')}
                                     rows={4}
-                                    placeholder="Describe your requirements — bulk quantity, customisation, branding, delivery timeline, budget range…"
+                                    placeholder="Cuéntanos qué necesitas: cantidad, personalización, marca, plazo de entrega, presupuesto aproximado…"
                                     value={form.message}
                                     onChange={set('message')}
                                     disabled={isPending}
@@ -513,18 +513,18 @@ export function EnquireModal({ product, onClose }: { product: ProductInfo; onClo
                                 {isPending ? (
                                     <>
                                         <Loader2 size={16} className="animate-spin" />
-                                        Sending…
+                                        Enviando…
                                     </>
                                 ) : (
                                     <>
                                         <MailCheck size={16} />
-                                        Send Enquiry
+                                        Enviar consulta
                                     </>
                                 )}
                             </button>
 
                             <p className="text-center text-[11px] leading-relaxed text-stone-300">
-                                🔒 We respect your privacy. Expect a response within 1 business day.
+                                🔒 Respetamos tu privacidad. Te responderemos en un plazo de 1 día laborable.
                             </p>
                         </div>
                     </div>

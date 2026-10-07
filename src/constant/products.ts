@@ -19,7 +19,7 @@ export type ProductsType = {
 export const homeProducts: ProductsType[] = [
     {
         id: "prod_001",
-        name: "Tamper Proof Courier Bags",
+        name: "Bolsas de Mensajería Inviolables",
         slug: "tamper-proof-courier-bags",
         image: "/images/home_products/img-1.jpg",
         price: 399,
@@ -27,12 +27,12 @@ export const homeProducts: ProductsType[] = [
         compareAtPrice: 449,
         rating: 4.8,
         reviewCount: 124,
-        category: "Courier Bags",
+        category: "Bolsas de Mensajería",
     },
 
     {
         id: "prod_002",
-        name: "Poly Packaging Bags",
+        name: "Bolsas de Embalaje de Polietileno",
         slug: "poly-packaging-bags",
         image: "/images/home_products/img-2.jpg",
         price: 299,
@@ -40,24 +40,24 @@ export const homeProducts: ProductsType[] = [
         compareAtPrice: 349,
         rating: 4.6,
         reviewCount: 58,
-        category: "Poly Bags",
+        category: "Bolsas de Polietileno",
     },
 
     {
         id: "prod_003",
-        name: "Laminated Packaging Bags",
+        name: "Bolsas de Embalaje Laminadas",
         slug: "laminated-packaging-bags",
         image: "/images/home_products/img-3.jpg",
         price: 549,
         compareAtPrice: 599,
         rating: 4.9,
         reviewCount: 76,
-        category: "Laminated Bags",
+        category: "Bolsas Laminadas",
     },
 
     {
         id: "prod_004",
-        name: "Custom Printed Courier Bags",
+        name: "Bolsas de Mensajería Impresas Personalizadas",
         slug: "custom-printed-courier-bags",
         image: "/images/home_products/img-4.jpg",
         price: 699,
@@ -65,12 +65,12 @@ export const homeProducts: ProductsType[] = [
         compareAtPrice: 759,
         rating: 4.7,
         reviewCount: 41,
-        category: "Custom Printed Bags",
+        category: "Bolsas Impresas Personalizadas",
     },
 
     {
         id: "prod_005",
-        name: "Food Grade Packaging Bags",
+        name: "Bolsas de Embalaje de Grado Alimentario",
         slug: "food-grade-packaging-bags",
         image: "/images/home_products/img-1.jpg",
         price: 499,
@@ -78,12 +78,12 @@ export const homeProducts: ProductsType[] = [
         compareAtPrice: 549,
         rating: 4.8,
         reviewCount: 92,
-        category: "Food Packaging",
+        category: "Embalaje Alimentario",
     },
 
     {
         id: "prod_006",
-        name: "Heavy Duty Industrial Bags",
+        name: "Bolsas Industriales de Alta Resistencia",
         slug: "heavy-duty-industrial-bags",
         image: "/images/home_products/img-2.jpg",
         price: 799,
@@ -91,24 +91,24 @@ export const homeProducts: ProductsType[] = [
         compareAtPrice: 899,
         rating: 4.5,
         reviewCount: 33,
-        category: "Industrial Packaging",
+        category: "Embalaje Industrial",
     },
 
     {
         id: "prod_007",
-        name: "Reusable Zip Lock Packaging Bags",
+        name: "Bolsas de Embalaje Reutilizables con Cierre Zip",
         slug: "zip-lock-packaging-bags",
         image: "/images/home_products/img-3.jpg",
         price: 349,
         compareAtPrice: 399,
         rating: 4.7,
         reviewCount: 64,
-        category: "Zip Lock Bags",
+        category: "Bolsas con Cierre Zip",
     },
 
     {
         id: "prod_008",
-        name: "Stand Up Pouch Packaging Bags",
+        name: "Bolsas de Embalaje Tipo Doypack",
         slug: "stand-up-pouch-packaging-bags",
         image: "/images/home_products/img-4.jpg",
         price: 599,
@@ -116,6 +116,6 @@ export const homeProducts: ProductsType[] = [
         compareAtPrice: 659,
         rating: 4.8,
         reviewCount: 51,
-        category: "Stand Up Pouches",
+        category: "Bolsas Doypack",
     },
 ];

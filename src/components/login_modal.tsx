@@ -4,6 +4,7 @@ import axios, { AxiosError } from 'axios';
 import { X, Mail, Phone, ArrowRight, ShieldCheck, RotateCcw } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Dispatch, SetStateAction, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast'
 import { useAuth } from '../context/auth_context';
@@ -115,7 +116,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
             changeStep("otp");
         },
         onError: (err: AxiosError<{ error: string }>) =>
-            toast.error(err.response?.data?.error || "Failed"),
+            toast.error(err.response?.data?.error || "Algo ha salido mal. Inténtalo de nuevo."),
     })
     const { mutate: resendMutate, isPending: resendPending } = useMutation({
         mutationFn: async () => {
@@ -127,7 +128,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
             toast.success(val.data.message);
         },
         onError: (err: AxiosError<{ error: string }>) =>
-            toast.error(err.response?.data?.error || "Failed"),
+            toast.error(err.response?.data?.error || "Algo ha salido mal. Inténtalo de nuevo."),
     })
     const { mutate: verifyOtp, isPending: pendingOtp } = useMutation({
         mutationFn: async () => {
@@ -148,7 +149,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
             onClose();
         },
         onError: (err: AxiosError<{ error: string }>) =>
-            toast.error(err.response?.data?.error || "Failed"),
+            toast.error(err.response?.data?.error || "Algo ha salido mal. Inténtalo de nuevo."),
     })
     const { mutate: googleLoginMutate, isPending: googlePending } = useMutation({
         mutationFn: async (google_id_token: string) => {
@@ -170,7 +171,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
         },
         onError: (err: AxiosError<{ error: string }>) => {
             // console.log(err.response?.data);
-            toast.error(err.response?.data?.error || "Google login failed")
+            toast.error(err.response?.data?.error || "No se ha podido iniciar sesión con Google")
         }
     });
 
@@ -220,7 +221,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                     src="/images/logo/logo-b.svg"
                                     width={150}
                                     height={64}
-                                    alt="Wooden Souvenir"
+                                    alt="Novasac"
                                     className="w-24 h-auto"
                                 />
                                 <button
@@ -231,7 +232,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                         hover:bg-stone-200 hover:text-stone-700
                                         transition-all duration-150 cursor-pointer
                                     "
-                                    aria-label="Close"
+                                    aria-label="Cerrar"
                                 >
                                     <X size={15} />
                                 </button>
@@ -247,9 +248,9 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                         exit={{ opacity: 0, x: -20 }}
                                         transition={spring}
                                     >
-                                        <h2 className="text-center text-2xl font-bold text-zinc-800 tracking-tight">Welcome back</h2>
+                                        <h2 className="text-center text-2xl font-bold text-zinc-800 tracking-tight">¡Hola de nuevo!</h2>
                                         <p className="text-center text-sm text-stone-400 mt-1 mb-7">
-                                            Sign in to your account to continue
+                                            Inicia sesión en tu cuenta para continuar
                                         </p>
 
                                         {/* <GoogleLogin
@@ -267,7 +268,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                         {/* Divider */}
                                         <div className="flex items-center gap-3 my-5">
                                             <div className="flex-1 h-px bg-stone-100" />
-                                            <span className="text-xs text-stone-400 font-medium">use email / phone</span>
+                                            <span className="text-xs text-stone-400 font-medium">usa tu correo o tu teléfono</span>
                                             <div className="flex-1 h-px bg-stone-100" />
                                         </div>
 
@@ -286,7 +287,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                                     `}
                                                 >
                                                     {mode === "email" ? <Mail size={13} /> : <Phone size={13} />}
-                                                    {mode === "email" ? "Email" : "Phone"}
+                                                    {mode === "email" ? "Email" : "Teléfono"}
                                                 </button>
                                             ))}
                                         </div>
@@ -297,7 +298,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                             </div>
                                             <input
                                                 type={inputMode === "email" ? "email" : "tel"}
-                                                placeholder={inputMode === "email" ? "you@example.com" : "+91 98765 43210"}
+                                                placeholder={inputMode === "email" ? "tu@ejemplo.com" : "+34 600 123 456"}
                                                 value={contact}
                                                 onChange={(e) => setContact(e.target.value)}
                                                 onKeyDown={(e) => e.key === "Enter" && handleSendOtp()}
@@ -326,7 +327,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                         >
                                             {isPending ? <div className="w-4 h-4 border-2 border-stone-200 border-t-stone-500 rounded-full animate-spin" /> :
                                                 <>
-                                                    Send OTP
+                                                    Enviar código
                                                     <ArrowRight size={15} />
                                                 </>
 
@@ -334,10 +335,10 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                         </button>
 
                                         <p className="text-center text-xs text-stone-400 mt-5 leading-relaxed">
-                                            By continuing you agree to our{" "}
-                                            <a href="#" className="text-amber-600 hover:underline">Terms</a>
-                                            {" & "}
-                                            <a href="#" className="text-amber-600 hover:underline">Privacy Policy</a>
+                                            Al continuar, aceptas nuestros{" "}
+                                            <Link href="/terms" onClick={onClose} className="text-amber-600 hover:underline">Términos y Condiciones</Link>
+                                            {" y nuestra "}
+                                            <Link href="/privacy" onClick={onClose} className="text-amber-600 hover:underline">Política de Privacidad</Link>
                                         </p>
                                     </motion.div>
                                 )}
@@ -355,10 +356,10 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                             <ShieldCheck className="text-amber-600" size={22} />
                                         </div>
 
-                                        <h2 className="text-2xl font-bold text-zinc-800 tracking-tight">Verify it's you</h2>
+                                        <h2 className="text-2xl font-bold text-zinc-800 tracking-tight">Verifica que eres tú</h2>
                                         <p className="text-sm text-stone-400 mt-1 mb-7">
-                                            We sent a 6-digit code to{" "}
-                                            <span className="text-zinc-600 font-medium">{maskedContact || "your contact"}</span>
+                                            Hemos enviado un código de 6 dígitos a{" "}
+                                            <span className="text-zinc-600 font-medium">{maskedContact || "tu contacto"}</span>
                                         </p>
 
                                         <OtpInput value={otp} onChange={setOtp} />
@@ -378,7 +379,7 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                             "
                                         >
                                             {pendingOtp || resendPending ? <div className="w-4 h-4 border-2 border-stone-200 border-t-stone-500 rounded-full animate-spin" /> : <>
-                                                Verify & Sign In
+                                                Verificar e iniciar sesión
                                                 <ArrowRight size={15} />
                                             </>
                                             }
@@ -389,14 +390,14 @@ export default function LoginModal({ isOpen, onClose, currentStep, changeStep }:
                                                 onClick={() => { changeStep("login"); setOtp(""); }}
                                                 className="text-xs text-stone-400 hover:text-zinc-600 transition-colors cursor-pointer"
                                             >
-                                                ← Change contact
+                                                ← Cambiar contacto
                                             </button>
                                             <button
                                                 onClick={handleResend}
                                                 className="flex items-center gap-1 text-xs text-amber-600 hover:text-amber-700 font-medium transition-colors cursor-pointer"
                                             >
                                                 <RotateCcw size={11} />
-                                                Resend OTP{resendCount > 0 ? ` (${resendCount})` : ""}
+                                                Reenviar código{resendCount > 0 ? ` (${resendCount})` : ""}
                                             </button>
                                         </div>
                                     </motion.div>

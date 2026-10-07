@@ -9,11 +9,11 @@ import FilterPanel from './filter_panel'
 import ProductListCard from './product_list_card'
 
 const SORT_OPTIONS = [
-    { label: 'Relevance', value: '' },
-    { label: 'Newest First', value: 'new-arrivals' },
-    { label: 'Price: Low to High', value: 'price-low-to-high' },
-    { label: 'Price: High to Low', value: 'price-high-to-low' },
-    { label: 'A-Z Order', value: 'a-to-z-order' },
+    { label: 'Relevancia', value: '' },
+    { label: 'Novedades primero', value: 'new-arrivals' },
+    { label: 'Precio: de menor a mayor', value: 'price-low-to-high' },
+    { label: 'Precio: de mayor a menor', value: 'price-high-to-low' },
+    { label: 'Orden A-Z', value: 'a-to-z-order' },
 ] as const
 
 type SortValue = (typeof SORT_OPTIONS)[number]['value']
@@ -122,7 +122,7 @@ export default function CatalogClient({ slug, initialFilters, initialProducts, i
         router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
     }, [activeFilters, sort, pathname, router])
 
-    const activeSortLabel = SORT_OPTIONS.find((o) => o.value === sort)?.label ?? 'Relevance'
+    const activeSortLabel = SORT_OPTIONS.find((o) => o.value === sort)?.label ?? 'Relevancia'
 
     return (
         <div className="flex flex-col lg:flex-row gap-10 items-start">
@@ -138,10 +138,10 @@ export default function CatalogClient({ slug, initialFilters, initialProducts, i
 
                 <div className="flex items-center justify-between mb-6 gap-4">
                     <p className="text-xs text-stone-400 tracking-wide">
-                        Showing{' '}
+                        Mostrando{' '}
                         <span className="text-stone-700 font-medium">{products.length}</span>
-                        {' '}of{' '}
-                        <span className="text-stone-700 font-medium">{total}</span> products
+                        {' '}de{' '}
+                        <span className="text-stone-700 font-medium">{total}</span> productos
                     </p>
 
                     <div className="relative shrink-0" ref={sortRef}>
@@ -153,7 +153,7 @@ export default function CatalogClient({ slug, initialFilters, initialProducts, i
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M6 12h12M10 17h4" />
                             </svg>
                             <span className="hidden sm:inline text-stone-500 text-[11px] tracking-wide uppercase font-medium">
-                                Sort:
+                                Ordenar:
                             </span>
                             {activeSortLabel}
                             <svg
@@ -213,7 +213,7 @@ export default function CatalogClient({ slug, initialFilters, initialProducts, i
 
                 {!hasNextPage && products.length > 0 && (
                     <p className="text-center text-xs text-stone-300 tracking-widest uppercase py-10">
-                        — End of results —
+                        — Fin de los resultados —
                     </p>
                 )}
             </div>
@@ -242,12 +242,12 @@ function EmptyState({ onClear }: { onClear: () => void }) {
     return (
         <div className="flex flex-col items-center justify-center py-24 text-center">
             <div className="text-5xl mb-4 opacity-20">🏆</div>
-            <p className="text-stone-500 text-sm mb-4">No products match your current filters.</p>
+            <p className="text-stone-500 text-sm mb-4">Ningún producto coincide con los filtros seleccionados.</p>
             <button
                 onClick={onClear}
                 className="text-xs underline underline-offset-2 text-amber-700 hover:text-amber-900 transition-colors"
             >
-                Clear all filters
+                Quitar todos los filtros
             </button>
         </div>
     )

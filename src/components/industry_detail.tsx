@@ -202,7 +202,7 @@ export default function IndustryDetailPage({ slug }: Props) {
                                                             {items.title}
                                                         </h3>
                                                         {/* <p className="text-sm text-zinc-600 leading-relaxed mb-5 line-clamp-3">
-                                                            {items?.short_description || "High-quality industrial packaging solution designed for durability and performance."}
+                                                            {items?.short_description || "Solución de embalaje industrial de alta calidad, diseñada para ofrecer durabilidad y rendimiento."}
                                                         </p> */}
                                                         <Link
                                                             href={items.page_url ?? "#"}

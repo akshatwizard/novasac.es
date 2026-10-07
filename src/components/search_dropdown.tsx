@@ -28,11 +28,11 @@ export default function MobileSearchDropdown({ suggestions, query, onSelect, isL
             {isLoading ? (
                 <div className="flex items-center justify-center py-8 gap-2">
                     <div className="w-4 h-4 rounded-full border-2 border-zinc-300 border-t-zinc-700 animate-spin" />
-                    <span className="text-xs text-slate-400">Searching…</span>
+                    <span className="text-xs text-slate-400">Buscando…</span>
                 </div>
             ) : suggestions.length === 0 ? (
                 <div className="py-8 text-center text-sm text-slate-400">
-                    No results for &ldquo;
+                    Sin resultados para &ldquo;
                     <span className="text-slate-600 font-medium">{query}</span>&rdquo;
                 </div>
             ) : (
@@ -41,7 +41,7 @@ export default function MobileSearchDropdown({ suggestions, query, onSelect, isL
                     {keywordSuggestions.length > 0 && (
                         <div className="px-3 py-2">
                             <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-semibold px-2 py-1.5">
-                                Suggestions
+                                Sugerencias
                             </p>
                             {keywordSuggestions.map((item, i) => (
                                 <button
@@ -64,7 +64,7 @@ export default function MobileSearchDropdown({ suggestions, query, onSelect, isL
                     {productSuggestions.length > 0 && (
                         <div className="px-3 py-2">
                             <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-semibold px-2 py-1.5">
-                                Products
+                                Productos
                             </p>
                             {productSuggestions.map((item, i) => (
                                 <Link
@@ -112,7 +112,7 @@ export default function MobileSearchDropdown({ suggestions, query, onSelect, isL
                        hover:text-amber-700 font-semibold py-1 transition-colors"
                     >
                         <Search className="w-3.5 h-3.5" />
-                        See all results for &ldquo;{query}&rdquo;
+                        Ver todos los resultados de &ldquo;{query}&rdquo;
                     </button>
                 </div>
             )}
@@ -137,11 +137,11 @@ export function SearchDropdown({ suggestions, query, onSelect, isLoading }: {
             {isLoading ? (
                 <div className="flex items-center justify-center py-8 gap-2">
                     <div className="w-4 h-4 rounded-full border-2 border-zinc-300 border-t-zinc-700 animate-spin" />
-                    <span className="text-xs text-slate-400">Searching…</span>
+                    <span className="text-xs text-slate-400">Buscando…</span>
                 </div>
             ) : suggestions.length === 0 ? (
                 <div className="py-8 text-center text-sm text-slate-400">
-                    No results for &ldquo;<span className="text-slate-600 font-medium">{query}</span>&rdquo;
+                    Sin resultados para &ldquo;<span className="text-slate-600 font-medium">{query}</span>&rdquo;
                 </div>
             ) : (
                 <div className="max-h-105 overflow-y-auto divide-y divide-slate-100" data-lenis-prevent>
@@ -150,7 +150,7 @@ export function SearchDropdown({ suggestions, query, onSelect, isLoading }: {
                     {keywordSuggestions.length > 0 && (
                         <div className="px-3 py-2">
                             <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-semibold px-2 py-1.5">
-                                Suggestions
+                                Sugerencias
                             </p>
                             {keywordSuggestions.map((item, i) => (
                                 <button
@@ -175,7 +175,7 @@ export function SearchDropdown({ suggestions, query, onSelect, isLoading }: {
                     {productSuggestions.length > 0 && (
                         <div className="px-3 py-2">
                             <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-semibold px-2 py-1.5">
-                                Products
+                                Productos
                             </p>
                             {productSuggestions.map((item, i) => (
                                 <Link
@@ -226,7 +226,7 @@ export function SearchDropdown({ suggestions, query, onSelect, isLoading }: {
                             hover:text-amber-700 font-semibold py-1 transition-colors"
                     >
                         <Search className="w-3.5 h-3.5" />
-                        See all results for &ldquo;{query}&rdquo;
+                        Ver todos los resultados de &ldquo;{query}&rdquo;
                     </button>
                 </div>
             )}

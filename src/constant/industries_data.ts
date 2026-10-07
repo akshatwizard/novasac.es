@@ -18,7 +18,7 @@ export const industries: Industry[] = [
     image: "/images/industry/img-1.png",
   },
   {
-    slug: "sector-de-alimentos-y-agricultura",
+    slug: "alimentos-y-agricultura",
     title: "Sector de Alimentos y Agricultura",
     description:
       "Bolsas de grado alimenticio y resistentes a la humedad, ideales para almacenar y transportar granos y productos agrícolas.",
@@ -104,10 +104,10 @@ export const industryDetails: IndustryDetail[] = [
     ],
     recommendedProducts: [
       "FIBC / Jumbo Bags",
-      "PP Woven Sacks",
-      "Valve Bags",
-      "BOPP Laminated Bags",
-      "Liner Bags",
+      "Sacos Tejidos de PP",
+      "Sacos de Válvula",
+      "Bolsas Laminadas de BOPP",
+      "Bolsas con Forro",
     ],
   },
   {
@@ -141,11 +141,11 @@ export const industryDetails: IndustryDetail[] = [
       },
     ],
     recommendedProducts: [
-      "PP Woven Bags (Food Grade)",
-      "BOPP Laminated Bags",
-      "Leno Bags (for ventilation)",
-      "FIBC Bags (bulk storage)",
-      "Liner Bags (for hygiene protection)",
+      "Bolsas Tejidas de PP (Grado Alimentario)",
+      "Bolsas Laminadas de BOPP",
+      "Bolsas Leno (para ventilación)",
+      "Bolsas FIBC (almacenamiento a granel)",
+      "Bolsas con Forro (protección higiénica)",
     ],
   },
   {
@@ -179,9 +179,9 @@ export const industryDetails: IndustryDetail[] = [
       },
     ],
     recommendedProducts: [
-      "FIBC Bags (UN Certified options)",
-      "PP Woven Bags with Liners",
-      "BOPP Laminated Bags",
+      "Bolsas FIBC (opciones certificadas UN)",
+      "Bolsas Tejidas de PP con Forro",
+      "Bolsas Laminadas de BOPP",
     ],
   },
   {
@@ -214,7 +214,7 @@ export const industryDetails: IndustryDetail[] = [
           "Nuestras soluciones de embalaje están diseñadas para apoyar los materiales de desecho y reciclables en cada etapa, desde la recolección y segregación hasta el almacenamiento y transporte. Fabricadas con materiales de alta calidad, ofrecen la resistencia y fiabilidad necesarias para manejar cargas voluminosas, pesadas o irregulares con facilidad. Esto ayuda a reducir el riesgo de derrames y garantiza un manejo más seguro durante todo el proceso.\n\nAl mejorar la organización y reducir los desafíos operativos, nuestro embalaje contribuye a sistemas de gestión de residuos más fluidos y eficientes. La durabilidad y reutilización de nuestras soluciones también respaldan los objetivos de sostenibilidad a largo plazo. Con un fuerte enfoque en el rendimiento y la responsabilidad ambiental, el embalaje de Novasac ayuda a las empresas a mantener operaciones eficientes mientras contribuyen a prácticas más limpias y sostenibles.",
       },
     ],
-    recommendedProducts: ["FIBC / Jumbo Bags", "Heavy-duty PP Woven Sacks"],
+    recommendedProducts: ["FIBC / Jumbo Bags", "Sacos Tejidos de PP de Alta Resistencia"],
   },
   {
     slug: "mineria-y-minerales",
@@ -246,6 +246,6 @@ export const industryDetails: IndustryDetail[] = [
           "Nuestras soluciones de embalaje están construidas para apoyar la naturaleza exigente de las operaciones mineras en cada etapa. Desde los sitios de extracción hasta las unidades de procesamiento y el transporte, ofrecen la resistencia y fiabilidad necesarias para manejar materiales pesados y abrasivos de manera efectiva. Esto ayuda a garantizar un movimiento seguro y eficiente de los productos a granel.\n\nCon un enfoque en la durabilidad y el rendimiento, nuestro embalaje minimiza la pérdida de material y mejora la eficiencia del manejo. También mejora la seguridad al reducir los riesgos asociados con cargas pesadas y entornos difíciles. Diseñadas para rendir consistentemente en condiciones adversas, nuestras soluciones ayudan a optimizar las operaciones y respaldar una mejor productividad. Con el embalaje de Novasac, las empresas pueden gestionar sus procesos mineros con confianza y fiabilidad.",
       },
     ],
-    recommendedProducts: ["FIBC Bags (Heavy-duty)", "PP Woven Sacks"],
+    recommendedProducts: ["Bolsas FIBC (alta resistencia)", "Sacos Tejidos de PP"],
   },
 ];

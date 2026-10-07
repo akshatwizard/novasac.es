@@ -81,12 +81,12 @@ export default function MobileSearch({ open, onClose }: MobileSearchProps) {
                         {/* Top row: label + close */}
                         <div className="flex items-center justify-between mb-4">
                             <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 font-semibold">
-                                Search
+                                Buscar
                             </p>
                             <button
                                 onClick={onClose}
                                 className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-stone-100 active:bg-stone-200 transition-colors"
-                                aria-label="Close search"
+                                aria-label="Cerrar búsqueda"
                             >
                                 <X className="w-4 h-4 text-zinc-600" strokeWidth={2} />
                             </button>
@@ -105,7 +105,7 @@ export default function MobileSearch({ open, onClose }: MobileSearchProps) {
                                     inputMode="search"
                                     enterKeyHint="search"
                                     autoComplete="off"
-                                    placeholder="Search products, temples, medals…"
+                                    placeholder="Buscar productos, big bags, sacos de PP…"
                                     value={query}
                                     onChange={(e) => setQuery(e.target.value)}
                                     onFocus={() => setIsFocused(true)}
@@ -123,7 +123,7 @@ export default function MobileSearch({ open, onClose }: MobileSearchProps) {
                                             transition={{ duration: 0.12 }}
                                             onClick={() => { setQuery(''); inputRef.current?.focus() }}
                                             className="shrink-0 w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center"
-                                            aria-label="Clear"
+                                            aria-label="Borrar"
                                         >
                                             <X className="w-3 h-3 text-slate-500" strokeWidth={2.5} />
                                         </motion.button>
@@ -136,7 +136,7 @@ export default function MobileSearch({ open, onClose }: MobileSearchProps) {
                                 onClick={() => query.trim() && handleSelect(query.trim())}
                                 className="shrink-0 h-11 px-4 bg-primary-500 hover:bg-primary-600 active:bg-primary-700
                            rounded-lg text-white transition-colors duration-200 flex items-center justify-center"
-                                aria-label="Submit search"
+                                aria-label="Buscar"
                             >
                                 <Search className="w-4 h-4" strokeWidth={1.5} />
                             </button>
@@ -165,10 +165,10 @@ export default function MobileSearch({ open, onClose }: MobileSearchProps) {
                                     className="mt-4"
                                 >
                                     <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-semibold mb-2 px-1">
-                                        Popular
+                                        Populares
                                     </p>
                                     <div className="flex flex-wrap gap-2">
-                                        {['Big Bags', 'Small Bags', 'Jumbo Bag With Liner'].map((term) => (
+                                        {['Big Bags', 'Bolsa pequeña', 'Big Bag con forro'].map((term) => (
                                             <button
                                                 key={term}
                                                 onClick={() => handleSelect(term)}

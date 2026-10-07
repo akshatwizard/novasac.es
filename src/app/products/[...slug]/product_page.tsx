@@ -94,7 +94,7 @@ export default function ProductDetailClient({ slug, initialData }: Props) {
   return (
     <div className="py-6 lg:py-10">
       <nav
-        aria-label="Breadcrumb"
+        aria-label="Ruta de navegación"
         className="flex items-center gap-1.5 text-[11px] text-stone-400 tracking-wide mb-8 flex-wrap"
       >
         {breadcrumb.map((crumb, i) => (

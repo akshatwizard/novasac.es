@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 
 export default function SearchPlaceholder({ hidden }: { hidden: boolean }) {
     const items: string[] = [
-        "packing bags...",
-        "poly bags, courier bags...",
-        "laminated packaging bags...",
-        "food packaging bags...",
-        "industrial packaging bags...",
-        "custom printed bags...",
+        "bolsas de embalaje...",
+        "bolsas de polietileno, bolsas de mensajería...",
+        "bolsas de embalaje laminadas...",
+        "bolsas para alimentos...",
+        "bolsas de embalaje industrial...",
+        "bolsas impresas personalizadas...",
     ];
 
     const [active, setActive] = useState<number>(0);
@@ -29,7 +29,7 @@ export default function SearchPlaceholder({ hidden }: { hidden: boolean }) {
             <motion.span className="text-sm text-zinc-400">
                 <AnimatePresence mode="wait">
                     <span className="flex gap-1">
-                        Search
+                        Buscar
                         <motion.span
                             key={active}
                             initial={{ y: 10, opacity: 0, filter: "blur(6px)" }}
