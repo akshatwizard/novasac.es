@@ -198,11 +198,8 @@ export default function ContactUs() {
                             >
                                 {isPending ? <div className="w-4 h-4 border-2 border-white border-t-zinc-800 rounded-full animate-spin" /> : "Enviar Mensaje"}
                             </button>
-
                         </form>
-
                     </div>
-
                 </div>
             </Wrapper>
         </Section>
