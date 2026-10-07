@@ -70,20 +70,23 @@ export default function RecycledBagsSection() {
                                 <Recycle className="h-3.5 w-3.5" />
                                 Embalaje sostenible certificado
                             </span>
-                            <Heading>100% Bolsas Recicladas</Heading>
+                            <Heading>100 % Bolsas Recicladas</Heading>
                             <p className="max-w-lg text-sm leading-relaxed text-zinc-600 md:text-base">
                                 Bolsas y sacos fabricados con plástico reciclado: menos impacto ambiental,
                                 sin renunciar a la resistencia ni a la durabilidad.
                             </p>
                         </div>
 
-                        <ul className="grid gap-3 sm:grid-cols-2">
+                        <ul className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-[repeat(2,minmax(0,1fr))]">
                             {FEATURES.map(({ id, icon: Icon, text }) => (
-                                <li key={id} className="flex items-start gap-3">
-                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-100 text-primary-600">
-                                        <Icon className="h-4.5 w-4.5" />
-                                    </span>
-                                    <span className="pt-1.5 text-sm leading-snug text-zinc-700">{text}</span>
+                                <li key={id} className="flex w-full min-w-0 items-start gap-3">
+                                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-100 text-primary-600">
+                                    <Icon className="h-4.5 w-4.5" />
+                                </span>
+
+                                <span className="min-w-0 flex-1 pt-1.5 text-sm leading-snug text-zinc-700 [overflow-wrap:anywhere] [&_*]:!whitespace-normal [&_*]:![overflow-wrap:anywhere] [&_*]:!static [&_*]:!inline">
+                                    {text}
+                                </span>
                                 </li>
                             ))}
                         </ul>
