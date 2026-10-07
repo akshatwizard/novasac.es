@@ -70,7 +70,7 @@ export default function RecycledBagsSection() {
                                 <Recycle className="h-3.5 w-3.5" />
                                 Embalaje sostenible certificado
                             </span>
-                            <Heading>Bolsas Recicladas</Heading>
+                            <Heading>100 % Bolsas Recicladas</Heading>
                             <p className="max-w-lg text-sm leading-relaxed text-zinc-600 md:text-base">
                                 Bolsas y sacos fabricados con plástico reciclado: menos impacto ambiental,
                                 sin renunciar a la resistencia ni a la durabilidad.
