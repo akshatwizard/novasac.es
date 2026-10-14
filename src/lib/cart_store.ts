@@ -28,7 +28,8 @@ interface CartState {
 
 export const MAX_QTY = 999
 
-const STORAGE_KEY = 'novasac_cart_v1'
+// Bumped to v2 so carts saved before the single-size change (old size options) are dropped.
+const STORAGE_KEY = 'novasac_cart_v2'
 
 // What the server (and the first client render) sees, so hydration always matches.
 const SERVER_STATE: CartState = { items: [], open: false }

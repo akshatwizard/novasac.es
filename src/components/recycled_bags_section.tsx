@@ -36,8 +36,8 @@ const PRODUCT_IMAGE = '/images/recycled/garden-bag-infographic.jpg'
 const PRODUCT_IMAGE_ALT =
     'Bolsa negra reciclada de Novasac con restos de jardín sobre el césped. Características: plástico reciclado postconsumo y postindustrial, menor huella de carbono que los polímeros vírgenes, trazabilidad certificada según la norma UNE-EN 15343 y cumplimiento de la normativa medioambiental de la UE.'
 
-// Same sizes as the garden bag on /recycled-bags.
-const SIZES = ['45 × 45 × 45 cm', '80 × 80 × 80 cm', '50 × 30 × 50 cm']
+// This bag is sold in one size only, so there is no size picker.
+const SIZE = '85 × 85 × 90 cm'
 
 // No price has been published yet. Put the unit price (in euros) here and the listing switches
 // from "Precio bajo consulta" to the price automatically.
@@ -54,14 +54,13 @@ const PRODUCT_LINES = [
 const euro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' })
 
 export default function RecycledBagsSection() {
-    const [size, setSize] = useState(SIZES[0])
     const [qty, setQty] = useState(1)
     const [buyOpen, setBuyOpen] = useState(false)
     const [enquiryOpen, setEnquiryOpen] = useState(false)
     const [zoomOpen, setZoomOpen] = useState(false)
 
     // Adds the line and opens the cart drawer, which is the confirmation.
-    const handleAddToCart = () => addToCart({ productId: PRODUCT_ID, title: PRODUCT_TITLE, size, image: PRODUCT_IMAGE }, qty)
+    const handleAddToCart = () => addToCart({ productId: PRODUCT_ID, title: PRODUCT_TITLE, size: SIZE, image: PRODUCT_IMAGE }, qty)
 
     return (
         <Section>
@@ -132,37 +131,18 @@ export default function RecycledBagsSection() {
                                 <>
                                     <p className="mt-1 text-2xl font-bold text-zinc-900">Precio bajo consulta</p>
                                     <p className="mt-1 text-sm leading-relaxed text-zinc-500">
-                                        Te lo confirmamos en 1 día laborable, según el tamaño y la cantidad.
+                                        Te lo confirmamos en 1 día laborable, según la cantidad.
                                     </p>
                                 </>
                             )}
                         </div>
 
-                        {/* Size */}
+                        {/* Size (single size, so shown as a fixed detail rather than a picker) */}
                         <div className="flex flex-col gap-2">
-                            <p className="text-sm text-zinc-600">
-                                Tamaño: <span className="font-semibold text-zinc-900">{size}</span>
-                            </p>
-                            <div role="radiogroup" aria-label="Tamaño" className="flex flex-wrap gap-2">
-                                {SIZES.map((option) => {
-                                    const active = option === size
-                                    return (
-                                        <button
-                                            key={option}
-                                            type="button"
-                                            role="radio"
-                                            aria-checked={active}
-                                            onClick={() => setSize(option)}
-                                            className={`rounded-xl border px-3.5 py-2 text-sm font-medium transition-colors ${active
-                                                ? 'border-primary-500 bg-primary-50 text-primary-700 ring-1 ring-primary-500'
-                                                : 'border-zinc-200 bg-white text-zinc-700 hover:border-zinc-400'
-                                                }`}
-                                        >
-                                            <span className="whitespace-nowrap">{option}</span>
-                                        </button>
-                                    )
-                                })}
-                            </div>
+                            <p className="text-sm text-zinc-600">Tamaño</p>
+                            <span className="w-fit rounded-xl border border-primary-500 bg-primary-50 px-3.5 py-2 text-sm font-semibold text-primary-700 ring-1 ring-primary-500">
+                                <span className="whitespace-nowrap">{SIZE}</span>
+                            </span>
                         </div>
 
                         {/* Quantity */}
@@ -248,7 +228,7 @@ export default function RecycledBagsSection() {
 
             {buyOpen && (
                 <OrderRequestModal
-                    items={[{ title: PRODUCT_TITLE, size, qty, image: PRODUCT_IMAGE }]}
+                    items={[{ title: PRODUCT_TITLE, size: SIZE, qty, image: PRODUCT_IMAGE }]}
                     onClose={() => setBuyOpen(false)}
                 />
             )}
