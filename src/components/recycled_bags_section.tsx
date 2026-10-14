@@ -6,10 +6,12 @@ import Link from 'next/link'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { ArrowRight, BadgeCheck, Leaf, Loader2, MailCheck, Phone, Recycle, ShieldCheck, X } from 'lucide-react'
+import { ArrowRight, BadgeCheck, Loader2, MailCheck, Phone, Recycle, ShieldCheck, ShoppingCart, X, Zap, ZoomIn } from 'lucide-react'
 import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import { Heading } from './ui/headings'
+import QuantityStepper from './quantity_stepper'
+import OrderRequestModal from './order_request_modal'
 import {
     ErrorBanner,
     Field,
@@ -19,20 +21,29 @@ import {
     getApiError,
     inputCls,
 } from './product_modal'
+import { addToCart } from '@/lib/cart_store'
 
 const PHONE_DISPLAY = '+34 628 188 044'
 const PHONE_HREF = 'tel:+34628188044'
 
-// Claims below are taken from the /recycled-bags page so the homepage and that page always agree.
-const FEATURES = [
-    { id: 'material', icon: Recycle, text: <>Plástico reciclado postconsumo y postindustrial</> },
-    { id: 'carbono', icon: Leaf, text: <>Menor huella de carbono que los polímeros vírgenes</> },
-    // nowrap keeps the standard's name ("UNE-EN 15343") from breaking at its hyphen on narrow screens
-    { id: 'trazabilidad', icon: ShieldCheck, text: <>Trazabilidad certificada según la norma <span className="whitespace-nowrap">UNE-EN 15343</span></> },
-    { id: 'normativa', icon: BadgeCheck, text: <>Cumplen la normativa medioambiental de la UE</> },
-]
+// ── Listing data ─────────────────────────────────────────────────────────────────────────────
+// Everything the listing shows lives here so it is easy to update.
+const PRODUCT_ID = 'bolsa-reciclada-jardin'
+const PRODUCT_TITLE = '100 % Bolsas Recicladas'
+const PRODUCT_IMAGE = '/images/recycled/garden-bag-infographic.jpg'
+// The product details (recycled material, carbon footprint, UNE-EN 15343 traceability, EU
+// regulations) are written inside the picture, so the alt text spells them out for screen readers.
+const PRODUCT_IMAGE_ALT =
+    'Bolsa negra reciclada de Novasac con restos de jardín sobre el césped. Características: plástico reciclado postconsumo y postindustrial, menor huella de carbono que los polímeros vírgenes, trazabilidad certificada según la norma UNE-EN 15343 y cumplimiento de la normativa medioambiental de la UE.'
 
-// The same four product lines (and anchors) as the /recycled-bags page.
+// Same sizes as the garden bag on /recycled-bags.
+const SIZES = ['45 × 45 × 45 cm', '80 × 80 × 80 cm', '50 × 30 × 50 cm']
+
+// No price has been published yet. Put the unit price (in euros) here and the listing switches
+// from "Precio bajo consulta" to the price automatically.
+const LISTING = { priceEur: null as number | null }
+
+// The four product lines of the /recycled-bags page (used as interests in the enquiry form).
 const PRODUCT_LINES = [
     { label: 'Big Bags', href: '/recycled-bags#fibc' },
     { label: 'Sacos de PP', href: '/recycled-bags#ppws' },
@@ -40,105 +51,209 @@ const PRODUCT_LINES = [
     { label: 'Bolsas de basura', href: '/recycled-bags#garbage' },
 ]
 
+const euro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' })
+
 export default function RecycledBagsSection() {
-    const [open, setOpen] = useState(false)
+    const [size, setSize] = useState(SIZES[0])
+    const [qty, setQty] = useState(1)
+    const [buyOpen, setBuyOpen] = useState(false)
+    const [enquiryOpen, setEnquiryOpen] = useState(false)
+    const [zoomOpen, setZoomOpen] = useState(false)
+
+    // Adds the line and opens the cart drawer, which is the confirmation.
+    const handleAddToCart = () => addToCart({ productId: PRODUCT_ID, title: PRODUCT_TITLE, size, image: PRODUCT_IMAGE }, qty)
 
     return (
         <Section>
             <Wrapper className="pt-0! sm:pt-0! md:pt-0! lg:pt-0!">
-                <div className="group relative grid overflow-hidden rounded-3xl border border-primary-100 bg-linear-to-br from-primary-50 via-white to-white shadow-soft lg:grid-cols-2">
+                <div className="overflow-hidden rounded-3xl border border-primary-100 bg-white shadow-soft lg:grid lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
 
-                    {/* Image */}
-                    <div className="relative aspect-4/3 overflow-hidden lg:aspect-auto lg:min-h-120">
-                        <Image
-                            src="/images/recycled/home-recycled-bags.jpg"
-                            alt="Bolsa negra reciclada de Novasac llena de restos de jardín sobre el césped"
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-cover object-[85%_center] transition-transform duration-700 ease-out group-hover:scale-105"
-                        />
-                        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm backdrop-blur-sm">
-                            <BadgeCheck className="h-3.5 w-3.5 text-primary-600" />
-                            Certificadas AENOR
-                        </span>
+                    {/* Product picture */}
+                    <div className="flex items-center bg-linear-to-br from-primary-50 via-white to-white p-3 sm:p-5 lg:p-6">
+                        <button
+                            type="button"
+                            onClick={() => setZoomOpen(true)}
+                            aria-label="Ampliar la imagen del producto"
+                            className="group relative block aspect-[1418/1109] w-full cursor-zoom-in overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                        >
+                            <Image
+                                src={PRODUCT_IMAGE}
+                                alt={PRODUCT_IMAGE_ALT}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 60vw"
+                                className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                            />
+                            <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm backdrop-blur-sm">
+                                <ZoomIn className="h-3.5 w-3.5 text-primary-600" />
+                                Ampliar
+                            </span>
+                        </button>
                     </div>
 
-                    {/* Details */}
-                    <div className="flex flex-col justify-center gap-6 p-6 md:p-10 lg:p-12">
+                    {/* Buy box */}
+                    <div className="flex flex-col gap-5 border-t border-primary-100 p-6 sm:p-8 lg:border-l lg:border-t-0">
                         <div className="flex flex-col gap-3">
                             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary-700">
                                 <Recycle className="h-3.5 w-3.5" />
-                                Embalaje sostenible certificado
+                                Bolsas Recicladas
                             </span>
-                            <Heading>100 % Bolsas Recicladas</Heading>
-                            <p className="max-w-lg text-sm leading-relaxed text-zinc-600 md:text-base">
-                                Bolsas y sacos fabricados con plástico reciclado: menos impacto ambiental,
-                                sin renunciar a la resistencia ni a la durabilidad.
-                            </p>
-                        </div>
-
-                        <ul className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-[repeat(2,minmax(0,1fr))]">
-                            {FEATURES.map(({ id, icon: Icon, text }) => (
-                                <li key={id} className="flex w-full min-w-0 items-start gap-3">
-                                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-100 text-primary-600">
-                                    <Icon className="h-4.5 w-4.5" />
-                                </span>
-
-                                <span className="min-w-0 flex-1 pt-1.5 text-sm leading-snug text-zinc-700 [overflow-wrap:anywhere] [&_*]:!whitespace-normal [&_*]:![overflow-wrap:anywhere] [&_*]:!static [&_*]:!inline">
-                                    {text}
-                                </span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <div className="flex flex-wrap items-center gap-2">
-                            <span className="mr-1 text-xs font-semibold uppercase tracking-widest text-zinc-400">
-                                Disponibles en
-                            </span>
-                            {PRODUCT_LINES.map((line) => (
-                                <Link
-                                    key={line.label}
-                                    href={line.href}
-                                    className="rounded-full border border-primary-200 bg-white px-3 py-1.5 text-xs font-medium text-stone-700 transition-colors hover:border-primary-400 hover:text-primary-700"
-                                >
-                                    {line.label}
+                            <Heading className="text-2xl sm:text-3xl lg:text-3xl">{PRODUCT_TITLE}</Heading>
+                            <p className="text-sm text-zinc-500">
+                                Por <span className="font-semibold text-zinc-700">Novasac Packaging</span>
+                                <span className="mx-2 text-zinc-300">|</span>
+                                <Link href="/recycled-bags" className="inline-flex items-center gap-1 font-medium text-primary-700 hover:underline">
+                                    Ver toda la gama
+                                    <ArrowRight className="h-3.5 w-3.5" />
                                 </Link>
-                            ))}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
+                                    <BadgeCheck className="h-3.5 w-3.5" />
+                                    Certificadas AENOR
+                                </span>
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-semibold text-zinc-700">
+                                    <ShieldCheck className="h-3.5 w-3.5 text-primary-600" />
+                                    <span className="whitespace-nowrap">UNE-EN 15343</span>
+                                </span>
+                            </div>
                         </div>
 
-                        <div className="flex flex-col gap-3 pt-1">
-                            <div className="flex flex-col gap-3 sm:flex-row">
+                        <hr className="border-zinc-100" />
+
+                        {/* Price */}
+                        <div>
+                            <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">Precio</p>
+                            {LISTING.priceEur !== null ? (
+                                <p className="mt-1 text-3xl font-bold text-zinc-900">
+                                    {euro.format(LISTING.priceEur)}
+                                    <span className="ml-2 text-sm font-normal text-zinc-500">por unidad</span>
+                                </p>
+                            ) : (
+                                <>
+                                    <p className="mt-1 text-2xl font-bold text-zinc-900">Precio bajo consulta</p>
+                                    <p className="mt-1 text-sm leading-relaxed text-zinc-500">
+                                        Te lo confirmamos en 1 día laborable, según el tamaño y la cantidad.
+                                    </p>
+                                </>
+                            )}
+                        </div>
+
+                        {/* Size */}
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm text-zinc-600">
+                                Tamaño: <span className="font-semibold text-zinc-900">{size}</span>
+                            </p>
+                            <div role="radiogroup" aria-label="Tamaño" className="flex flex-wrap gap-2">
+                                {SIZES.map((option) => {
+                                    const active = option === size
+                                    return (
+                                        <button
+                                            key={option}
+                                            type="button"
+                                            role="radio"
+                                            aria-checked={active}
+                                            onClick={() => setSize(option)}
+                                            className={`rounded-xl border px-3.5 py-2 text-sm font-medium transition-colors ${active
+                                                ? 'border-primary-500 bg-primary-50 text-primary-700 ring-1 ring-primary-500'
+                                                : 'border-zinc-200 bg-white text-zinc-700 hover:border-zinc-400'
+                                                }`}
+                                        >
+                                            <span className="whitespace-nowrap">{option}</span>
+                                        </button>
+                                    )
+                                })}
+                            </div>
+                        </div>
+
+                        {/* Quantity */}
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm text-zinc-600">Cantidad</p>
+                            <QuantityStepper value={qty} onChange={setQty} label="Cantidad" />
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex flex-col gap-3">
+                            <button
+                                type="button"
+                                onClick={handleAddToCart}
+                                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-600 active:scale-[0.98]"
+                            >
+                                <ShoppingCart className="h-4.5 w-4.5" />
+                                Añadir al carrito
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setBuyOpen(true)}
+                                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-zinc-800 active:scale-[0.98]"
+                            >
+                                <Zap className="h-4.5 w-4.5" />
+                                Comprar ahora
+                            </button>
+                            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 pt-1 text-sm">
                                 <button
                                     type="button"
-                                    onClick={() => setOpen(true)}
-                                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 active:scale-[0.98]"
+                                    onClick={() => setEnquiryOpen(true)}
+                                    className="inline-flex items-center gap-2 font-semibold text-primary-700 hover:underline"
                                 >
-                                    <MailCheck className="h-4.5 w-4.5" />
+                                    <MailCheck className="h-4 w-4" />
                                     Solicitar información
                                 </button>
-                                <Link
-                                    href="/recycled-bags"
-                                    className="inline-flex items-center justify-center gap-2 rounded-full border border-primary-200 bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 transition-colors hover:border-primary-400 hover:bg-primary-50"
-                                >
-                                    Ver bolsas recicladas
-                                    <ArrowRight className="h-4 w-4" />
-                                </Link>
-                            </div>
-
-                            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-500">
-                                <span>Sin compromiso · Respuesta en 1 día laborable</span>
-                                <span className="hidden text-zinc-300 sm:inline">|</span>
                                 <a href={PHONE_HREF} className="inline-flex items-center gap-1.5 font-medium text-zinc-700 hover:text-primary-600">
                                     <Phone className="h-3.5 w-3.5" />
-                                    ¿Prefieres llamar? {PHONE_DISPLAY}
+                                    {PHONE_DISPLAY}
                                 </a>
-                            </p>
+                            </div>
                         </div>
+
+                        {/* Seller and order information */}
+                        <dl className="divide-y divide-zinc-100 rounded-2xl border border-zinc-100 bg-zinc-50/70 text-sm">
+                            {[
+                                ['Vendido por', 'Novasac Packaging'],
+                                ['Respuesta', 'En 1 día laborable'],
+                                ['Pedido y pago', 'Los confirma nuestro equipo contigo'],
+                            ].map(([term, detail]) => (
+                                <div key={term} className="flex items-start justify-between gap-4 px-4 py-2.5">
+                                    <dt className="text-zinc-500">{term}</dt>
+                                    <dd className="text-right font-medium text-zinc-800">{detail}</dd>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
                 </div>
             </Wrapper>
 
-            {open && <RecycledEnquiryModal onClose={() => setOpen(false)} />}
+            {zoomOpen && (
+                <ModalOverlay onClose={() => setZoomOpen(false)}>
+                    <button
+                        type="button"
+                        onClick={() => setZoomOpen(false)}
+                        aria-label="Cerrar imagen"
+                        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-lg transition-colors hover:bg-zinc-100 hover:text-zinc-900"
+                    >
+                        <X size={18} />
+                    </button>
+                    <div className="relative max-h-[88vh] max-w-[96vw] overflow-auto rounded-2xl bg-white shadow-2xl" data-lenis-prevent>
+                        {/* Wider than the screen on phones so the small text can be read by scrolling sideways */}
+                        <Image
+                            src={PRODUCT_IMAGE}
+                            alt={PRODUCT_IMAGE_ALT}
+                            width={1418}
+                            height={1109}
+                            sizes="(max-width: 768px) 220vw, 1418px"
+                            className="block h-auto w-[220vw] max-w-none md:max-h-[88vh] md:w-auto md:max-w-[94vw]"
+                        />
+                    </div>
+                </ModalOverlay>
+            )}
+
+            {buyOpen && (
+                <OrderRequestModal
+                    items={[{ title: PRODUCT_TITLE, size, qty, image: PRODUCT_IMAGE }]}
+                    onClose={() => setBuyOpen(false)}
+                />
+            )}
+
+            {enquiryOpen && <RecycledEnquiryModal onClose={() => setEnquiryOpen(false)} />}
         </Section>
     )
 }

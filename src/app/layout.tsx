@@ -6,6 +6,7 @@ import TopBar from "@/components/top_bar";
 import Header from "@/components/header/header";
 import DesktopHeader from "@/components/header/desktop.header";
 import Footer from "@/components/footer";
+import CartDrawer from "@/components/cart_drawer";
 import Providers from "@/lib/providers";
 import { AuthProvider } from "@/context/auth_context";
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -50,6 +51,7 @@ export default function RootLayout({
               </SmoothScrollProvider>
             </AuthProvider>
             <Footer />
+            <CartDrawer />
           </Providers>
         </GoogleOAuthProvider>
         <Toaster />
