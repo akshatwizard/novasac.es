@@ -184,20 +184,6 @@ export default function RecycledBagsSection() {
                                 </a>
                             </div>
                         </div>
-
-                        {/* Seller and order information */}
-                        <dl className="divide-y divide-zinc-100 rounded-2xl border border-zinc-100 bg-zinc-50/70 text-sm">
-                            {[
-                                ['Vendido por', 'Novasac Packaging'],
-                                ['Respuesta', 'En 1 día laborable'],
-                                ['Pedido y pago', 'Los confirma nuestro equipo contigo'],
-                            ].map(([term, detail]) => (
-                                <div key={term} className="flex items-start justify-between gap-4 px-4 py-2.5">
-                                    <dt className="text-zinc-500">{term}</dt>
-                                    <dd className="text-right font-medium text-zinc-800">{detail}</dd>
-                                </div>
-                            ))}
-                        </dl>
                     </div>
                 </div>
             </Wrapper>
