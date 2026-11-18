@@ -4,35 +4,41 @@ import Section from './ui/section'
 import Wrapper from './ui/wrapper'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronRight, PackageSearch } from 'lucide-react'
+import { ArrowRight, ChevronRight, PackageSearch, ShoppingBag, Sparkles } from 'lucide-react'
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { HomeCategoryData, HomeCategoryResponse } from '@/types/home_category.types';
+import { ProductData } from '@/types/home_product.types';
+import HomeProductCard, { productImage } from './home_product_card'
+import OrderRequestModal from './order_request_modal'
+import { usePopularProducts } from './new_arrival_products'
 
 
 // Two-line descriptions for the category cards, matched on the category slug/title from the API.
 const CATEGORY_DESCRIPTIONS: { match: RegExp; text: string }[] = [
-    { match: /big|grande/i, text: "Big bags FIBC resistentes para almacenar y transportar grandes cargas con seguridad. Disponibles con boca de llenado y de descarga, liner y asas de elevación." },
-    { match: /small|peque/i, text: "Sacos de polipropileno tejido para cantidades menores de arena, grano, pienso o escombros. Resistentes, reutilizables y fáciles de cargar, apilar y almacenar." },
-    { match: /asbestos|amianto/i, text: "Bolsas claramente señalizadas para la retirada y el transporte seguros de residuos de amianto. Pensadas para empresas de demolición y desamiantado." },
-    { match: /garden|garbage|jard|basura/i, text: "Bolsas resistentes y reutilizables para restos de poda, hojas y escombros. Ideales para jardines, paisajistas y recogida de residuos." },
+    { match: /big|grande/i, text: "Big bags FIBC resistentes para almacenar y mover grandes cargas con seguridad." },
+    { match: /small|peque/i, text: "Sacos de PP tejido resistentes para arena, grano, pienso o escombros." },
+    { match: /asbestos|amianto/i, text: "Bolsas señalizadas para la retirada segura de residuos de amianto." },
+    { match: /garden|garbage|jard|basura/i, text: "Bolsas resistentes y reutilizables para poda, hojas y escombros." },
 ];
 
 const descriptionFor = (category: HomeCategoryData) =>
     CATEGORY_DESCRIPTIONS.find((d) => d.match.test(category.slug) || d.match.test(category.title))?.text ??
-    `Descubre nuestra gama completa de ${category.title.toLowerCase()} para uso industrial y profesional.`;
+    `Nuestra gama completa de ${category.title.toLowerCase()} para uso profesional.`;
 
 // Recycled Bags is not a catalog category, so its card is added here.
 const RECYCLED_CARD = {
     title: "Bolsas Recicladas",
     href: "/recycled-bags",
     image: "/images/recycled/recycled-bags-card.jpg",
-    text: "Bolsas fabricadas con plástico reciclado postconsumo y postindustrial certificado. Menor huella de carbono y trazabilidad según la norma UNE-EN 15343.",
+    text: "Fabricadas con plástico reciclado certificado, con trazabilidad según la norma UNE-EN 15343.",
 };
 
 /**
  * Opening section of the homepage: the four product categories (from the API) plus Recycled
- * Bags, as five fixed cards with a short description each. No slider.
+ * Bags, as fixed cards with a short description each, plus a sixth card showing a random
+ * product from Popular Products. Two rows of three on desktop. No slider.
  */
 export default function ProductCategory() {
 
@@ -46,18 +52,40 @@ export default function ProductCategory() {
         },
     });
 
+    // SHOP NOW opens the Big Bags catalog (live slug from the categories API, known path as fallback).
+    const bigBagsHref = `/category/${data?.find((c) => /big|grande/i.test(c.slug) || /big|grande/i.test(c.title))?.slug ?? "bolsas-grandes"}`;
+
+    // Sixth block: one popular product, picked at random per visit. The products are fetched in
+    // the browser, so this never affects the server render or hydration.
+    const { data: popular } = usePopularProducts();
+    const [seed] = useState(() => Math.random());
+    const featured = popular?.length ? popular[Math.floor(seed * popular.length)] : null;
+    const [buyProduct, setBuyProduct] = useState<ProductData | null>(null);
+
     return (
         <Section>
-            <Wrapper className="lg:gap-8 md:gap-6 gap-5 lg:pt-10 md:pt-8 pt-6 lg:pb-12 md:pb-10 pb-8">
+            <Wrapper className="lg:gap-7 md:gap-6 gap-5 lg:pt-8 md:pt-6 pt-5 lg:pb-12 md:pb-10 pb-8">
 
                 <div className="flex flex-col gap-3">
                     <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-700">
                         <span className="size-1.5 rounded-full bg-primary-500" />
                         Nuestras Categorías de Productos
                     </span>
-                    <h2 className="lg:text-5xl md:text-4xl text-3xl leading-tight font-light text-zinc-900">
-                        Bolsas industriales para <em className="text-primary-500">cada carga</em>
-                    </h2>
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                        <h2 className="lg:text-[44px] md:text-4xl text-3xl leading-tight font-light text-zinc-900">
+                            Bolsas para <em className="text-primary-500">cada carga</em>
+                        </h2>
+                        {/* Highlighted call to action: opens the Big Bags catalog */}
+                        <Link
+                            href={bigBagsHref}
+                            className="group/shop relative inline-flex shrink-0 items-center gap-2 rounded-full bg-primary-500 px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wider text-white shadow-lg shadow-primary-500/40 transition-all hover:bg-primary-600 hover:shadow-xl hover:shadow-primary-500/50 active:scale-[0.97]"
+                        >
+                            <span aria-hidden="true" className="absolute -inset-1 rounded-full ring-2 ring-primary-400 animate-pulse motion-reduce:hidden" />
+                            <ShoppingBag size={18} className="relative" />
+                            <span className="relative">Comprar ahora</span>
+                            <ArrowRight size={18} className="relative transition-transform group-hover/shop:translate-x-1" />
+                        </Link>
+                    </div>
                     <p className="max-w-2xl text-pretty text-zinc-600 md:text-lg text-base">
                         De big bags de alta resistencia a bolsas recicladas certificadas: elige una categoría y descubre toda la gama.
                     </p>
@@ -65,7 +93,7 @@ export default function ProductCategory() {
 
                 {isLoading ? (
                     <div className={gridCls}>
-                        {Array.from({ length: 5 }).map((_, i) => (
+                        {Array.from({ length: 6 }).map((_, i) => (
                             <CategoryCardSkeleton key={i} />
                         ))}
                     </div>
@@ -93,26 +121,42 @@ export default function ProductCategory() {
                             text={RECYCLED_CARD.text}
                             badge="UNE-EN 15343"
                         />
+                        {featured && (
+                            <div className="relative flex flex-col [&>*:last-child]:flex-1">
+                                <span className="absolute left-2 top-2 z-10 inline-flex items-center gap-1 rounded-full bg-primary-500 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white shadow-sm">
+                                    <Sparkles size={11} />
+                                    Destacado
+                                </span>
+                                <HomeProductCard product={featured} onBuyNow={setBuyProduct} horizontal />
+                            </div>
+                        )}
                     </div>
                 )}
 
             </Wrapper>
+
+            {buyProduct && (
+                <OrderRequestModal
+                    items={[{ title: buyProduct.title, size: '', qty: 1, image: productImage(buyProduct), sku: buyProduct.sku ?? undefined }]}
+                    onClose={() => setBuyProduct(null)}
+                />
+            )}
         </Section>
     );
 }
 
-// Five across on desktop; on phones the fifth card spans the full row instead of sitting alone.
-const gridCls =
-    "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 [&>*:last-child:nth-child(odd)]:col-span-2 md:[&>*:last-child:nth-child(odd)]:col-span-1";
+// Compact horizontal cards: two rows of three on desktop, two columns on tablet, one column on
+// phones (image beside the text keeps every card short).
+const gridCls = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4";
 
 function CategoryCardSkeleton() {
     return (
-        <div className="rounded-xl bg-white border border-zinc-100 overflow-hidden animate-pulse">
-            <div className="aspect-[4/3] bg-zinc-200" />
-            <div className="p-4 space-y-2">
-                <div className="h-4 bg-zinc-200 rounded w-3/4" />
+        <div className="flex rounded-xl bg-white border border-zinc-100 overflow-hidden animate-pulse">
+            <div className="w-32 sm:w-40 aspect-square bg-zinc-200 shrink-0" />
+            <div className="flex-1 p-4 space-y-2">
+                <div className="h-4 bg-zinc-200 rounded w-2/3" />
                 <div className="h-3 bg-zinc-100 rounded w-full" />
-                <div className="h-3 bg-zinc-100 rounded w-5/6" />
+                <div className="h-3 bg-zinc-100 rounded w-4/5" />
             </div>
         </div>
     );
@@ -131,34 +175,34 @@ function CategoryCard({ href, title, image, text, badge, priority }: CategoryCar
     return (
         <Link
             href={href}
-            className="group relative flex flex-col rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+            className="group relative flex rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-primary-300 transition-all duration-300"
         >
-            {/* Whole picture shown (no cropping), on a light background */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-zinc-50">
+            {/* Square image beside the text */}
+            <div className="relative w-32 sm:w-40 aspect-square shrink-0 overflow-hidden bg-white">
                 <Image
                     src={image}
                     alt={title}
                     fill
                     priority={priority}
-                    className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="160px"
                 />
             </div>
 
-            <div className="flex flex-1 flex-col gap-2 p-4 md:p-5">
-                <h3 className="text-lg md:text-xl font-semibold leading-snug text-zinc-800 group-hover:text-primary-500 transition-colors">
+            <div className="flex min-w-0 flex-1 flex-col gap-1.5 p-4">
+                <h3 className="text-lg font-semibold leading-snug text-zinc-800 group-hover:text-primary-500 transition-colors">
                     {title}
                 </h3>
-                <p className="text-sm md:text-[15px] leading-relaxed text-zinc-600">
+                <p className="text-sm leading-relaxed text-zinc-600 line-clamp-3">
                     {text}
                 </p>
-                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-3">
-                    <span className="inline-flex items-center gap-1 whitespace-nowrap text-sm md:text-[15px] font-semibold text-primary-600">
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
+                    <span className="inline-flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-primary-600">
                         Ver productos
                         <ChevronRight size={16} className="transition-transform group-hover:translate-x-0.5" />
                     </span>
                     {badge && (
-                        <span className="shrink-0 rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs md:text-[13px] font-semibold text-zinc-600">
+                        <span className="shrink-0 rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-semibold text-zinc-600">
                             {badge}
                         </span>
                     )}

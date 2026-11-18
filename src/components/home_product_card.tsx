@@ -5,11 +5,17 @@ import Link from "next/link";
 import { ShoppingCart, Zap } from "lucide-react";
 import { ProductData } from "@/types/home_product.types";
 import { addToCart } from "@/lib/cart_store";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProductDetail, productKeys } from "@/hooks/fetch_product";
 
 type Props = {
     product: ProductData;
     /** Opens the order request form for this product. */
     onBuyNow: (product: ProductData) => void;
+    /** Image beside the text instead of on top — used for the featured card in the categories grid. */
+    horizontal?: boolean;
+    /** Smaller card for the homepage Popular Products strip (shorter image, no SKU, smaller buttons). */
+    compact?: boolean;
 };
 
 export const productHref = (product: ProductData) =>
@@ -20,6 +26,12 @@ export const productImage = (product: ProductData) => product.image ?? "/images/
 /** One cart line per product variant (the variant is the attribute value in its URL). */
 export const productCartId = (product: ProductData) =>
     `product-${product.id}-${product.attribute_value ?? product.attribute_value_slug ?? "default"}`;
+
+/** Prices can arrive as numbers or strings ("0.22"); anything not a positive number counts as no price. */
+const toPrice = (value: unknown): number | null => {
+    const n = typeof value === "string" ? parseFloat(value) : typeof value === "number" ? value : NaN;
+    return Number.isFinite(n) && n > 0 ? n : null;
+};
 
 const formatEUR = (n: number) =>
     new Intl.NumberFormat("es-ES", {
@@ -33,9 +45,21 @@ const formatEUR = (n: number) =>
  * Popular-products card in the same style as the catalog listing card, plus Add to Cart and
  * Buy Now. The price is the product's EUR price, or "Precio bajo consulta" when none is set.
  */
-export default function HomeProductCard({ product, onBuyNow }: Props) {
+export default function HomeProductCard({ product, onBuyNow, horizontal, compact }: Props) {
     const href = productHref(product);
-    const price = product.mrp && product.mrp > 0 ? product.mrp : null;
+    // The homepage list endpoint returns no prices, so when the list has none the card reads the
+    // product's details (the same request and cache as the product page) and shows that price.
+    const listPrice = toPrice(product.mrp) ?? toPrice(product.offer_rate);
+    const variant = product.attribute_value ?? product.attribute_value_slug;
+    const detailSlug = variant ? [product.slug, variant] : [product.slug];
+    const { data: detail, isLoading: priceLoading } = useQuery({
+        queryKey: productKeys.detail(detailSlug),
+        queryFn: () => fetchProductDetail(detailSlug),
+        enabled: listPrice === null,
+        staleTime: 10 * 60 * 1000,
+    });
+    const details = detail?.data?.product_details;
+    const price = listPrice ?? toPrice(details?.mrp) ?? toPrice(details?.offer_rate);
 
     const handleAddToCart = () =>
         addToCart(
@@ -50,29 +74,34 @@ export default function HomeProductCard({ product, onBuyNow }: Props) {
         );
 
     return (
-        <div className="group relative flex flex-col rounded-2xl border border-black/10 bg-white/70 backdrop-blur-md shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-300 overflow-hidden">
+        <div className={`group relative flex ${horizontal ? "flex-row" : "flex-col"} rounded-2xl border border-black/10 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-300 overflow-hidden`}>
 
             {/* Image */}
-            <Link href={href} className="relative h-48 flex items-center justify-center overflow-hidden" tabIndex={-1} aria-hidden="true">
+            {/* Square frame: product photos (mostly portrait or square) fill it instead of floating in a short, wide strip */}
+            <Link
+                href={href}
+                className={`relative shrink-0 overflow-hidden bg-white ${horizontal ? "w-32 sm:w-40 self-stretch min-h-32" : compact ? "aspect-[5/4] w-full" : "aspect-square w-full"}`}
+                tabIndex={-1}
+                aria-hidden="true"
+            >
                 <Image
                     src={productImage(product)}
                     alt={product.title}
-                    width={400}
-                    height={300}
-                    className="object-contain h-full w-full transition-transform duration-700 ease-out group-hover:scale-110"
-                    loading="lazy"
+                    fill
+                    sizes={horizontal ? "160px" : "(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"}
+                    className={`object-contain ${horizontal ? "p-1" : "p-2"} transition-transform duration-700 ease-out group-hover:scale-105`}
                 />
             </Link>
 
             {/* Content */}
-            <div className="flex flex-col flex-1 px-4 py-4 space-y-2">
+            <div className={`flex flex-col flex-1 min-w-0 ${compact ? "gap-1.5 p-3" : "space-y-2"} ${horizontal ? "p-3 sm:p-4" : compact ? "" : "px-4 py-4"}`}>
                 <Link href={href}>
-                    <h3 className="text-[14px] font-medium text-gray-800 leading-snug transition hover:text-primary-600 line-clamp-2">
+                    <h3 className={`${compact ? "text-sm" : "text-[15px]"} font-semibold text-gray-800 leading-snug transition hover:text-primary-600 line-clamp-2`}>
                         {product.title}
                     </h3>
                 </Link>
 
-                {product.sku && (
+                {product.sku && !compact && (
                     <p className="text-[10px] text-gray-400 tracking-wide">
                         SKU · {product.sku}
                     </p>
@@ -81,14 +110,16 @@ export default function HomeProductCard({ product, onBuyNow }: Props) {
                 <div className="flex-1" />
 
                 {/* Price */}
-                {price !== null ? (
-                    <span className="text-lg font-semibold text-gray-900">{formatEUR(price)}</span>
+                {price === null && priceLoading ? (
+                    <span className="h-6 w-20 animate-pulse rounded bg-zinc-100" aria-hidden="true" />
+                ) : price !== null ? (
+                    <span className={`${compact ? "text-base" : "text-lg"} font-bold text-zinc-900`}>{formatEUR(price)}</span>
                 ) : (
-                    <span className="text-xs text-gray-400 italic">Precio bajo consulta</span>
+                    <span className="text-sm font-semibold text-zinc-500">Precio bajo consulta</span>
                 )}
 
                 {/* Actions */}
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 pt-1">
+                <div className={`grid ${compact ? "gap-1.5 [&>button]:py-1.5 [&>button]:text-[11px]" : "gap-2 pt-1"} ${horizontal ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 xl:grid-cols-2"}`}>
                     <button
                         type="button"
                         onClick={handleAddToCart}
